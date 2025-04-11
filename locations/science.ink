@@ -8,4 +8,4 @@
 */
 === science ===
 Welcome to science class
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway

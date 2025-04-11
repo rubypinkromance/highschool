@@ -9,12 +9,12 @@
 The athletic field
 + [Sit on the bleachers] -> bleachers
 + [Go under the bleachers] -> under_bleachers
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway
 
 /*
 > Bleachers
     - 1. ---
-    - 2. Rebel (smoking), Photographer, Trans
+    - 2. Rebel (smoking), Photographer (walking around)
     - 3. ---
     - 4. Gossip
 */

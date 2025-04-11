@@ -2,10 +2,16 @@
 - Your bedroom
 */
 === bedroom ===
-Your bedroom
+
+{ now == morning:
+    You wake up in your bed with a throbbing erection.
+- else:
+    You return to your room, exhausted after a long day.
+}
 
 + [Bathroom] -> bathroom
-+ [Go to school] -> hallway
++ { now < afterschool } [Go to school] -> hallway
++ { now == afterschool } [Go to sleep] -> go_to_sleep -> bedroom
 
 /*
 > Bathroom
@@ -17,19 +23,7 @@ Your bathroom
 Your stepsister is here
 
 - (opts)
-+ [Stepsister] -> stepsister ->
++ [Talk to Stepsister] -> talk_to_stepsister ->
++ [Look at Stepsister] -> look_at_stepsister ->
 + [Bedroom] -> bedroom
-- -> opts
-
-
-=== stepsister ===
-This is a tunnel representing interacting with your stepsister.
-- (opts)
-    * [Check her out]
-        She's smoking hot, man.
-    * [Feel her up]
-        She's into it, bro!
-    * "What's your bra size?"
-        "36C, bro."
-    + [Leave her alone] ->->
 - -> opts

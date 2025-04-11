@@ -1,6 +1,6 @@
 /*
 - Health Class (Teacher all day)
-    - 1. Photographer, Rebel, Trans
+    - 1. Photographer, Rebel, Actor
     - 2. Teacher
     - 3. Athlete, Twin 1
     - 4. Teacher
@@ -8,6 +8,6 @@
 */
 === health ===
 Welcome to health class
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway
 
 
