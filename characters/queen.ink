@@ -12,8 +12,10 @@
     - 3: Gym
     - 4: Mall
 */
+CONST QUEEN = "Victoria"
+
 === talk_to_queen ===
-Talk talk talk
+Talk to {QUEEN}.
 - (opts)
     * "What's your bra size?"
         "36C."

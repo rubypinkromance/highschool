@@ -1,6 +1,6 @@
 /*
-- Your bedroom
-*/
+ * Your bedroom
+ */
 === bedroom ===
 
 { now == morning:
@@ -9,21 +9,24 @@
     You return to your room, exhausted after a long day.
 }
 
-+ [Bathroom] -> bathroom
++ [Go to the bathroom] -> bathroom
 + { now < afterschool } [Go to school] -> hallway
-+ { now == afterschool } [Go to sleep] -> go_to_sleep -> bedroom
++ { now >= afterschool } [Go to sleep] -> go_to_sleep -> bedroom
 
 /*
-> Bathroom
-    - 4. Stepsister
-    * Sex with Stepsister
-*/
+ * =============================================
+ * The Bathroom
+ *
+ * 4. Stepsister
+ *
+ * - Sex with Stepsister
+ */
 = bathroom
 Your bathroom
-Your stepsister is here
+Your stepsister, {STEPSISTER}, is here
 
 - (opts)
-+ [Talk to Stepsister] -> talk_to_stepsister ->
-+ [Look at Stepsister] -> look_at_stepsister ->
-+ [Bedroom] -> bedroom
++ [Talk to Claire] -> talk_to_stepsister ->
++ [Look at Claire] -> look_at_stepsister ->
++ [Leave the bathroom] -> bedroom
 - -> opts

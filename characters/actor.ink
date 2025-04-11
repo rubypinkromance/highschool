@@ -12,8 +12,10 @@
     - 3: Theater
     - 4: Theater
 */
+CONST ACTOR = "Emily"
+
 === talk_to_actor ===
-Talk talk talk
+Talk to {ACTOR}.
 - (opts)
     * "What's your bra size?"
         "36C."

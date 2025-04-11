@@ -12,8 +12,10 @@
     - 3: Study Hall
     - 4: Library
 */
+CONST NERD = "Faye"
+
 === talk_to_nerd ===
-Talk talk talk
+Talk to {NERD}.
 - (opts)
     * "What's your bra size?"
         "36C."

@@ -10,8 +10,10 @@
     - 1-3: Unavailable
     - 4: Bathroom
 */
+CONST STEPSISTER = "Claire"
+
 === talk_to_stepsister ===
-This is a tunnel representing interacting with your stepsister.
+Talk to {STEPSISTER}.
 - (opts)
     * "What's your bra size?"
         "36C, bro."
@@ -21,7 +23,7 @@ This is a tunnel representing interacting with your stepsister.
 - -> opts
 
 === look_at_stepsister ===
-This is a tunnel representing interacting with your stepsister.
+Look at {STEPSISTER}.
 - (opts)
     * [Check her out]
         She's smoking hot, man.
@@ -29,13 +31,13 @@ This is a tunnel representing interacting with your stepsister.
         Fucking hell, she's hawt
     * [Touch yourself]
         You start wanking to the sight of your stepsister.
-    * [Fuck her] -> fuck_stepsister
+    * [Fuck her] -> fuck_stepsister ->->
     + [Turn away] ->->
 - -> opts
 
 === fuck_stepsister ===
 
-This is it, you're finally going to fuck your stepsister.
+This is it, you're finally going to fuck {STEPSISTER}.
 
 - (opts)
     * "Suck my cock"
@@ -44,5 +46,5 @@ This is it, you're finally going to fuck your stepsister.
         You pinch her nipples, making her squirm
     * [Bend her over]
         You bend her over and fuck her desperately from behind, until she moans as you pump your load into her tight pussy.
-    * [Walk away] -> bedroom
+    * [Walk away] ->->
 - -> opts

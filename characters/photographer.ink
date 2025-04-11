@@ -7,13 +7,15 @@
         - dislikes sarcasm
     * BJ in darkroom
     * sex after nude photoshoot
-    - 1: Health
+    - 1: Theater
     - 2: Bleachers
     - 3: Photography
     - 4: Photography
 */
+CONST PHOTOGRAPHER = "Steph"
+
 === talk_to_photographer ===
-Talk talk talk
+Talk to {PHOTOGRAPHER}.
 - (opts)
     * "What's your bra size?"
         "36C."
