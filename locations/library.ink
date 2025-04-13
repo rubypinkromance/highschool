@@ -8,5 +8,5 @@
 */
 === library ===
 The library
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway
 

@@ -8,4 +8,4 @@
 */
 === lounge ===
 The teacher's lounge
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway

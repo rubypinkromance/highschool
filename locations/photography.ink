@@ -2,13 +2,13 @@
 - Photography Class
     - 1. Twin 1, Queen
     - 2. ---
-    - 3. Photographer, Religious
+    - 3. Photographer, Believer
     - 4. Photographer
 */
 === photography ===
 Welcome to photography class
 + [Go to the darkroom] -> darkroom
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway
 
 /*
 > Darkroom

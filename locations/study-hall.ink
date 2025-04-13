@@ -1,6 +1,6 @@
 /*
 - Study Hall
-    - 1. Religious, Cheerleader
+    - 1. Believer, Cheerleader
     - 2. ---
     - 3. Rebel, Gossip, Nerd
     - 4. Rebel
@@ -9,5 +9,5 @@
 */
 === study_hall ===
 Welcome to study hall
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway
 

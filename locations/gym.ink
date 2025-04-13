@@ -8,7 +8,7 @@
 === gym ===
 The gymnasium
 + [Go to the locker room] -> locker_room
-+ [Go to hallway] -> hallway
++ [Go to hallway] -> pass_time -> hallway
 
 /*
 > Locker Rooms

@@ -1,7 +1,7 @@
 /*
 - Church (after school only)
-    - 4. Religious
-        * Sex with Religious
+    - 4. Believer
+        * Sex with Believer
 */
 === church ===
 The church.
