@@ -10,11 +10,16 @@
 The athletic field
 
 - (opts)
-+ {now == lunch} [Talk to {ATHLETE}] -> talk_to_athlete ->
-+ {now == afterschool} [Talk to {CHEERLEADER}] -> talk_to_cheerleader ->
-+ [Sit on the bleachers] -> bleachers
-+ [Go under the bleachers] -> under_bleachers
-+ [Go back inside] -> pass_time -> hallway
++ {now == lunch} [Talk to {ATHLETE}]
+    -> talk_to_athlete ->
++ {now == afterschool and cheerleaderState != revenge and cheerleaderState != reward} [Talk to {CHEERLEADER}]
+    -> talk_to_cheerleader ->
++ [Sit on the bleachers]
+    -> bleachers
++ [Go under the bleachers]
+    -> under_bleachers
++ [Go back inside]
+    -> pass_time -> hallway
 - -> opts
 
 /*
@@ -30,9 +35,12 @@ The athletic field
 The bleachers overlooking the athletic field
 
 - (bleachers_opts)
-+ {now == lunch} [Talk to {PHOTOGRAPHER}] -> talk_to_photographer ->
-+ {now == afterschool} [Talk to {GOSSIP}] -> talk_to_gossip ->
-+ [Leave the bleachers] -> field
++ {now == lunch} [Talk to {PHOTOGRAPHER}]
+    -> talk_to_photographer ->
++ {now == afterschool} [Talk to {GOSSIP}]
+    -> talk_to_gossip ->
++ [Leave the bleachers]
+    -> field
 - -> bleachers_opts
 
 /*
@@ -50,6 +58,12 @@ The bleachers overlooking the athletic field
 Under the bleachers
 
 - (under_opts)
-+ {now == lunch} [Talk to {REBEL}] -> talk_to_rebel ->
-+ [Leave the bleachers] -> field
++ {now == lunch} [Talk to {REBEL}]
+    -> talk_to_rebel ->
+* {now == afterschool and cheerleaderState == revenge} [Talk to {CHEERLEADER}]
+    -> cheerleader_revenge ->
+* {now == afterschool and cheerleaderState == reward} [Talk to {CHEERLEADER}]
+    -> cheerleader_reward ->
++ [Leave the bleachers]
+    -> field
 - -> under_opts

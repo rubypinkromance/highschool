@@ -10,12 +10,20 @@
 Welcome to photography class
 
 - (opts)
-+ {now == morning} [Talk to {TWIN1}] -> talk_to_twin1 ->
-+ {now == morning} [Talk to {QUEEN}] -> talk_to_queen ->
-+ {now == afternoon} [Talk to {BELIEVER}] -> talk_to_believer ->
-+ {now == afternoon or now == afterschool} [Talk to {PHOTOGRAPHER}] -> talk_to_photographer ->
-+ [Go to the darkroom] -> darkroom
-+ [Leave the photography classroom] -> pass_time -> hallway
++ {now == morning} [Talk to {TWIN1}]
+    -> talk_to_twin1 ->
++ {now == morning} [Talk to {QUEEN}]
+    -> talk_to_queen ->
+
++ {now == afternoon} [Talk to {BELIEVER}]
+    -> talk_to_believer ->
++ {now == afternoon or now == afterschool} [Talk to {PHOTOGRAPHER}]
+    -> talk_to_photographer ->
+
++ [Go to the darkroom]
+    -> darkroom
++ [Leave the photography classroom]
+    -> pass_time -> hallway
 - -> opts
 
 /*

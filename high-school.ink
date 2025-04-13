@@ -25,6 +25,7 @@ INCLUDE characters/athlete.ink
 INCLUDE characters/believer.ink
 INCLUDE characters/cheerleader.ink
 INCLUDE characters/gossip.ink
+INCLUDE characters/jock.ink
 INCLUDE characters/nerd.ink
 INCLUDE characters/photographer.ink
 INCLUDE characters/queen.ink
@@ -36,22 +37,6 @@ INCLUDE characters/nurse.ink
 INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
 
-
-
-
-
-
-/*
-
-Two weeks to fuck every girl on your list
-
-Dialog should be bioware style — 4 responses, different vibes, secret response based on intel. eg, sarcastic, sweet, flirty, serious
-
-- [ ] Add daily timer & countdown
-- [ ] Add score (5pt for fooling around, 5px for sex)
-- [ ] Add journal (lists girls and info about them)
-
-*/
 
 // Start in the bedroom
 -> bedroom

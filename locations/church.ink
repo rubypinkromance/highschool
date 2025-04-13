@@ -12,6 +12,8 @@
 The church.
 
 - (opts)
-+ {now == afterschool} [Talk to {BELIEVER}] -> talk_to_believer ->
-+ [Go home] -> bedroom
++ {now == afterschool} [Talk to {BELIEVER}]
+    -> talk_to_believer ->
++ [Go home]
+    -> bedroom
 - -> opts

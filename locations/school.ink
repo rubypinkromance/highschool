@@ -34,6 +34,8 @@ The hallway at school.
 + {has_lounge_invite} [Go to the teacher's lounge] -> lounge
 + {has_stairwell_invite} [Go to the stairwell] -> stairwell
 + {has_roof_invite} [Go to the roof] -> roof
+* {cheerleaderState == quest} [Go to Lance & Michelle's Locker]
+    -> cheerleader_locker -> hallway
 }
 
 // After School Only

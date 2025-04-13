@@ -11,9 +11,12 @@ VAR has_nurse_invite = false
 Welcome to the nurse's office
 
 - (opts)
-+ [Talk to {NURSE}] -> talk_to_nurse ->
-+ [Go to the exam area] -> exam_area
-+ [Leave the nurse's office] -> pass_time -> hallway
++ [Talk to {NURSE}]
+    -> talk_to_nurse ->
++ [Go to the exam area]
+    -> exam_area
++ [Leave the nurse's office]
+    -> pass_time -> hallway
 - -> opts
 
 /*

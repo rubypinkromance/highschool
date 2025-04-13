@@ -22,7 +22,11 @@ CONST GOSSIP = "Tracy"
 === talk_to_gossip ===
 Talk to {GOSSIP}.
 - (opts)
+    * "What can you tell me about {CHEERLEADER}?"
+        ~ cheerleaderState = intel
+        "She's been together with {JOCK} for over a year. They're a total power couple. I heard they've been fighting lately, but I'm not sure about what. Maybe if you watch them, you can figure it out?"
     * "What's your bra size?"
         "36C."
-    + [Leave her alone] ->->
+    + [Leave her alone]
+        ->->
 - -> opts

@@ -11,9 +11,12 @@ VAR has_office_invite = false
 Welcome to the office
 
 - (opts)
-+ [Talk to {SECRETARY}] -> talk_to_secretary ->
-+ [Go to the supply closet] -> supply_closet
-+ [Leave the office] -> pass_time -> hallway
++ [Talk to {SECRETARY}]
+    -> talk_to_secretary ->
++ [Go to the supply closet]
+    -> supply_closet
++ [Leave the office]
+    -> pass_time -> hallway
 - -> opts
 
 /*

@@ -12,7 +12,10 @@
 The library
 
 - (opts)
-+ {now == lunch or now == afterschool} [Talk to {NERD}] -> talk_to_nerd ->
-+ {now == lunch} [Talk to {SCIENTIST}] -> talk_to_scientist ->
-+ [Leave the library] -> pass_time -> hallway
++ {now == lunch or now == afterschool} [Talk to {NERD}]
+    -> talk_to_nerd ->
++ {now == lunch} [Talk to {SCIENTIST}]
+    -> talk_to_scientist ->
++ [Leave the library]
+    -> pass_time -> hallway
 - -> opts

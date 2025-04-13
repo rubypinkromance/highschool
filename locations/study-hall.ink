@@ -12,10 +12,20 @@
 Welcome to study hall
 
 - (opts)
-+ {now == morning} [Talk to {BELIEVER}] -> talk_to_believer ->
-+ {now == morning} [Talk to {CHEERLEADER}] -> talk_to_cheerleader ->
-+ {now == afternoon} [Talk to {GOSSIP}] -> talk_to_gossip ->
-+ {now == afternoon} [Talk to {NERD}] -> talk_to_nerd ->
-+ {now == afternoon or now == afterschool} [Talk to {REBEL}] -> talk_to_rebel ->
-+ [Leave the study hall] -> pass_time -> hallway
+* {now == morning and cheerleaderState == intel} [Observe {CHEERLEADER}]
+    -> observe_cheerleader ->
++ {now == morning} [Talk to {BELIEVER}]
+    -> talk_to_believer ->
++ {now == morning} [Talk to {CHEERLEADER}]
+    -> talk_to_cheerleader ->
+
++ {now == afternoon} [Talk to {GOSSIP}]
+    -> talk_to_gossip ->
++ {now == afternoon} [Talk to {NERD}]
+    -> talk_to_nerd ->
++ {now == afternoon or now == afterschool} [Talk to {REBEL}]
+    -> talk_to_rebel ->
+
++ [Leave the study hall]
+    -> pass_time -> hallway
 - -> opts
