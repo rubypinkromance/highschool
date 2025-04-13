@@ -1,5 +1,6 @@
 /*
 - Photographer: Steph
+    - Adele Exarchapoulos: long wavy brunette hair, Cute, low-cut babydoll top, low-cut jeans.
     ? intel: stays late in darkroom every night, once confessed her secret fantasy is meeting a stranger in the darkroom
     ? recon: favorite photographer does nudes
     ? convo: suggest a nude photoshood

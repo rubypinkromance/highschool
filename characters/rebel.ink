@@ -1,5 +1,6 @@
 /*
 - Rebel: Debbie
+    - Alix Traeger: Brunette hair, undercut. Short, curvy, big hips, big tits, lots of cleavage, black clothes, shirt hangs off shoulder, black bra, black thong, black, torn-up jeans.
     ? intel: arrested for public indecency (rumors vary)
     ? recon: snapping topless pics under bleachers
     ? convo: ask about arrest, express approval

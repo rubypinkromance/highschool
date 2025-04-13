@@ -1,10 +1,15 @@
 /*
 - Gossip: Tracy
+    - Mary Elizabeth Winstead: Brown shoulder length hair, tan slacks, black button-up, long coat, lacy purple bra and panties
     ? intel: she has all the good gossip, if you want to know anything
     ? recon: wants to be a detective (favorite books, movies, references)
     ? convo: ask about her multiple times, she deflects, eventually asks why you're curious, say you're interested in being a detective.
         - likes serious
         - dislikes flirty
+    * Challenge: steal hall pass from office
+    * Challenge: steal cigarettes from lounge
+    * Challenge: steal late slips from office
+    * Challenge: steal confiscated pills from nurse
     * Challenge: gives you address to surveil on your way to school, turns out to be her house, observe her getting dressed. What color are my underwear? How long are my pubes? What's my favorite movie? If you get it right, she invites you to the teacher's lounge for a final lesson.
     * Sex in empty teacher's lounge, she shows up in trenchcoat and lingerie
     - 1: Science

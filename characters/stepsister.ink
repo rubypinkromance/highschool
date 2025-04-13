@@ -1,5 +1,6 @@
 /*
 - Stepsister: Claire
+    - Alison Pill: straight blonde hair, medium boobs, small pokey nipples, shaved, black with pink polkadots underwear and bra.
     ? intel: read diary confessing sexual fantasies
     ? recon: spy on her masturbating in shower
     ? convo: confess you watch stepsister porn

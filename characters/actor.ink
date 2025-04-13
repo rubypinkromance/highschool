@@ -1,5 +1,6 @@
 /*
 - Actor: Emily
+    - Dana Howl, Cute hippy skirt, push-up bra, fitted top, long hair, shaved pubes
     ? intel: recently switched schools, heard because old school wouldn't let her use the right bathroom
     ? recon: tired of having to talk about trans stuff all the time
     ? convo: don't ask about trans stuff, just flirt

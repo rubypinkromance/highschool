@@ -1,5 +1,6 @@
 /*
 - Scientist: Jill
+    - Claire Danes: Long auburn hair, ponytail, glasses, Short, skinny, small poky tits, landing strip.
     ? intel: stays late every night working on a secret project
     ? recon: research secret ingredient
     ? convo: working on improved adderall, volunteer to test

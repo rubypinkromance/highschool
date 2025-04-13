@@ -1,5 +1,6 @@
 /*
 - Teacher: Allison Cummings
+    - Short, likes to wear skirts, wants to be bent over desk and fucked hard
     ? intel: divorced her husband last year, works late every night
     ? recon: note to talk to doctor about new meds making her aroused
     ? convo: tease and turn her on during sex ed tutoring, she gets flustered and ends tutoring early

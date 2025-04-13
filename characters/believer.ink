@@ -1,5 +1,6 @@
 /*
 - Believer: Kate
+    - LIS Kate: dark hair ponytail, sweater, button-up, long skirt, plain underwear, cross
     ? intel: goes to confess every day after school
     ? recon: evesdrop on confession about fantasies
     ? convo: struggling not to spill seed

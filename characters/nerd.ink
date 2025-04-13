@@ -1,5 +1,6 @@
 /*
 - Nerd: Faye
+    - Felicia Day, skinny, wavy red hair, graphic tee, baggy jeans, puffy nipples, trimmed bush, black bra, light blue thong
     ? intel: kicked out of her last D&D group for being too horny
     ? recon: read her RPG planning notes
     ? convo: interested in D&D, want her to teach you

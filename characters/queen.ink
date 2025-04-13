@@ -1,5 +1,6 @@
 /*
 - Queen: Victoria
+    - LIS Victoria: Short blonde pixie cut, Skinny, small chest, shaved, nice clothes
     ? intel: find her secret photos showing bdsm interest
     ? recon: observe her belittling, see it arouses her
     ? convo: submit (easy) or assert yourself (hard)

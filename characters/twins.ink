@@ -1,5 +1,6 @@
 /*
 - Twins: Hailey & Bailey
+    - Kara, short bobbed hair, one with blue streak, one with green streak. Matching cat-eye glasses. Short, curves, low-cut fitted shirts, cleavage, leggings
     ? intel: the twins share everything. I mean, everything.
     ? recon: learn to tell them apart
     ? convo: flirt with each individually

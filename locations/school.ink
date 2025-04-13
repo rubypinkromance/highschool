@@ -22,6 +22,11 @@ The hallway at school.
 + {flirted_with_teacher} [Go to the health classroom] -> health
 }
 
+// School Day Only
+{ now < afterschool:
++ [Go to the office] -> office
+}
+
 // Lunch and After School
 { now == lunch or now == afterschool:
 + [Go to the athletic field] -> field
@@ -33,6 +38,7 @@ The hallway at school.
 
 // After School Only
 { now == afterschool:
++ {has_office_invite} [Go to the office] -> office
 + [Go to the mall] -> mall
 + [Go to the church] -> church
 }

@@ -1,5 +1,6 @@
 /*
 - Athlete: Lindsey
+    - Florence Pugh, bleached blonde, track shorts, small boobs, dark nipples, sports bra, tank top, bikini panties (wet)
     ? intel: stays after school every day training
     ? recon: watch her shower and masturbate
     ? convo: challenge her to a race (don't have to win, just keep up)

@@ -1,5 +1,6 @@
 /*
 - Cheerleader: Michelle
+    - Kayley Cuoco: bleached blonde ponytail, cheerleader uniform, sports bra, big tits, big nipples
     ? intel: heard her and boyfriend have been fighting, not sure why
     ? recon: observe boyfriend flirting with another girl in study hall
     ? convo: suggest she get revenge
