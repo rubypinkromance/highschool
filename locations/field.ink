@@ -12,7 +12,7 @@ The athletic field
 - (opts)
 + {now == lunch} [Talk to {ATHLETE}]
     -> talk_to_athlete ->
-+ {now == afterschool and cheerleaderState != revenge and cheerleaderState != reward} [Talk to {CHEERLEADER}]
++ {now == afterschool and cheerleaderState < revenge} [Talk to {CHEERLEADER}]
     -> talk_to_cheerleader ->
 + [Sit on the bleachers]
     -> bleachers
@@ -64,6 +64,8 @@ Under the bleachers
     -> cheerleader_revenge ->
 * {now == afterschool and cheerleaderState == reward} [Talk to {CHEERLEADER}]
     -> cheerleader_reward ->
++ {now == afterschool and cheerleaderState == repeat} [Talk to {CHEERLEADER}]
+    -> cheerleader_reward_repeat ->
 + [Leave the bleachers]
     -> field
 - -> under_opts

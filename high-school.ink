@@ -38,5 +38,7 @@ INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
 
 
+TODO: Start with intro, gossip introduces herself, offers you one free, the rest you have to trade for
+
 // Start in the bedroom
 -> bedroom
