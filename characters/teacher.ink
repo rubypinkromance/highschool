@@ -10,8 +10,11 @@
     * fuck after school
     - 1-4: Health Class
 */
+CONST TEACHER = "Ms. Cummings"
+VAR flirted_with_teacher = false
+
 === talk_to_teacher ===
-Talk talk talk
+Talk to {TEACHER}.
 - (opts)
     * "What's your bra size?"
         "36C."

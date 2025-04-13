@@ -12,8 +12,19 @@
     - 3: Health/Gym
     - 4: Mall
 */
-=== talk_to_twins ===
-Talk talk talk
+CONST TWIN1 = "Hailey"
+CONST TWIN2 = "Bailey"
+
+=== talk_to_twin1 ===
+Talk to {TWIN1}.
+- (opts)
+    * "What's your bra size?"
+        "36C."
+    + [Leave her alone] ->->
+- -> opts
+
+=== talk_to_twin2 ===
+Talk to {TWIN2}.
 - (opts)
     * "What's your bra size?"
         "36C."

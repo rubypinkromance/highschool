@@ -12,8 +12,10 @@
     - 3: Study Hall
     - 4: Bleachers
 */
+CONST GOSSIP = "Tracy"
+
 === talk_to_gossip ===
-Talk talk talk
+Talk to {GOSSIP}.
 - (opts)
     * "What's your bra size?"
         "36C."

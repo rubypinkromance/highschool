@@ -12,8 +12,10 @@
     - 3: Photography
     - 4: Church
 */
+CONST BELIEVER = "Kate"
+
 === talk_to_believer ===
-Talk talk talk
+Talk to {BELIEVER}.
 - (opts)
     * "What's your bra size?"
         "36C."

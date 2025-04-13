@@ -12,8 +12,10 @@
     - 3: Theater
     - 4: Field
 */
+CONST CHEERLEADER = "Michelle"
+
 === talk_to_cheerleader ===
-Talk talk talk
+Talk to {CHEERLEADER}.
 - (opts)
     * "What's your bra size?"
         "36C."

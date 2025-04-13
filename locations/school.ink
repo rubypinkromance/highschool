@@ -1,49 +1,65 @@
 /*
-- School hallway (transit hub, remaining days countdown)
-*/
+ * The Hallway
+ *
+ * transit hub, remaining days countdown
+ */
 === hallway ===
 The hallway at school.
 
-Right now, it's {now}.
+// Classrooms (closed at lunch)
+{ now != lunch and now != evening:
++ [Go to the gym] -> gym
++ [Go to the health classroom] -> health
++ [Go to the photography classroom] -> photography
++ [Go to the science lab] -> science
++ [Go to the study hall] -> study_hall
++ [Go to the theater] -> theater
+}
 
+// Lunch Only
+{ now == lunch:
++ [Go to the cafeteria] -> cafeteria
++ {flirted_with_teacher} [Go to the health classroom] -> health
+}
 
-// Lunch locations
-+ { now == lunch } [Go to cafeteria] -> cafeteria
-+ { now == lunch or now == afterschool } [Go to athletic field] -> field
-+ { now == lunch or now == afterschool } [Go to library] -> library
+// Lunch and After School
+{ now == lunch or now == afterschool:
++ [Go to the athletic field] -> field
++ [Go to the library] -> library
++ {has_lounge_invite} [Go to the teacher's lounge] -> lounge
++ {has_stairwell_invite} [Go to the stairwell] -> stairwell
++ {has_roof_invite} [Go to the roof] -> roof
+}
 
-// Classrooms are closed during lunch
-+ { not (now == lunch) } [Go to gym] -> gym
-+ { not (now == lunch) } [Go to study hall] -> study_hall
-+ { not (now == lunch) } [Go to photography] -> photography
-+ { not (now == lunch) } [Go to science] -> science
-+ { not (now == lunch) } [Go to theater] -> theater
+// After School Only
+{ now == afterschool:
++ [Go to the mall] -> mall
++ [Go to the church] -> church
+}
 
-// Special classroom open during lunch
-+ [Go to health] -> health
-
-// To be restricted by future conditions
-+ [Go to teacher's lounge] -> lounge
-+ [Go to stairwell] -> stairwell
-+ [Go to roof] -> roof
-
-// After-school locations
-+ { now == afterschool } [Go home] -> bedroom
-+ { now == afterschool } [Go to the Mall] -> mall
-+ { now == afterschool } [Go to Church] -> church
+// After School and Evening
+{ now == afterschool or now == evening:
++ [Go home] -> bedroom
+}
 
 /*
-> Stairwell
-    * Makeout with twins
-*/
+ * =============================================
+ * The Stairwell
+ *
+ * - Makeout with twins
+ */
 = stairwell
+VAR has_stairwell_invite = false
 The remote stairwell
-+ [Go to hallway] -> hallway
++ [Leave the stairwell] -> hallway
 
 /*
-> Roof
-    * Sex with twins
-*/
+ * =============================================
+ * The Roof
+ *
+ * - Sex with twins
+ */
 = roof
+VAR has_roof_invite = false
 The school's roof
-+ [Go to hallway] -> hallway
++ [Leave the roof] -> hallway

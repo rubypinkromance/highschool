@@ -12,8 +12,10 @@
     - 3: Lab
     - 4: Lab
 */
+CONST SCIENTIST = "Jill"
+
 === talk_to_scientist ===
-Talk talk talk
+Talk to {SCIENTIST}.
 - (opts)
     * "What's your bra size?"
         "36C."

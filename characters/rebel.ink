@@ -12,8 +12,10 @@
     - 3: Study Hall
     - 4: Detention
 */
+CONST REBEL = "Debbie"
+
 === talk_to_rebel ===
-Talk talk talk
+Talk to {REBEL}.
 - (opts)
     * "What's your bra size?"
         "36C."

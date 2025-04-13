@@ -12,8 +12,10 @@
     - 3: Health
     - 4: Gym
 */
+CONST ATHLETE = "Lindsey"
+
 === talk_to_athlete ===
-Talk talk talk
+Talk to {ATHLETE}.
 - (opts)
     * "What's your bra size?"
         "36C."
