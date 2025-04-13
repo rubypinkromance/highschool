@@ -37,7 +37,11 @@ INCLUDE characters/twins.ink
 
 Two weeks to fuck every girl on your list
 
-Dialog should be bioware style — 3 responses, different vibes, secret response based on intel. eg, sarcastic, sweet, flirty, serious
+Dialog should be bioware style — 4 responses, different vibes, secret response based on intel. eg, sarcastic, sweet, flirty, serious
+
+- [ ] Add daily timer & countdown
+- [ ] Add score (5pt for fooling around, 5px for sex)
+- [ ] Add journal (lists girls and info about them)
 
 */
 
