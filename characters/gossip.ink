@@ -1,5 +1,5 @@
 /*
-- Gossip: Tracy
+- Gossip: Gretchen
     - Mary Elizabeth Winstead: Brown shoulder length hair, tan slacks, black button-up, long coat, lacy purple bra and panties
     ? intel: she has all the good gossip, if you want to know anything
     ? recon: wants to be a detective (favorite books, movies, references)
@@ -17,7 +17,7 @@
     - 3: Study Hall
     - 4: Bleachers
 */
-CONST GOSSIP = "Tracy"
+CONST GOSSIP = "Gretchen"
 
 === talk_to_gossip ===
 Talk to {GOSSIP}.

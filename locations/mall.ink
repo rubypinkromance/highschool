@@ -9,6 +9,7 @@
  * - Sex with Queen
  */
 === mall ===
+~ current_location = -> mall
 The mall!
 
 - (opts)

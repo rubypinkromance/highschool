@@ -1,5 +1,5 @@
 /*
-- Nerd: Faye
+- Nerd: Jenn
     - Felicia Day, skinny, wavy red hair, graphic tee, baggy jeans, puffy nipples, trimmed bush, black bra, light blue thong
     ? intel: kicked out of her last D&D group for being too horny
     ? recon: read her RPG planning notes
@@ -13,7 +13,7 @@
     - 3: Study Hall
     - 4: Library
 */
-CONST NERD = "Faye"
+CONST NERD = "Jenn"
 
 === talk_to_nerd ===
 Talk to {NERD}.

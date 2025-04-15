@@ -9,6 +9,7 @@
  * - Sex with Nerd
  */
 === library ===
+~ current_location = -> library
 The library
 
 - (opts)

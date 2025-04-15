@@ -10,6 +10,7 @@
  */
 === lounge ===
 VAR has_lounge_invite = false
+~ current_location = -> lounge
 The teacher's lounge
 
 - (opts)

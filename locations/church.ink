@@ -9,6 +9,7 @@
  * - Sex with Believer
  */
 === church ===
+~ current_location = -> church
 The church.
 
 - (opts)

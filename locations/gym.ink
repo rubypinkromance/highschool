@@ -7,6 +7,7 @@
  * 4. Athlete
  */
 === gym ===
+~ current_location = -> gym
 The gymnasium
 
 - (opts)
@@ -33,5 +34,6 @@ The gymnasium
  * - Sex with Athlete
  */
 = locker_room
+~ current_location = -> locker_room
 The girl's locker room
 + [Leave the locker room] -> gym

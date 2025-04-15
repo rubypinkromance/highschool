@@ -3,12 +3,13 @@
  *
  * 1. Gossip, Nerd
  * 2. ---
- * 3. Scientist
+ * 3. Scientist, Nympho
  * 4. Scientist
  *
  * - Sex with Scientist
  */
 === science ===
+~ current_location = -> science
 Welcome to science class
 
 - (opts)
@@ -17,6 +18,8 @@ Welcome to science class
 + {now == morning} [Talk to {NERD}]
     -> talk_to_nerd ->
 
++ {now == afternoon} [Talk to {NYMPHO}]
+    -> talk_to_nympho ->
 + {now == afternoon or now == afterschool} [Talk to {SCIENTIST}]
     -> talk_to_scientist ->
 

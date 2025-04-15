@@ -1,5 +1,5 @@
 /*
-- Teacher: Tatiana Volkova
+- Teacher: Nina Honeydew
     - Eva Green: black hair, big lips, huge tits, big puffy nipples, full bush.
     ? intel: Sweet, but easy to manipulate, sends girls home early for cramps
     ? recon: 
@@ -11,7 +11,7 @@
     * Fuck after catching her watching you masturbate
     - 1-4. Clinic
 */
-CONST NURSE = "Nurse Volkova"
+CONST NURSE = "Nurse Honeydew"
 
 === talk_to_nurse ===
 Talk to {NURSE}.

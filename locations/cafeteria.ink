@@ -2,11 +2,12 @@
  * The Cafeteria
  *
  * 1. ---
- * 2. Gossip, Queen, Twins, Cheerleader, Believer, Actor
+ * 2. Gossip, Queen, Twins, Cheerleader, Believer, Actor, Nympho
  * 3. ---
- * 4. ---
+ * 4. Chess Club, Nympho
  */
 === cafeteria ===
+~ current_location = -> cafeteria
 The cafeteria
 
 - (opts)
@@ -26,6 +27,19 @@ The cafeteria
     -> talk_to_believer ->
 + {now == lunch} [Talk to {ACTOR}]
     -> talk_to_actor ->
++ {now == lunch or now == afterschool} [Talk to {NYMPHO}]
+    -> talk_to_nympho ->
 + [Leave the cafeteria]
     -> pass_time -> hallway
 - -> opts
+
+/*
+ * =============================================
+ * The Storage Closet
+ *
+ * - Sex with Nympho
+ */
+= storage
+~ current_location = -> storage
+Shelves hold supplies for the chess club and other after-school activities.
++ [Leave the storage closet] -> cafeteria

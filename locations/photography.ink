@@ -7,6 +7,7 @@
  * 4. Photographer
  */
 === photography ===
+~ current_location = -> photography
 Welcome to photography class
 
 - (opts)
@@ -33,5 +34,6 @@ Welcome to photography class
  * - Sex with Photographer
  */
 = darkroom
+~ current_location = -> darkroom
 It's very dark in here!
 + [Leave the darkroom] -> photography

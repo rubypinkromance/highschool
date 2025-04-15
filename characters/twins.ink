@@ -13,14 +13,24 @@
     - 3: Health/Gym
     - 4: Mall
 */
-CONST TWIN1 = "Hailey"
-CONST TWIN2 = "Bailey"
+VAR can_identify_twins = false
+VAR TWIN1 = "one of the twins"
+VAR TWIN2 = "one of the twins"
+
+=== function identify_twins() ===
+~ can_identify_twins = true
+~ TWIN1 = "Hailey"
+~ TWIN2 = "Bailey"
+
 
 === talk_to_twin1 ===
 Talk to {TWIN1}.
 - (opts)
     * "What's your bra size?"
         "36C."
+    * "Which one are you?"
+        ~ identify_twins()
+        "Hailey."
     + [Leave her alone] ->->
 - -> opts
 
@@ -29,5 +39,8 @@ Talk to {TWIN2}.
 - (opts)
     * "What's your bra size?"
         "36C."
+    * "Which one are you?"
+        ~ identify_twins()
+        "Bailey."
     + [Leave her alone] ->->
 - -> opts

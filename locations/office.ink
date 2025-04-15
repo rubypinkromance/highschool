@@ -8,6 +8,7 @@
  */
 === office ===
 VAR has_office_invite = false
+~ current_location = -> office
 Welcome to the office
 
 - (opts)
@@ -26,5 +27,6 @@ Welcome to the office
  * - Sex with Secretary
  */
 = supply_closet
+~ current_location = -> supply_closet
 Post-it notes galore.
 + [Leave the supply closet] -> office

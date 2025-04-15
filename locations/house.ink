@@ -2,6 +2,7 @@
  * Your bedroom
  */
 === bedroom ===
+~ current_location = -> bedroom
 
 {
 - bedroom == 1:
@@ -30,6 +31,7 @@
  * - Sex with Stepsister
  */
 = bathroom
+~ current_location = -> bathroom
 Your bathroom
 Your stepsister, {STEPSISTER}, is here
 

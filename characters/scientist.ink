@@ -1,5 +1,5 @@
 /*
-- Scientist: Jill
+- Scientist: Tracy
     - Claire Danes: Long auburn hair, ponytail, glasses, Short, skinny, small poky tits, landing strip.
     ? intel: stays late every night working on a secret project
     ? recon: research secret ingredient
@@ -13,7 +13,7 @@
     - 3: Lab
     - 4: Lab
 */
-CONST SCIENTIST = "Jill"
+CONST SCIENTIST = "Tracy"
 
 === talk_to_scientist ===
 Talk to {SCIENTIST}.

@@ -1,5 +1,5 @@
 /*
-- Stepsister: Claire
+- Stepsister: Flora
     - Alison Pill: straight blonde hair, medium boobs, small pokey nipples, shaved, black with pink polkadots underwear and bra.
     ? intel: read diary confessing sexual fantasies
     ? recon: spy on her masturbating in shower
@@ -11,7 +11,7 @@
     - 1-3: Unavailable
     - 4: Bathroom
 */
-CONST STEPSISTER = "Claire"
+CONST STEPSISTER = "Flora"
 
 === talk_to_stepsister ===
 Talk to {STEPSISTER}.

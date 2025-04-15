@@ -9,6 +9,7 @@
  * - Sex with Teacher
  */
 === health ===
+~ current_location = -> health
 Welcome to health class
 
 - (opts)

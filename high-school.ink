@@ -1,6 +1,12 @@
 // Helpers
 INCLUDE helpers/time.ink
 
+// Variables
+VAR current_location = -> intro
+
+// Story Beats
+INCLUDE beats/intro.ink
+
 // Locations
 INCLUDE locations/cafeteria.ink
 INCLUDE locations/church.ink
@@ -27,6 +33,7 @@ INCLUDE characters/cheerleader.ink
 INCLUDE characters/gossip.ink
 INCLUDE characters/jock.ink
 INCLUDE characters/nerd.ink
+INCLUDE characters/nympho.ink
 INCLUDE characters/photographer.ink
 INCLUDE characters/queen.ink
 INCLUDE characters/rebel.ink
@@ -38,7 +45,31 @@ INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
 
 
-TODO: Start with intro, gossip introduces herself, offers you one free, the rest you have to trade for
+// Characters (alphabetical)
+/*
+teacher         Allison
+twin            Bailey
+nympho          Claire
+rebel           Debbie
+actor           Emily
+stepsister      Flora
+gossip          Gretchen
+twin            Hailey
+---             I
+nerd            Jenn
+believer        Kate
+athlete         Lindsey
+cheerleader     Michelle
+nurse           Nina
+---             O
+---             P
+---             Q
+---             R
+photographer    Steph
+scientist       Tracy
+secretary       Una
+queen           Victoria
+*/
 
-// Start in the bedroom
--> bedroom
+// Start with the introduction
+-> intro

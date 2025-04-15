@@ -7,6 +7,7 @@
  * 4. Cheerleader
 */
 === field ===
+~ current_location = -> field
 The athletic field
 
 - (opts)
@@ -32,6 +33,7 @@ The athletic field
  * 4. Gossip
  */
 = bleachers
+~ current_location = -> bleachers
 The bleachers overlooking the athletic field
 
 - (bleachers_opts)
@@ -55,6 +57,7 @@ The bleachers overlooking the athletic field
  * - Sex with Cheerleader
  */
 = under_bleachers
+~ current_location = -> under_bleachers
 Under the bleachers
 
 - (under_opts)

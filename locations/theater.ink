@@ -7,6 +7,7 @@
  * 4. Actor
  */
 === theater ===
+~ current_location = -> theater
 Welcome to theater class
 
 - (opts)
@@ -35,5 +36,6 @@ Welcome to theater class
  * - Sex with actor
  */
 = backstage
+~ current_location = -> backstage
 Backstage at the theater
 + [Leave the backstage] -> theater
