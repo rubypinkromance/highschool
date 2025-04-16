@@ -14,9 +14,9 @@
 CONST SECRETARY = "Ms. Talltrees"
 
 === talk_to_secretary ===
-Talk to {SECRETARY}.
+Approach {SECRETARY}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "34B."
     + [Leave her alone] ->->
 - -> opts

@@ -16,9 +16,9 @@
 CONST REBEL = "Debbie"
 
 === talk_to_rebel ===
-Talk to {REBEL}.
+Approach {REBEL}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "36D."
     + [Leave her alone] ->->
 - -> opts

@@ -13,21 +13,21 @@ The cafeteria
 - (opts)
 * {now == lunch and cheerleaderState == intel} [Observe {CHEERLEADER}]
     -> observe_cheerleader ->
-+ {now == lunch} [Talk to {GOSSIP}]
++ {now == lunch} [Approach {GOSSIP}]
     -> talk_to_gossip ->
-+ {now == lunch} [Talk to {QUEEN}]
++ {now == lunch} [Approach {QUEEN}]
     -> talk_to_queen ->
-+ {now == lunch} [Talk to {TWIN1}]
++ {now == lunch} [Approach {TWIN1}]
     -> talk_to_twin1 ->
-+ {now == lunch} [Talk to {TWIN2}]
++ {now == lunch} [Approach {TWIN2}]
     -> talk_to_twin2 ->
-+ {now == lunch} [Talk to {CHEERLEADER}]
++ {now == lunch} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->
-+ {now == lunch} [Talk to {BELIEVER}]
++ {now == lunch} [Approach {BELIEVER}]
     -> talk_to_believer ->
-+ {now == lunch} [Talk to {ACTOR}]
++ {now == lunch} [Approach {ACTOR}]
     -> talk_to_actor ->
-+ {now == lunch or now == afterschool} [Talk to {NYMPHO}]
++ {now == lunch or now == afterschool} [Approach {NYMPHO}]
     -> talk_to_nympho ->
 + [Leave the cafeteria]
     -> pass_time -> hallway

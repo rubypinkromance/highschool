@@ -16,9 +16,9 @@
 CONST ATHLETE = "Lindsey"
 
 === talk_to_athlete ===
-Talk to {ATHLETE}.
+Approach {ATHLETE}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "34B."
     + [Leave her alone] ->->
 - -> opts

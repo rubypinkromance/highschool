@@ -14,7 +14,7 @@
 CONST STEPSISTER = "Flora"
 
 === talk_to_stepsister ===
-Talk to {STEPSISTER}.
+Approach {STEPSISTER}.
 - (opts)
     + "What's your bra size?"
         "36C, bro."

@@ -13,7 +13,7 @@
 The church.
 
 - (opts)
-+ {now == afterschool} [Talk to {BELIEVER}]
++ {now == afterschool} [Approach {BELIEVER}]
     -> talk_to_believer ->
 + [Go home]
     -> bedroom

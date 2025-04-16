@@ -13,14 +13,14 @@
 Welcome to science class
 
 - (opts)
-+ {now == morning} [Talk to {GOSSIP}]
++ {now == morning} [Approach {GOSSIP}]
     -> talk_to_gossip ->
-+ {now == morning} [Talk to {NERD}]
++ {now == morning} [Approach {NERD}]
     -> talk_to_nerd ->
 
-+ {now == afternoon} [Talk to {NYMPHO}]
++ {now == afternoon} [Approach {NYMPHO}]
     -> talk_to_nympho ->
-+ {now == afternoon or now == afterschool} [Talk to {SCIENTIST}]
++ {now == afternoon or now == afterschool} [Approach {SCIENTIST}]
     -> talk_to_scientist ->
 
 + [Leave the science classroom]

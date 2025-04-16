@@ -11,14 +11,14 @@
 The gymnasium
 
 - (opts)
-+ {now == morning or now == afterschool} [Talk to {ATHLETE}]
++ {now == morning or now == afterschool} [Approach {ATHLETE}]
     -> talk_to_athlete ->
-+ {now == morning} [Talk to {SCIENTIST}]
++ {now == morning} [Approach {SCIENTIST}]
     -> talk_to_scientist ->
 
-+ {now == afternoon} [Talk to {TWIN2}]
++ {now == afternoon} [Approach {TWIN2}]
     -> talk_to_twin2 ->
-+ {now == afternoon} [Talk to {QUEEN}]
++ {now == afternoon} [Approach {QUEEN}]
     -> talk_to_queen ->
 
 + [Go to the locker room]

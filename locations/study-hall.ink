@@ -16,18 +16,18 @@ Welcome to study hall
 - (opts)
 * {now == morning and cheerleaderState == intel} [Observe {CHEERLEADER}]
     -> observe_cheerleader ->
-+ {now == morning} [Talk to {BELIEVER}]
++ {now == morning} [Approach {BELIEVER}]
     -> talk_to_believer ->
-+ {now == morning} [Talk to {CHEERLEADER}]
++ {now == morning} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->
-+ {now == morning} [Talk to {NYMPHO}]
++ {now == morning} [Approach {NYMPHO}]
     -> talk_to_nympho ->
 
-+ {now == afternoon} [Talk to {GOSSIP}]
++ {now == afternoon} [Approach {GOSSIP}]
     -> talk_to_gossip ->
-+ {now == afternoon} [Talk to {NERD}]
++ {now == afternoon} [Approach {NERD}]
     -> talk_to_nerd ->
-+ {now == afternoon or now == afterschool} [Talk to {REBEL}]
++ {now == afternoon or now == afterschool} [Approach {REBEL}]
     -> talk_to_rebel ->
 
 + [Leave the study hall]

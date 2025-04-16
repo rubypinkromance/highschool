@@ -16,9 +16,9 @@
 CONST QUEEN = "Victoria"
 
 === talk_to_queen ===
-Talk to {QUEEN}.
+Approach {QUEEN}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "34B."
     + [Leave her alone] ->->
 - -> opts

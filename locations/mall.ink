@@ -13,11 +13,11 @@
 The mall!
 
 - (opts)
-+ {now == afterschool} [Talk to {QUEEN}]
++ {now == afterschool} [Approach {QUEEN}]
     -> talk_to_queen ->
-+ {now == afterschool} [Talk to {TWIN1}]
++ {now == afterschool} [Approach {TWIN1}]
     -> talk_to_twin1 ->
-+ {now == afterschool} [Talk to {TWIN2}]
++ {now == afterschool} [Approach {TWIN2}]
     -> talk_to_twin2 ->
 + [Go home]
     -> bedroom

@@ -5,7 +5,7 @@ CONST JOCK = "Lance"
 VAR saw_weed = false
 
 === talk_to_jock ===
-Talk to {JOCK}.
+Approach {JOCK}.
 - (opts)
     * "Fight me, bro!"
         "Let's go then!"

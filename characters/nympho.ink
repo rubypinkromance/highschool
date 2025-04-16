@@ -1,6 +1,7 @@
 /*
 - Nympho: Claire
-    - Claire from loudermilk: wavy bleach blonde hair, choker, black tank top, no bra, army jacket, jean skirt, knee socks, shaved, cumslut tatto
+    - Claire from loudermilk: wavy bleach blonde hair, choker, black tank top, no bra, army jacket, jean skirt, knee socks, shaved, cumslut tattoo
+    - Gives details on teachers (gossip gives details on students)
     ? intel: Gossip tells you she's a nympho
     ? recon: Come to chess club, watch her take a guy to the supply closet
     ? convo: Introduce yourself, she invites you in to talk and offer her services
@@ -26,16 +27,20 @@
 */
 CONST NYMPHO = "Claire"
 
-TODO: Gossip gives details on schoolgirls, Claire gives details on teachers
-TODO: Claire saw secretary in the lobby for the same therapist she sees for sex addiction
-TODO: Claire heard other teachers think Nurse is a pushover, gives students what they ask for too easily.
-TODO: Claire heard Teacher got divorced last year and works late every night. Seems lonely.
-
 === talk_to_nympho ===
-Talk to {NYMPHO}.
+Approach {NYMPHO}.
 - (opts)
+    * "What do you know about {NURSE}?"
+        // heard other teachers think Nurse is a pushover, gives students what they ask for too easily.
+        "I'll tell you after you cum on me."
+    * "What do you know about {SECRETARY}?"
+        // saw secretary in the lobby for the same therapist she sees for sex addiction
+        "I'll tell you after you cum on me."
+    * "What do you know about {TEACHER}?"
+        // heard Teacher got divorced last year and works late every night. Seems lonely.
+        "I'll tell you after you cum on me."
     * "What's your bra size?"
-        "36C."
+        "34A."
     + [Leave her alone]
         ->->
 - -> opts

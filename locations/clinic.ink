@@ -12,7 +12,7 @@ VAR has_nurse_invite = false
 Welcome to the nurse's office
 
 - (opts)
-+ [Talk to {NURSE}]
++ [Approach {NURSE}]
     -> talk_to_nurse ->
 + [Go to the exam area]
     -> exam_area

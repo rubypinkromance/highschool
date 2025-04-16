@@ -16,7 +16,7 @@ I was walking to school when {GOSSIP} crossed the street to walk with me.
 -
 "Look, I get it. That car crash scared the hell out of you, and you realized life was too short to waste. As your best friend—"
 "Only friend," I interjected.
-"—I support you, even if your plan is to cure your social anxiety by resolving to fuck every girl you see."
+"—I support you, even with this wild plan to cure your social anxiety by having sex with every girl you see."
 * "Got any advice?"
 * "My plan is brilliant[."], and someday you'll tell the world you knew me before I changed the entire field of psychology."
     "Or I'll tell the news I knew you before you were beaten to death by a mob of angry women."
@@ -24,16 +24,16 @@ I was walking to school when {GOSSIP} crossed the street to walk with me.
 * "I still think you're jealous."
     "Keep dreaming, Casinova."
 -
-She stopped walking as we approached the front door. "If you're going to do this, you might start by talking to {NYMPHO}. She has a… reputation."
+She stopped walking as we approached the front door. "If you're really going to do this, you might start by talking to {NYMPHO}. She has a… reputation."
 * "A sexy reputation?"
 * "What kind of reputation?"
 * "You can just say slut."
     She frowned. <>
 -
-"Word is, she's slept with every member of the chess club."
+"Word on the street is that she fooled around with every member of the chess club."
 "Nice. Thanks for the tip."
 "If you need to know anything about any other girls, come talk to me."
-"The biggest gossip in school," I teased.
-"I prefer the term information broker," she grinned, and walked through the door. "Good luck!"
+"Because you're the biggest gossip in school?" I teased.
+"I prefer the term information broker. Good luck!"
 Taking a deep breath, I followed her in.
 * [Time to change my life] -> hallway

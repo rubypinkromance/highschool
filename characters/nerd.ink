@@ -16,9 +16,9 @@
 CONST NERD = "Jenn"
 
 === talk_to_nerd ===
-Talk to {NERD}.
+Approach {NERD}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "32B."
     + [Leave her alone] ->->
 - -> opts

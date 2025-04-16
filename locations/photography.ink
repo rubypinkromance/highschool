@@ -11,14 +11,14 @@
 Welcome to photography class
 
 - (opts)
-+ {now == morning} [Talk to {TWIN1}]
++ {now == morning} [Approach {TWIN1}]
     -> talk_to_twin1 ->
-+ {now == morning} [Talk to {QUEEN}]
++ {now == morning} [Approach {QUEEN}]
     -> talk_to_queen ->
 
-+ {now == afternoon} [Talk to {BELIEVER}]
++ {now == afternoon} [Approach {BELIEVER}]
     -> talk_to_believer ->
-+ {now == afternoon or now == afterschool} [Talk to {PHOTOGRAPHER}]
++ {now == afternoon or now == afterschool} [Approach {PHOTOGRAPHER}]
     -> talk_to_photographer ->
 
 + [Go to the darkroom]

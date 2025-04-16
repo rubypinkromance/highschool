@@ -16,9 +16,9 @@
 CONST SCIENTIST = "Tracy"
 
 === talk_to_scientist ===
-Talk to {SCIENTIST}.
+Approach {SCIENTIST}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "34A."
     + [Leave her alone] ->->
 - -> opts

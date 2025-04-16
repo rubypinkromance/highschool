@@ -2,8 +2,8 @@
 - Teacher: Nina Honeydew
     - Eva Green: black hair, big lips, huge tits, big puffy nipples, full bush.
     ? intel: Sweet, but easy to manipulate, sends girls home early for cramps
-    ? recon: 
-    ? convo: 
+    ? recon:
+    ? convo:
         - likes sweet
         - dislikes sarcasm
     * Convince to leave to steal meds
@@ -14,9 +14,9 @@
 CONST NURSE = "Nurse Honeydew"
 
 === talk_to_nurse ===
-Talk to {NURSE}.
+Approach {NURSE}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "36D."
     + [Leave her alone] ->->
 - -> opts

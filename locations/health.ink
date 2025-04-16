@@ -13,17 +13,17 @@
 Welcome to health class
 
 - (opts)
-+ {now == morning} [Talk to {REBEL}]
++ {now == morning} [Approach {REBEL}]
     -> talk_to_rebel ->
-+ {now == morning} [Talk to {ACTOR}]
++ {now == morning} [Approach {ACTOR}]
     -> talk_to_actor ->
 
-+ {now == afternoon} [Talk to {ATHLETE}]
++ {now == afternoon} [Approach {ATHLETE}]
     -> talk_to_athlete ->
-+ {now == afternoon} [Talk to {TWIN1}]
++ {now == afternoon} [Approach {TWIN1}]
     -> talk_to_twin1 ->
 
-+ {now != lunch} [Talk to {TEACHER}]
++ {now != lunch} [Approach {TEACHER}]
     -> talk_to_teacher ->
 
 + [Leave the health classroom]

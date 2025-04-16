@@ -13,9 +13,9 @@
 The library
 
 - (opts)
-+ {now == lunch or now == afterschool} [Talk to {NERD}]
++ {now == lunch or now == afterschool} [Approach {NERD}]
     -> talk_to_nerd ->
-+ {now == lunch} [Talk to {SCIENTIST}]
++ {now == lunch} [Approach {SCIENTIST}]
     -> talk_to_scientist ->
 + [Leave the library]
     -> pass_time -> hallway

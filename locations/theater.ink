@@ -11,16 +11,16 @@
 Welcome to theater class
 
 - (opts)
-+ {now == morning} [Talk to {TWIN1}]
++ {now == morning} [Approach {TWIN1}]
     -> talk_to_twin1 ->
-+ {now == morning} [Talk to {PHOTOGRAPHER}]
++ {now == morning} [Approach {PHOTOGRAPHER}]
     -> talk_to_photographer ->
 
 * {now == afternoon and cheerleaderState == intel } [Observe {CHEERLEADER}]
     -> observe_cheerleader ->
-+ {now == afternoon} [Talk to {CHEERLEADER}]
++ {now == afternoon} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->
-+ {now == afternoon or now == afterschool} [Talk to {ACTOR}]
++ {now == afternoon or now == afterschool} [Approach {ACTOR}]
     -> talk_to_actor ->
 
 + [Go backstage]

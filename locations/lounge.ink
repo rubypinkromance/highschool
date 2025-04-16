@@ -14,7 +14,7 @@ VAR has_lounge_invite = false
 The teacher's lounge
 
 - (opts)
-+ {now == lunch} [Talk to {TEACHER}]
++ {now == lunch} [Approach {TEACHER}]
     -> talk_to_teacher ->
 + [Leave the teacher's lounge]
     -> pass_time -> hallway

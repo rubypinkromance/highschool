@@ -16,7 +16,7 @@
 CONST PHOTOGRAPHER = "Steph"
 
 === talk_to_photographer ===
-Talk to {PHOTOGRAPHER}.
+Approach {PHOTOGRAPHER}.
 - (opts)
     * "What's your bra size?"
         "36C."

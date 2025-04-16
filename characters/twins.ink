@@ -24,7 +24,7 @@ VAR TWIN2 = "one of the twins"
 
 
 === talk_to_twin1 ===
-Talk to {TWIN1}.
+Approach {TWIN1}.
 - (opts)
     * "What's your bra size?"
         "36C."
@@ -35,7 +35,7 @@ Talk to {TWIN1}.
 - -> opts
 
 === talk_to_twin2 ===
-Talk to {TWIN2}.
+Approach {TWIN2}.
 - (opts)
     * "What's your bra size?"
         "36C."

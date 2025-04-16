@@ -16,9 +16,9 @@
 CONST BELIEVER = "Kate"
 
 === talk_to_believer ===
-Talk to {BELIEVER}.
+Approach {BELIEVER}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "That's between me and Jesus." // 34C
     + [Leave her alone] ->->
 - -> opts

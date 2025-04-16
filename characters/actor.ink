@@ -16,9 +16,9 @@
 CONST ACTOR = "Emily"
 
 === talk_to_actor ===
-Talk to {ACTOR}.
+Approach {ACTOR}.
 - (opts)
     * "What's your bra size?"
-        "36C."
+        "36B."
     + [Leave her alone] ->->
 - -> opts

@@ -15,7 +15,7 @@ CONST TEACHER = "Ms. Cummings"
 VAR flirted_with_teacher = false
 
 === talk_to_teacher ===
-Talk to {TEACHER}.
+Approach {TEACHER}.
 - (opts)
     * "What's your bra size?"
         "36C."
