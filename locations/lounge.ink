@@ -10,12 +10,13 @@
  */
 === lounge ===
 VAR has_lounge_invite = false
-~ current_location = -> lounge
-The teacher's lounge
+CONST LOUNGE = "teacher’s lounge"
+~ current_location = LOUNGE
+You are in the {LOUNGE}.
 
 - (opts)
 + {now == lunch} [Approach {TEACHER}]
     -> talk_to_teacher ->
-+ [Leave the teacher's lounge]
++ [Leave the {LOUNGE}]
     -> pass_time -> hallway
 - -> opts

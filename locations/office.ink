@@ -8,15 +8,16 @@
  */
 === office ===
 VAR has_office_invite = false
-~ current_location = -> office
-Welcome to the office
+CONST OFFICE = "office"
+~ current_location = OFFICE
+You are at the {OFFICE}.
 
 - (opts)
 + [Approach {SECRETARY}]
     -> talk_to_secretary ->
-+ [Go to the supply closet]
++ [Go to the {SUPPLY_CLOSET}]
     -> supply_closet
-+ [Leave the office]
++ [Leave the {OFFICE}]
     -> pass_time -> hallway
 - -> opts
 
@@ -27,6 +28,9 @@ Welcome to the office
  * - Sex with Secretary
  */
 = supply_closet
-~ current_location = -> supply_closet
+CONST SUPPLY_CLOSET = "supply closet"
+~ current_location = SUPPLY_CLOSET
+You are in the {SUPPLY_CLOSET}.
+
 Post-it notes galore.
 + [Leave the supply closet] -> office

@@ -9,8 +9,9 @@
  * - Sex with Scientist
  */
 === science ===
-~ current_location = -> science
-Welcome to science class
+CONST SCIENCE = "science classroom"
+~ current_location = SCIENCE
+You are in the {SCIENCE}.
 
 - (opts)
 + {now == morning} [Approach {GOSSIP}]
@@ -23,6 +24,6 @@ Welcome to science class
 + {now == afternoon or now == afterschool} [Approach {SCIENTIST}]
     -> talk_to_scientist ->
 
-+ [Leave the science classroom]
++ [Leave the {SCIENCE}]
     -> pass_time -> hallway
 - -> opts

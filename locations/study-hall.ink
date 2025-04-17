@@ -10,8 +10,9 @@
  */
 === study_hall ===
 VAR study_hall_supervised = true
-~ current_location = -> study_hall
-Welcome to study hall
+CONST STUDY_HALL = "study hall"
+~ current_location = STUDY_HALL
+You are in the {STUDY_HALL}.
 
 - (opts)
 * {now == morning and cheerleaderState == intel} [Observe {CHEERLEADER}]
@@ -30,6 +31,6 @@ Welcome to study hall
 + {now == afternoon or now == afterschool} [Approach {REBEL}]
     -> talk_to_rebel ->
 
-+ [Leave the study hall]
++ [Leave the {STUDY_HALL}]
     -> pass_time -> hallway
 - -> opts

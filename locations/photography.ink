@@ -7,8 +7,9 @@
  * 4. Photographer
  */
 === photography ===
-~ current_location = -> photography
-Welcome to photography class
+CONST PHOTOGRAPHY = "photography classroom"
+~ current_location = PHOTOGRAPHY
+You are in the {PHOTOGRAPHY}.
 
 - (opts)
 + {now == morning} [Approach {TWIN1}]
@@ -21,9 +22,9 @@ Welcome to photography class
 + {now == afternoon or now == afterschool} [Approach {PHOTOGRAPHER}]
     -> talk_to_photographer ->
 
-+ [Go to the darkroom]
++ [Go to the {DARKROOM}]
     -> darkroom
-+ [Leave the photography classroom]
++ [Leave the {PHOTOGRAPHY}]
     -> pass_time -> hallway
 - -> opts
 
@@ -34,6 +35,9 @@ Welcome to photography class
  * - Sex with Photographer
  */
 = darkroom
-~ current_location = -> darkroom
+CONST DARKROOM = "darkroom"
+~ current_location = DARKROOM
+You are in the {DARKROOM}.
+
 It's very dark in here!
-+ [Leave the darkroom] -> photography
++ [Leave the {DARKROOM}] -> photography

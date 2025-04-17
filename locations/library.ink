@@ -9,14 +9,15 @@
  * - Sex with Nerd
  */
 === library ===
-~ current_location = -> library
-The library
+CONST LIBRARY = "library"
+~ current_location = LIBRARY
+You are in the {LIBRARY}.
 
 - (opts)
 + {now == lunch or now == afterschool} [Approach {NERD}]
     -> talk_to_nerd ->
 + {now == lunch} [Approach {SCIENTIST}]
     -> talk_to_scientist ->
-+ [Leave the library]
++ [Leave the {LIBRARY}]
     -> pass_time -> hallway
 - -> opts

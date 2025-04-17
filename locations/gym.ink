@@ -7,8 +7,9 @@
  * 4. Athlete
  */
 === gym ===
-~ current_location = -> gym
-The gymnasium
+CONST GYM = "gymnasium"
+~ current_location = GYM
+You are in the {GYM}.
 
 - (opts)
 + {now == morning or now == afterschool} [Approach {ATHLETE}]
@@ -23,7 +24,7 @@ The gymnasium
 
 + [Go to the locker room]
     -> locker_room
-+ [Leave the gym]
++ [Leave the {GYM}]
     -> pass_time -> hallway
 - -> opts
 
@@ -34,6 +35,8 @@ The gymnasium
  * - Sex with Athlete
  */
 = locker_room
-~ current_location = -> locker_room
-The girl's locker room
-+ [Leave the locker room] -> gym
+CONST LOCKER_ROOM = "locker room"
+~ current_location = LOCKER_ROOM
+You are in the girl’s {LOCKER_ROOM}.
+
++ [Leave the {LOCKER_ROOM}] -> gym

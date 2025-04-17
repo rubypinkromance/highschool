@@ -4,46 +4,47 @@
  * transit hub, remaining days countdown
  */
 === hallway ===
-~ current_location = -> hallway
-The hallway at school.
+CONST HALLWAY = "hallway"
+~ current_location = HALLWAY
+You are in the {HALLWAY}.
 
 // Classrooms (closed at lunch)
 { now != lunch and now != evening:
-+ [Go to the gym] -> gym
-+ [Go to the health classroom] -> health
-+ [Go to the photography classroom] -> photography
-+ [Go to the science lab] -> science
-+ [Go to the study hall] -> study_hall
-+ [Go to the theater] -> theater
++ [Go to the {GYM}] -> gym
++ [Go to the {HEALTH}] -> health
++ [Go to the {PHOTOGRAPHY}] -> photography
++ [Go to the {SCIENCE}] -> science
++ [Go to the {STUDY_HALL}] -> study_hall
++ [Go to the {THEATER}] -> theater
 }
 
 // Lunch Only
 { now == lunch:
-+ {flirted_with_teacher} [Go to the health classroom] -> health
++ {flirted_with_teacher} [Go to the {HEALTH}] -> health
 }
 
 // Lunch and After School
 { now == lunch or now == afterschool:
-+ [Go to the cafeteria] -> cafeteria
-+ [Go to the athletic field] -> field
-+ [Go to the library] -> library
-+ {has_lounge_invite} [Go to the teacher's lounge] -> lounge
-+ {has_stairwell_invite} [Go to the stairwell] -> stairwell
-+ {has_roof_invite} [Go to the roof] -> roof
-* {cheerleaderState == quest} [Go to Lance & Michelle's Locker]
++ [Go to the {CAFETERIA}] -> cafeteria
++ [Go to the {FIELD}] -> field
++ [Go to the {LIBRARY}] -> library
++ {has_lounge_invite} [Go to the {LOUNGE}] -> lounge
++ {has_stairwell_invite} [Go to the {STAIRWELL}] -> stairwell
++ {has_roof_invite} [Go to the {ROOF}] -> roof
+* {cheerleaderState == quest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
     -> cheerleader_locker -> hallway
 }
 
 // School Day Only
 { now < afterschool:
-+ [Go to the office] -> office
++ [Go to the {OFFICE}] -> office
 }
 
 // After School Only
 { now == afterschool:
-+ {has_office_invite} [Go to the office] -> office
-+ [Go to the mall] -> mall
-+ [Go to the church] -> church
++ {has_office_invite} [Go to the {OFFICE}] -> office
++ [Go to the {MALL}] -> mall
++ [Go to the {CHURCH}] -> church
 }
 
 // After School and Evening
@@ -59,9 +60,11 @@ The hallway at school.
  */
 = stairwell
 VAR has_stairwell_invite = false
-~ current_location = -> stairwell
-The remote stairwell
-+ [Leave the stairwell] -> hallway
+CONST STAIRWELL = "stairwell"
+~ current_location = STAIRWELL
+You are in the {STAIRWELL}.
+
++ [Leave the {STAIRWELL}] -> hallway
 
 /*
  * =============================================
@@ -71,6 +74,8 @@ The remote stairwell
  */
 = roof
 VAR has_roof_invite = false
-~ current_location = -> roof
-The school's roof
-+ [Leave the roof] -> hallway
+CONST ROOF = "roof"
+~ current_location = ROOF
+You are on the {ROOF}.
+
++ [Leave the {ROOF}] -> hallway

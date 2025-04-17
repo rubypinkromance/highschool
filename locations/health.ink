@@ -9,8 +9,9 @@
  * - Sex with Teacher
  */
 === health ===
-~ current_location = -> health
-Welcome to health class
+CONST HEALTH = "health classroom"
+~ current_location = HEALTH
+You are in the {HEALTH}.
 
 - (opts)
 + {now == morning} [Approach {REBEL}]
@@ -26,6 +27,6 @@ Welcome to health class
 + {now != lunch} [Approach {TEACHER}]
     -> talk_to_teacher ->
 
-+ [Leave the health classroom]
++ [Leave the {HEALTH}]
     -> pass_time -> hallway
 - -> opts

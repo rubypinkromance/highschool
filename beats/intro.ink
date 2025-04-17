@@ -1,4 +1,5 @@
 === intro ===
+CONST INTRO = "intro"
 I was walking to school when {GOSSIP} crossed the street to walk with me.
 "So," she asked with a grin, "are you still going ahead with this crazy plan to fuck every girl in our grade?"
 * "Not <em>every</em> girl[."]," I said, rolling my eyes.

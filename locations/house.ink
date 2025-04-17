@@ -2,22 +2,22 @@
  * Your bedroom
  */
 === bedroom ===
-~ current_location = -> bedroom
+CONST BEDROOM = "your bedroom"
+~ current_location = BEDROOM
+You are in {BEDROOM}.
 
 {
-- bedroom == 1:
-    This is the first turn!
 - now == morning:
     You wake up in your bed with a throbbing erection.
 - else:
     You return to your room, exhausted after a long day.
 }
 
-+ [Go to the bathroom]
++ [Go to the {BATHROOM}]
     -> bathroom
 + { now < afterschool } [Go to school]
     -> hallway
-* { cheerleaderState == has_stuff} [Jerk off with Michelle's panties]
+* { cheerleaderState == has_stuff} [Jerk off with {CHEERLEADER}'s panties]
     -> jerk_off_with_cheerleader_panties -> bedroom
 + { now >= afterschool } [Go to sleep]
     -> go_to_sleep -> bedroom
@@ -31,15 +31,17 @@
  * - Sex with Stepsister
  */
 = bathroom
-~ current_location = -> bathroom
-Your bathroom
+CONST BATHROOM = "bathroom"
+~ current_location = BATHROOM
+You are in the {BATHROOM}.
+
 Your stepsister, {STEPSISTER}, is here
 
 - (opts)
-+ [Talk to Claire]
++ [Talk to {STEPSISTER}]
     -> talk_to_stepsister ->
-+ [Look at Claire]
++ [Look at {STEPSISTER}]
     -> look_at_stepsister ->
-+ [Leave the bathroom]
++ [Leave the {BATHROOM}]
     -> bedroom
 - -> opts

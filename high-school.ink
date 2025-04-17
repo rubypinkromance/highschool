@@ -2,7 +2,7 @@
 INCLUDE helpers/time.ink
 
 // Variables
-VAR current_location = -> intro
+VAR current_location = INTRO
 
 // Story Beats
 INCLUDE beats/intro.ink

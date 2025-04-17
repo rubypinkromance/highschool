@@ -7,17 +7,18 @@
  * 4. Cheerleader
 */
 === field ===
-~ current_location = -> field
-The athletic field
+CONST FIELD = "athletic field"
+~ current_location = FIELD
+You are in the {FIELD}.
 
 - (opts)
 + {now == lunch} [Approach {ATHLETE}]
     -> talk_to_athlete ->
 + {now == afterschool and cheerleaderState < revenge} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->
-+ [Sit on the bleachers]
++ [Sit on the {BLEACHERS}]
     -> bleachers
-+ [Go under the bleachers]
++ [Go {UNDER_BLEACHERS}]
     -> under_bleachers
 + [Go back inside]
     -> pass_time -> hallway
@@ -33,7 +34,10 @@ The athletic field
  * 4. Gossip
  */
 = bleachers
-~ current_location = -> bleachers
+CONST BLEACHERS = "bleachers"
+~ current_location = BLEACHERS
+You are in the {BLEACHERS}.
+
 The bleachers overlooking the athletic field
 
 - (bleachers_opts)
@@ -41,7 +45,7 @@ The bleachers overlooking the athletic field
     -> talk_to_photographer ->
 + {now == afterschool} [Approach {GOSSIP}]
     -> talk_to_gossip ->
-+ [Leave the bleachers]
++ [Leave the {BLEACHERS}]
     -> field
 - -> bleachers_opts
 
@@ -57,18 +61,15 @@ The bleachers overlooking the athletic field
  * - Sex with Cheerleader
  */
 = under_bleachers
-~ current_location = -> under_bleachers
-Under the bleachers
+CONST UNDER_BLEACHERS = "under the bleachers"
+~ current_location = UNDER_BLEACHERS
+You are {UNDER_BLEACHERS}.
 
 - (under_opts)
 + {now == lunch} [Approach {REBEL}]
     -> talk_to_rebel ->
-* {now == afterschool and cheerleaderState == revenge} [Approach {CHEERLEADER}]
-    -> cheerleader_revenge ->
-* {now == afterschool and cheerleaderState == reward} [Approach {CHEERLEADER}]
-    -> cheerleader_reward ->
-+ {now == afterschool and cheerleaderState == repeat} [Approach {CHEERLEADER}]
-    -> cheerleader_reward_repeat ->
++ {now == afterschool and cheerleaderState >= revenge} [Approach {CHEERLEADER}]
+    -> talk_to_cheerleader ->
 + [Leave the bleachers]
     -> field
 - -> under_opts

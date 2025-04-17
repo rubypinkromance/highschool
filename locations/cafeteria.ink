@@ -7,8 +7,9 @@
  * 4. Chess Club, Nympho
  */
 === cafeteria ===
-~ current_location = -> cafeteria
-The cafeteria
+CONST CAFETERIA = "cafeteria"
+~ current_location = CAFETERIA
+You are in the {CAFETERIA}.
 
 - (opts)
 * {now == lunch and cheerleaderState == intel} [Observe {CHEERLEADER}]
@@ -29,7 +30,7 @@ The cafeteria
     -> talk_to_actor ->
 + {now == lunch or now == afterschool} [Approach {NYMPHO}]
     -> talk_to_nympho ->
-+ [Leave the cafeteria]
++ [Leave the {CAFETERIA}]
     -> pass_time -> hallway
 - -> opts
 
@@ -40,6 +41,9 @@ The cafeteria
  * - Sex with Nympho
  */
 = storage
-~ current_location = -> storage
+CONST STORAGE = "storage closet"
+~ current_location = STORAGE
+You are in the {STORAGE}.
+
 Shelves hold supplies for the chess club and other after-school activities.
-+ [Leave the storage closet] -> cafeteria
++ [Leave the {STORAGE}] -> cafeteria

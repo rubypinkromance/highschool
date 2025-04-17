@@ -7,8 +7,9 @@
  * 4. Actor
  */
 === theater ===
-~ current_location = -> theater
-Welcome to theater class
+CONST THEATER = "theater"
+~ current_location = THEATER
+You are in the {THEATER}.
 
 - (opts)
 + {now == morning} [Approach {TWIN1}]
@@ -23,9 +24,9 @@ Welcome to theater class
 + {now == afternoon or now == afterschool} [Approach {ACTOR}]
     -> talk_to_actor ->
 
-+ [Go backstage]
++ [Go {BACKSTAGE}]
     -> backstage
-+ [Leave the theater]
++ [Leave the {THEATER}]
     -> pass_time -> hallway
 - -> opts
 
@@ -36,6 +37,8 @@ Welcome to theater class
  * - Sex with actor
  */
 = backstage
-~ current_location = -> backstage
-Backstage at the theater
-+ [Leave the backstage] -> theater
+CONST BACKSTAGE = "backstage"
+~ current_location = BACKSTAGE
+You are {BACKSTAGE}.
+
++ [Leave {BACKSTAGE}] -> theater

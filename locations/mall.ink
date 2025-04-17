@@ -9,8 +9,9 @@
  * - Sex with Queen
  */
 === mall ===
-~ current_location = -> mall
-The mall!
+CONST MALL = "mall"
+~ current_location = MALL
+You are at the {MALL}.
 
 - (opts)
 + {now == afterschool} [Approach {QUEEN}]

@@ -32,12 +32,18 @@ Approach {CHEERLEADER}.
         -> look_at_cheerleader ->
     * {cheerleaderState == recon} [Suggest revenge]
         -> suggest_cheerleader_revenge ->
-    * {cheerleaderState == followup} [Follow up]
+    * {cheerleaderState == followup and current_location != UNDER_BLEACHERS} [Follow up]
         -> cheerleader_request ->
     * {cheerleaderState == has_stuff} [Deliver her stuff]
         -> deliver_cheerleader_stuff ->
-    + {cheerleaderState == complete} [Flirt]
+    + {cheerleaderState == complete and cheerleaderState != repeat} [Flirt]
         -> cheerleader_replay ->
+    * {now == afterschool and cheerleaderState == revenge} [Help her get revenge]
+        -> cheerleader_revenge ->
+    * {now == afterschool and cheerleaderState == reward} [Get your reward]
+        -> cheerleader_reward ->
+    + {now == afterschool and cheerleaderState == repeat} [Hook up]
+        -> cheerleader_reward_repeat ->
     * "What's your bra size?"
         "36D."
     + [Leave her alone]
@@ -46,7 +52,15 @@ Approach {CHEERLEADER}.
 
 === look_at_cheerleader ===
 TODO: Add look_at_cheerleader with conditional cummy descriptions
-Big tits, cheerleader outfit, covered in your spunk.
+Big tits, cheerleader outfit.
+TODO: use turn_since to only show cum if you just came on her
+
+{current_location == UNDER_BLEACHERS and cheerleaderScore == 1:
+Michelle's tits are covered in cum.
+}
+{current_location == UNDER_BLEACHERS and cheerleaderScore == 2:
+Your cum is dripping from her pussy.
+}
 ->->
 
 === observe_cheerleader ===
@@ -113,7 +127,7 @@ TODO: write cheerleader reward encounter intro
 ~ cheerleaderState = repeat
 TODO: write cheerleader repeat convo
 "Fancy a repeat?"
-"Fuck yeah, meet me behind the bleachers again after school."
+"Fuck yeah{current_location == UNDER_BLEACHERS:.|, meet me behind the bleachers again after school.}"
 ->->
 
 === cheerleader_reward_repeat ===

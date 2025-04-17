@@ -9,8 +9,9 @@
  * - Sex with Believer
  */
 === church ===
-~ current_location = -> church
-The church.
+CONST CHURCH = "church"
+~ current_location = CHURCH
+You are in the {CHURCH}.
 
 - (opts)
 + {now == afterschool} [Approach {BELIEVER}]

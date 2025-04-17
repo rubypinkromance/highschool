@@ -8,15 +8,16 @@
  */
 === clinic ===
 VAR has_nurse_invite = false
-~ current_location = -> clinic
-Welcome to the nurse's office
+CONST CLINIC = "nurse’s office"
+~ current_location = CLINIC
+You are in the {CLINIC}.
 
 - (opts)
 + [Approach {NURSE}]
     -> talk_to_nurse ->
-+ [Go to the exam area]
++ [Go to the {EXAM_AREA}]
     -> exam_area
-+ [Leave the nurse's office]
++ [Leave the {CLINIC}]
     -> pass_time -> hallway
 - -> opts
 
@@ -27,6 +28,9 @@ Welcome to the nurse's office
  * - Sex with Nurse
  */
 = exam_area
-~ current_location = -> exam_area
+CONST EXAM_AREA = "exam area"
+~ current_location = EXAM_AREA
+You are in the {EXAM_AREA}.
+
 There is a small bed here
-+ [Leave the exam area] -> clinic
++ [Leave the {EXAM_AREA}] -> clinic
