@@ -1,10 +1,6 @@
 // Helpers
 INCLUDE helpers/time.ink
 
-// Variables
-CONST DEBUG = false
-VAR here = INTRO
-
 // Story Beats
 INCLUDE beats/intro.ink
 
@@ -45,32 +41,9 @@ INCLUDE characters/nurse.ink
 INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
 
-
-// Characters (alphabetical)
-/*
-teacher         Allison
-twin            Bailey
-nympho          Claire
-rebel           Debbie
-actor           Emily
-stepsister      Flora
-gossip          Gretchen
-twin            Hailey
----             I
-nerd            Jenn
-believer        Kate
-athlete         Lindsey
-cheerleader     Michelle
-nurse           Nina
----             O
----             P
----             Q
----             R
-photographer    Steph
-scientist       Tracy
-secretary       Una
-queen           Victoria
-*/
+// Variables
+CONST DEBUG = true
+VAR here = INTRO
 
 // Start with the introduction
 { DEBUG:
