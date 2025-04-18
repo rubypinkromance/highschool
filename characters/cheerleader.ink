@@ -22,7 +22,7 @@ VAR cheerleaderScore = 0
 VAR cum_in_cheerleader_panties = false
 
 === talk_to_cheerleader ===
-You approach {CHEERLEADER}
+You approach Michelle
 { cheerleaderState <= intel:<>, who regards you warily. The two of you have gone to school together for years, but you've never actually spoken to her like this. She isn't sure what to expect. "What do you want?"}
 { cheerleaderState == recon or (cheerleaderState == revenge and here != UNDER_BLEACHERS):<>. She glances up at you briefly, but returns her attention to {JOCK}, who seems oblivious to the daggers she's shooting at him.}
 { cheerleaderState == revenge and here == UNDER_BLEACHERS:<>, who is tapping her foot impatiently.}
@@ -78,23 +78,36 @@ Big tits, cheerleader outfit.
 /* If you ask her out before her quest line, she shoots you down. */
 === cheerleader_rejection ===
 Summoning all your courage, you ask her out. "Hey, uh, do you want to go out with me sometime, like on a date?"
-She looks you up and down and scoffs. "No thanks, I've got a boyfriend."
+She looks you up and down and scoffs. "Uh, no? I've got a boyfriend."
 You feel foolish. Of course the hot cheerleader has a boyfriend.
 ->->
 
 /* After getting intel from Gossip that Cheerleader is fighting with her boyfriend, you observe she's upset because he's flirting with other girls. */
 === observe_cheerleader ===
 ~ cheerleaderState = recon
-TODO: write cheerleader observations
-You keep an eye on Michelle and Lance, looking for any clue of what they might be fighting about. It doesn't take long for you to notice that Lance is shamelessly flirting with another girl. Michelle is shooting daggers at him, but he's too distracted to notice. An idea forms in your head. You should talk to Michelle
+You keep an eye on Michelle and {JOCK}, looking for any clue of what they might be fighting about. It doesn't take long for you to notice that {JOCK} is shamelessly flirting with another girl. He's flexing and showing off, and she's laughing and touching his arm. Michelle is glaring at him, but he's too distracted to notice.
+An idea forms in your head. Maybe she's mad enough at him to fool around with you to make him jealous.
 ->->
 
 /* After observing she's upset, you suggest a way for her to get back at her boyfriend, and she agrees. */
 === suggest_cheerleader_revenge ===
 ~ cheerleaderState = revenge
-TODO: write cheerleader revenge convo
-"You know, your boyfriend's kind of a jerk."
-"Yeah he is. Meet me under the bleachers{now != afterschool: after school}."
+"You know, your boyfriend's a real jerk."
+She scowls at you, starts to protest, then looks back at {JOCK} and frowns. "I guess he is."
+* "It's not right, the way he's treating you."
+    "Excuse me?"
+    "I wouldn't blame you if you wanted to find some way to make him feel the way you feel. Maybe I could help you with that."
+* "If you were my girl, I'd treat you better."
+    "Excuse me?"
+    "Just saying. Hitting on other girls in front of you like this? Guy doesn't deserve you."
+* "I wouldn't blame you if you wanted to get back at him."
+    "Excuse me?"
+    "Just saying, if you wanted to make him jealous, I'd be happy to help."
+* "Wanna go somewhere and make him jealous?"
+-
+She seems startled by your uncharacteristic boldness, but after a moment, she nods. "You know what? Yeah. Meet me under the bleachers{now != afterschool: after school}."
+"Cool. {now == afterschool:I'm right behind you|See you there}."
+Holy shit! You can't believe that worked. Your heart pounds as you imagine what's in store.
 {now == afterschool:
 *  [Follow her under the bleachers]
     -> field.under_bleachers
