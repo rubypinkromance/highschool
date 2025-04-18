@@ -8,14 +8,18 @@
 */
 === field ===
 CONST FIELD = "athletic field"
-~ current_location = FIELD
+~ here = FIELD
 You are in the {FIELD}.
 
 - (opts)
 + {now == lunch} [Approach {ATHLETE}]
     -> talk_to_athlete ->
+
+* {now == afterschool and cheerleaderState == intel} [Observe {CHEERLEADER}]
+    -> observe_cheerleader ->
 + {now == afterschool and cheerleaderState < revenge} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->
+
 + [Sit on the {BLEACHERS}]
     -> bleachers
 + [Go {UNDER_BLEACHERS}]
@@ -35,7 +39,7 @@ You are in the {FIELD}.
  */
 = bleachers
 CONST BLEACHERS = "bleachers"
-~ current_location = BLEACHERS
+~ here = BLEACHERS
 You are in the {BLEACHERS}.
 
 The bleachers overlooking the athletic field
@@ -62,7 +66,7 @@ The bleachers overlooking the athletic field
  */
 = under_bleachers
 CONST UNDER_BLEACHERS = "under the bleachers"
-~ current_location = UNDER_BLEACHERS
+~ here = UNDER_BLEACHERS
 You are {UNDER_BLEACHERS}.
 
 - (under_opts)

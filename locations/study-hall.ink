@@ -11,7 +11,7 @@
 === study_hall ===
 VAR study_hall_supervised = true
 CONST STUDY_HALL = "study hall"
-~ current_location = STUDY_HALL
+~ here = STUDY_HALL
 You are in the {STUDY_HALL}.
 
 - (opts)

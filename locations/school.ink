@@ -5,7 +5,7 @@
  */
 === hallway ===
 CONST HALLWAY = "hallway"
-~ current_location = HALLWAY
+~ here = HALLWAY
 You are in the {HALLWAY}.
 
 // Classrooms (closed at lunch)
@@ -61,7 +61,7 @@ You are in the {HALLWAY}.
 = stairwell
 VAR has_stairwell_invite = false
 CONST STAIRWELL = "stairwell"
-~ current_location = STAIRWELL
+~ here = STAIRWELL
 You are in the {STAIRWELL}.
 
 + [Leave the {STAIRWELL}] -> hallway
@@ -75,7 +75,7 @@ You are in the {STAIRWELL}.
 = roof
 VAR has_roof_invite = false
 CONST ROOF = "roof"
-~ current_location = ROOF
+~ here = ROOF
 You are on the {ROOF}.
 
 + [Leave the {ROOF}] -> hallway

@@ -9,7 +9,7 @@
 === clinic ===
 VAR has_nurse_invite = false
 CONST CLINIC = "nurse’s office"
-~ current_location = CLINIC
+~ here = CLINIC
 You are in the {CLINIC}.
 
 - (opts)
@@ -29,7 +29,7 @@ You are in the {CLINIC}.
  */
 = exam_area
 CONST EXAM_AREA = "exam area"
-~ current_location = EXAM_AREA
+~ here = EXAM_AREA
 You are in the {EXAM_AREA}.
 
 There is a small bed here

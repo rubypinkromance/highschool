@@ -8,7 +8,7 @@
  */
 === photography ===
 CONST PHOTOGRAPHY = "photography classroom"
-~ current_location = PHOTOGRAPHY
+~ here = PHOTOGRAPHY
 You are in the {PHOTOGRAPHY}.
 
 - (opts)
@@ -36,7 +36,7 @@ You are in the {PHOTOGRAPHY}.
  */
 = darkroom
 CONST DARKROOM = "darkroom"
-~ current_location = DARKROOM
+~ here = DARKROOM
 You are in the {DARKROOM}.
 
 It's very dark in here!

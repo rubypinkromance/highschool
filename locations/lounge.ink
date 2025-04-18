@@ -11,7 +11,7 @@
 === lounge ===
 VAR has_lounge_invite = false
 CONST LOUNGE = "teacher’s lounge"
-~ current_location = LOUNGE
+~ here = LOUNGE
 You are in the {LOUNGE}.
 
 - (opts)

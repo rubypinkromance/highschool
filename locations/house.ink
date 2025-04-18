@@ -3,7 +3,7 @@
  */
 === bedroom ===
 CONST BEDROOM = "your bedroom"
-~ current_location = BEDROOM
+~ here = BEDROOM
 You are in {BEDROOM}.
 
 {
@@ -32,7 +32,7 @@ You are in {BEDROOM}.
  */
 = bathroom
 CONST BATHROOM = "bathroom"
-~ current_location = BATHROOM
+~ here = BATHROOM
 You are in the {BATHROOM}.
 
 Your stepsister, {STEPSISTER}, is here

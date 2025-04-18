@@ -10,7 +10,7 @@
  */
 === church ===
 CONST CHURCH = "church"
-~ current_location = CHURCH
+~ here = CHURCH
 You are in the {CHURCH}.
 
 - (opts)

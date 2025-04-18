@@ -9,7 +9,7 @@
 === office ===
 VAR has_office_invite = false
 CONST OFFICE = "office"
-~ current_location = OFFICE
+~ here = OFFICE
 You are at the {OFFICE}.
 
 - (opts)
@@ -29,7 +29,7 @@ You are at the {OFFICE}.
  */
 = supply_closet
 CONST SUPPLY_CLOSET = "supply closet"
-~ current_location = SUPPLY_CLOSET
+~ here = SUPPLY_CLOSET
 You are in the {SUPPLY_CLOSET}.
 
 Post-it notes galore.

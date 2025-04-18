@@ -23,40 +23,61 @@ CONST GOSSIP = "Gretchen"
 === talk_to_gossip ===
 Approach {GOSSIP}.
 - (opts)
+    + "Can I ask you about someone{ask_gossip_for_intel: else}?"
+        -> ask_gossip_for_intel ->
+    * "What's your bra size?"
+        "34B."
+    + [Walk away]
+        ->->
+- -> opts
+
+=== ask_gossip_for_intel ===
+TODO: add intel purchase system
+"Sure, who do you want to know about?"
+- (targets)
     * "What do you know about {ACTOR}?"
         Coming soon.
+        ->->
     * "What do you know about {ATHLETE}?"
         Coming soon.
+        ->->
     * "What do you know about {BELIEVER}?"
         Coming soon.
+        ->->
     * "What can you tell me about {CHEERLEADER}?"
         ~ cheerleaderState = intel
         "She's been together with {JOCK} for over a year. They're a total power couple. I heard they've been fighting lately, but I'm not sure about what. Maybe if you watch them, you can figure it out?"
+        ->->
     * "What do you know about {NERD}?"
         Coming soon.
+        ->->
     * "What do you know about {PHOTOGRAPHER}?"
         Coming soon.
+        ->->
     * "What do you know about {QUEEN}?"
         Coming soon.
+        ->->
     * "What do you know about {REBEL}?"
         Coming soon.
+        ->->
     * "What do you know about {SCIENTIST}?"
         Coming soon.
+        ->->
     * "What do you know about the twins?"
         Coming soon.
-    * "What do you know about {NURSE}?"
-        -> nothing_about_teachers ->
-    * "What do you know about {SECRETARY}?"
-        -> nothing_about_teachers ->
-    * "What do you know about {TEACHER}?"
-        -> nothing_about_teachers ->
+        ->->
+    * {clinic} "What do you know about {NURSE}?"
+        -> nothing_about_teachers ->->
+    * {office} "What do you know about {SECRETARY}?"
+        -> nothing_about_teachers ->->
+    * {health} "What do you know about {TEACHER}?"
+        -> nothing_about_teachers ->->
     * "Tell me something about you."
         "I don't like to talk about myself."
-    * "What's your bra size?"
-        "34B."
-    + [Leave her alone]
         ->->
-- -> opts
+    + "Nevermind"
+        ->->
+- -> targets
 
 === nothing_about_teachers ===
 "I don't know anything about teachers or staff. You should try talking to {NYMPHO}, her dad's the principal, so she might know something."

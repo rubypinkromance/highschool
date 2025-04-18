@@ -8,7 +8,7 @@
  */
 === cafeteria ===
 CONST CAFETERIA = "cafeteria"
-~ current_location = CAFETERIA
+~ here = CAFETERIA
 You are in the {CAFETERIA}.
 
 - (opts)
@@ -42,7 +42,7 @@ You are in the {CAFETERIA}.
  */
 = storage
 CONST STORAGE = "storage closet"
-~ current_location = STORAGE
+~ here = STORAGE
 You are in the {STORAGE}.
 
 Shelves hold supplies for the chess club and other after-school activities.

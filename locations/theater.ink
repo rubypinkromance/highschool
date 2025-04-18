@@ -8,7 +8,7 @@
  */
 === theater ===
 CONST THEATER = "theater"
-~ current_location = THEATER
+~ here = THEATER
 You are in the {THEATER}.
 
 - (opts)
@@ -38,7 +38,7 @@ You are in the {THEATER}.
  */
 = backstage
 CONST BACKSTAGE = "backstage"
-~ current_location = BACKSTAGE
+~ here = BACKSTAGE
 You are {BACKSTAGE}.
 
 + [Leave {BACKSTAGE}] -> theater

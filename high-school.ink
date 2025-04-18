@@ -2,7 +2,8 @@
 INCLUDE helpers/time.ink
 
 // Variables
-VAR current_location = INTRO
+CONST DEBUG = false
+VAR here = INTRO
 
 // Story Beats
 INCLUDE beats/intro.ink
@@ -72,4 +73,8 @@ queen           Victoria
 */
 
 // Start with the introduction
--> intro
+{ DEBUG:
+    -> hallway
+- else:
+    -> intro
+}

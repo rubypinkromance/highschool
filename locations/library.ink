@@ -10,7 +10,7 @@
  */
 === library ===
 CONST LIBRARY = "library"
-~ current_location = LIBRARY
+~ here = LIBRARY
 You are in the {LIBRARY}.
 
 - (opts)

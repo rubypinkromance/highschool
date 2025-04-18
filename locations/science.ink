@@ -10,7 +10,7 @@
  */
 === science ===
 CONST SCIENCE = "science classroom"
-~ current_location = SCIENCE
+~ here = SCIENCE
 You are in the {SCIENCE}.
 
 - (opts)

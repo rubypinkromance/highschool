@@ -10,7 +10,7 @@
  */
 === mall ===
 CONST MALL = "mall"
-~ current_location = MALL
+~ here = MALL
 You are at the {MALL}.
 
 - (opts)

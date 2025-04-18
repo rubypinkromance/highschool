@@ -8,7 +8,7 @@
  */
 === gym ===
 CONST GYM = "gymnasium"
-~ current_location = GYM
+~ here = GYM
 You are in the {GYM}.
 
 - (opts)
@@ -36,7 +36,7 @@ You are in the {GYM}.
  */
 = locker_room
 CONST LOCKER_ROOM = "locker room"
-~ current_location = LOCKER_ROOM
+~ here = LOCKER_ROOM
 You are in the girl’s {LOCKER_ROOM}.
 
 + [Leave the {LOCKER_ROOM}] -> gym

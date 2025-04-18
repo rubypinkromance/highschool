@@ -10,7 +10,7 @@
  */
 === health ===
 CONST HEALTH = "health classroom"
-~ current_location = HEALTH
+~ here = HEALTH
 You are in the {HEALTH}.
 
 - (opts)
