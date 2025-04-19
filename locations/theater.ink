@@ -17,7 +17,7 @@ You are in the {THEATER}.
 + {now == morning} [Approach {PHOTOGRAPHER}]
     -> talk_to_photographer ->
 
-* {now == afternoon and cheerleaderState == intel } [Observe {CHEERLEADER}]
+* {now == afternoon and cheerleaderState == intel } [Observe {CHEERLEADER} and {JOCK}]
     -> observe_cheerleader ->
 + {now == afternoon} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->

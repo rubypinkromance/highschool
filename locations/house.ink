@@ -18,7 +18,7 @@ You are in {BEDROOM}.
 + { now < afterschool } [Go to school]
     -> hallway
 * { cheerleaderState == has_stuff} [Jerk off with {CHEERLEADER}'s panties]
-    -> jerk_off_with_cheerleader_panties -> bedroom
+    -> cheerleader_panties -> bedroom
 + { now >= afterschool } [Go to sleep]
     -> go_to_sleep -> bedroom
 

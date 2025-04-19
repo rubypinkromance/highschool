@@ -28,8 +28,8 @@ INCLUDE characters/athlete.ink
 INCLUDE characters/believer.ink
 INCLUDE characters/cheerleader.ink
 INCLUDE characters/gossip.ink
-INCLUDE characters/jock.ink
 INCLUDE characters/nerd.ink
+INCLUDE characters/npcs.ink
 INCLUDE characters/nympho.ink
 INCLUDE characters/photographer.ink
 INCLUDE characters/queen.ink

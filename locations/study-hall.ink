@@ -15,7 +15,7 @@ CONST STUDY_HALL = "study hall"
 You are in the {STUDY_HALL}.
 
 - (opts)
-* {now == morning and cheerleaderState == intel} [Observe {CHEERLEADER}]
+* {now == morning and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
     -> observe_cheerleader ->
 + {now == morning} [Approach {BELIEVER}]
     -> talk_to_believer ->

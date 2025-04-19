@@ -15,7 +15,7 @@ You are in the {FIELD}.
 + {now == lunch} [Approach {ATHLETE}]
     -> talk_to_athlete ->
 
-* {now == afterschool and cheerleaderState == intel} [Observe {CHEERLEADER}]
+* {now == afterschool and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
     -> observe_cheerleader ->
 + {now == afterschool and cheerleaderState < revenge} [Approach {CHEERLEADER}]
     -> talk_to_cheerleader ->

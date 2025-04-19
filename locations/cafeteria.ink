@@ -12,7 +12,7 @@ CONST CAFETERIA = "cafeteria"
 You are in the {CAFETERIA}.
 
 - (opts)
-* {now == lunch and cheerleaderState == intel} [Observe {CHEERLEADER}]
+* {now == lunch and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
     -> observe_cheerleader ->
 + {now == lunch} [Approach {GOSSIP}]
     -> talk_to_gossip ->
