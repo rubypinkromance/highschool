@@ -42,8 +42,12 @@ INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
 
 // Variables
-CONST DEBUG = true
+CONST DEBUG = false
 VAR here = INTRO
+
+TODO: Add total score
+TODO: Add countdown clock
+TODO: Add sandbox mode (no countdown clock)
 
 // Start with the introduction
 { DEBUG:
