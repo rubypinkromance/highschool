@@ -122,7 +122,7 @@ Holy shit! You can't believe that worked. Your heart pounds as you imagine what'
 /* After offering to help her get revenge, she takes photos of you cumming on her tits. */
 === cheerleader_titjob ===
 ~ cheerleaderState = followup
-~ cheerleaderScore++
+~ Score += cheerleaderTitjob
 "Are you ready to make {JOCK} jealous?"
 Michelle wastes no time with pleasantries. As soon as you arrive, she whips off the top of her cheerleading uniform and drops to her knees in front of you. "Hurry up and pull your dick out before someone finds us under here."
 Quickly, you unbutton your jeans. You're a bit surprised by how motivated she is. Maybe she's just nervous about getting caught, but you think it's more than that. Under the take-charge attitude, you think she's just as nervous as you are. Heart pounding, and with no idea what's going to happen next, you pull down the front of your boxers.
@@ -181,6 +181,7 @@ You enter the combination for the locker, and it opens. Inside you find a cheerl
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === cheerleader_panties ===
+~ Score += cheerleaderPanties
 TODO: write cheerleader panties encounter
 Unable to resist the urge, you wrap Michelle's silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
@@ -197,7 +198,7 @@ TODO: write cheerleader stuff convo
 /* After offering to reward you, you meet her under the bleachers again, and have sex. */
 === cheerleader_reward ===
 ~ cheerleaderState = complete
-~ cheerleaderScore++
+~ Score += cheerleaderSex
 TODO: write cheerleader reward encounter intro
 You kiss her.
 "I'm glad you came. Let me show you how grateful I am for all your help."

@@ -40,12 +40,12 @@ INCLUDE characters/twins.ink
 INCLUDE characters/nurse.ink
 INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
+INCLUDE helpers/score.ink
+
 
 // Variables
 CONST DEBUG = true
 VAR here = INTRO
-
-TODO: Add total score
 
 // Start with the introduction
 { DEBUG:

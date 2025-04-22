@@ -22,9 +22,12 @@ VAR countdown = false
 { countdown:
     { days_remaining < 1:
             GAME OVER
+            Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
+            You { listPrint(Score, -> scoreDetails) }
             -> END
     }
     This is day { date }.
+    Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
     { days_remaining > 1:
         You have { days_remaining } days remaining, including today.
     - else:

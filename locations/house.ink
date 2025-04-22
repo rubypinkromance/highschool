@@ -13,6 +13,7 @@ You are in {BEDROOM}.
     You return to your room, exhausted after a long day.
 }
 
+- (opts)
 + [Go to the {BATHROOM}]
     -> bathroom
 + { now < afterschool } [Go to school]
@@ -21,6 +22,11 @@ You are in {BEDROOM}.
     -> cheerleader_panties -> bedroom
 + { now >= afterschool } [Go to sleep]
     -> go_to_sleep -> bedroom
++ [Check your score]
+    Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
+    You { listPrint(Score, -> scoreDetails)}.
+- -> opts
+
 
 /*
  * =============================================
@@ -37,11 +43,14 @@ You are in the {BATHROOM}.
 
 Your stepsister, {STEPSISTER}, is here
 
-- (opts)
+- (bathroom_opts)
 + [Talk to {STEPSISTER}]
     -> talk_to_stepsister ->
 + [Look at {STEPSISTER}]
     -> look_at_stepsister ->
++ [Creampie {STEPSISTER}]
+    ~ Score += stepsisterCreampie
+    You shove your cock into her dripping cunt and pump her full of cream.
 + [Leave the {BATHROOM}]
     -> bedroom
-- -> opts
+- -> bathroom_opts
