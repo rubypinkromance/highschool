@@ -1,6 +1,6 @@
 /*
 - Twins: Hailey & Bailey
-    - Kara, short bobbed hair, one with blue streak, one with green streak. Matching cat-eye glasses. Short, curves, low-cut fitted shirts, cleavage, leggings
+    - Elle Fanning: medium bleached blonde hair, short, curves, low-cut fitted shirts, skirts, cleavage, leggings, shaved pussy
     ? intel: the twins share everything. I mean, everything.
     ? recon: learn to tell them apart
     ? convo: flirt with each individually
@@ -8,20 +8,36 @@
         - dislikes serious
     * Make out on stairwell after flirting with both, challenge you to tell them apart
     * Threesome on roof if identify correctly
-    - 1: Photography/Theater
-    - 2: Cafeteria
-    - 3: Health/Gym
-    - 4: Mall
+    - 1: Photography/Gym
+    - 2: Health/Theater
+    - L: Cafeteria
+    - 3: Theater/Photography
+    - 4: Gym/Health
+    - A: Mall
 */
+CONST TWINS = "Hailey & Bailey"
+CONST TWINS_TITLE = "the twins"
+VAR TWIN1 = "Hailey"
+VAR TWIN2 = "Hailey"
+VAR TWIN1_TITLE = "(or is that Bailey?)"
+VAR TWIN2_TITLE = "(or is that Bailey?)"
 VAR can_identify_twins = false
-VAR TWIN1 = "one of the twins"
-VAR TWIN2 = "one of the twins"
 
 === function identify_twins() ===
 ~ can_identify_twins = true
 ~ TWIN1 = "Hailey"
 ~ TWIN2 = "Bailey"
+~ TWIN1_TITLE = "the twin"
+~ TWIN2_TITLE = "the twin"
 
+=== talk_to_twins ===
+Approach {TWINS}.
+- (opts)
+    * "How can I tell you apart?"
+        ~ identify_twins()
+        "She's Hailey, and I'm Bailey."
+    * [Leave them alone] ->->
+- -> opts
 
 === talk_to_twin1 ===
 Approach {TWIN1}.

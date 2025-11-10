@@ -1,26 +1,24 @@
 /*
  * The Photography Classroom
  *
- * 1. Twin 1, Queen
- * 2. ---
- * 3. Photographer, Believer
- * 4. Photographer
+ * 1. Queen, Twin 1
+ * 2. Nympho, Scientist
+ * L. ---
+ * 3. Rebel, Twin 2
+ * 4. Believer, Photographer
+ * A. Photographer
  */
 === photography ===
 CONST PHOTOGRAPHY = "photography classroom"
+VAR PhotographyPeople = ()
 ~ here = PHOTOGRAPHY
+
 You are in the {PHOTOGRAPHY}.
 
-- (opts)
-+ {now == morning} [Approach {TWIN1}]
-    -> talk_to_twin1 ->
-+ {now == morning} [Approach {QUEEN}]
-    -> talk_to_queen ->
+Looking around, you can see {listRoomPeople(PhotographyPeople)}.
 
-+ {now == afternoon} [Approach {BELIEVER}]
-    -> talk_to_believer ->
-+ {now == afternoon or now == afterschool} [Approach {PHOTOGRAPHER}]
-    -> talk_to_photographer ->
+- (opts)
+<- talkToAllCharacters(PhotographyPeople, -> photography.opts)
 
 + [Go to the {DARKROOM}]
     -> darkroom
@@ -36,8 +34,9 @@ You are in the {PHOTOGRAPHY}.
  */
 = darkroom
 CONST DARKROOM = "darkroom"
+VAR DarkroomPeople = ()
 ~ here = DARKROOM
-You are in the {DARKROOM}.
 
-It's very dark in here!
+You are in the {DARKROOM}. It's very dark in here!
+
 + [Leave the {DARKROOM}] -> photography

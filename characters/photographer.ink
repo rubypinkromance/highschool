@@ -1,5 +1,5 @@
 /*
-- Photographer: Steph
+- Photographer: Jill
     - Adele Exarchapoulos: long wavy brunette hair, Cute, low-cut babydoll top, low-cut jeans.
     ? intel: stays late in darkroom every night, once confessed her secret fantasy is meeting a stranger in the darkroom
     ? recon: favorite photographer does nudes
@@ -9,11 +9,14 @@
     * BJ in darkroom
     * sex after nude photoshoot
     - 1: Theater
-    - 2: Bleachers
-    - 3: Photography
+    - 2: Science
+    - L: Bleachers
+    - 3: Gym
     - 4: Photography
+    - A: Photography
 */
-CONST PHOTOGRAPHER = "Steph"
+CONST PHOTOGRAPHER = "Jill"
+CONST PHOTOGRAPHER_TITLE = "the photographer"
 
 === talk_to_photographer ===
 Approach {PHOTOGRAPHER}.

@@ -2,23 +2,26 @@
  * The Athletics Field
  *
  * 1. ---
- * 2. Athlete
+ * 2. ---
+ * L. Athlete
  * 3. ---
- * 4. Cheerleader
+ * 4. ---
+ * A. Cheerleader
 */
 === field ===
 CONST FIELD = "athletic field"
+VAR FieldPeople = ()
 ~ here = FIELD
+
 You are in the {FIELD}.
 
-- (opts)
-+ {now == lunch} [Approach {ATHLETE}]
-    -> talk_to_athlete ->
+Looking around, you can see {listRoomPeople(FieldPeople)}.
 
-* {now == afterschool and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
+- (opts)
+<- talkToAllCharacters(FieldPeople, -> field.opts)
+
+* {now == AfterSchool and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
     -> observe_cheerleader ->
-+ {now == afterschool and cheerleaderState < revenge} [Approach {CHEERLEADER}]
-    -> talk_to_cheerleader ->
 
 + [Sit on the {BLEACHERS}]
     -> bleachers
@@ -33,22 +36,22 @@ You are in the {FIELD}.
  * Bleachers
  *
  * 1. ---
- * 2. Photographer (walking around)
- * 3. ---
- * 4. Gossip
+ * L. Photographer (walking around)
+ * 4. ---
+ * A. Gossip
  */
 = bleachers
 CONST BLEACHERS = "bleachers"
+VAR BleachersPeople = ()
 ~ here = BLEACHERS
-You are in the {BLEACHERS}.
 
-The bleachers overlooking the athletic field
+You are in the {BLEACHERS} overlooking the athletic field.
+
+Looking around, you can see {listRoomPeople(BleachersPeople)}
 
 - (bleachers_opts)
-+ {now == lunch} [Approach {PHOTOGRAPHER}]
-    -> talk_to_photographer ->
-+ {now == afterschool} [Approach {GOSSIP}]
-    -> talk_to_gossip ->
+<- talkToAllCharacters(BleachersPeople, -> bleachers_opts)
+
 + [Leave the {BLEACHERS}]
     -> field
 - -> bleachers_opts
@@ -58,22 +61,22 @@ The bleachers overlooking the athletic field
  * Under Bleachers
  *
  * 1. ---
- * 2. Rebel (smoking)
- * 3. ---
- * 4. empty
+ * L. Rebel (smoking)
+ * 4. ---
+ * A. empty
  *
  * - Sex with Cheerleader
  */
 = under_bleachers
 CONST UNDER_BLEACHERS = "under the bleachers"
+VAR UnderBleachersPeople = ()
 ~ here = UNDER_BLEACHERS
+
 You are {UNDER_BLEACHERS}.
 
 - (under_opts)
-+ {now == lunch} [Approach {REBEL}]
-    -> talk_to_rebel ->
-+ {now == afterschool and cheerleaderState >= revenge} [Approach {CHEERLEADER}]
-    -> talk_to_cheerleader ->
+<- talkToAllCharacters(UnderBleachersPeople, -> under_opts)
+
 + [Leave the bleachers]
     -> field
 - -> under_opts

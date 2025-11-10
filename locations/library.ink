@@ -2,22 +2,26 @@
  * The Library
  *
  * 1. ---
- * 2. Nerd, Scientist
+ * 2. ---
+ * L. Nerd, Scientist
  * 3. ---
- * 4. Nerd
+ * 4. ---
+ * A. Nerd
  *
  * - Sex with Nerd
  */
 === library ===
 CONST LIBRARY = "library"
+VAR LibraryPeople = ()
 ~ here = LIBRARY
+
 You are in the {LIBRARY}.
 
+Looking around, you can see {listRoomPeople(LibraryPeople)}.
+
 - (opts)
-+ {now == lunch or now == afterschool} [Approach {NERD}]
-    -> talk_to_nerd ->
-+ {now == lunch} [Approach {SCIENTIST}]
-    -> talk_to_scientist ->
+<- talkToAllCharacters(LibraryPeople, -> library.opts)
+
 + [Leave the {LIBRARY}]
     -> pass_time -> hallway
 - -> opts

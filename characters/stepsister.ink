@@ -1,5 +1,5 @@
 /*
-- Stepsister: Flora
+- Stepsister: Alice
     - Alison Pill: straight blonde hair, medium boobs, small pokey nipples, shaved, black with pink polkadots underwear and bra.
     ? intel: read diary confessing sexual fantasies
     ? recon: spy on her masturbating in shower
@@ -8,16 +8,17 @@
         - dislikes serious
     * Masturbate together while she showers (have to be quiet!)
     * Sex in her room that night
-    - 1-3: Unavailable
-    - 4: Bathroom
+    - 1-4: Unavailable
+    - A: Bathroom
 */
-CONST STEPSISTER = "Flora"
+CONST STEPSISTER = "Alice"
+CONST STEPSISTER_TITLE = "your stepsister"
 
 === talk_to_stepsister ===
 Approach {STEPSISTER}.
 - (opts)
     + "What's your bra size?"
-        "36C, bro."
+        "34B, bro."
     + "Wanna fuck?"
         "Sure, why not?" -> fuck_stepsister ->->
     + [Leave her alone] ->->

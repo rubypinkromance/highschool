@@ -1,28 +1,26 @@
 /*
  * The Gym
  *
- * 1. Athlete, Scientist
- * 2. ---
- * 3. Twin 2, Queen
- * 4. Athlete
+ * 1. Athlete, Scientist, Twin 2, You
+ * 2. Believer, Rebel
+ * L. ---
+ * 3. Cheerleader, Photographer
+ * 4. Queen, Twin 1
+ * A. Athlete
  */
 === gym ===
 CONST GYM = "gymnasium"
+VAR GymPeople = ()
 ~ here = GYM
+
 You are in the {GYM}.
 
+Looking around, you can see {listRoomPeople(GymPeople)}.
+
 - (opts)
-+ {now == morning or now == afterschool} [Approach {ATHLETE}]
-    -> talk_to_athlete ->
-+ {now == morning} [Approach {SCIENTIST}]
-    -> talk_to_scientist ->
+<- talkToAllCharacters(GymPeople, -> gym.opts)
 
-+ {now == afternoon} [Approach {TWIN2}]
-    -> talk_to_twin2 ->
-+ {now == afternoon} [Approach {QUEEN}]
-    -> talk_to_queen ->
-
-+ [Go to the locker room]
++ [Go to the {LOCKER_ROOM}]
     -> locker_room
 + [Leave the {GYM}]
     -> pass_time -> hallway
@@ -35,8 +33,10 @@ You are in the {GYM}.
  * - Sex with Athlete
  */
 = locker_room
-CONST LOCKER_ROOM = "locker room"
+CONST LOCKER_ROOM = "girl’s locker room"
+VAR LockerRoomPeople = ()
 ~ here = LOCKER_ROOM
-You are in the girl’s {LOCKER_ROOM}.
+
+You are in the {LOCKER_ROOM}.
 
 + [Leave the {LOCKER_ROOM}] -> gym

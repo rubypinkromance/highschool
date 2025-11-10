@@ -1,6 +1,6 @@
 /*
 - Nympho: Claire
-    - Claire from loudermilk: wavy bleach blonde hair, choker, black tank top, no bra, army jacket, jean skirt, knee socks, shaved, cumslut tattoo
+    - Claire from loudermilk: wavy bleach blonde hair, choker, black tank top, no bra, army jacket, jean skirt, knee socks, shaved, cumslut tattoo, pierced nipples
     - Gives details on teachers (gossip gives details on students)
     ? intel: Gossip tells you she's a nympho
     ? recon: Come to chess club, watch her take a guy to the supply closet
@@ -20,12 +20,15 @@
         6 cum on stomach: just the tip, nude, wet rubbing, pull out!
         7 creampie: doggy-style, pull hair
         8 anal creampie, slap ass, rough and deep
-    - 1: Study Hall
-    - 2: Cafeteria
-    - 3: Science
-    - 4: Cafeteria
+    - 1: Theater
+    - 2: Photography
+    - L: Cafeteria
+    - 3: Health
+    - 4: Science
+    - A: Cafeteria
 */
 CONST NYMPHO = "Claire"
+CONST NYMPHO_TITLE = "the nympho"
 
 === talk_to_nympho ===
 Approach {NYMPHO}.

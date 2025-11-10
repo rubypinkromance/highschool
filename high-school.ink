@@ -1,5 +1,8 @@
 // Helpers
+INCLUDE helpers/characters.ink
+INCLUDE helpers/score.ink
 INCLUDE helpers/time.ink
+INCLUDE helpers/functions.ink
 
 // Story Beats
 INCLUDE beats/intro.ink
@@ -28,8 +31,8 @@ INCLUDE characters/athlete.ink
 INCLUDE characters/believer.ink
 INCLUDE characters/cheerleader.ink
 INCLUDE characters/gossip.ink
+INCLUDE characters/jock.ink
 INCLUDE characters/nerd.ink
-INCLUDE characters/npcs.ink
 INCLUDE characters/nympho.ink
 INCLUDE characters/photographer.ink
 INCLUDE characters/queen.ink
@@ -40,12 +43,16 @@ INCLUDE characters/twins.ink
 INCLUDE characters/nurse.ink
 INCLUDE characters/secretary.ink
 INCLUDE characters/teacher.ink
-INCLUDE helpers/score.ink
+
+
+
 
 
 // Variables
 CONST DEBUG = true
 VAR here = INTRO
+~ clearLocations()
+~ characterScheduler()
 
 // Start with the introduction
 { DEBUG:

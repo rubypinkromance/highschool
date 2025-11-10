@@ -3,18 +3,21 @@
  *
  * 1. Nurse
  * 2. Nurse
+ * L. Nurse
  * 3. Nurse
- * 4. (locked) Nurse
+ * 4. Nurse
+ * A. ---
  */
 === clinic ===
-VAR has_nurse_invite = false
 CONST CLINIC = "nurse’s office"
+VAR ClinicPeople = ()
 ~ here = CLINIC
+
 You are in the {CLINIC}.
 
 - (opts)
-+ [Approach {NURSE}]
-    -> talk_to_nurse ->
+<- talkToAllCharacters(ClinicPeople, -> clinic.opts)
+
 + [Go to the {EXAM_AREA}]
     -> exam_area
 + [Leave the {CLINIC}]
@@ -29,8 +32,9 @@ You are in the {CLINIC}.
  */
 = exam_area
 CONST EXAM_AREA = "exam area"
+VAR ExamAreaPeople = ()
 ~ here = EXAM_AREA
-You are in the {EXAM_AREA}.
 
-There is a small bed here
+You are in the {EXAM_AREA}. There is a small bed here.
+
 + [Leave the {EXAM_AREA}] -> clinic

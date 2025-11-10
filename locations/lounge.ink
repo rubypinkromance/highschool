@@ -2,21 +2,24 @@
  * The Teacher's Lounge
  *
  * 1. ---
- * 2. Teacher
+ * 2. ---
+ * L. Teacher
  * 3. ---
- * 4. empty
+ * 4. ---
+ * A. ---
  *
  * - Sex with Gossip
  */
 === lounge ===
-VAR has_lounge_invite = false
 CONST LOUNGE = "teacher’s lounge"
+VAR LoungePeople = ()
 ~ here = LOUNGE
+
 You are in the {LOUNGE}.
 
 - (opts)
-+ {now == lunch} [Approach {TEACHER}]
-    -> talk_to_teacher ->
+<- talkToAllCharacters(LoungePeople, -> lounge.opts)
+
 + [Leave the {LOUNGE}]
     -> pass_time -> hallway
 - -> opts

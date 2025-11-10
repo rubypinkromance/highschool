@@ -1,35 +1,30 @@
 /*
  * The Study Hall
  *
- * 1. Believer, Cheerleader, Nympho
- * 2. ---
- * 3. Rebel, Gossip, Nerd
- * 4. Rebel
+ * 1. Believer, Cheerleader
+ * 2. Actor, Queen
+ * L. ---
+ * 3. Athlete, Scientist
+ * 4. Gossip, Nerd, Rebel
+ * A. Rebel
  *
  * - Sex with Rebel once unsupervised
  */
 === study_hall ===
-VAR study_hall_supervised = true
 CONST STUDY_HALL = "study hall"
+VAR StudyHallPeople = ()
+VAR study_hall_supervised = true
 ~ here = STUDY_HALL
+
 You are in the {STUDY_HALL}.
 
-- (opts)
-* {now == morning and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
-    -> observe_cheerleader ->
-+ {now == morning} [Approach {BELIEVER}]
-    -> talk_to_believer ->
-+ {now == morning} [Approach {CHEERLEADER}]
-    -> talk_to_cheerleader ->
-+ {now == morning} [Approach {NYMPHO}]
-    -> talk_to_nympho ->
+Looking around, you can see {listRoomPeople(StudyHallPeople)}.
 
-+ {now == afternoon} [Approach {GOSSIP}]
-    -> talk_to_gossip ->
-+ {now == afternoon} [Approach {NERD}]
-    -> talk_to_nerd ->
-+ {now == afternoon or now == afterschool} [Approach {REBEL}]
-    -> talk_to_rebel ->
+- (opts)
+<- talkToAllCharacters(StudyHallPeople, -> study_hall.opts)
+
+* {now == Period1 and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
+    -> observe_cheerleader ->
 
 + [Leave the {STUDY_HALL}]
     -> pass_time -> hallway

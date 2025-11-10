@@ -9,11 +9,14 @@
     * jerk off in locker, watch change
     * Sex after discovering running make her horny, keeping up
     - 1: Gym
-    - 2: Field
-    - 3: Health
-    - 4: Gym
+    - 2: Science
+    - L: Field
+    - 3: Study Hall
+    - 4: Health
+    - A: Gym
 */
 CONST ATHLETE = "Lindsey"
+CONST ATHLETE_TITLE = "the athlete"
 
 === talk_to_athlete ===
 Approach {ATHLETE}.

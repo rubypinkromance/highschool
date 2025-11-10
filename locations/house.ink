@@ -3,24 +3,25 @@
  */
 === bedroom ===
 CONST BEDROOM = "your bedroom"
+VAR BedroomPeople = ()
 ~ here = BEDROOM
-You are in {BEDROOM}.
 
 {
-- now == morning:
+- now == Period1:
     You wake up in your bed with a throbbing erection.
 - else:
-    You return to your room, exhausted after a long day.
+    You return to {BEDROOM}, exhausted after a long day.
 }
 
 - (opts)
 + [Go to the {BATHROOM}]
     -> bathroom
-+ { now < afterschool } [Go to school]
++ { now < AfterSchool } [Go to school]
     -> hallway
+TODO: add inventory system
 * { cheerleaderState == has_stuff} [Jerk off with {CHEERLEADER}'s panties]
     -> cheerleader_panties -> bedroom
-+ { now >= afterschool } [Go to sleep]
++ { now >= AfterSchool } [Go to sleep]
     -> go_to_sleep -> bedroom
 + [Check your score]
     Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
@@ -32,16 +33,16 @@ You are in {BEDROOM}.
  * =============================================
  * The Bathroom
  *
- * 4. Stepsister
+ * A. Stepsister
  *
  * - Sex with Stepsister
  */
 = bathroom
 CONST BATHROOM = "bathroom"
+VAR BathroomPeople = ()
 ~ here = BATHROOM
-You are in the {BATHROOM}.
 
-Your stepsister, {STEPSISTER}, is here
+You are in the {BATHROOM}. Your stepsister, {STEPSISTER}, is here
 
 - (bathroom_opts)
 + [Talk to {STEPSISTER}]

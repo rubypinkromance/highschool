@@ -13,16 +13,20 @@
     g. meet for sex
     h. optional repeat sex
     - 1: Study Hall
-    - 2: Cafeteria
-    - 3: Theater
-    - 4: Field
+    - 2: Health
+    - L: Cafeteria
+    - 3: Gym
+    - 4: Theater
+    - A: Field
 */
 CONST CHEERLEADER = "Michelle"
+CONST CHEERLEADER_TITLE = "the cheerleader"
+
 LIST cheerleaderState = intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
 VAR cheerleaderScore = 0
 
 === talk_to_cheerleader ===
-You approach Michelle
+You approach {CHEERLEADER}
 { cheerleaderState <= intel:<>, who regards you warily. The two of you have gone to school together for years, but you've never actually spoken to her like this. She isn't sure what to expect. "What do you want?"}
 { cheerleaderState == recon or (cheerleaderState == revenge and here != UNDER_BLEACHERS):<>. She glances up at you briefly, but returns her attention to {JOCK}, who seems oblivious to the daggers she's shooting at him.}
 { cheerleaderState == revenge and here == UNDER_BLEACHERS:<>, who is tapping her foot impatiently.}
@@ -51,7 +55,7 @@ You approach Michelle
         -> cheerleader_reward ->
     // Wait a few turns before asking for a repeat
     + {cheerleaderState == complete and TURNS_SINCE(-> cheerleader_sex) > 3}
-        ["What are you doing{now != afterschool: later| right now}?"]
+        ["What are you doing{now != AfterSchool: later| right now}?"]
         -> cheerleader_replay ->
     + {cheerleaderState == repeat and here == UNDER_BLEACHERS}
         [Kiss her]
@@ -66,12 +70,12 @@ You approach Michelle
 TODO: write cheerleader descriptions
 Big tits, cheerleader outfit.
 
-It has been {TURNS_SINCE(-> cheerleader_titjob)} turns since Michelle gave you a titjob.
+It has been {TURNS_SINCE(-> cheerleader_titjob)} turns since {CHEERLEADER} gave you a titjob.
 
-It has been {TURNS_SINCE(-> cheerleader_sex)} turns since you fucked Michelle.
+It has been {TURNS_SINCE(-> cheerleader_sex)} turns since you fucked {CHEERLEADER}.
 
 {cheerleader_titjob and TURNS_SINCE(-> cheerleader_titjob) < 10 and here == UNDER_BLEACHERS:
-    Michelle's tits are covered in cum.
+    {CHEERLEADER}'s tits are covered in cum.
 }
 
 {cheerleader_sex and TURNS_SINCE(-> cheerleader_sex) < 10 and here == UNDER_BLEACHERS:
@@ -89,7 +93,7 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 /* After getting intel from Gossip that she's fighting with her boyfriend, you observe she's upset because he's flirting with other girls. */
 === observe_cheerleader ===
 ~ cheerleaderState = recon
-You keep an eye on Michelle and {JOCK}, looking for any clue of what they might be fighting about. It doesn't take long for you to notice that {JOCK} is shamelessly flirting with another girl. He's flexing and showing off, and she's laughing and touching his arm. Michelle is glaring at him, but he's too distracted to notice.
+You keep an eye on {CHEERLEADER} and {JOCK}, looking for any clue of what they might be fighting about. It doesn't take long for you to notice that {JOCK} is shamelessly flirting with another girl. He's flexing and showing off, and she's laughing and touching his arm. {CHEERLEADER} is glaring at him, but he's too distracted to notice.
 An idea forms in your head. Maybe she's mad enough at him to fool around with you to make him jealous.
 ->->
 
@@ -109,10 +113,10 @@ She scowls at you, starts to protest, then looks back at {JOCK} and frowns. "I g
     "Just saying, if you wanted to make him jealous, I'd be happy to help."
 * "Wanna go somewhere and make him jealous?"
 -
-She seems startled by your uncharacteristic boldness, but after a moment, she nods. "You know what? Yeah. Meet me under the bleachers{now != afterschool: after school}."
-"Cool. {now == afterschool:I'm right behind you|See you there}."
+She seems startled by your uncharacteristic boldness, but after a moment, she nods. "You know what? Yeah. Meet me under the bleachers{now != AfterSchool: after school}."
+"Cool. {now == AfterSchool:I'm right behind you|See you there}."
 Holy shit! You can't believe that worked. Your heart pounds as you imagine what's in store.
-{now == afterschool:
+{now == AfterSchool:
 *  [Follow her under the bleachers]
     -> field.under_bleachers
 - else:
@@ -124,7 +128,7 @@ Holy shit! You can't believe that worked. Your heart pounds as you imagine what'
 ~ cheerleaderState = followup
 ~ Score += cheerleaderTitjob
 "Are you ready to make {JOCK} jealous?"
-Michelle wastes no time with pleasantries. As soon as you arrive, she whips off the top of her cheerleading uniform and drops to her knees in front of you. "Hurry up and pull your dick out before someone finds us under here."
+{CHEERLEADER} wastes no time with pleasantries. As soon as you arrive, she whips off the top of her cheerleading uniform and drops to her knees in front of you. "Hurry up and pull your dick out before someone finds us under here."
 Quickly, you unbutton your jeans. You're a bit surprised by how motivated she is. Maybe she's just nervous about getting caught, but you think it's more than that. Under the take-charge attitude, you think she's just as nervous as you are. Heart pounding, and with no idea what's going to happen next, you pull down the front of your boxers.
 She wraps her hand around your cock and immediately starts squeezing. She knows what she's doing, and you quickly stiffen in her hand, until she's stroking the full length of your shaft. "Don't get too excited," she warns you, "I'm not gonna suck you off. You can put it between my tits and blow your load on my chest. That'll be enough for me to take some pics to show {JOCK} what he's missing."
 * [Nod gratefully]
@@ -176,14 +180,14 @@ TODO: write cheerleader followup convo
 === cheerleader_locker ===
 ~ cheerleaderState = has_stuff
 TODO: write cheerleader locker search
-You enter the combination for the locker, and it opens. Inside you find a cheerleading camp tote bag. You grab the things that are obviously Michelle's including some lipstick, a girl's jacket, and some panties.
+You enter the combination for the locker, and it opens. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}'s including some lipstick, a girl's jacket, and some panties.
 * [Close the locker] ->->
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === cheerleader_panties ===
 ~ Score += cheerleaderPanties
 TODO: write cheerleader panties encounter
-Unable to resist the urge, you wrap Michelle's silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
+Unable to resist the urge, you wrap {CHEERLEADER}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
 ->->
 
@@ -208,7 +212,7 @@ You kiss her.
 /* You fuck the cheerleader (broken out for replay) */
 === cheerleader_sex ===
 TODO: write cheerleader sex encounter
-Michelle passionately kisses you, and moments later, she's dropped her panties and braced herself as you enter her from behind. She bites her lip to keep from crying out as you fuck her deep, blowing your load inside.
+{CHEERLEADER} passionately kisses you, and moments later, she's dropped her panties and braced herself as you enter her from behind. She bites her lip to keep from crying out as you fuck her deep, blowing your load inside.
 You pull up your pants, give her a kiss, and turn away.
 ->->
 
@@ -216,7 +220,7 @@ You pull up your pants, give her a kiss, and turn away.
 === cheerleader_replay ===
 ~ cheerleaderState = repeat
 TODO: write cheerleader repeat convo
-"What are you doing{now != afterschool: later|right now}?"
+"What are you doing{now != AfterSchool: later|right now}?"
 "You, hopefully. {here != UNDER_BLEACHERS: Meet me behind the bleachers again after school.}"
 ->->
 

@@ -1,25 +1,23 @@
 /*
  * The Mall
  *
- * 1. ---
- * 2. ---
- * 3. ---
- * 4. Queen, Twins
+ * 1-4. ---
+ * A. Queen, Twins
  *
  * - Sex with Queen
  */
 === mall ===
 CONST MALL = "mall"
+VAR MallPeople = ()
 ~ here = MALL
+
 You are at the {MALL}.
 
+Looking around, you can see {listRoomPeople(MallPeople)}.
+
 - (opts)
-+ {now == afterschool} [Approach {QUEEN}]
-    -> talk_to_queen ->
-+ {now == afterschool} [Approach {TWIN1}]
-    -> talk_to_twin1 ->
-+ {now == afterschool} [Approach {TWIN2}]
-    -> talk_to_twin2 ->
+<- talkToAllCharacters(MallPeople, -> mall.opts)
+
 + [Go home]
     -> bedroom
 - -> opts

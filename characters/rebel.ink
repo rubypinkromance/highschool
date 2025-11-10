@@ -1,5 +1,5 @@
 /*
-- Rebel: Debbie
+- Rebel: Zia
     - Alix Traeger: Brunette hair, undercut. Short, curvy, big hips, big tits, lots of cleavage, black clothes, shirt hangs off shoulder, black bra, black thong, black, torn-up jeans.
     ? intel: arrested for public indecency (rumors vary)
     ? recon: snapping topless pics under bleachers
@@ -8,12 +8,15 @@
         - dislikes serious, sweet
     * Fool around in detention (escalate from flash to masturbation)
     * Sex in detention once unsupervised
-    - 1: Health
-    - 2: Bleachers
-    - 3: Study Hall
-    - 4: Detention
+    - 1: Science
+    - 2: Gym
+    - L: Bleachers
+    - 3: Photography
+    - 4: Study Hall
+    - A: Study Hall
 */
-CONST REBEL = "Debbie"
+CONST REBEL = "Zia"
+CONST REBEL_TITLE = "the rebel girl"
 
 === talk_to_rebel ===
 Approach {REBEL}.

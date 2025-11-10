@@ -9,11 +9,14 @@
     * (easy) Follow to mall, submissive, teases you, makes you carry stuff, follow her to lingerie store, finally lets you eat her out while the twins give you a ruined orgasm footjob
     * (hard) Follow to mall, but assert yourself, pull her into family bathroom, make twins strip her, spank her, fuck her ass, demeaning her the whole time, call her a cumslut
     - 1: Photography
-    - 2: Cafeteria
-    - 3: Gym
-    - 4: Mall
+    - 2: Study Hall
+    - L: Cafeteria
+    - 3: Theater
+    - 4: Gym
+    - A: Mall
 */
 CONST QUEEN = "Victoria"
+CONST QUEEN_TITLE = "the queen bee"
 
 === talk_to_queen ===
 Approach {QUEEN}.

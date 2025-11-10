@@ -1,5 +1,5 @@
 /*
-- Teacher: Una Talltrees
+- Teacher: Sara Talltrees
     - Sara Tomko: black hair, curvy, chestnut skin, small breasts (padded bra), big hips, jeans
     ? intel: has tattoos, pierced tongue
     ? recon: watch closely, has pierced nipples
@@ -12,6 +12,7 @@
     - 1-4. Office
 */
 CONST SECRETARY = "Ms. Talltrees"
+CONST SECRETARY_TITLE = "the office assistant"
 
 === talk_to_secretary ===
 Approach {SECRETARY}.

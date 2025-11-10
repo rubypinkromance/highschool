@@ -1,6 +1,6 @@
 /*
-- Gossip: Gretchen
-    - Mary Elizabeth Winstead: Brown shoulder length hair, tan slacks, black button-up, long coat, lacy purple bra and panties
+- Gossip: Whitney
+    - Whitney Moore: Brown shoulder length hair, tan slacks, black button-up, long coat, lacy purple bra and panties
     - Gives details on schoolgirls (Nympho gives details on teachers)
     ? intel: She tells you to ask her if you need to know anything about other girls
     ? recon: wants to be a detective (favorite books, movies, references)
@@ -23,12 +23,15 @@
     * quest: steal pills from nurse
     * quest: gives you address to surveil on your way to school, turns out to be her house, observe her getting dressed. What color are my underwear? How long are my pubes? What's my favorite movie? If you get it right, she invites you to the teacher's lounge for a final lesson.
     * Sex in empty teacher's lounge, she shows up in trenchcoat and lingerie
-    - 1: Science
-    - 2: Cafeteria
-    - 3: Study Hall
-    - 4: Bleachers
+    - 1: Health
+    - 2: Theater
+    - L: Cafeteria
+    - 3: Science
+    - 4: Study Hall
+    - A: Bleachers
 */
-CONST GOSSIP = "Gretchen"
+CONST GOSSIP = "Whitney"
+CONST GOSSIP_TITLE = "the gossip"
 
 === talk_to_gossip ===
 Approach {GOSSIP}.

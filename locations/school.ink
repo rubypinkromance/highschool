@@ -6,51 +6,62 @@
 === hallway ===
 CONST HALLWAY = "hallway"
 ~ here = HALLWAY
-You are in the {HALLWAY}.
 
-// Classrooms (closed at lunch)
-{ now != lunch and now != evening:
-+ [Go to the {GYM}] -> gym
-+ [Go to the {HEALTH}] -> health
-+ [Go to the {PHOTOGRAPHY}] -> photography
-+ [Go to the {SCIENCE}] -> science
-+ [Go to the {STUDY_HALL}] -> study_hall
-+ [Go to the {THEATER}] -> theater
-}
+You are in the {HALLWAY}. <>
 
-// Lunch Only
-{ now == lunch:
-+ {flirted_with_teacher} [Go to the {HEALTH}] -> health
-}
+~ announceTime()
 
-// Lunch and After School
-{ now == lunch or now == afterschool:
-+ [Go to the {CAFETERIA}] -> cafeteria
-+ [Go to the {FIELD}] -> field
-+ [Go to the {LIBRARY}] -> library
-+ {has_lounge_invite} [Go to the {LOUNGE}] -> lounge
+Looking around, you can see {listRoomPeople(LIST_ALL(Characters))}.
+
++ [Go to a classroom]
++ + [Go to the {GYM}] -> gym
++ + [Go to the {HEALTH}] -> health
++ + [Go to the {PHOTOGRAPHY}] -> photography
++ + [Go to the {SCIENCE}] -> science
++ + [Go to the {STUDY_HALL}] -> study_hall
++ + [Go to the {THEATER}] -> theater
++ + [Cancel] -> hallway
+
++ [Go to common areas]
++ + [Go to the {CAFETERIA}] -> cafeteria
++ + [Go to the {FIELD}] -> field
++ + [Go to the {LIBRARY}] -> library
++ + [Go to the {OFFICE}] -> office
++ + [Go to the {LOUNGE}] -> lounge
++ + [Go to the {CLINIC}] -> clinic
++ + [Cancel] -> hallway
+
++ [Go to {LOCKER}] -> your_locker
++ {cheerleaderState == quest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
+    -> cheerleader_locker -> hallway
 + {has_stairwell_invite} [Go to the {STAIRWELL}] -> stairwell
 + {has_roof_invite} [Go to the {ROOF}] -> roof
-* {cheerleaderState == quest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
-    -> cheerleader_locker -> hallway
-}
 
-// School Day Only
-{ now < afterschool:
-+ [Go to the {OFFICE}] -> office
-}
++ [Leave school]
++ + [Go home] -> bedroom
++ + [Go to the {MALL}] -> mall
++ + [Go to the {CHURCH}] -> church
++ + [Cancel] -> hallway
 
-// After School Only
-{ now == afterschool:
-+ {has_office_invite} [Go to the {OFFICE}] -> office
-+ [Go to the {MALL}] -> mall
-+ [Go to the {CHURCH}] -> church
-}
 
-// After School and Evening
-{ now == afterschool or now == evening:
-+ [Go home] -> bedroom
-}
+/*
+ * =============================================
+ * Your Locker
+ *
+ * - ?
+ */
+= your_locker
+CONST LOCKER = "your locker"
+~ here = LOCKER
+
+You are at {LOCKER}.
+
+- (locker_opts)
++ [Check score]
+    Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
+    You { listPrint(Score, -> scoreDetails)}.
+    -> locker_opts
++ [Leave {LOCKER}] -> hallway
 
 /*
  * =============================================
@@ -59,9 +70,11 @@ You are in the {HALLWAY}.
  * - Makeout with twins
  */
 = stairwell
-VAR has_stairwell_invite = false
 CONST STAIRWELL = "stairwell"
+VAR StairwellPeople = ()
+VAR has_stairwell_invite = false
 ~ here = STAIRWELL
+
 You are in the {STAIRWELL}.
 
 + [Leave the {STAIRWELL}] -> hallway
@@ -73,9 +86,11 @@ You are in the {STAIRWELL}.
  * - Sex with twins
  */
 = roof
-VAR has_roof_invite = false
 CONST ROOF = "roof"
+VAR RoofPeople = ()
+VAR has_roof_invite = false
 ~ here = ROOF
+
 You are on the {ROOF}.
 
 + [Leave the {ROOF}] -> hallway

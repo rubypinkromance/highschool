@@ -9,9 +9,14 @@
     * Convince to leave to steal meds
     * HJ after taking viagra, unable to cum
     * Fuck after catching her watching you masturbate
-    - 1-4. Clinic
+    - 1. Clinic
+    - 2. Clinic
+    - L. Clinic (Lounge?)
+    - 3. Clinic
+    - 4. Clinic
 */
-CONST NURSE = "Nurse Honeydew"
+CONST NURSE = "Ms. Honeydew"
+CONST NURSE_TITLE = "the nurse"
 
 === talk_to_nurse ===
 Approach {NURSE}.

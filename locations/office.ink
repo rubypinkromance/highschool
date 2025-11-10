@@ -3,18 +3,21 @@
  *
  * 1. Secretary
  * 2. Secretary
+ * L. Secretary
  * 3. Secretary
- * 4. (locked) Secretary
+ * 4. Secretary
+ * A. ---
  */
 === office ===
-VAR has_office_invite = false
 CONST OFFICE = "office"
+VAR OfficePeople = ()
 ~ here = OFFICE
+
 You are at the {OFFICE}.
 
 - (opts)
-+ [Approach {SECRETARY}]
-    -> talk_to_secretary ->
+<- talkToAllCharacters(OfficePeople, -> office.opts)
+
 + [Go to the {SUPPLY_CLOSET}]
     -> supply_closet
 + [Leave the {OFFICE}]
@@ -29,8 +32,9 @@ You are at the {OFFICE}.
  */
 = supply_closet
 CONST SUPPLY_CLOSET = "supply closet"
+VAR SupplyClosetPeople = ()
 ~ here = SUPPLY_CLOSET
-You are in the {SUPPLY_CLOSET}.
 
-Post-it notes galore.
+You are in the {SUPPLY_CLOSET}. Post-it notes galore.
+
 + [Leave the supply closet] -> office
