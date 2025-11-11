@@ -1,15 +1,7 @@
 /*
- * The Teacher's Lounge
- *
- * 1. ---
- * 2. ---
- * L. Teacher
- * 3. ---
- * 4. ---
- * A. ---
- *
- * - Sex with Gossip
- */
+- The Teacher's Lounge
+- Sex with Gossip
+*/
 === lounge ===
 CONST LOUNGE = "teacher’s lounge"
 VAR LoungePeople = ()
@@ -17,9 +9,11 @@ VAR LoungePeople = ()
 
 You are in the {LOUNGE}.
 
-- (opts)
-<- talkToAllCharacters(LoungePeople, -> lounge.opts)
+{listRoomPeople(LibraryPeople)}
+
+- (lounge_opts)
+<- talkAndObserveAllCharacters(LoungePeople, -> lounge_opts)
 
 + [Leave the {LOUNGE}]
     -> pass_time -> hallway
-- -> opts
+- -> lounge_opts

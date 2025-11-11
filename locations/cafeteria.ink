@@ -1,13 +1,6 @@
 /*
- * The Cafeteria
- *
- * 1. ---
- * 2. ---
- * L. Gossip, Queen, Twins, Cheerleader, Believer, Actor, Nympho
- * 3. ---
- * 4. ---
- * A. Chess Club, Nympho
- */
+- The Cafeteria
+*/
 === cafeteria ===
 CONST CAFETERIA = "cafeteria"
 VAR CafeteriaPeople = ()
@@ -15,24 +8,19 @@ VAR CafeteriaPeople = ()
 
 You are in the {CAFETERIA}.
 
-Looking around, you can see {listRoomPeople(CafeteriaPeople)}.
+{listRoomPeople(CafeteriaPeople)}
 
-- (opts)
-<- talkToAllCharacters(CafeteriaPeople, -> cafeteria.opts)
-
-* {now == Lunch and cheerleaderState == intel} [Observe {CHEERLEADER} and {JOCK}]
-    -> observe_cheerleader ->
+- (cafeteria_opts)
+<- talkAndObserveAllCharacters(CafeteriaPeople, -> cafeteria_opts)
 
 + [Leave the {CAFETERIA}]
     -> pass_time -> hallway
-- -> opts
+- -> cafeteria_opts
 
 /*
- * =============================================
- * The Storage Closet
- *
- * - Sex with Nympho
- */
+- The Storage Closet
+- Sex with Nympho
+*/
 = storage
 CONST STORAGE = "storage closet"
 VAR StoragePeople = ()

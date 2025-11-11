@@ -1,0 +1,28 @@
+/*
+- The Science Lab
+- Sex with Scientist
+*/
+=== lab ===
+CONST LAB = "science classroom"
+VAR LabPeople = ()
+~ here = LAB
+-> access_restrictions ->
+
+You are in the {LAB}.
+
+{listRoomPeople(LabPeople)}
+
+- (lab_opts)
+<- talkAndObserveAllCharacters(LabPeople, -> lab_opts)
+
++ [Leave the {LAB}]
+    -> pass_time -> hallway
+- -> lab_opts
+
+= access_restrictions
+{
+- isClassTime() and now != Period3:
+    You're not in this class! Back to the hallway…
+    -> hallway
+}
+->->

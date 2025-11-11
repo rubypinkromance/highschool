@@ -1,37 +1,38 @@
 /*
- * The Gym
- *
- * 1. Athlete, Scientist, Twin 2, You
- * 2. Believer, Rebel
- * L. ---
- * 3. Cheerleader, Photographer
- * 4. Queen, Twin 1
- * A. Athlete
- */
+- The Gym
+- Random activities in gym class: wrestling, dodgeball, etc
+*/
 === gym ===
 CONST GYM = "gymnasium"
 VAR GymPeople = ()
 ~ here = GYM
+-> access_restrictions ->
 
 You are in the {GYM}.
 
-Looking around, you can see {listRoomPeople(GymPeople)}.
+{listRoomPeople(GymPeople)}
 
-- (opts)
-<- talkToAllCharacters(GymPeople, -> gym.opts)
+- (gym_opts)
+<- talkAndObserveAllCharacters(GymPeople, -> gym_opts)
 
 + [Go to the {LOCKER_ROOM}]
     -> locker_room
 + [Leave the {GYM}]
     -> pass_time -> hallway
-- -> opts
+- -> gym_opts
+
+= access_restrictions
+{
+- isClassTime() and now != Period1:
+    You're not in this class! Back to the hallway…
+    -> hallway
+}
+->->
 
 /*
- * =============================================
- * Locker Rooms
- *
- * - Sex with Athlete
- */
+Locker Rooms
+- Sex with Athlete
+*/
 = locker_room
 CONST LOCKER_ROOM = "girl’s locker room"
 VAR LockerRoomPeople = ()

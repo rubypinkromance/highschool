@@ -1,23 +1,22 @@
 /*
- * The Hallway
- *
- * transit hub, remaining days countdown
- */
+- The Hallway
+- transit hub
+*/
 === hallway ===
 CONST HALLWAY = "hallway"
 ~ here = HALLWAY
+-> access_restrictions ->
 
+// Weekdays:
+{ isWeekday():
 You are in the {HALLWAY}. <>
-
 ~ announceTime()
-
-Looking around, you can see {listRoomPeople(LIST_ALL(Characters))}.
 
 + [Go to a classroom]
 + + [Go to the {GYM}] -> gym
-+ + [Go to the {HEALTH}] -> health
-+ + [Go to the {PHOTOGRAPHY}] -> photography
-+ + [Go to the {SCIENCE}] -> science
++ + [Go to the {HEALTH_CLASS}] -> health_class
++ + [Go to the {PHOTO_CLASS}] -> photo_class
++ + [Go to the {LAB}] -> lab
 + + [Go to the {STUDY_HALL}] -> study_hall
 + + [Go to the {THEATER}] -> theater
 + + [Cancel] -> hallway
@@ -29,13 +28,13 @@ Looking around, you can see {listRoomPeople(LIST_ALL(Characters))}.
 + + [Go to the {OFFICE}] -> office
 + + [Go to the {LOUNGE}] -> lounge
 + + [Go to the {CLINIC}] -> clinic
++ + {has_stairwell_invite} [Go to the {STAIRWELL}] -> stairwell
++ + {has_roof_invite} [Go to the {ROOF}] -> roof
 + + [Cancel] -> hallway
 
 + [Go to {LOCKER}] -> your_locker
-+ {cheerleaderState == quest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
++ {CheerleaderState == quest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
     -> cheerleader_locker -> hallway
-+ {has_stairwell_invite} [Go to the {STAIRWELL}] -> stairwell
-+ {has_roof_invite} [Go to the {ROOF}] -> roof
 
 + [Leave school]
 + + [Go home] -> bedroom
@@ -43,13 +42,31 @@ Looking around, you can see {listRoomPeople(LIST_ALL(Characters))}.
 + + [Go to the {CHURCH}] -> church
 + + [Cancel] -> hallway
 
+// Weekends:
+- else:
+
+~ announceTime()
+
+The school is closed on weekends, but you can still access the {FIELD}.
+
++ + [Go to the {FIELD}] -> field
++ + [Go home] -> bedroom
++ + [Go to the {MALL}] -> mall
++ + [Go to the {CHURCH}] -> church
+}
+
+= access_restrictions
+{
+- now == Night:
+    The school is closed. You head home.
+    -> bedroom
+}
+->->
+
 
 /*
- * =============================================
- * Your Locker
- *
- * - ?
- */
+- Your Locker
+*/
 = your_locker
 CONST LOCKER = "your locker"
 ~ here = LOCKER
@@ -64,11 +81,9 @@ You are at {LOCKER}.
 + [Leave {LOCKER}] -> hallway
 
 /*
- * =============================================
- * The Stairwell
- *
- * - Makeout with twins
- */
+- The Stairwell
+- Makeout with twins
+*/
 = stairwell
 CONST STAIRWELL = "stairwell"
 VAR StairwellPeople = ()
@@ -80,11 +95,9 @@ You are in the {STAIRWELL}.
 + [Leave the {STAIRWELL}] -> hallway
 
 /*
- * =============================================
- * The Roof
- *
- * - Sex with twins
- */
+- The Roof
+- Sex with twins
+*/
 = roof
 CONST ROOF = "roof"
 VAR RoofPeople = ()

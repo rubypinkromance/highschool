@@ -1,63 +1,63 @@
 /*
 - Cheerleader: Michelle
-    - Kayley Cuoco: bleached blonde ponytail, cheerleader uniform, sports bra, big tits, big nipples, 34-25-36
-        - likes flirty
-        - dislikes sweet
-    ? intel: heard her and Jock have been fighting
-    ? recon: observe Jock flirting with another girl
-    a. talk: suggest revenge
-    b. meet for titjob + pics to make Jock jealous
-    c. talk: she asks you to get her stuff from Jock's locker
-    d. get her stuff from Jock's locker
-    f. talk: she offers a reward
-    g. meet for sex
-    h. optional repeat sex
-    - 1: Study Hall
-    - 2: Health
-    - L: Cafeteria
-    - 3: Gym
-    - 4: Theater
-    - A: Field
+- Kayley Cuoco, but black: bleached blonde ponytail, cheerleader uniform, sports bra, big tits, big nipples, 34-25-36, landing strip
+    - likes flirty
+    - dislikes sweet
+? intel: heard her and Jock have been fighting
+? recon: observe Jock flirting with another girl
+a. talk: suggest revenge
+b. meet for titjob + pics to make Jock jealous
+c. talk: she asks you to get her stuff from Jock's locker
+d. get her stuff from Jock's locker
+f. talk: she offers a reward
+g. meet for sex
+h. optional repeat sex
+- 1: Study Hall - Bleachers
+- 2: Health     - Field
+- L: Cafeteria  - Field
+- 3: Gym        - Field
+- 4: Theater    - Bleachers
+- A: Bleachers  - ---
 */
 CONST CHEERLEADER = "Michelle"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-
-LIST cheerleaderState = intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
+LIST CheerleaderState = CheerleaderObserved, intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
 VAR cheerleaderScore = 0
+LIST CheerleaderItems = CheerleaderPanties
 
 === talk_to_cheerleader ===
 You approach {CHEERLEADER}
-{ cheerleaderState <= intel:<>, who regards you warily. The two of you have gone to school together for years, but you've never actually spoken to her like this. She isn't sure what to expect. "What do you want?"}
-{ cheerleaderState == recon or (cheerleaderState == revenge and here != UNDER_BLEACHERS):<>. She glances up at you briefly, but returns her attention to {JOCK}, who seems oblivious to the daggers she's shooting at him.}
-{ cheerleaderState == revenge and here == UNDER_BLEACHERS:<>, who is tapping her foot impatiently.}
-{ cheerleaderState == followup:<>, who is cheerfully ignoring {JOCK}. She grins at you. "What's up?"}
-{ cheerleaderState == quest or cheerleaderState == has_stuff:<>, who looks at you hopefully. "Did you get my stuff back from {JOCK}'s locker?"}
-{ cheerleaderState == reward or cheerleaderState == repeat:<>, who is waiting for you with hunger in her eyes.}
-{ cheerleaderState == complete:<>, who smiles at you. "What's up?"}
+{ CheerleaderState <= intel:<>, who regards you warily. The two of you have gone to school together for years, but you've never actually spoken to her like this. She isn't sure what to expect. "What do you want?"}
+{ CheerleaderState == recon or (CheerleaderState == revenge and here != UNDER_BLEACHERS):<>. She glances up at you briefly, but returns her attention to {JOCK}, who seems oblivious to the daggers she's shooting at him.}
+{ CheerleaderState == revenge and here == UNDER_BLEACHERS:<>, who is tapping her foot impatiently.}
+{ CheerleaderState == followup:<>, who is cheerfully ignoring {JOCK}. She grins at you. "What's up?"}
+{ CheerleaderState == quest or CheerleaderState == has_stuff:<>, who looks at you hopefully. "Did you get my stuff back from {JOCK}'s locker?"}
+{ CheerleaderState == reward or CheerleaderState == repeat:<>, who is waiting for you with hunger in her eyes.}
+{ CheerleaderState == complete:<>, who smiles at you. "What's up?"}
 - (opts)
-    * {cheerleaderState < recon}
+    * {CheerleaderState < recon}
         ["Want to go out with me?"]
         -> cheerleader_rejection ->
-    * {cheerleaderState == recon}
+    * {CheerleaderState == recon}
         ["Your boyfriend's a jerk."]
         -> suggest_cheerleader_revenge ->
-    * {cheerleaderState == revenge and here == UNDER_BLEACHERS}
+    * {CheerleaderState == revenge and here == UNDER_BLEACHERS}
         ["Ready to make {JOCK} jealous?"]
         -> cheerleader_titjob ->
-    * {cheerleaderState == followup and here != UNDER_BLEACHERS}
+    * {CheerleaderState == followup and here != UNDER_BLEACHERS}
         ["How'd {JOCK} react?"]
         -> cheerleader_request ->
-    * {cheerleaderState == has_stuff}
+    * {CheerleaderState == has_stuff}
         ["I got your things."]
         -> deliver_cheerleader_stuff ->
-    * {cheerleaderState == reward and here == UNDER_BLEACHERS}
+    * {CheerleaderState == reward and here == UNDER_BLEACHERS}
         [Kiss her]
         -> cheerleader_reward ->
     // Wait a few turns before asking for a repeat
-    + {cheerleaderState == complete and TURNS_SINCE(-> cheerleader_sex) > 3}
+    + {CheerleaderState == complete and TURNS_SINCE(-> cheerleader_sex) > 3}
         ["What are you doing{now != AfterSchool: later| right now}?"]
         -> cheerleader_replay ->
-    + {cheerleaderState == repeat and here == UNDER_BLEACHERS}
+    + {CheerleaderState == repeat and here == UNDER_BLEACHERS}
         [Kiss her]
         -> cheerleader_reward_repeat ->
     + [Check her out]
@@ -67,7 +67,6 @@ You approach {CHEERLEADER}
 - -> opts
 
 === look_at_cheerleader ===
-TODO: write cheerleader descriptions
 Big tits, cheerleader outfit.
 
 It has been {TURNS_SINCE(-> cheerleader_titjob)} turns since {CHEERLEADER} gave you a titjob.
@@ -92,14 +91,15 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 
 /* After getting intel from Gossip that she's fighting with her boyfriend, you observe she's upset because he's flirting with other girls. */
 === observe_cheerleader ===
-~ cheerleaderState = recon
+~ CheerleaderState += CheerleaderObserved
+~ CheerleaderState = recon
 You keep an eye on {CHEERLEADER} and {JOCK}, looking for any clue of what they might be fighting about. It doesn't take long for you to notice that {JOCK} is shamelessly flirting with another girl. He's flexing and showing off, and she's laughing and touching his arm. {CHEERLEADER} is glaring at him, but he's too distracted to notice.
 An idea forms in your head. Maybe she's mad enough at him to fool around with you to make him jealous.
 ->->
 
 /* After observing she's upset, you suggest a way for her to get back at her boyfriend. */
 === suggest_cheerleader_revenge ===
-~ cheerleaderState = revenge
+~ CheerleaderState = revenge
 "You know, your boyfriend's a real jerk."
 She scowls at you, starts to protest, then looks back at {JOCK} and frowns. "I guess he is."
 * "It's not right, the way he's treating you."
@@ -125,7 +125,7 @@ Holy shit! You can't believe that worked. Your heart pounds as you imagine what'
 
 /* After offering to help her get revenge, she takes photos of you cumming on her tits. */
 === cheerleader_titjob ===
-~ cheerleaderState = followup
+~ CheerleaderState = followup
 ~ Score += cheerleaderTitjob
 "Are you ready to make {JOCK} jealous?"
 {CHEERLEADER} wastes no time with pleasantries. As soon as you arrive, she whips off the top of her cheerleading uniform and drops to her knees in front of you. "Hurry up and pull your dick out before someone finds us under here."
@@ -168,8 +168,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 
 /* After the titjob, she tells you they broke up, and asks you to get her things from his locker. */
 === cheerleader_request ===
-~ cheerleaderState = quest
-TODO: write cheerleader followup convo
+~ CheerleaderState = quest
 "How'd {JOCK} react to the pictures we took?"
 "Oh he was a total bitch about it. Said some awful shit. I dumped his ass. Say, do you think you could do me a favor? Some of my stuff is in his locker, and I don't want to deal with him. Could you get it for me?"
 "Sure, what's the combination?"
@@ -178,32 +177,30 @@ TODO: write cheerleader followup convo
 
 /* After she asks for your help, you recover her things from her ex's locker. */
 === cheerleader_locker ===
-~ cheerleaderState = has_stuff
-TODO: write cheerleader locker search
+~ CheerleaderState = has_stuff
+~ Inventory += CheerleaderPanties
 You enter the combination for the locker, and it opens. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}'s including some lipstick, a girl's jacket, and some panties.
 * [Close the locker] ->->
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === cheerleader_panties ===
 ~ Score += cheerleaderPanties
-TODO: write cheerleader panties encounter
 Unable to resist the urge, you wrap {CHEERLEADER}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
 ->->
 
 /* After recovering her things from her ex's locker, she says to meet her later for a reward. */
 === deliver_cheerleader_stuff ===
-~ cheerleaderState = reward
-TODO: write cheerleader stuff convo
+~ CheerleaderState = reward
+~ Inventory -= CheerleaderPanties
 "I got your things from the locker."
 "Thanks for helping me out." She rummages through the items in the bag. {cheerleader_panties: She picks up the panties you jerked off with. They look sticky, and there's a noticable cum stain. She frowns, and your heart skips a beat. "Ew, did {JOCK} jerk off with these? He's such a creep, I should have broken up with him sooner."} Turning her attention back to you, she bites her lip and says "{here == UNDER_BLEACHERS:Come here, let me|Meet me under the bleachers again after school, so I can} show you how grateful I am."
 ->->
 
 /* After offering to reward you, you meet her under the bleachers again, and have sex. */
 === cheerleader_reward ===
-~ cheerleaderState = complete
+~ CheerleaderState = complete
 ~ Score += cheerleaderSex
-TODO: write cheerleader reward encounter intro
 You kiss her.
 "I'm glad you came. Let me show you how grateful I am for all your help."
 -> cheerleader_sex ->
@@ -211,23 +208,20 @@ You kiss her.
 
 /* You fuck the cheerleader (broken out for replay) */
 === cheerleader_sex ===
-TODO: write cheerleader sex encounter
 {CHEERLEADER} passionately kisses you, and moments later, she's dropped her panties and braced herself as you enter her from behind. She bites her lip to keep from crying out as you fuck her deep, blowing your load inside.
 You pull up your pants, give her a kiss, and turn away.
 ->->
 
 /* After having sex, you ask if she wants to do it again. */
 === cheerleader_replay ===
-~ cheerleaderState = repeat
-TODO: write cheerleader repeat convo
+~ CheerleaderState = repeat
 "What are you doing{now != AfterSchool: later|right now}?"
 "You, hopefully. {here != UNDER_BLEACHERS: Meet me behind the bleachers again after school.}"
 ->->
 
 /* After asking to have sex again, you meet her under the bleachers again. */
 === cheerleader_reward_repeat ===
-~ cheerleaderState = complete
-TODO: write cheerleader repeat encounter intro
+~ CheerleaderState = complete
 You kiss her.
 "I'm glad you came. I need you inside me again."
 -> cheerleader_sex ->

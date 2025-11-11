@@ -1,11 +1,7 @@
 /*
- * The Church
- *
- * 1-4. ---
- * A. Believer
- *
- * - Sex with Believer
- */
+- The Church
+- Sex with Believer
+*/
 === church ===
 CONST CHURCH = "church"
 VAR ChurchPeople = ()
@@ -13,9 +9,9 @@ VAR ChurchPeople = ()
 
 You are in the {CHURCH}.
 
-- (opts)
-<- talkToAllCharacters(ChurchPeople, -> church.opts)
+- (church_opts)
+<- talkAndObserveAllCharacters(ChurchPeople, -> church_opts)
 
 + [Go home]
     -> bedroom
-- -> opts
+- -> church_opts

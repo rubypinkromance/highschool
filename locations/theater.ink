@@ -1,41 +1,37 @@
 /*
- * The Theater
- *
- * 1. Photographer, Nympho
- * 2. Gossip, Twin 2
- * L. ---
- * 3. Nerd, Queen, Twin 1
- * 4. Actor, Cheerleader
- * A. Actor
- */
+- The Theater
+*/
 === theater ===
 CONST THEATER = "theater"
 VAR TheaterPeople = ()
 ~ here = THEATER
+-> access_restrictions ->
 
 You are in the {THEATER}.
 
-Looking around, you can see {listRoomPeople(TheaterPeople)}.
+{listRoomPeople(TheaterPeople)}
 
-- (opts)
-<- talkToAllCharacters(TheaterPeople, -> theater.opts)
-
-TODO: add intel system
-* {now == Period3 and cheerleaderState == intel } [Observe {CHEERLEADER} and {JOCK}]
-    -> observe_cheerleader ->
+- (theater_opts)
+<- talkAndObserveAllCharacters(TheaterPeople, -> theater_opts)
 
 + [Go {BACKSTAGE}]
     -> backstage
 + [Leave the {THEATER}]
     -> pass_time -> hallway
-- -> opts
+- -> theater_opts
+
+= access_restrictions
+{
+- isClassTime():
+    You're not in this class! Back to the hallway…
+    -> hallway
+}
+->->
 
 /*
- * =============================================
- * The Backstage
- *
- * - Sex with actor
- */
+- Backstage
+- Sex with actor
+*/
 = backstage
 CONST BACKSTAGE = "backstage"
 VAR BackstagePeople = ()

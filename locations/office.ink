@@ -1,13 +1,6 @@
 /*
- * The Office
- *
- * 1. Secretary
- * 2. Secretary
- * L. Secretary
- * 3. Secretary
- * 4. Secretary
- * A. ---
- */
+- The Office
+*/
 === office ===
 CONST OFFICE = "office"
 VAR OfficePeople = ()
@@ -15,21 +8,19 @@ VAR OfficePeople = ()
 
 You are at the {OFFICE}.
 
-- (opts)
-<- talkToAllCharacters(OfficePeople, -> office.opts)
+- (office_opts)
+<- talkAndObserveAllCharacters(OfficePeople, -> office_opts)
 
 + [Go to the {SUPPLY_CLOSET}]
     -> supply_closet
 + [Leave the {OFFICE}]
     -> pass_time -> hallway
-- -> opts
+- -> office_opts
 
 /*
- * =============================================
- * The Office Supply Closet
- *
- * - Sex with Secretary
- */
+- The Supply Closet
+- Sex with Secretary
+*/
 = supply_closet
 CONST SUPPLY_CLOSET = "supply closet"
 VAR SupplyClosetPeople = ()

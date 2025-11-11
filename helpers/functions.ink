@@ -13,3 +13,7 @@
     }
     { listPrint(list, detailFunction) }
 }
+
+=== function move(item, ref from, ref to)
+~ from -= item
+~ to += item

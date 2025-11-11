@@ -1,27 +1,28 @@
 /*
- * The Library
- *
- * 1. ---
- * 2. ---
- * L. Nerd, Scientist
- * 3. ---
- * 4. ---
- * A. Nerd
- *
- * - Sex with Nerd
- */
+- The Library
+- Sex with Nerd
+*/
 === library ===
 CONST LIBRARY = "library"
 VAR LibraryPeople = ()
 ~ here = LIBRARY
+-> access_restrictions ->
 
 You are in the {LIBRARY}.
 
-Looking around, you can see {listRoomPeople(LibraryPeople)}.
+{listRoomPeople(LibraryPeople)}
 
-- (opts)
-<- talkToAllCharacters(LibraryPeople, -> library.opts)
+- (library_opts)
+<- talkAndObserveAllCharacters(LibraryPeople, -> library_opts)
 
 + [Leave the {LIBRARY}]
     -> pass_time -> hallway
-- -> opts
+- -> library_opts
+
+= access_restrictions
+{
+- isClassTime():
+    Shouldn't you be in class right now? Back to the hallway…
+    -> hallway
+}
+->->
