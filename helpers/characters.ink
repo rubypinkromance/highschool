@@ -96,9 +96,12 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ characters -= (Twin1, Twin2)
     ~ characters += (Twins) // if both twins are here, list them together
 }
-Looking around, you can see <>
 ~ listPrint(characters, -> nameAndTitle)
-<>.
+
+=== function listRoomPeopleSentence(characters)
+{ LIST_COUNT(characters) > 0:
+    Looking around, you see {listRoomPeople(characters)}.
+}
 
 // Combine a character's name with their title, eg, "Nandor the Relentless"
 === function nameAndTitle(who)
@@ -321,7 +324,6 @@ TODO: could these be done with loops instead of hard-coded commands?
 === function clearLocations()
 ~ CafeteriaPeople = ()
 ~ StoragePeople = ()
-~ ChurchPeople = ()
 ~ ClinicPeople = ()
 ~ ExamAreaPeople = ()
 ~ FieldPeople = ()
@@ -330,16 +332,8 @@ TODO: could these be done with loops instead of hard-coded commands?
 ~ GymPeople = ()
 ~ LockerRoomPeople = ()
 ~ HealthClassPeople = ()
-~ BedroomPeople = ()
-~ BathroomPeople = ()
 ~ LibraryPeople = ()
 ~ LoungePeople = ()
-~ MallPeople = ()
-~ DressStorePeople = ()
-~ ShoeStorePeople = ()
-~ BraStorePeople = ()
-~ BookStorePeople = ()
-~ MovieTheaterPeople = ()
 ~ OfficePeople = ()
 ~ SupplyClosetPeople = ()
 ~ PhotoClassPeople = ()
@@ -350,6 +344,13 @@ TODO: could these be done with loops instead of hard-coded commands?
 ~ StudyHallPeople = ()
 ~ TheaterPeople = ()
 ~ BackstagePeople = ()
+~ ChurchPeople = ()
+~ FoodCourtPeople = ()
+~ DressStorePeople = ()
+~ ShoeStorePeople = ()
+~ BraStorePeople = ()
+~ BookStorePeople = ()
+~ MovieTheaterPeople = ()
 ~ BathroomPeople = ()
 ~ SisBedroomPeople = ()
 ~ BedroomPeople = ()

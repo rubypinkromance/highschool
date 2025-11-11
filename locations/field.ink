@@ -8,7 +8,32 @@ VAR FieldPeople = ()
 
 You are in the {FIELD}.
 
-{listRoomPeople(FieldPeople)}
+~ temp FieldPeopleCopy = FieldPeople
+- (fieldPeopleLoop)
+{
+- FieldPeopleCopy ? Athlete:
+    ~ FieldPeopleCopy -= Athlete
+    <> {nameAndTitle(Athlete)} is running laps around the track.
+    -> fieldPeopleLoop
+- FieldPeopleCopy ? Jock:
+    ~ FieldPeopleCopy -= Jock
+    <> {nameAndTitle(Jock)} is playing football with the rest of the team.
+    -> fieldPeopleLoop
+- FieldPeopleCopy ? Cheerleader:
+    ~ FieldPeopleCopy -= Cheerleader
+    <> {nameAndTitle(Cheerleader)} is dancing on the sidelines.
+    -> fieldPeopleLoop
+- LIST_COUNT(FieldPeopleCopy) > 0:
+    {listRoomPeopleSentence(FieldPeople)}
+}
+
+{ LIST_COUNT(BleachersPeople) > 0:
+    <> {listRoomPeople(BleachersPeople)} {LIST_COUNT(BleachersPeople) > 1:are|is} sitting on the bleachers.
+}
+
+{ LIST_COUNT(UnderBleachersPeople) > 0:
+    <> You think you can see someone moving under the bleachers.
+}
 
 - (field_opts)
 <- talkAndObserveAllCharacters(FieldPeople, -> field_opts)

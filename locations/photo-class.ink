@@ -9,7 +9,7 @@ VAR PhotoClassPeople = ()
 
 You are in the {PHOTO_CLASS}.
 
-{listRoomPeople(PhotoClassPeople)}
+{listRoomPeopleSentence(PhotoClassPeople)}
 
 - (photo_class_opts)
 <- talkAndObserveAllCharacters(PhotoClassPeople, -> photo_class_opts)

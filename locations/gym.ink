@@ -10,7 +10,7 @@ VAR GymPeople = ()
 
 You are in the {GYM}.
 
-{listRoomPeople(GymPeople)}
+{listRoomPeopleSentence(GymPeople)}
 
 - (gym_opts)
 <- talkAndObserveAllCharacters(GymPeople, -> gym_opts)

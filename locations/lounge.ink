@@ -9,7 +9,7 @@ VAR LoungePeople = ()
 
 You are in the {LOUNGE}.
 
-{listRoomPeople(LibraryPeople)}
+{listRoomPeopleSentence(LibraryPeople)}
 
 - (lounge_opts)
 <- talkAndObserveAllCharacters(LoungePeople, -> lounge_opts)

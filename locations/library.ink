@@ -10,7 +10,7 @@ VAR LibraryPeople = ()
 
 You are in the {LIBRARY}.
 
-{listRoomPeople(LibraryPeople)}
+{listRoomPeopleSentence(LibraryPeople)}
 
 - (library_opts)
 <- talkAndObserveAllCharacters(LibraryPeople, -> library_opts)

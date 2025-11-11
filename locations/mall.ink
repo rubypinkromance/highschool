@@ -5,16 +5,39 @@
 */
 === mall ===
 CONST MALL = "mall"
-VAR MallPeople = ()
 ~ here = MALL
 -> access_restrictions ->
 
 You are at the {MALL}. <>
 ~ announceTime()
 
-- (mall_opts)
-<- talkAndObserveAllCharacters(MallPeople, -> mall_opts)
+~ temp totalMallPeople = LIST_COUNT(FoodCourtPeople) + LIST_COUNT(DressStorePeople) + LIST_COUNT(ShoeStorePeople) + LIST_COUNT(BraStorePeople) + LIST_COUNT(BookStorePeople) + LIST_COUNT(MovieTheaterPeople)
 
+{ totalMallPeople > 1:
+    You look around for anyone you recognize.
+- else:
+    You don't see anyone you recognize.
+}
+{ LIST_COUNT(FoodCourtPeople) > 0:
+    <> {listRoomPeople(FoodCourtPeople)} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in the food court.
+}
+{ LIST_COUNT(DressStorePeople) > 0:
+    <> {listRoomPeople(DressStorePeople)} {LIST_COUNT(DressStorePeople) > 1:are|is} walking into the {DRESS_STORE}.
+}
+{ LIST_COUNT(ShoeStorePeople) > 0:
+    <> {listRoomPeople(ShoeStorePeople)} {LIST_COUNT(ShoeStorePeople) > 1:are|is} browsing in the {SHOE_STORE}.
+}
+{ LIST_COUNT(BraStorePeople) > 0:
+    <> {listRoomPeople(BraStorePeople)} {LIST_COUNT(BraStorePeople) > 1:are|is} entering the {BRA_STORE}.
+}
+{ LIST_COUNT(BookStorePeople) > 0:
+    <> {listRoomPeople(BookStorePeople)} {LIST_COUNT(BookStorePeople) > 1:are|is} at the {BOOK_STORE}.
+}
+{ LIST_COUNT(MovieTheaterPeople) > 0:
+    <> {listRoomPeople(MovieTheaterPeople)} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} at the {MOVIE_THEATER}.
+}
+
+- (mall_opts)
 + [Go to the {FOOD_COURT}] -> food_court
 + [Go to the {DRESS_STORE}] -> dress_store
 + [Go to the {SHOE_STORE}] -> shoe_store
@@ -41,10 +64,10 @@ VAR FoodCourtPeople = ()
 
 You are in the {FOOD_COURT}.
 
-{listRoomPeople(FoodCourtPeople)}
+{listRoomPeopleSentence(FoodCourtPeople)}
 
 - (food_court_opts)
-<- talkAndObserveAllCharacters(MallPeople, -> food_court_opts)
+<- talkAndObserveAllCharacters(FoodCourtPeople, -> food_court_opts)
 
 + [Leave the {FOOD_COURT}]
     -> pass_time -> mall
@@ -60,7 +83,7 @@ VAR ShoeStorePeople = ()
 
 You are in the {SHOE_STORE}.
 
-{listRoomPeople(ShoeStorePeople)}
+{listRoomPeopleSentence(ShoeStorePeople)}
 
 - (shoe_store_opts)
 <- talkAndObserveAllCharacters(ShoeStorePeople, -> shoe_store_opts)
@@ -79,7 +102,7 @@ VAR BraStorePeople = ()
 
 You are in the {BRA_STORE}.
 
-{listRoomPeople(BraStorePeople)}
+{listRoomPeopleSentence(BraStorePeople)}
 
 - (bra_store_opts)
 <- talkAndObserveAllCharacters(BraStorePeople, -> bra_store_opts)
@@ -98,7 +121,7 @@ VAR DressStorePeople = ()
 
 You are in the {DRESS_STORE}.
 
-{listRoomPeople(DressStorePeople)}
+{listRoomPeopleSentence(DressStorePeople)}
 
 - (dress_store_opts)
 <- talkAndObserveAllCharacters(DressStorePeople, -> dress_store_opts)
@@ -117,7 +140,7 @@ VAR BookStorePeople = ()
 
 You are in the {BOOK_STORE}.
 
-{listRoomPeople(BookStorePeople)}
+{listRoomPeopleSentence(BookStorePeople)}
 
 - (book_store_opts)
 <- talkAndObserveAllCharacters(BookStorePeople, -> book_store_opts)
@@ -136,7 +159,7 @@ VAR MovieTheaterPeople = ()
 
 You are in the {MOVIE_THEATER}.
 
-{listRoomPeople(MovieTheaterPeople)}
+{listRoomPeopleSentence(MovieTheaterPeople)}
 
 - (movie_theater_opts)
 <- talkAndObserveAllCharacters(MovieTheaterPeople, -> movie_theater_opts)

@@ -10,7 +10,7 @@ VAR HealthClassPeople = ()
 
 You are in the {HEALTH_CLASS}.
 
-{listRoomPeople(HealthClassPeople)}
+{listRoomPeopleSentence(HealthClassPeople)}
 
 - (health_class_opts)
 <- talkAndObserveAllCharacters(HealthClassPeople, -> health_class_opts)

@@ -11,7 +11,7 @@ VAR study_hall_supervised = true
 
 You are in the {STUDY_HALL}.
 
-{listRoomPeople(StudyHallPeople)}
+{listRoomPeopleSentence(StudyHallPeople)}
 
 - (study_hall_opts)
 <- talkAndObserveAllCharacters(StudyHallPeople, -> study_hall_opts)

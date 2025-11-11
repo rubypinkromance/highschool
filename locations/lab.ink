@@ -10,7 +10,7 @@ VAR LabPeople = ()
 
 You are in the {LAB}.
 
-{listRoomPeople(LabPeople)}
+{listRoomPeopleSentence(LabPeople)}
 
 - (lab_opts)
 <- talkAndObserveAllCharacters(LabPeople, -> lab_opts)

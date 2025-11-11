@@ -5,7 +5,7 @@ VAR WeekendDays = (Saturday, Sunday)
 VAR ClassTimes = (Period1, Period2, Period3, Period4)
 
 VAR now = Period1
-VAR today = Monday
+VAR today = Sunday
 VAR date = 1
 VAR days_remaining = 30
 VAR countdown = false
@@ -76,8 +76,6 @@ VAR countdown = false
 // At the end of the day, update the calendar and reset
 === go_to_sleep ===
 ~ now = Period1        // set the clock
-~ clearLocations()     // empty the rooms
-~ characterScheduler() // move people to new locations
 ~ date++               // update the calendar
 ~ days_remaining--     // update the countdown
 { today == Saturday:
@@ -100,4 +98,6 @@ VAR countdown = false
         This is your last day!
     }
 }
+~ clearLocations()     // empty the rooms
+~ characterScheduler() // move people to new locations
 ->->

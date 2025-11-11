@@ -9,7 +9,7 @@ VAR TheaterPeople = ()
 
 You are in the {THEATER}.
 
-{listRoomPeople(TheaterPeople)}
+{listRoomPeopleSentence(TheaterPeople)}
 
 - (theater_opts)
 <- talkAndObserveAllCharacters(TheaterPeople, -> theater_opts)

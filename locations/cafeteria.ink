@@ -8,7 +8,7 @@ VAR CafeteriaPeople = ()
 
 You are in the {CAFETERIA}.
 
-{listRoomPeople(CafeteriaPeople)}
+{listRoomPeopleSentence(CafeteriaPeople)}
 
 - (cafeteria_opts)
 <- talkAndObserveAllCharacters(CafeteriaPeople, -> cafeteria_opts)
