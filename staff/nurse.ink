@@ -13,7 +13,9 @@
 */
 CONST NURSE = "Ms. Honeydew"
 CONST NURSE_TITLE = "the nurse"
-LIST NurseState = NurseObserved
+LIST NurseState = (NurseObserved)
+VAR NurseMood = Neutral
+VAR NurseBaseMood = Neutral
 
 === talk_to_nurse ===
 Approach {NURSE}.

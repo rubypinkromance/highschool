@@ -16,13 +16,15 @@
 - A: Bathroom - Bathroom
 - N: Bedroom  - Bedroom
 */
-CONST STEPSISTER = "Alice"
-CONST STEPSISTER_TITLE = "your stepsister"
-LIST StepsisterState = SisObserved
-LIST StepsisterItems = SisPanties, SisDiary
+CONST SIS = "Alice"
+CONST SIS_TITLE = "your stepsister"
+LIST SisState = (SisObserved)
+LIST SisItems = SisPanties, SisDiary
+VAR SisMood = Friendly
+VAR SisBaseMood = Friendly
 
 === talk_to_stepsister ===
-Approach {STEPSISTER}.
+Approach {SIS}.
 - (opts)
     + "What's your bra size?"
         "34B, bro."
@@ -32,12 +34,12 @@ Approach {STEPSISTER}.
 - -> opts
 
 === observe_stepsister ===
-~ StepsisterState += SisObserved
+~ SisState += SisObserved
 Coming soon.
 ->->
 
 === look_at_stepsister ===
-Look at {STEPSISTER}.
+Look at {SIS}.
 - (opts)
     + [Check her out]
         She's smoking hot, man.
@@ -51,7 +53,7 @@ Look at {STEPSISTER}.
 
 === fuck_stepsister ===
 
-This is it, you're finally going to fuck {STEPSISTER}.
+This is it, you're finally going to fuck {SIS}.
 
 - (opts)
     + "Suck my cock"
@@ -65,7 +67,7 @@ This is it, you're finally going to fuck {STEPSISTER}.
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === stepsister_panties ===
-Unable to resist the urge, you wrap {STEPSISTER}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
+Unable to resist the urge, you wrap {SIS}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
 ->->
 

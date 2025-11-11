@@ -18,6 +18,8 @@
 CONST REBEL = "Zia"
 CONST REBEL_TITLE = "the rebel girl"
 LIST RebelState = RebelObserved
+VAR RebelMood = Hostile
+VAR RebelBaseMood = Hostile
 
 === talk_to_rebel ===
 Approach {REBEL}.

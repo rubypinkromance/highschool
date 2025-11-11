@@ -22,6 +22,8 @@ VAR TWIN2 = "Hailey"
 VAR TWIN1_TITLE = "(or is that Bailey?)"
 VAR TWIN2_TITLE = "(or is that Bailey?)"
 LIST TwinsState = TwinsObserved
+VAR TwinsMood = Neutral
+VAR TwinsBaseMood = Neutral
 VAR can_identify_twins = false
 
 === function identify_twins() ===

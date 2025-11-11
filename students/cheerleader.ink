@@ -24,6 +24,8 @@ CONST CHEERLEADER_TITLE = "the cheerleader"
 LIST CheerleaderState = CheerleaderObserved, intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
 VAR cheerleaderScore = 0
 LIST CheerleaderItems = CheerleaderPanties
+VAR CheerleaderMood = Neutral
+VAR CheerleaderBaseMood = Neutral
 
 === talk_to_cheerleader ===
 You approach {CHEERLEADER}

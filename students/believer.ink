@@ -18,6 +18,8 @@
 CONST BELIEVER = "Kate"
 CONST BELIEVER_TITLE = "the religious girl"
 LIST BelieverState = BelieverObserved
+VAR BelieverMood = Neutral
+VAR BelieverBaseMood = Neutral
 
 === talk_to_believer ===
 Approach {BELIEVER}.

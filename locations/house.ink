@@ -18,7 +18,7 @@ VAR BedroomPeople = ()
 - else:
     You return to {BEDROOM}.
 }
-{BedroomPeople ? Stepsister:<> Your stepsister {STEPSISTER} is here}
+{BedroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
 
 ~ announceTime()
 
@@ -33,7 +33,7 @@ VAR BedroomPeople = ()
     -> hallway
 * { Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
     -> cheerleader_panties ->
-* { Inventory ? SisPanties } [Jerk off with {STEPSISTER}'s panties]
+* { Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
     -> stepsister_panties ->
 + { now >= AfterSchool } [Go to sleep]
     -> go_to_sleep ->
@@ -54,15 +54,15 @@ VAR BathroomItems = ()
 ~ here = BATHROOM
 
 You are in the {BATHROOM}.
-{BathroomPeople ? Stepsister:<> Your stepsister {STEPSISTER} is here}
+{BathroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
 
 - (bathroom_opts)
 <- talkAndObserveAllCharacters(BathroomPeople, -> bathroom_opts)
 
-+ [Look at {STEPSISTER}]
++ [Look at {SIS}]
     -> look_at_stepsister ->
-+ [Creampie {STEPSISTER}]
-    ~ Score += stepsisterCreampie
++ [Creampie {SIS}]
+    ~ Score += sisCreampie
     You shove your cock into her dripping cunt and pump her full of cream.
 + { Inventory ? SisPanties } [Put {Stepsister}'s panties in the laundry]
     ~ move(SisPanties, Inventory, BathroomItems)
@@ -82,7 +82,7 @@ VAR SisBedroomItems = (SisPanties)
 ~ here = SIS_BEDROOM
 
 You are in {SIS_BEDROOM}.
-{SisBedroomPeople ? Stepsister:<> Your stepsister {STEPSISTER} is here}
+{SisBedroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
 
 - (sis_bedroom_opts)
 <- talkAndObserveAllCharacters(SisBedroomPeople, -> sis_bedroom_opts)

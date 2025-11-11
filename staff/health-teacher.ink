@@ -13,8 +13,10 @@
 */
 CONST HEALTH_TEACHER = "Ms. Day"
 CONST HEALTH_TEACHER_TITLE = "the health teacher"
-LIST HealthTeacherState = HealthTeacherObserved
+LIST HealthTeacherState = (HealthTeacherObserved)
 VAR flirted_with_teacher = false
+VAR HealthTeacherMood = Neutral
+VAR HealthTeacherBaseMood = Neutral
 
 === talk_to_health_teacher ===
 Approach {HEALTH_TEACHER}.
@@ -24,6 +26,7 @@ Approach {HEALTH_TEACHER}.
     + [Leave her alone] ->->
 - -> opts
 
+// After her behavior changes, remove HealthTeacherObserved
 === observe_health_teacher ===
 ~ HealthTeacherState += HealthTeacherObserved
 Coming soon.

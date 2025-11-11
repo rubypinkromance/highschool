@@ -19,6 +19,8 @@
 CONST NERD = "Felicia"
 CONST NERD_TITLE = "the cute nerd"
 LIST NerdState = NerdObserved
+VAR NerdMood = Neutral
+VAR NerdBaseMood = Neutral
 
 === talk_to_nerd ===
 Approach {NERD}.

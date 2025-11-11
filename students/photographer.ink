@@ -19,6 +19,8 @@
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"
 LIST PhotographerState = PhotographerObserved
+VAR PhotographerMood = Neutral
+VAR PhotographerBaseMood = Neutral
 
 === talk_to_photographer ===
 Approach {PHOTOGRAPHER}.

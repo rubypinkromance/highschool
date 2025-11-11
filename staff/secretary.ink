@@ -13,7 +13,9 @@
 */
 CONST SECRETARY = "Ms. Talltrees"
 CONST SECRETARY_TITLE = "the office assistant"
-LIST SecretaryState = SecretaryObserved
+LIST SecretaryState = (SecretaryObserved)
+VAR SecretaryMood = Friendly
+VAR SecretaryBaseMood = Friendly
 
 === talk_to_secretary ===
 Approach {SECRETARY}.

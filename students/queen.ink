@@ -18,6 +18,8 @@
 CONST QUEEN = "Victoria"
 CONST QUEEN_TITLE = "the queen bee"
 LIST QueenState = QueenObserved
+VAR QueenMood = Hostile
+VAR QueenBaseMood = Hostile
 
 === talk_to_queen ===
 Approach {QUEEN}.

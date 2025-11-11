@@ -30,6 +30,8 @@
 CONST NYMPHO = "Claire"
 CONST NYMPHO_TITLE = "the nympho"
 LIST NymphoState = NymphoObserved
+VAR NymphoMood = Aroused
+VAR NymphoBaseMood = Aroused
 
 === talk_to_nympho ===
 Approach {NYMPHO}.

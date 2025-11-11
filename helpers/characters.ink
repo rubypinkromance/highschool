@@ -1,6 +1,7 @@
 LIST Students = Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, Twin1, Twin2, Twins
 LIST Staff = HealthTeacher, Nurse, Secretary
-LIST CharacterAttributes = Name, Title, State, ObservedState, TalkFunction, ObserveFunction
+LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction
+LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 
 /*
 Try to avoid multiple characters whose names start with the same letter.
@@ -34,51 +35,53 @@ Try to avoid multiple characters whose names start with the same letter.
 === function characterData(who, what)
 { who:
 - Actor:
-    ~ return getCharacterData(what, ACTOR, ACTOR_TITLE, ActorState, ActorObserved, -> talk_to_actor, -> observe_actor)
+    ~ return fetchCharacterData(what, ACTOR, ACTOR_TITLE, ActorState, ActorObserved, ActorMood, ActorBaseMood, -> talk_to_actor, -> observe_actor)
 - Athlete:
-    ~ return getCharacterData(what, ATHLETE, ATHLETE_TITLE, AthleteState, AthleteObserved, -> talk_to_athlete, -> observe_athlete)
+    ~ return fetchCharacterData(what, ATHLETE, ATHLETE_TITLE, AthleteState, AthleteObserved, AthleteMood, AthleteBaseMood, -> talk_to_athlete, -> observe_athlete)
 - Believer:
-    ~ return getCharacterData(what, BELIEVER, BELIEVER_TITLE, BelieverState, BelieverObserved, -> talk_to_believer, -> observe_believer)
+    ~ return fetchCharacterData(what, BELIEVER, BELIEVER_TITLE, BelieverState, BelieverObserved, BelieverMood, BelieverBaseMood, -> talk_to_believer, -> observe_believer)
 - Cheerleader:
-    ~ return getCharacterData(what, CHEERLEADER, CHEERLEADER_TITLE, CheerleaderState, CheerleaderObserved, -> talk_to_cheerleader, -> observe_cheerleader)
+    ~ return fetchCharacterData(what, CHEERLEADER, CHEERLEADER_TITLE, CheerleaderState, CheerleaderObserved, CheerleaderMood, CheerleaderBaseMood, -> talk_to_cheerleader, -> observe_cheerleader)
 - Gossip:
-    ~ return getCharacterData(what, GOSSIP, GOSSIP_TITLE, GossipState, GossipObserved, -> talk_to_gossip, -> observe_gossip)
+    ~ return fetchCharacterData(what, GOSSIP, GOSSIP_TITLE, GossipState, GossipObserved, GossipMood, GossipBaseMood, -> talk_to_gossip, -> observe_gossip)
 - Nerd:
-    ~ return getCharacterData(what, NERD, NERD_TITLE, NerdState, NerdObserved, -> talk_to_nerd, -> observe_nerd)
+    ~ return fetchCharacterData(what, NERD, NERD_TITLE, NerdState, NerdObserved, NerdMood, NerdBaseMood, -> talk_to_nerd, -> observe_nerd)
 - Jock:
-    ~ return getCharacterData(what, JOCK, JOCK_TITLE, JockState, JockObserved, -> talk_to_jock, -> observe_jock)
+    ~ return fetchCharacterData(what, JOCK, JOCK_TITLE, JockState, JockObserved, JockMood, JockBaseMood, -> talk_to_jock, -> observe_jock)
 - Nympho:
-    ~ return getCharacterData(what, NYMPHO, NYMPHO_TITLE, NymphoState, NymphoObserved, -> talk_to_nympho, -> observe_nympho)
+    ~ return fetchCharacterData(what, NYMPHO, NYMPHO_TITLE, NymphoState, NymphoObserved, NymphoMood, NymphoBaseMood, -> talk_to_nympho, -> observe_nympho)
 - Photographer:
-    ~ return getCharacterData(what, PHOTOGRAPHER, PHOTOGRAPHER_TITLE, PhotographerState, PhotographerObserved, -> talk_to_photographer, -> observe_photographer)
+    ~ return fetchCharacterData(what, PHOTOGRAPHER, PHOTOGRAPHER_TITLE, PhotographerState, PhotographerObserved, PhotographerMood, PhotographerBaseMood, -> talk_to_photographer, -> observe_photographer)
 - Queen:
-    ~ return getCharacterData(what, QUEEN, QUEEN_TITLE, QueenState, QueenObserved, -> talk_to_queen, -> observe_queen)
+    ~ return fetchCharacterData(what, QUEEN, QUEEN_TITLE, QueenState, QueenObserved, QueenMood, QueenBaseMood, -> talk_to_queen, -> observe_queen)
 - Rebel:
-    ~ return getCharacterData(what, REBEL, REBEL_TITLE, RebelState, RebelObserved, -> talk_to_rebel, -> observe_rebel)
+    ~ return fetchCharacterData(what, REBEL, REBEL_TITLE, RebelState, RebelObserved, RebelMood, RebelBaseMood, -> talk_to_rebel, -> observe_rebel)
 - Scientist:
-    ~ return getCharacterData(what, SCIENTIST, SCIENTIST_TITLE, ScientistState, ScientistObserved, -> talk_to_scientist, -> observe_scientist)
+    ~ return fetchCharacterData(what, SCIENTIST, SCIENTIST_TITLE, ScientistState, ScientistObserved, ScientistMood, ScientistBaseMood, -> talk_to_scientist, -> observe_scientist)
 - Stepsister:
-    ~ return getCharacterData(what, STEPSISTER, STEPSISTER_TITLE, StepsisterState, SisObserved, -> talk_to_stepsister, -> observe_stepsister)
+    ~ return fetchCharacterData(what, SIS, SIS_TITLE, SisState, SisObserved, SisMood, SisBaseMood, -> talk_to_stepsister, -> observe_stepsister)
 - Twin1:
-    ~ return getCharacterData(what, TWIN1, TWIN1_TITLE, TwinsState, TwinsObserved, -> talk_to_twin1, -> observe_twins)
+    ~ return fetchCharacterData(what, TWIN1, TWIN1_TITLE, TwinsState, TwinsObserved, TwinsMood, TwinsBaseMood, -> talk_to_twin1, -> observe_twins)
 - Twin2:
-    ~ return getCharacterData(what, TWIN2, TWIN2_TITLE, TwinsState, TwinsObserved, -> talk_to_twin2, -> observe_twins)
+    ~ return fetchCharacterData(what, TWIN2, TWIN2_TITLE, TwinsState, TwinsObserved, TwinsMood, TwinsBaseMood, -> talk_to_twin2, -> observe_twins)
 - Twins:
-    ~ return getCharacterData(what, TWINS, TWINS_TITLE, TwinsState, TwinsObserved, -> talk_to_twins, -> observe_twins)
+    ~ return fetchCharacterData(what, TWINS, TWINS_TITLE, TwinsState, TwinsObserved, TwinsMood, TwinsBaseMood, -> talk_to_twins, -> observe_twins)
 - Nurse:
-    ~ return getCharacterData(what, NURSE, NURSE_TITLE, NurseState, NurseObserved, -> talk_to_nurse, -> observe_nurse)
+    ~ return fetchCharacterData(what, NURSE, NURSE_TITLE, NurseState, NurseObserved, NurseMood, NurseBaseMood, -> talk_to_nurse, -> observe_nurse)
 - Secretary:
-    ~ return getCharacterData(what, SECRETARY, SECRETARY_TITLE, SecretaryState, SecretaryObserved, -> talk_to_secretary, -> observe_secretary)
+    ~ return fetchCharacterData(what, SECRETARY, SECRETARY_TITLE, SecretaryState, SecretaryObserved, SecretaryMood, SecretaryBaseMood, -> talk_to_secretary, -> observe_secretary)
 - HealthTeacher:
-    ~ return getCharacterData(what, HEALTH_TEACHER, HEALTH_TEACHER_TITLE, HealthTeacherState, HealthTeacherObserved, -> talk_to_health_teacher, -> observe_health_teacher)
+    ~ return fetchCharacterData(what, HEALTH_TEACHER, HEALTH_TEACHER_TITLE, HealthTeacherState, HealthTeacherObserved, HealthTeacherMood, HealthTeacherBaseMood, -> talk_to_health_teacher, -> observe_health_teacher)
 }
 
 // Returns a single piece of data about a character
-=== function getCharacterData(what, name, title, state, observed_state, talk_function, observe_function)
+=== function fetchCharacterData(what, name, title, state, observed_state, mood, base_mood, talk_function, observe_function)
 { what:
 - Name: ~ return name
 - Title: ~ return title
 - State: ~ return state
+- Mood: ~ return mood
+- BaseMood: ~ return base_mood
 - ObservedState: ~ return observed_state
 - TalkFunction: ~ return talk_function
 - ObserveFunction: ~ return observe_function
@@ -176,6 +179,16 @@ Looking around, you can see <>
 ~ temp target = characterData(who, ObserveFunction)
 + {state !? observed} [Observe {name}] -> target ->
 -> return_to
+
+=== function improveMood(ref mood)
+{ mood != Desperate:
+    ~ mood++
+}
+
+=== function worseMood(ref mood)
+{ mood != Hostile:
+    ~ mood--
+}
 
 // Determine who is where, when
 === function characterScheduler()
@@ -301,6 +314,8 @@ Looking around, you can see <>
 }
 }
 
+TODO: could these be done with loops instead of hard-coded commands?
+
 // This function empties all the room.
 // Run it before characterScheduler()
 === function clearLocations()
@@ -338,4 +353,25 @@ Looking around, you can see <>
 ~ BathroomPeople = ()
 ~ SisBedroomPeople = ()
 ~ BedroomPeople = ()
+
+// This function resets all characters to their base state.
+// Run it at the start of each day.
+=== function resetMoods()
+~ ActorMood = ActorBaseMood
+~ AthleteMood = AthleteBaseMood
+~ BelieverMood = BelieverBaseMood
+~ CheerleaderMood = CheerleaderBaseMood
+~ GossipMood = GossipBaseMood
+~ JockMood = JockBaseMood
+~ NerdMood = NerdBaseMood
+~ NymphoMood = NymphoBaseMood
+~ PhotographerMood = PhotographerBaseMood
+~ QueenMood = QueenBaseMood
+~ RebelMood = RebelBaseMood
+~ ScientistMood = ScientistBaseMood
+~ SisMood = SisBaseMood
+~ TwinsMood = TwinsBaseMood
+~ HealthTeacherMood = HealthTeacherBaseMood
+~ NurseMood = NurseBaseMood
+~ SecretaryMood = SecretaryBaseMood
 

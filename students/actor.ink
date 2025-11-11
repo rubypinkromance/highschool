@@ -17,7 +17,9 @@
 */
 CONST ACTOR = "Dana"
 CONST ACTOR_TITLE = "the theater kid"
-LIST ActorState = Unknown, ActorBraSize, ActorObserved
+LIST ActorState = ActorObserved, ActorBraSize
+VAR ActorMood = Neutral
+VAR ActorBaseMood = Neutral
 
 === talk_to_actor ===
 Approach {ACTOR}.

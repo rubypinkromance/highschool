@@ -18,6 +18,8 @@
 CONST SCIENTIST = "Grace"
 CONST SCIENTIST_TITLE = "the scientist"
 LIST ScientistState = ScientistObserved
+VAR ScientistMood = Neutral
+VAR ScientistBaseMood = Neutral
 
 === talk_to_scientist ===
 Approach {SCIENTIST}.

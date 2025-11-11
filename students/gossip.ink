@@ -33,6 +33,8 @@
 CONST GOSSIP = "Whitney"
 CONST GOSSIP_TITLE = "the gossip"
 LIST GossipState = GossipObserved
+VAR GossipMood = Friendly
+VAR GossipBaseMood = Friendly
 
 === talk_to_gossip ===
 Approach {GOSSIP}.
