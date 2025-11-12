@@ -10,6 +10,8 @@ CONST BEDROOM = "your bedroom"
 VAR BedroomPeople = ()
 ~ here = BEDROOM
 
+~ announceTime()
+
 {
 - now == Period1:
     You wake up in your bed with a throbbing erection.
@@ -20,23 +22,20 @@ VAR BedroomPeople = ()
 }
 {BedroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
 
-~ announceTime()
-
 - (bedroom_opts)
 <- talkAndObserveAllCharacters(BedroomPeople, -> bedroom_opts)
 
-+ [Go to the {BATHROOM}]
-    -> bathroom
-+ [Go to {SIS_BEDROOM}]
-    -> sis_bedroom
-+ { now < AfterSchool } [Go to school]
-    -> hallway
 * { Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
     -> cheerleader_panties ->
 * { Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
     -> stepsister_panties ->
-+ { now >= AfterSchool } [Go to sleep]
-    -> go_to_sleep ->
+
++ [Go to {BATHROOM}] -> bathroom
++ [Go to {SIS_BEDROOM}] -> sis_bedroom
++ { now < Night } [Go to school] -> hallway
++ { now < Night } [Go to the {MALL}] -> mall
++ { now < Night } [Go to the {CHURCH}] -> church
++ { now >= AfterSchool } [Go to sleep] -> go_to_sleep ->
 + [Check your score]
     Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
     You { listPrint(Score, -> scoreDetails)}.
@@ -48,7 +47,7 @@ VAR BedroomPeople = ()
 - Peep on Stepsister
 */
 = bathroom
-CONST BATHROOM = "bathroom"
+CONST BATHROOM = "the bathroom"
 VAR BathroomPeople = ()
 VAR BathroomItems = ()
 ~ here = BATHROOM
@@ -66,8 +65,8 @@ You are in the {BATHROOM}.
     You shove your cock into her dripping cunt and pump her full of cream.
 + { Inventory ? SisPanties } [Put {Stepsister}'s panties in the laundry]
     ~ move(SisPanties, Inventory, BathroomItems)
-+ [Leave the {BATHROOM}]
-    -> pass_time -> bedroom
+
++ [Leave {BATHROOM}] -> pass_time -> bedroom
 - -> bathroom_opts
 
 
@@ -90,7 +89,7 @@ You are in {SIS_BEDROOM}.
 + { SisBedroomItems ? SisPanties } [Take her panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
     -> sis_bedroom_opts
-+ [Leave the {SIS_BEDROOM}]
-    -> pass_time -> bedroom
+
++ [Leave {SIS_BEDROOM}] -> pass_time -> bedroom
 - -> sis_bedroom_opts
 

@@ -15,8 +15,7 @@ You are in the {HEALTH_CLASS}.
 - (health_class_opts)
 <- talkAndObserveAllCharacters(HealthClassPeople, -> health_class_opts)
 
-+ [Leave the {HEALTH_CLASS}]
-    -> pass_time -> hallway
++ [Leave the {HEALTH_CLASS}] -> pass_time -> hallway
 - -> health_class_opts
 
 = access_restrictions

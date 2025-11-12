@@ -24,27 +24,27 @@ VAR AthleteBaseMood = Neutral
 === talk_to_athlete ===
 Approach {ATHLETE}.
 - (opts)
-    * "What's your bra size?"
-        "34B."
-    + [Improve her mood]
-        ~ improveMood(AthleteMood)
-        "Thanks, I feel {AthleteMood}"
-        -> opts
-    + [Worsen her mood]
-        ~ worseMood(AthleteMood)
-        "Now I feel {AthleteMood}"
-        -> opts
-    + [Reset her mood]
-        ~ AthleteMood = AthleteBaseMood
-        "Normally, I feel {AthleteMood}"
-        -> opts
-    + [Make her permanently horny]
-        ~ AthleteBaseMood = Aroused
-        "From now on, I'll be {AthleteBaseMood} every day."
-    + [Make her permanently neutral]
-        ~ AthleteBaseMood = Neutral
-        "From now on, I feel {AthleteBaseMood} every day."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "34B."
++ [Improve her mood]
+    ~ improveMood(AthleteMood)
+    "Thanks, I feel {AthleteMood}"
+    -> opts
++ [Worsen her mood]
+    ~ worsenMood(AthleteMood)
+    "Now I feel {AthleteMood}"
+    -> opts
++ [Reset her mood]
+    ~ AthleteMood = AthleteBaseMood
+    "Normally, I feel {AthleteMood}"
+    -> opts
++ [Make her permanently horny]
+    ~ AthleteBaseMood = Aroused
+    "From now on, I'll be {AthleteBaseMood} every day."
++ [Make her permanently neutral]
+    ~ AthleteBaseMood = Neutral
+    "From now on, I feel {AthleteBaseMood} every day."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_athlete ===

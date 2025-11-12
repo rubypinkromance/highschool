@@ -24,9 +24,9 @@ VAR BelieverBaseMood = Neutral
 === talk_to_believer ===
 Approach {BELIEVER}.
 - (opts)
-    * "What's your bra size?"
-        "That's between me and Jesus." // 36DD
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "That's between me and Jesus." // 36DD
++ [Leave her alone] ->->
 - -> opts
 
 === observe_believer ===

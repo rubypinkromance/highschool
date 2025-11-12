@@ -14,6 +14,5 @@ You are in the {LOUNGE}.
 - (lounge_opts)
 <- talkAndObserveAllCharacters(LoungePeople, -> lounge_opts)
 
-+ [Leave the {LOUNGE}]
-    -> pass_time -> hallway
++ [Leave the {LOUNGE}] -> pass_time -> hallway
 - -> lounge_opts

@@ -15,8 +15,7 @@ You are in the {LIBRARY}.
 - (library_opts)
 <- talkAndObserveAllCharacters(LibraryPeople, -> library_opts)
 
-+ [Leave the {LIBRARY}]
-    -> pass_time -> hallway
++ [Leave the {LIBRARY}] -> pass_time -> hallway
 - -> library_opts
 
 = access_restrictions

@@ -13,8 +13,7 @@ You are in the {CAFETERIA}.
 - (cafeteria_opts)
 <- talkAndObserveAllCharacters(CafeteriaPeople, -> cafeteria_opts)
 
-+ [Leave the {CAFETERIA}]
-    -> pass_time -> hallway
++ [Leave the {CAFETERIA}] -> pass_time -> hallway
 - -> cafeteria_opts
 
 /*

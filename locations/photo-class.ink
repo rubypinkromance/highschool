@@ -14,10 +14,8 @@ You are in the {PHOTO_CLASS}.
 - (photo_class_opts)
 <- talkAndObserveAllCharacters(PhotoClassPeople, -> photo_class_opts)
 
-+ [Go to the {DARKROOM}]
-    -> darkroom
-+ [Leave the {PHOTO_CLASS}]
-    -> pass_time -> hallway
++ [Go to the {DARKROOM}] -> darkroom
++ [Leave the {PHOTO_CLASS}] -> pass_time -> hallway
 - -> photo_class_opts
 
 = access_restrictions

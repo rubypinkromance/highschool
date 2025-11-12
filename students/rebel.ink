@@ -16,7 +16,7 @@
 - A: Study Hall  - ---
 */
 CONST REBEL = "Zia"
-CONST REBEL_TITLE = "the rebel girl"
+CONST REBEL_TITLE = "the punk"
 LIST RebelState = RebelObserved
 VAR RebelMood = Hostile
 VAR RebelBaseMood = Hostile
@@ -24,9 +24,9 @@ VAR RebelBaseMood = Hostile
 === talk_to_rebel ===
 Approach {REBEL}.
 - (opts)
-    * "What's your bra size?"
-        "36D."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "36D."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_rebel ===

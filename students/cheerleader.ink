@@ -37,35 +37,33 @@ You approach {CHEERLEADER}
 { CheerleaderState == reward or CheerleaderState == repeat:<>, who is waiting for you with hunger in her eyes.}
 { CheerleaderState == complete:<>, who smiles at you. "What's up?"}
 - (opts)
-    * {CheerleaderState < recon}
-        ["Want to go out with me?"]
-        -> cheerleader_rejection ->
-    * {CheerleaderState == recon}
-        ["Your boyfriend's a jerk."]
-        -> suggest_cheerleader_revenge ->
-    * {CheerleaderState == revenge and here == UNDER_BLEACHERS}
-        ["Ready to make {JOCK} jealous?"]
-        -> cheerleader_titjob ->
-    * {CheerleaderState == followup and here != UNDER_BLEACHERS}
-        ["How'd {JOCK} react?"]
-        -> cheerleader_request ->
-    * {CheerleaderState == has_stuff}
-        ["I got your things."]
-        -> deliver_cheerleader_stuff ->
-    * {CheerleaderState == reward and here == UNDER_BLEACHERS}
-        [Kiss her]
-        -> cheerleader_reward ->
-    // Wait a few turns before asking for a repeat
-    + {CheerleaderState == complete and TURNS_SINCE(-> cheerleader_sex) > 3}
-        ["What are you doing{now != AfterSchool: later| right now}?"]
-        -> cheerleader_replay ->
-    + {CheerleaderState == repeat and here == UNDER_BLEACHERS}
-        [Kiss her]
-        -> cheerleader_reward_repeat ->
-    + [Check her out]
-        -> look_at_cheerleader ->
-    + [Walk away]
-        ->->
+* {CheerleaderState < recon}
+    ["Want to go out with me?"]
+    -> cheerleader_rejection ->
+* {CheerleaderState == recon}
+    ["Your boyfriend's a jerk."]
+    -> suggest_cheerleader_revenge ->
+* {CheerleaderState == revenge and here == UNDER_BLEACHERS}
+    ["Ready to make {JOCK} jealous?"]
+    -> cheerleader_titjob ->
+* {CheerleaderState == followup and here != UNDER_BLEACHERS}
+    ["How'd {JOCK} react?"]
+    -> cheerleader_request ->
+* {CheerleaderState == has_stuff}
+    ["I got your things."]
+    -> deliver_cheerleader_stuff ->
+* {CheerleaderState == reward and here == UNDER_BLEACHERS}
+    [Kiss her]
+    -> cheerleader_reward ->
+// Wait a few turns before asking for a repeat
++ {CheerleaderState == complete and TURNS_SINCE(-> cheerleader_sex) > 3}
+    ["What are you doing{now != AfterSchool: later| right now}?"]
+    -> cheerleader_replay ->
++ {CheerleaderState == repeat and here == UNDER_BLEACHERS}
+    [Kiss her]
+    -> cheerleader_reward_repeat ->
++ [Check her out] -> look_at_cheerleader ->
++ [Walk away] ->->
 - -> opts
 
 === look_at_cheerleader ===
@@ -119,8 +117,7 @@ She seems startled by your uncharacteristic boldness, but after a moment, she no
 "Cool. {now == AfterSchool:I'm right behind you|See you there}."
 Holy shit! You can't believe that worked. Your heart pounds as you imagine what's in store.
 {now == AfterSchool:
-*  [Follow her under the bleachers]
-    -> field.under_bleachers
+*  [Follow her under the bleachers] -> field.under_bleachers
 - else:
     ->->
 }

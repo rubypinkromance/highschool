@@ -24,9 +24,9 @@ VAR QueenBaseMood = Hostile
 === talk_to_queen ===
 Approach {QUEEN}.
 - (opts)
-    * "What's your bra size?"
-        "34B."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "34B."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_queen ===

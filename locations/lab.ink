@@ -15,8 +15,7 @@ You are in the {LAB}.
 - (lab_opts)
 <- talkAndObserveAllCharacters(LabPeople, -> lab_opts)
 
-+ [Leave the {LAB}]
-    -> pass_time -> hallway
++ [Leave the {LAB}] -> pass_time -> hallway
 - -> lab_opts
 
 = access_restrictions

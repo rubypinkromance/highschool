@@ -16,8 +16,7 @@ You are in the {STUDY_HALL}.
 - (study_hall_opts)
 <- talkAndObserveAllCharacters(StudyHallPeople, -> study_hall_opts)
 
-+ [Leave the {STUDY_HALL}]
-    -> pass_time -> hallway
++ [Leave the {STUDY_HALL}] -> pass_time -> hallway
 - -> study_hall_opts
 
 = access_restrictions

@@ -25,10 +25,11 @@
 - L: Cafeteria   - Food Court
 - 3: Health      - Movie Theater
 - 4: Science     - Movie Theater
-- A: Cafeteria   - Dress Store
+- A: Library     - Dress Store
+- Afterschool: looking at porn in library
 */
 CONST NYMPHO = "Claire"
-CONST NYMPHO_TITLE = "the nympho"
+CONST NYMPHO_TITLE = "the party girl"
 LIST NymphoState = NymphoObserved
 VAR NymphoMood = Aroused
 VAR NymphoBaseMood = Aroused
@@ -36,19 +37,18 @@ VAR NymphoBaseMood = Aroused
 === talk_to_nympho ===
 Approach {NYMPHO}.
 - (opts)
-    * "What do you know about {NURSE}?"
-        // heard other teachers think Nurse is a pushover, gives students what they ask for too easily.
-        "I'll tell you after you cum on me."
-    * "What do you know about {SECRETARY}?"
-        // saw secretary in the lobby for the same therapist she sees for sex addiction
-        "I'll tell you after you cum on me."
-    * "What do you know about {HEALTH_TEACHER}?"
-        // heard Teacher got divorced last year and works late every night. Seems lonely.
-        "I'll tell you after you cum on me."
-    * "What's your bra size?"
-        "34A."
-    + [Leave her alone]
-        ->->
+* "What do you know about {NURSE}?"
+    // heard other teachers think Nurse is a pushover, gives students what they ask for too easily.
+    "I'll tell you after you cum on me."
+* "What do you know about {SECRETARY}?"
+    // saw secretary in the lobby for the same therapist she sees for sex addiction
+    "I'll tell you after you cum on me."
+* "What do you know about {HEALTH_TEACHER}?"
+    // heard Teacher got divorced last year and works late every night. Seems lonely.
+    "I'll tell you after you cum on me."
+* "What's your bra size?"
+    "34A."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_nympho ===

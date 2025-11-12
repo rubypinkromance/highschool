@@ -15,10 +15,8 @@ You are in the {GYM}.
 - (gym_opts)
 <- talkAndObserveAllCharacters(GymPeople, -> gym_opts)
 
-+ [Go to the {LOCKER_ROOM}]
-    -> locker_room
-+ [Leave the {GYM}]
-    -> pass_time -> hallway
++ [Go to the {LOCKER_ROOM}] -> locker_room
++ [Leave the {GYM}] -> pass_time -> hallway
 - -> gym_opts
 
 = access_restrictions

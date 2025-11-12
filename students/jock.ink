@@ -16,9 +16,9 @@ VAR JockBaseMood = Hostile
 === talk_to_jock ===
 Approach {JOCK}.
 - (opts)
-    * "What's your bra size?"
-        "What the fuck did you just say to me?"
-    + [Leave him alone] ->->
+* "What's your bra size?"
+    "What the fuck did you just say to me?"
++ [Leave him alone] ->->
 - -> opts
 
 === observe_jock ===

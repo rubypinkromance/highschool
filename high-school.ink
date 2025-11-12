@@ -55,7 +55,8 @@ VAR Inventory = ()
 
 // Start with the introduction
 { DEBUG:
-    -> hallway
+    // -> hallway
+    -> bedroom
 - else:
     -> intro
 }

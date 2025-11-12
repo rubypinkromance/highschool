@@ -31,63 +31,226 @@ Try to avoid multiple characters whose names start with the same letter.
 - Zia - Rebel, brunette, curvy, bush
 */
 
-// Database of character information
+/*
+- Character Information Database.
+- This looks super long and verbose, not to mention repetitive, but it lets us keep all the actual character data in that character's include file, so this file is just for logic.
+*/
 === function characterData(who, what)
 { who:
 - Actor:
-    ~ return fetchCharacterData(what, ACTOR, ACTOR_TITLE, ActorState, ActorObserved, ActorMood, ActorBaseMood, -> talk_to_actor, -> observe_actor)
+    { what:
+        - Name: ~ return ACTOR
+        - Title: ~ return ACTOR_TITLE
+        - State: ~ return ActorState
+        - ObservedState: ~ return ActorObserved
+        - Mood: ~ return ActorMood
+        - BaseMood: ~ return ActorBaseMood
+        - TalkFunction: ~ return -> talk_to_actor
+        - ObserveFunction: ~ return -> observe_actor
+    }
 - Athlete:
-    ~ return fetchCharacterData(what, ATHLETE, ATHLETE_TITLE, AthleteState, AthleteObserved, AthleteMood, AthleteBaseMood, -> talk_to_athlete, -> observe_athlete)
+    { what:
+        - Name: ~ return ATHLETE
+        - Title: ~ return ATHLETE_TITLE
+        - State: ~ return AthleteState
+        - ObservedState: ~ return AthleteObserved
+        - Mood: ~ return AthleteMood
+        - BaseMood: ~ return AthleteBaseMood
+        - TalkFunction: ~ return -> talk_to_athlete
+        - ObserveFunction: ~ return -> observe_athlete
+    }
 - Believer:
-    ~ return fetchCharacterData(what, BELIEVER, BELIEVER_TITLE, BelieverState, BelieverObserved, BelieverMood, BelieverBaseMood, -> talk_to_believer, -> observe_believer)
+    { what:
+        - Name: ~ return BELIEVER
+        - Title: ~ return BELIEVER_TITLE
+        - State: ~ return BelieverState
+        - ObservedState: ~ return BelieverObserved
+        - Mood: ~ return BelieverMood
+        - BaseMood: ~ return BelieverBaseMood
+        - TalkFunction: ~ return -> talk_to_believer
+        - ObserveFunction: ~ return -> observe_believer
+    }
 - Cheerleader:
-    ~ return fetchCharacterData(what, CHEERLEADER, CHEERLEADER_TITLE, CheerleaderState, CheerleaderObserved, CheerleaderMood, CheerleaderBaseMood, -> talk_to_cheerleader, -> observe_cheerleader)
+    { what:
+        - Name: ~ return CHEERLEADER
+        - Title: ~ return CHEERLEADER_TITLE
+        - State: ~ return CheerleaderState
+        - ObservedState: ~ return CheerleaderObserved
+        - Mood: ~ return CheerleaderMood
+        - BaseMood: ~ return CheerleaderBaseMood
+        - TalkFunction: ~ return -> talk_to_cheerleader
+        - ObserveFunction: ~ return -> observe_cheerleader
+    }
 - Gossip:
-    ~ return fetchCharacterData(what, GOSSIP, GOSSIP_TITLE, GossipState, GossipObserved, GossipMood, GossipBaseMood, -> talk_to_gossip, -> observe_gossip)
+    { what:
+        - Name: ~ return GOSSIP
+        - Title: ~ return GOSSIP_TITLE
+        - State: ~ return GossipState
+        - ObservedState: ~ return GossipObserved
+        - Mood: ~ return GossipMood
+        - BaseMood: ~ return GossipBaseMood
+        - TalkFunction: ~ return -> talk_to_gossip
+        - ObserveFunction: ~ return -> observe_gossip
+    }
 - Nerd:
-    ~ return fetchCharacterData(what, NERD, NERD_TITLE, NerdState, NerdObserved, NerdMood, NerdBaseMood, -> talk_to_nerd, -> observe_nerd)
+    { what:
+        - Name: ~ return NERD
+        - Title: ~ return NERD_TITLE
+        - State: ~ return NerdState
+        - ObservedState: ~ return NerdObserved
+        - Mood: ~ return NerdMood
+        - BaseMood: ~ return NerdBaseMood
+        - TalkFunction: ~ return -> talk_to_nerd
+        - ObserveFunction: ~ return -> observe_nerd
+    }
 - Jock:
-    ~ return fetchCharacterData(what, JOCK, JOCK_TITLE, JockState, JockObserved, JockMood, JockBaseMood, -> talk_to_jock, -> observe_jock)
+    { what:
+        - Name: ~ return JOCK
+        - Title: ~ return JOCK_TITLE
+        - State: ~ return JockState
+        - ObservedState: ~ return JockObserved
+        - Mood: ~ return JockMood
+        - BaseMood: ~ return JockBaseMood
+        - TalkFunction: ~ return -> talk_to_jock
+        - ObserveFunction: ~ return -> observe_jock
+    }
 - Nympho:
-    ~ return fetchCharacterData(what, NYMPHO, NYMPHO_TITLE, NymphoState, NymphoObserved, NymphoMood, NymphoBaseMood, -> talk_to_nympho, -> observe_nympho)
+    { what:
+        - Name: ~ return NYMPHO
+        - Title: ~ return NYMPHO_TITLE
+        - State: ~ return NymphoState
+        - ObservedState: ~ return NymphoObserved
+        - Mood: ~ return NymphoMood
+        - BaseMood: ~ return NymphoBaseMood
+        - TalkFunction: ~ return -> talk_to_nympho
+        - ObserveFunction: ~ return -> observe_nympho
+    }
 - Photographer:
-    ~ return fetchCharacterData(what, PHOTOGRAPHER, PHOTOGRAPHER_TITLE, PhotographerState, PhotographerObserved, PhotographerMood, PhotographerBaseMood, -> talk_to_photographer, -> observe_photographer)
+    { what:
+        - Name: ~ return PHOTOGRAPHER
+        - Title: ~ return PHOTOGRAPHER_TITLE
+        - State: ~ return PhotographerState
+        - ObservedState: ~ return PhotographerObserved
+        - Mood: ~ return PhotographerMood
+        - BaseMood: ~ return PhotographerBaseMood
+        - TalkFunction: ~ return -> talk_to_photographer
+        - ObserveFunction: ~ return -> observe_photographer
+    }
 - Queen:
-    ~ return fetchCharacterData(what, QUEEN, QUEEN_TITLE, QueenState, QueenObserved, QueenMood, QueenBaseMood, -> talk_to_queen, -> observe_queen)
+    { what:
+        - Name: ~ return QUEEN
+        - Title: ~ return QUEEN_TITLE
+        - State: ~ return QueenState
+        - ObservedState: ~ return QueenObserved
+        - Mood: ~ return QueenMood
+        - BaseMood: ~ return QueenBaseMood
+        - TalkFunction: ~ return -> talk_to_queen
+        - ObserveFunction: ~ return -> observe_queen
+    }
 - Rebel:
-    ~ return fetchCharacterData(what, REBEL, REBEL_TITLE, RebelState, RebelObserved, RebelMood, RebelBaseMood, -> talk_to_rebel, -> observe_rebel)
+    { what:
+        - Name: ~ return REBEL
+        - Title: ~ return REBEL_TITLE
+        - State: ~ return RebelState
+        - ObservedState: ~ return RebelObserved
+        - Mood: ~ return RebelMood
+        - BaseMood: ~ return RebelBaseMood
+        - TalkFunction: ~ return -> talk_to_rebel
+        - ObserveFunction: ~ return -> observe_rebel
+    }
 - Scientist:
-    ~ return fetchCharacterData(what, SCIENTIST, SCIENTIST_TITLE, ScientistState, ScientistObserved, ScientistMood, ScientistBaseMood, -> talk_to_scientist, -> observe_scientist)
+    { what:
+        - Name: ~ return SCIENTIST
+        - Title: ~ return SCIENTIST_TITLE
+        - State: ~ return ScientistState
+        - ObservedState: ~ return ScientistObserved
+        - Mood: ~ return ScientistMood
+        - BaseMood: ~ return ScientistBaseMood
+        - TalkFunction: ~ return -> talk_to_scientist
+        - ObserveFunction: ~ return -> observe_scientist
+    }
 - Stepsister:
-    ~ return fetchCharacterData(what, SIS, SIS_TITLE, SisState, SisObserved, SisMood, SisBaseMood, -> talk_to_stepsister, -> observe_stepsister)
+    { what:
+        - Name: ~ return SIS
+        - Title: ~ return SIS_TITLE
+        - State: ~ return SisState
+        - ObservedState: ~ return SisObserved
+        - Mood: ~ return SisMood
+        - BaseMood: ~ return SisBaseMood
+        - TalkFunction: ~ return -> talk_to_stepsister
+        - ObserveFunction: ~ return -> observe_stepsister
+    }
 - Twin1:
-    ~ return fetchCharacterData(what, TWIN1, TWIN1_TITLE, TwinsState, TwinsObserved, TwinsMood, TwinsBaseMood, -> talk_to_twin1, -> observe_twins)
+    { what:
+        - Name: ~ return TWIN1
+        - Title: ~ return TWIN1_TITLE
+        - State: ~ return TwinsState
+        - ObservedState: ~ return TwinsObserved
+        - Mood: ~ return TwinsMood
+        - BaseMood: ~ return TwinsBaseMood
+        - TalkFunction: ~ return -> talk_to_twin1
+        - ObserveFunction: ~ return -> observe_twins
+    }
 - Twin2:
-    ~ return fetchCharacterData(what, TWIN2, TWIN2_TITLE, TwinsState, TwinsObserved, TwinsMood, TwinsBaseMood, -> talk_to_twin2, -> observe_twins)
+    { what:
+        - Name: ~ return TWIN2
+        - Title: ~ return TWIN2_TITLE
+        - State: ~ return TwinsState
+        - ObservedState: ~ return TwinsObserved
+        - Mood: ~ return TwinsMood
+        - BaseMood: ~ return TwinsBaseMood
+        - TalkFunction: ~ return -> talk_to_twin2
+        - ObserveFunction: ~ return -> observe_twins
+    }
 - Twins:
-    ~ return fetchCharacterData(what, TWINS, TWINS_TITLE, TwinsState, TwinsObserved, TwinsMood, TwinsBaseMood, -> talk_to_twins, -> observe_twins)
+    { what:
+        - Name: ~ return TWINS
+        - Title: ~ return TWINS_TITLE
+        - State: ~ return TwinsState
+        - ObservedState: ~ return TwinsObserved
+        - Mood: ~ return TwinsMood
+        - BaseMood: ~ return TwinsBaseMood
+        - TalkFunction: ~ return -> talk_to_twins
+        - ObserveFunction: ~ return -> observe_twins
+    }
 - Nurse:
-    ~ return fetchCharacterData(what, NURSE, NURSE_TITLE, NurseState, NurseObserved, NurseMood, NurseBaseMood, -> talk_to_nurse, -> observe_nurse)
+    { what:
+        - Name: ~ return NURSE
+        - Title: ~ return NURSE_TITLE
+        - State: ~ return NurseState
+        - ObservedState: ~ return NurseObserved
+        - Mood: ~ return NurseMood
+        - BaseMood: ~ return NurseBaseMood
+        - TalkFunction: ~ return -> talk_to_nurse
+        - ObserveFunction: ~ return -> observe_nurse
+    }
 - Secretary:
-    ~ return fetchCharacterData(what, SECRETARY, SECRETARY_TITLE, SecretaryState, SecretaryObserved, SecretaryMood, SecretaryBaseMood, -> talk_to_secretary, -> observe_secretary)
+    { what:
+        - Name: ~ return SECRETARY
+        - Title: ~ return SECRETARY_TITLE
+        - State: ~ return SecretaryState
+        - ObservedState: ~ return SecretaryObserved
+        - Mood: ~ return SecretaryMood
+        - BaseMood: ~ return SecretaryBaseMood
+        - TalkFunction: ~ return -> talk_to_secretary
+        - ObserveFunction: ~ return -> observe_secretary
+    }
 - HealthTeacher:
-    ~ return fetchCharacterData(what, HEALTH_TEACHER, HEALTH_TEACHER_TITLE, HealthTeacherState, HealthTeacherObserved, HealthTeacherMood, HealthTeacherBaseMood, -> talk_to_health_teacher, -> observe_health_teacher)
+    { what:
+        - Name: ~ return HEALTH_TEACHER
+        - Title: ~ return HEALTH_TEACHER_TITLE
+        - State: ~ return HealthTeacherState
+        - ObservedState: ~ return HealthTeacherObserved
+        - Mood: ~ return HealthTeacherMood
+        - BaseMood: ~ return HealthTeacherBaseMood
+        - TalkFunction: ~ return -> talk_to_health_teacher
+        - ObserveFunction: ~ return -> observe_health_teacher
+    }
 }
 
-// Returns a single piece of data about a character
-=== function fetchCharacterData(what, name, title, state, observed_state, mood, base_mood, talk_function, observe_function)
-{ what:
-- Name: ~ return name
-- Title: ~ return title
-- State: ~ return state
-- Mood: ~ return mood
-- BaseMood: ~ return base_mood
-- ObservedState: ~ return observed_state
-- TalkFunction: ~ return talk_function
-- ObserveFunction: ~ return observe_function
-}
-
-// Return a formatted list of people as a sentence.
+/*
+- Return a comma-separated list of people.
+*/
 === function listRoomPeople(characters)
 { not characters:
     ~ return "" // if no one is here, say nothing
@@ -98,19 +261,30 @@ Try to avoid multiple characters whose names start with the same letter.
 }
 ~ listPrint(characters, -> nameAndTitle)
 
+/*
+- Return a comma-separated list of people as a full sentence.
+*/
 === function listRoomPeopleSentence(characters)
 { LIST_COUNT(characters) > 0:
     Looking around, you see {listRoomPeople(characters)}.
 }
 
-// Combine a character's name with their title, eg, "Nandor the Relentless"
+/*
+- Combine a character's name with their title.
+- eg, "Nandor the Relentless".
+*/
 === function nameAndTitle(who)
 ~ temp name = characterData(who, Name)
 ~ temp title = characterData(who, Title)
+{ (Gossip, Stepsister) ? who:
+    ~ return "{title:{title} }{name}" // special case for "your" titles
+}
 ~ return "{name}{title: {title}}"
 
-// Generate a list of options to talk or observe anyone in the room.
-// This list will be nested if there's more than two people.
+/*
+- Generate a list of options to talk or observe anyone in the room.
+- This list will be nested if there's more than two people.
+*/
 === talkAndObserveAllCharacters(characters, -> return_to)
 ~ temp charactersCopy = characters
 ~ temp unobserved = ()
@@ -132,16 +306,16 @@ Try to avoid multiple characters whose names start with the same letter.
 - else:
     <- talkToAllCharacters(characters, return_to)
 }
-{ LIST_COUNT(unobserved) > 2:
+{ LIST_COUNT(unobserved) > 0:
     + [Observe someone]
         Who do you want to observe?
         <- observeAllCharacters(characters, return_to)
         -> DONE
-- else:
-    <- observeAllCharacters(characters, return_to)
 }
 
-// Generate a list of options to talk to anyone in the room
+/*
+- Generate a list of options to talk to anyone in the room.
+*/
 === talkToAllCharacters(characters, -> return_to)
 { characters ? (Twin1, Twin2):
     ~ characters -= (Twin1, Twin2)
@@ -154,7 +328,9 @@ Try to avoid multiple characters whose names start with the same letter.
     -> top
 }
 
-// Generate a list of options to observe anyone in the room
+/*
+- Generate a list of options to observe anyone in the room.
+*/
 === observeAllCharacters(characters, -> return_to)
 { characters ? (Twin1, Twin2):
     ~ characters -= (Twin1, Twin2)
@@ -167,14 +343,18 @@ Try to avoid multiple characters whose names start with the same letter.
     -> top
 }
 
-// Generate an option to talk to a person
+/*
+- Generate an option to talk to a person.
+*/
 === talkToCharacter(who, -> return_to)
 ~ temp name = characterData(who, Name)
 ~ temp target = characterData(who, TalkFunction)
 + [Talk to {name}] -> target ->
 -> return_to
 
-// Generate an option to observe a person if they're not already observed
+/*
+- Generate an option to observe a person if they're not already observed.
+*/
 === observeCharacter(who, -> return_to)
 ~ temp name = characterData(who, Name)
 ~ temp state = characterData(who, State)
@@ -183,20 +363,49 @@ Try to avoid multiple characters whose names start with the same letter.
 + {state !? observed} [Observe {name}] -> target ->
 -> return_to
 
+/*
+- Improve a character's mood.
+*/
 === function improveMood(ref mood)
 { mood != Desperate:
     ~ mood++
 }
 
-=== function worseMood(ref mood)
+/*
+- Worsen a character's mood.
+*/
+=== function worsenMood(ref mood)
 { mood != Hostile:
     ~ mood--
 }
 
-// Determine who is where, when
+/*
+- Return a given student's class schedule.
+*/
+=== function reportSchedule(who)
+{ who:
+- Actor: {ACTOR}: 1. Health, 2. Study Hall, 3. Science, 4. Theater
+- Athlete: {ATHLETE}: 1. Gym, 2. Science, 3. Study Hall, 4. Health
+- Believer: {BELIEVER}: 1. Study Hall, 2. Gym, 3. Health, 4. Photography
+- Cheerleader: {CHEERLEADER}: 1. Study Hall, 2. Health, 3. Gym, 4. Theater
+- Gossip: {GOSSIP}: 1. Health, 2. Theater, 3. Science, 4. Study Hall
+- Nerd: {NERD}: 1. Science, 2. Health, 3. Theater, 4. Study Hall
+- Nympho: {NYMPHO}: 1. Theater, 2. Photography, 3. Health, 4. Science
+- Photographer: {PHOTOGRAPHER}: 1. Theater, 2. Science, 3. Gym, 4. Photography
+- Queen: {QUEEN}: 1. Photography, 2. Study Hall, 3. Theater, 4. Gym
+- Rebel: {REBEL}: 1. Science, 2. Gym, 3. Photography, 4. Study Hall
+- Scientist: {SCIENTIST}: 1. Gym, 2. Photography, 3. Study Hall, 4. Science
+- Twins: Interestingly, it seems even the school’s staff has trouble telling the twins apart. They have two schedules, both simply labeled “{TWINS}”:
+    1. Photography, 2. Health, 3. Theater, 4. Gym
+    1. Gym, 2. Theater, 3. Photography, 4. Health
+}
+
+/*
+- Determine who is where, when.
+*/
 === function characterScheduler()
 {isWeekday():
-{now:
+{ now:
 - Period1:
     ~ GymPeople += (Athlete, Scientist, Twin2)
     ~ HealthClassPeople += (HealthTeacher, Actor, Gossip)
@@ -247,8 +456,8 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ LabPeople += (Scientist)
     ~ StudyHallPeople += (Rebel)
     ~ TheaterPeople += (Actor)
-    ~ CafeteriaPeople += (Nympho)
-    ~ LibraryPeople += (Nerd)
+    ~ CafeteriaPeople += (Nerd)
+    ~ LibraryPeople += (Nympho)
     ~ FieldPeople += (Jock)
     ~ BleachersPeople += (Cheerleader, Gossip)
     ~ OfficePeople += (Secretary)
@@ -260,7 +469,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ SisBedroomPeople += (Stepsister)
 }
 - else:
-{now:
+{ now:
 - Period1:
     ~ FieldPeople += (Athlete)
     ~ BleachersPeople += (Cheerleader, Jock)
@@ -317,46 +526,51 @@ Try to avoid multiple characters whose names start with the same letter.
 }
 }
 
-TODO: could these be done with loops instead of hard-coded commands?
-
-// This function empties all the room.
-// Run it before characterScheduler()
+/*
+- Remove all people from every room.
+- Run it before characterScheduler().
+*/
 === function clearLocations()
 ~ CafeteriaPeople = ()
-~ StoragePeople = ()
+    ~ StoragePeople = ()
+~ ChurchPeople = ()
 ~ ClinicPeople = ()
-~ ExamAreaPeople = ()
+    ~ ExamAreaPeople = ()
 ~ FieldPeople = ()
-~ BleachersPeople = ()
-~ UnderBleachersPeople = ()
+    ~ BleachersPeople = ()
+    ~ UnderBleachersPeople = ()
 ~ GymPeople = ()
-~ LockerRoomPeople = ()
+    ~ LockerRoomPeople = ()
 ~ HealthClassPeople = ()
+~ LabPeople = ()
 ~ LibraryPeople = ()
 ~ LoungePeople = ()
 ~ OfficePeople = ()
-~ SupplyClosetPeople = ()
+    ~ SupplyClosetPeople = ()
 ~ PhotoClassPeople = ()
-~ DarkroomPeople = ()
-~ StairwellPeople = ()
-~ RoofPeople = ()
-~ LabPeople = ()
+    ~ DarkroomPeople = ()
 ~ StudyHallPeople = ()
 ~ TheaterPeople = ()
-~ BackstagePeople = ()
-~ ChurchPeople = ()
-~ FoodCourtPeople = ()
-~ DressStorePeople = ()
-~ ShoeStorePeople = ()
+    ~ BackstagePeople = ()
+// Special school locations
+~ StairwellPeople = ()
+~ RoofPeople = ()
+// Mall locations
 ~ BraStorePeople = ()
 ~ BookStorePeople = ()
+~ DressStorePeople = ()
+~ FoodCourtPeople = ()
 ~ MovieTheaterPeople = ()
+~ ShoeStorePeople = ()
+// House locations
+~ BedroomPeople = ()
 ~ BathroomPeople = ()
 ~ SisBedroomPeople = ()
-~ BedroomPeople = ()
 
-// This function resets all characters to their base state.
-// Run it at the start of each day.
+/*
+- Reset all people to their base state.
+- Run it at the start of each day.
+*/
 === function resetMoods()
 ~ ActorMood = ActorBaseMood
 ~ AthleteMood = AthleteBaseMood

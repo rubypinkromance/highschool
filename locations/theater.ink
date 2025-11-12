@@ -14,10 +14,8 @@ You are in the {THEATER}.
 - (theater_opts)
 <- talkAndObserveAllCharacters(TheaterPeople, -> theater_opts)
 
-+ [Go {BACKSTAGE}]
-    -> backstage
-+ [Leave the {THEATER}]
-    -> pass_time -> hallway
++ [Go {BACKSTAGE}] -> backstage
++ [Leave the {THEATER}] -> pass_time -> hallway
 - -> theater_opts
 
 = access_restrictions

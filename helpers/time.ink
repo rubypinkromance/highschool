@@ -10,10 +10,12 @@ VAR date = 1
 VAR days_remaining = 30
 VAR countdown = false
 
-// Returns the human-readable name of the time of day.
+/*
+- Return the human-readable time of day.
+*/
 === function nameOfTime(time)
 { isWeekday():
-    {time:
+    { time:
     - Period1: first period
     - Period2: second period
     - Lunch: lunch time
@@ -23,7 +25,7 @@ VAR countdown = false
     - Night: late
     }
 - else:
-    {time:
+    { time:
     - Period1: early morning
     - Period2: morning
     - Lunch: lunch time
@@ -34,13 +36,13 @@ VAR countdown = false
     }
 }
 
-// Announce the current day, time, and your current class.
+/*
+- Announce the current day, time, and your current class.
+*/
 === function announceTime()
-{ DEBUG:
-    It is { nameOfTime(now) } on { today }.
-}
+<em><small>{ today }, { nameOfTime(now) }.
 { isWeekday():
-    {now:
+    { now:
     - Period1:
         <> You have Gym class.
     - Period2:
@@ -51,20 +53,30 @@ VAR countdown = false
         <> You have Photography class.
     }
 }
+<></small></em>
 
-// Check if today is a weekday
+/*
+- Check if today is a weekday
+*/
 === function isWeekday()
 ~ return Weekdays ? today
 
-// Check if today is a weekend
+/*
+- Check if today is a weekend
+*/
 === function isWeekend()
 ~ return WeekendDays ? today
 
-// Check if it's time for a class
+/*
+- Check if it's time for a class
+*/
 === function isClassTime()
 ~ return isWeekday() && ClassTimes ? now
 
-// Every time we leave a location, we advance the time of day.
+/*
+- Advance the time of day.
+- Run this every time we leave a location.
+*/
 === pass_time ===
 { now < Night:
     ~ now++                // tick the clock
@@ -73,7 +85,10 @@ VAR countdown = false
 ~ characterScheduler() // move people to new locations
 ->->
 
-// At the end of the day, update the calendar and reset
+/*
+- Advance the calendar and reset for the next day.
+- Run this at the end of every day.
+*/
 === go_to_sleep ===
 ~ now = Period1        // set the clock
 ~ date++               // update the calendar
@@ -85,10 +100,10 @@ VAR countdown = false
 }
 { countdown:
     { days_remaining < 1:
-            GAME OVER
-            Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
-            You { listPrint(Score, -> scoreDetails) }
-            -> END
+        GAME OVER
+        Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
+        You { listPrint(Score, -> scoreDetails) }
+        -> END
     }
     This is day { date }.
     Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
@@ -98,6 +113,7 @@ VAR countdown = false
         This is your last day!
     }
 }
+~ resetMoods()         // reset people to base mood
 ~ clearLocations()     // empty the rooms
 ~ characterScheduler() // move people to new locations
 ->->

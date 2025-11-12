@@ -38,12 +38,9 @@ You are in the {FIELD}.
 - (field_opts)
 <- talkAndObserveAllCharacters(FieldPeople, -> field_opts)
 
-+ [Sit on the {BLEACHERS}]
-    -> bleachers
-+ [Go {UNDER_BLEACHERS}]
-    -> under_bleachers
-+ [{isWeekday():Go back inside|Leave the {FIELD}}]
-    -> pass_time -> hallway
++ [Sit on the {BLEACHERS}] -> bleachers
++ [Go {UNDER_BLEACHERS}] -> under_bleachers
++ [{isWeekday():Go back inside|Leave the {FIELD}}] -> pass_time -> hallway
 - -> field_opts
 
 /*
@@ -61,8 +58,7 @@ You are in the {BLEACHERS} overlooking the athletic field.
 - (bleachers_opts)
 <- talkAndObserveAllCharacters(BleachersPeople, -> bleachers_opts)
 
-+ [Leave the {BLEACHERS}]
-    -> field
++ [Leave the {BLEACHERS}] -> field
 - -> bleachers_opts
 
 /*
@@ -79,6 +75,5 @@ You are {UNDER_BLEACHERS}.
 - (under_bleachers_opts)
 <- talkAndObserveAllCharacters(UnderBleachersPeople, -> under_bleachers_opts)
 
-+ [Leave the bleachers]
-    -> field
++ [Leave the bleachers] -> field
 - -> under_bleachers_opts

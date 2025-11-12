@@ -24,15 +24,15 @@ VAR ActorBaseMood = Neutral
 === talk_to_actor ===
 Approach {ACTOR}.
 - (opts)
-    * {ActorState !? ActorObserved} [Observe] -> observe_actor ->
-    + {ActorState ? ActorObserved} [Confirm]
-        "You've been observed.
-    * {ActorState !? ActorBraSize}"What's your bra size?"
-        ~ ActorState += ActorBraSize
-        "36B."
-    + {ActorState ? ActorBraSize}"You wear a 36B, right?"
-        "Correct."
-    + [Leave her alone] ->->
+* {ActorState !? ActorObserved} [Observe] -> observe_actor ->
++ {ActorState ? ActorObserved} [Confirm]
+    "You've been observed.
+* {ActorState !? ActorBraSize}"What's your bra size?"
+    ~ ActorState += ActorBraSize
+    "36B."
++ {ActorState ? ActorBraSize}"You wear a 36B, right?"
+    "Correct."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_actor ===

@@ -14,7 +14,8 @@
 - L: Library    - Food Court
 - 3: Theater    - Book Store
 - 4: Study Hall - Book Store
-- A: Library    - Shoe Store
+- A: Cafeteria  - Shoe Store
+- Afterschool: playing Magic with other nerds in the cafeteria
 */
 CONST NERD = "Felicia"
 CONST NERD_TITLE = "the cute nerd"
@@ -25,9 +26,9 @@ VAR NerdBaseMood = Neutral
 === talk_to_nerd ===
 Approach {NERD}.
 - (opts)
-    * "What's your bra size?"
-        "32B."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "32B."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_nerd ===

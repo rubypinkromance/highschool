@@ -24,9 +24,9 @@ VAR ScientistBaseMood = Neutral
 === talk_to_scientist ===
 Approach {SCIENTIST}.
 - (opts)
-    * "What's your bra size?"
-        "34A."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "34A."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_scientist ===

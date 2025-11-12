@@ -19,18 +19,19 @@
 CONST SIS = "Alice"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved)
-LIST SisItems = SisPanties, SisDiary
 VAR SisMood = Friendly
 VAR SisBaseMood = Friendly
+LIST SisItems = SisPanties, SisDiary
 
 === talk_to_stepsister ===
 Approach {SIS}.
 - (opts)
-    + "What's your bra size?"
-        "34B, bro."
-    + "Wanna fuck?"
-        "Sure, why not?" -> fuck_stepsister ->->
-    + [Leave her alone] ->->
++ "What's your bra size?"
+    "34B, bro."
++ "Wanna fuck?"
+    "Sure, why not?"
+    -> fuck_stepsister ->->
++ [Leave her alone] ->->
 - -> opts
 
 === observe_stepsister ===
@@ -41,14 +42,14 @@ Coming soon.
 === look_at_stepsister ===
 Look at {SIS}.
 - (opts)
-    + [Check her out]
-        She's smoking hot, man.
-    + [Get closer]
-        Fucking hell, she's hawt
-    + [Touch yourself]
-        You start wanking to the sight of your stepsister.
-    + [Fuck her] -> fuck_stepsister ->->
-    + [Turn away] ->->
++ [Check her out]
+    She's smoking hot, man.
++ [Get closer]
+    Fucking hell, she's hawt
++ [Touch yourself]
+    You start wanking to the sight of your stepsister.
++ [Fuck her] -> fuck_stepsister ->->
++ [Turn away] ->->
 - -> opts
 
 === fuck_stepsister ===
@@ -56,13 +57,13 @@ Look at {SIS}.
 This is it, you're finally going to fuck {SIS}.
 
 - (opts)
-    + "Suck my cock"
-        She swallows your shaft eagerly.
-    + [Pinch nipples]
-        You pinch her nipples, making her squirm
-    + [Bend her over]
-        You bend her over and fuck her desperately from behind, until she moans as you pump your load into her tight pussy.
-    + [Walk away] ->->
++ "Suck my cock"
+    She swallows your shaft eagerly.
++ [Pinch nipples]
+    You pinch her nipples, making her squirm
++ [Bend her over]
+    You bend her over and fuck her desperately from behind, until she moans as you pump your load into her tight pussy.
++ [Walk away] ->->
 - -> opts
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */

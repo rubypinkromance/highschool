@@ -31,7 +31,7 @@
 - A: Bleachers  - Dress Store
 */
 CONST GOSSIP = "Whitney"
-CONST GOSSIP_TITLE = "the gossip"
+CONST GOSSIP_TITLE = "your friend"
 LIST GossipState = GossipObserved
 VAR GossipMood = Friendly
 VAR GossipBaseMood = Friendly
@@ -39,10 +39,9 @@ VAR GossipBaseMood = Friendly
 === talk_to_gossip ===
 Approach {GOSSIP}.
 - (opts)
-    * "What's your bra size?"
-        "34B."
-    + [Walk away]
-        ->->
+* "What's your bra size?"
+    "34B."
++ [Walk away] ->->
 - -> opts
 
 === observe_gossip ===

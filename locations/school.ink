@@ -7,10 +7,12 @@ CONST HALLWAY = "hallway"
 ~ here = HALLWAY
 -> access_restrictions ->
 
+~ announceTime()
+
 // Weekdays:
 { isWeekday():
-You are in the {HALLWAY}. <>
-~ announceTime()
+
+You are in the {HALLWAY}.
 
 + [Go to a classroom]
 + + [Go to the {GYM}] -> gym
@@ -45,8 +47,6 @@ You are in the {HALLWAY}. <>
 // Weekends:
 - else:
 
-~ announceTime()
-
 The school is closed on weekends, but you can still access the {FIELD}.
 
 + + [Go to the {FIELD}] -> field
@@ -69,6 +69,7 @@ The school is closed on weekends, but you can still access the {FIELD}.
 */
 = your_locker
 CONST LOCKER = "your locker"
+VAR LockerItems = ()
 ~ here = LOCKER
 
 You are at {LOCKER}.
@@ -78,6 +79,26 @@ You are at {LOCKER}.
     Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
     You { listPrint(Score, -> scoreDetails)}.
     -> locker_opts
+* {Inventory ? Schedule} [Tape up the schedule]
+    ~ Inventory -= Schedule
+    ~ LockerItems += Schedule
+    Triumphantly, you tape up the printout of the schedule for all the girls in school. This will make it much easier to find out what class a girl is in.
+    -> locker_opts
++ {LockerItems ? Schedule} [Check the schedule]
+    Whose schedule do you want to check?
+    + + [{nameAndTitle(Actor)}] { reportSchedule(Actor) }
+    + + [{nameAndTitle(Athlete)}] { reportSchedule(Athlete) }
+    + + [{nameAndTitle(Believer)}] { reportSchedule(Believer) }
+    + + [{nameAndTitle(Cheerleader)}] { reportSchedule(Cheerleader) }
+    + + [{nameAndTitle(Gossip)}] { reportSchedule(Gossip) }
+    + + [{nameAndTitle(Nerd)}] { reportSchedule(Nerd) }
+    + + [{nameAndTitle(Nympho)}] { reportSchedule(Nympho) }
+    + + [{nameAndTitle(Photographer)}] { reportSchedule(Photographer) }
+    + + [{nameAndTitle(Queen)}] { reportSchedule(Queen) }
+    + + [{nameAndTitle(Rebel)}] { reportSchedule(Rebel) }
+    + + [{nameAndTitle(Scientist)}] { reportSchedule(Scientist) }
+    + + [{nameAndTitle(Twins)}] { reportSchedule(Twins) }
+    - - -> locker_opts
 + [Leave {LOCKER}] -> hallway
 
 /*

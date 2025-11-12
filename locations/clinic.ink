@@ -11,10 +11,8 @@ You are in the {CLINIC}.
 - (clinic_opts)
 <- talkAndObserveAllCharacters(ClinicPeople, -> clinic_opts)
 
-+ [Go to the {EXAM_AREA}]
-    -> exam_area
-+ [Leave the {CLINIC}]
-    -> pass_time -> hallway
++ [Go to the {EXAM_AREA}] -> exam_area
++ [Leave the {CLINIC}] -> pass_time -> hallway
 - -> clinic_opts
 
 /*

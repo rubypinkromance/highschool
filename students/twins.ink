@@ -33,35 +33,35 @@ VAR can_identify_twins = false
 ~ TWIN1_TITLE = "the twin"
 ~ TWIN2_TITLE = "the twin"
 
-=== talk_to_twins ===
-Approach {TWINS}.
-- (opts)
-    * "How can I tell you apart?"
-        ~ identify_twins()
-        "She's Hailey, and I'm Bailey."
-    * [Leave them alone] ->->
-- -> opts
-
 === talk_to_twin1 ===
 Approach {TWIN1}.
 - (opts)
-    * "What's your bra size?"
-        "36C."
-    * "Which one are you?"
-        ~ identify_twins()
-        "Hailey."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "36C."
+* "Which one are you?"
+    ~ identify_twins()
+    "Hailey."
++ [Leave her alone] ->->
 - -> opts
 
 === talk_to_twin2 ===
 Approach {TWIN2}.
 - (opts)
-    * "What's your bra size?"
-        "36C."
-    * "Which one are you?"
-        ~ identify_twins()
-        "Bailey."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "36C."
+* "Which one are you?"
+    ~ identify_twins()
+    "Bailey."
++ [Leave her alone] ->->
+- -> opts
+
+=== talk_to_twins ===
+Approach {TWINS}.
+- (opts)
+* "How can I tell you apart?"
+    ~ identify_twins()
+    "She's Hailey, and I'm Bailey."
+* [Leave them alone] ->->
 - -> opts
 
 === observe_twins ===

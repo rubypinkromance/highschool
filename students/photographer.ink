@@ -25,9 +25,9 @@ VAR PhotographerBaseMood = Neutral
 === talk_to_photographer ===
 Approach {PHOTOGRAPHER}.
 - (opts)
-    * "What's your bra size?"
-        "36C."
-    + [Leave her alone] ->->
+* "What's your bra size?"
+    "36C."
++ [Leave her alone] ->->
 - -> opts
 
 === observe_photographer ===
