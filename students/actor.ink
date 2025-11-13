@@ -1,6 +1,7 @@
 /*
 - Actor: Dana
-- Dana Howl, Cute hippy skirt, push-up bra, fitted top, short pink hair, shaved pubes
+- Dana Howl: short pink hair in bangs, average build, medium tits, 36A, shaved
+- Outfit: Black tank top, push-up bra, black lace thong
 ? intel: recently switched schools, heard because old school wouldn't let her use the right bathroom
 ? recon: tired of having to talk about trans stuff all the time
 ? convo: don't ask about trans stuff, just flirt
@@ -29,8 +30,8 @@ Approach {ACTOR}.
     "You've been observed.
 * {ActorState !? ActorBraSize}"What's your bra size?"
     ~ ActorState += ActorBraSize
-    "36B."
-+ {ActorState ? ActorBraSize}"You wear a 36B, right?"
+    "36A."
++ {ActorState ? ActorBraSize}"You wear a 36A, right?"
     "Correct."
 + [Leave her alone] ->->
 - -> opts

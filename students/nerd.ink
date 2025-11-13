@@ -1,6 +1,7 @@
 /*
 - Nerd: Felicia
-- Felicia Day, skinny, wavy red hair, graphic tee, baggy jeans, puffy nipples, trimmed bush, black bra, light blue thong
+- Felicia Day: shoulder-length wavy red hair, slight build, small tits, puffy nipples, 32B(34A), trimmed
+- Outfit: Grey t-shirt, "rogues do it from behind", jeans, white thong, pink bralette
 ? intel: kicked out of her last D&D group for being too horny
 ? recon: read her RPG planning notes
 ? convo: interested in D&D, want her to teach you

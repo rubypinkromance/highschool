@@ -1,6 +1,7 @@
 /*
 - Athlete: Lindsey
-- Florence Pugh, dirty blonde, track shorts, small boobs, dark nipples, sports bra, tank top, bikini panties (wet), shaved
+- Elle Fanning: medium-length dirty blonde ponytail, slight build, small tits, 32B(34A), trimmed
+- Outfit: black leggings, red sports bra, blue bikini panties, tank top during class, cute dress at mall
 ? intel: stays after school every day training
 ? recon: watch her shower and masturbate
 ? convo: challenge her to a race (don't have to win, just keep up)
@@ -25,7 +26,7 @@ VAR AthleteBaseMood = Neutral
 Approach {ATHLETE}.
 - (opts)
 * "What's your bra size?"
-    "34B."
+    "32B."
 + [Improve her mood]
     ~ improveMood(AthleteMood)
     "Thanks, I feel {AthleteMood}"

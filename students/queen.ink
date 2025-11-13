@@ -1,6 +1,7 @@
 /*
 - Queen: Victoria
-- LIS Victoria: Short blonde pixie cut, Skinny, small chest, shaved, nice clothes, shaved
+- LIS Victoria: short blonde pixie cut, slight build, small tits, 34A, shaved
+- Outfit: sweater, black blouse, grey skirt, tights, black mesh thong, black bra with pink lining
 ? intel: find her secret photos showing bdsm interest
 ? recon: observe her belittling, see it arouses her
 ? convo: submit (easy) or assert yourself (hard)
@@ -25,7 +26,7 @@ VAR QueenBaseMood = Hostile
 Approach {QUEEN}.
 - (opts)
 * "What's your bra size?"
-    "34B."
+    "34A."
 + [Leave her alone] ->->
 - -> opts
 

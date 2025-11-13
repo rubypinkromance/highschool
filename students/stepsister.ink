@@ -1,6 +1,7 @@
 /*
 - Stepsister: Alice
-- Alison Pill: straight blonde hair, medium boobs, small pokey nipples, shaved, black with pink polkadots underwear and bra.
+- Jade Jones: shaggy black hair, averge build, large tits, 34C, shaved
+- Outfit: TBD, black with pink polkadots underwear and bra.
 ? intel: read diary confessing sexual fantasies
 ? recon: spy on her masturbating in shower
 ? convo: confess you watch stepsister porn
@@ -27,7 +28,7 @@ LIST SisItems = SisPanties, SisDiary
 Approach {SIS}.
 - (opts)
 + "What's your bra size?"
-    "34B, bro."
+    "34C, bro."
 + "Wanna fuck?"
     "Sure, why not?"
     -> fuck_stepsister ->->

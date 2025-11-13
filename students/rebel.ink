@@ -1,6 +1,7 @@
 /*
 - Rebel: Zia
-- Alix Traeger: Brunette hair, undercut. Short, curvy, big hips, big tits, lots of cleavage, black clothes, shirt hangs off shoulder, black bra, black thong, black, torn-up jeans.
+- Chloe Bennet: medium length wavy brunette hair, average build, medium tits, 34B, trimmed
+- Outfit: Dark eye makeup, leather jacket, loose dark green shirt, hangs off one shoulder, ripped black jeans, black strappy bra, black panties
 ? intel: arrested for public indecency (rumors vary)
 ? recon: snapping topless pics under bleachers
 ? convo: ask about arrest, express approval
@@ -25,7 +26,7 @@ VAR RebelBaseMood = Hostile
 Approach {REBEL}.
 - (opts)
 * "What's your bra size?"
-    "36D."
+    "34B."
 + [Leave her alone] ->->
 - -> opts
 

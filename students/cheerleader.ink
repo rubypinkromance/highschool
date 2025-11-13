@@ -1,6 +1,7 @@
 /*
-- Cheerleader: Michelle
-- Kayley Cuoco, but black: bleached blonde ponytail, cheerleader uniform, sports bra, big tits, big nipples, 34-25-36, landing strip
+- Cheerleader: Rosario
+- Rosario Dawson: Puerto Rican, long wavy black hair, curvy build, huge tits, 36C(34D), landing strip, 36-24-34
+- Outfit: cheerleader outfit, black sports bra, black boyshort panties
     - likes flirty
     - dislikes sweet
 ? intel: heard her and Jock have been fighting
@@ -19,7 +20,7 @@ h. optional repeat sex
 - 4: Theater    - Bleachers
 - A: Bleachers  - ---
 */
-CONST CHEERLEADER = "Michelle"
+CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
 LIST CheerleaderState = CheerleaderObserved, intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
 VAR cheerleaderScore = 0

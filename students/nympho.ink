@@ -1,6 +1,7 @@
 /*
 - Nympho: Claire
-- Claire from loudermilk: wavy bleach blonde hair, choker, black tank top, no bra, army jacket, jean skirt, knee socks, shaved, cumslut tattoo, pierced nipples
+- Claire from Loudermilk: long wavy bleached blonde hair, skinny build, tiny tits, pierced nipples, 32A(34AA), shaved
+- Outfit: choker, army jacket, black strappy tank top, padded black bra, jean skirt with frayed edge, red satin panties
 - Gives details on teachers (gossip gives details on students)
 ? intel: Gossip tells you she's a nympho
 ? recon: Come to chess club, watch her take a guy to the supply closet
@@ -47,7 +48,7 @@ Approach {NYMPHO}.
     // heard Teacher got divorced last year and works late every night. Seems lonely.
     "I'll tell you after you cum on me."
 * "What's your bra size?"
-    "34A."
+    "32A."
 + [Leave her alone] ->->
 - -> opts
 

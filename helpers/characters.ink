@@ -1,4 +1,4 @@
-LIST Students = Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, Twin1, Twin2, Twins
+LIST Students = Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, SisFriend, Twin1, Twin2, Twins
 LIST Staff = HealthTeacher, Nurse, Secretary
 LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
@@ -6,29 +6,29 @@ LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 /*
 Try to avoid multiple characters whose names start with the same letter.
 
-- Alice - Stepsister, blonde, shaved
-- Bailey - Twin, bleached, curvy, shaved
-- Claire - Nympho, bleached, pierced nipples, shaved
-- Dana - Actor, trans, died pink, shaved
+- Alice    - Stepsister
+- B
+- Claire   - Nympho
+- Dana     - Actor
 - Emily?
-- Felicia - Nerd, redhead, trimmed
-- Grace - Scientist, asian, small tits, shaved
-- Hailey - Twin, bleached, curvy, shaved
+- Felicia  - Nerd
+- Grace    - Scientist (Asian)
+- H?
 - Isabel?
-- Jill - Photographer, brunette, trimmed
-- Kate - Believer, brunette, big tits, bush
-- Lindsey - Athlete, sporty, blonde, shaved
-- Michelle - Cheerleader, black, big tits, strip
-- Nina?
+- Jill     - Photographer
+- Kate     - Believer
+- Lindsey  - Athlete
+- Misha    - Twin (Indian)
+- Nisha    - Twin (Indian)
 - Olivia?
 - Paige?
 - Quinn?
-- Rachel?
-- Steph?
+- Rosario  - Cheerleader (Puerto Rican)
+- Sofia    - Stepsister's Friend (Latina)
 - Tina?
-- Victoria - Queen, blonde, small tits, shaved
-- Whitney - Gossip, brunette, average, trimmed
-- Zia - Rebel, brunette, curvy, bush
+- Victoria - Queen
+- Whitney  - Gossip
+- Zia      - Rebel
 */
 
 /*
@@ -179,6 +179,17 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return SisBaseMood
         - TalkFunction: ~ return -> talk_to_stepsister
         - ObserveFunction: ~ return -> observe_stepsister
+    }
+- SisFriend:
+    { what:
+        - Name: ~ return SIS_FRIEND
+        - Title: ~ return SIS_FRIEND_TITLE
+        - State: ~ return SisFriendState
+        - ObservedState: ~ return SisFriendObserved
+        - Mood: ~ return SisFriendMood
+        - BaseMood: ~ return SisFriendBaseMood
+        - TalkFunction: ~ return -> talk_to_stepsister_friend
+        - ObserveFunction: ~ return -> observe_stepsister_friend
     }
 - Twin1:
     { what:
@@ -479,27 +490,27 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ BraStorePeople += (Nympho)
     ~ BookStorePeople += (Scientist)
     ~ MovieTheaterPeople += (Nerd, Rebel)
-    ~ SisBedroomPeople += (Stepsister)
+    ~ SisBedroomPeople += (Stepsister, SisFriend)
 - Period2:
     ~ FieldPeople += (Cheerleader, Jock)
     ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
     ~ ShoeStorePeople += (Gossip, Nympho)
-    ~ BraStorePeople += (Stepsister)
+    ~ BraStorePeople += (Stepsister, SisFriend)
     ~ BookStorePeople += (Scientist)
     ~ MovieTheaterPeople += (Nerd, Rebel)
 - Lunch:
     ~ FieldPeople += (Cheerleader, Jock)
     ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
-    ~ FoodCourtPeople += (Gossip, Nerd, Nympho, Queen, Twin1, Twin2, Rebel, Scientist, Stepsister)
+    ~ FoodCourtPeople += (Gossip, Nerd, Nympho, Queen, Twin1, Twin2, Rebel, Scientist, Stepsister, SisFriend)
 - Period3:
     ~ FieldPeople += (Cheerleader, Jock)
     ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
-    ~ ShoeStorePeople += (Stepsister)
+    ~ ShoeStorePeople += (Stepsister, SisFriend)
     ~ BraStorePeople += (Gossip)
     ~ BookStorePeople += (Nerd, Scientist)
     ~ MovieTheaterPeople += (Nympho, Rebel)
@@ -512,7 +523,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BookStorePeople += (Nerd, Scientist)
     ~ MovieTheaterPeople += (Nympho, Rebel)
-    ~ SisBedroomPeople += (Stepsister)
+    ~ SisBedroomPeople += (Stepsister, SisFriend)
 - AfterSchool:
     ~ FieldPeople += (Athlete)
     ~ ChurchPeople += (Believer)
@@ -521,8 +532,9 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BookStorePeople += (Scientist)
     ~ BathroomPeople += (Stepsister)
+    ~ SisBedroomPeople += (SisFriend)
 - Night:
-    ~ SisBedroomPeople += (Stepsister)
+    ~ SisBedroomPeople += (Stepsister, SisFriend)
 }
 }
 
@@ -585,6 +597,7 @@ Try to avoid multiple characters whose names start with the same letter.
 ~ RebelMood = RebelBaseMood
 ~ ScientistMood = ScientistBaseMood
 ~ SisMood = SisBaseMood
+~ SisFriendMood = SisFriendBaseMood
 ~ TwinsMood = TwinsBaseMood
 ~ HealthTeacherMood = HealthTeacherBaseMood
 ~ NurseMood = NurseBaseMood

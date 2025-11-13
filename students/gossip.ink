@@ -1,6 +1,7 @@
 /*
 - Gossip: Whitney
-- Katelyn: Brown shoulder length hair, tan slacks, black button-up, long coat, lacy purple bra and panties, trimmed
+- Velma Dinkly: short brunette bob, average build, large tits, 34C, trimmed
+- Outfit: Orange shirt, red skirt, black bra, black thong
 - Gives details on schoolgirls (Nympho gives details on teachers)
 ? intel: She tells you to ask her if you need to know anything about other girls
 ? recon: wants to be a detective (favorite books, movies, references)
@@ -40,7 +41,7 @@ VAR GossipBaseMood = Friendly
 Approach {GOSSIP}.
 - (opts)
 * "What's your bra size?"
-    "34B."
+    "34C."
 + [Walk away] ->->
 - -> opts
 

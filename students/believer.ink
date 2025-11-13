@@ -1,6 +1,7 @@
 /*
 - Believer: Kate
-- LIS Kate: big tits, dark hair ponytail, sweater, button-up, long skirt, plain underwear, cross, full bush
+- LIS Kate: long brunette pony, average build, medium tits, 32C(34B), full bush
+- Outfit: cardigan, white cami, grey skirt, white lace bra, white lace panties
 ? intel: goes to confess every day after school
 ? recon: evesdrop on confession about fantasies
 ? convo: struggling not to spill seed
@@ -25,7 +26,7 @@ VAR BelieverBaseMood = Neutral
 Approach {BELIEVER}.
 - (opts)
 * "What's your bra size?"
-    "That's between me and Jesus." // 36DD
+    "That's between me and Jesus."
 + [Leave her alone] ->->
 - -> opts
 

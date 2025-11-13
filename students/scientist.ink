@@ -1,6 +1,7 @@
 /*
 - Scientist: Grace
-- Jessica Henwick: Long black hair, ponytail, glasses. Short, skiny, small poky tits, large dark nipples, landing strip.
+- Jessica Henwick: Asian, long black ponytail, skinny build, tiny tits, large dark nipples, sensitive, 30B(34AA), landing strip
+- Outfit: glasses, lab coat (in lab), TBD
 ? intel: stays late every night working on a secret project
 ? recon: research secret ingredient
 ? convo: working on improved adderall, volunteer to test
@@ -25,7 +26,7 @@ VAR ScientistBaseMood = Neutral
 Approach {SCIENTIST}.
 - (opts)
 * "What's your bra size?"
-    "34A."
+    "30B."
 + [Leave her alone] ->->
 - -> opts
 

@@ -1,6 +1,7 @@
 /*
 - Photographer: Jill
-- Jill Cunningham: long wavy brunette hair, Cute, low-cut babydoll top, low-cut jeans, trimmed
+- Jill Cunningham: long straight brunette hair, average build, medium tits, 34B, trimmed
+- Outfit: overalls, white cami, pink bra, white panties
 ? intel: stays late in darkroom every night, once confessed her secret fantasy is meeting a stranger in the darkroom
 ? recon: favorite photographer does nudes
 ? convo: suggest a nude photoshood
@@ -26,7 +27,7 @@ VAR PhotographerBaseMood = Neutral
 Approach {PHOTOGRAPHER}.
 - (opts)
 * "What's your bra size?"
-    "36C."
+    "34B."
 + [Leave her alone] ->->
 - -> opts
 

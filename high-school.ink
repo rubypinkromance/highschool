@@ -39,12 +39,14 @@ INCLUDE students/queen.ink
 INCLUDE students/rebel.ink
 INCLUDE students/scientist.ink
 INCLUDE students/stepsister.ink
+INCLUDE students/stepsister-friend.ink
 INCLUDE students/twins.ink
 
 // Staff
 INCLUDE staff/health-teacher.ink
 INCLUDE staff/nurse.ink
 INCLUDE staff/secretary.ink
+
 
 // Variables
 CONST DEBUG = true

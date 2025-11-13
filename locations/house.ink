@@ -20,7 +20,7 @@ VAR BedroomPeople = ()
 - else:
     You return to {BEDROOM}.
 }
-{BedroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
+<- listHousePeople(BedroomPeople)
 
 - (bedroom_opts)
 <- talkAndObserveAllCharacters(BedroomPeople, -> bedroom_opts)
@@ -53,7 +53,7 @@ VAR BathroomItems = ()
 ~ here = BATHROOM
 
 You are in the {BATHROOM}.
-{BathroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
+<- listHousePeople(BathroomPeople)
 
 - (bathroom_opts)
 <- talkAndObserveAllCharacters(BathroomPeople, -> bathroom_opts)
@@ -81,7 +81,7 @@ VAR SisBedroomItems = (SisPanties)
 ~ here = SIS_BEDROOM
 
 You are in {SIS_BEDROOM}.
-{SisBedroomPeople ? Stepsister:<> Your stepsister {SIS} is here}
+<- listHousePeople(SisBedroomPeople)
 
 - (sis_bedroom_opts)
 <- talkAndObserveAllCharacters(SisBedroomPeople, -> sis_bedroom_opts)
@@ -92,4 +92,17 @@ You are in {SIS_BEDROOM}.
 
 + [Leave {SIS_BEDROOM}] -> pass_time -> bedroom
 - -> sis_bedroom_opts
+
+/*
+- List combinations of people in the house.
+*/
+= listHousePeople(roomPeople)
+{
+- roomPeople ? (Stepsister, SisFriend):
+    <> Your stepsister {SIS} and her friend {SIS_FRIEND} are here.
+- roomPeople ? Stepsister:
+    <> Your stepsister {SIS} is here.
+- roomPeople ? SisFriend:
+    <> Your stepsister’s friend {SIS_FRIEND} is here.
+}
 
