@@ -24,3 +24,8 @@ Approach {JOCK}.
 === observe_jock ===
 ~ JockState += JockObserved
 ->->
+
+=== dream_of_jock ===
+You have a filthy dream about {JOCK}.
+(How did that happen?)
+->->

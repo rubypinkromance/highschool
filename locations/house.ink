@@ -14,7 +14,7 @@ VAR BedroomPeople = ()
 
 {
 - now == Period1:
-    You wake up in your bed with a throbbing erection.
+    // say nothing, the dream conclusion did it for us.    
 - now > Period4:
     You return to {BEDROOM}, exhausted after a long day.
 - else:
@@ -29,18 +29,21 @@ VAR BedroomPeople = ()
     -> cheerleader_panties ->
 * { Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
     -> stepsister_panties ->
++ (jerk_off) {newToday(-> jerk_off) and now != Period1} [Jerk off]
+    ~ cum_today = true
+    You spank the monkey
 
 + [Go to {BATHROOM}] -> bathroom
 + [Go to {SIS_BEDROOM}] -> sis_bedroom
 + { now < Night } [Go to school] -> hallway
 + { now < Night } [Go to the {MALL}] -> mall
 + { now < Night } [Go to the {CHURCH}] -> church
-+ { now >= AfterSchool } [Go to sleep] -> go_to_sleep ->
++ { DEBUG or now >= AfterSchool } [Go to sleep]
+    -> dream -> next_day ->bedroom
 + [Check your score]
     Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
     You { listPrint(Score, -> scoreDetails)}.
 - -> bedroom_opts
-
 
 /*
 - The Bathroom
@@ -105,4 +108,14 @@ You are in {SIS_BEDROOM}.
 - roomPeople ? SisFriend:
     <> Your stepsister’s friend {SIS_FRIEND} is here.
 }
+-> DONE
 
+= dream
+{ cum_today:
+    You sleep well and wake up refreshed and ready for a new day.
+- else:
+    ~ temp dream_about_girl = characterData(last_girl, DreamFunction)
+    -> dream_about_girl ->
+    You wake up with frustrated, with a throbbing erection and increased motivation.
+}
+->->

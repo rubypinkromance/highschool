@@ -38,7 +38,10 @@ VAR GossipMood = Friendly
 VAR GossipBaseMood = Friendly
 
 === talk_to_gossip ===
+~last_girl = Gossip
+
 Approach {GOSSIP}.
+
 - (opts)
 * "What's your bra size?"
     "34C."
@@ -46,6 +49,11 @@ Approach {GOSSIP}.
 - -> opts
 
 === observe_gossip ===
+~ last_girl = Gossip
 ~ GossipState += GossipObserved
 Coming soon.
+->->
+
+=== dream_of_gossip ===
+You have a filthy dream about {GOSSIP}.
 ->->

@@ -23,7 +23,10 @@ VAR SisFriendMood = Aroused
 VAR SisFriendBaseMood = Aroused
 
 === talk_to_stepsister_friend ===
+~ last_girl = SisFriend
+
 Approach {SIS_FRIEND}.
+
 - (opts)
 * "What's your bra size?"
     "32D."
@@ -31,6 +34,11 @@ Approach {SIS_FRIEND}.
 - -> opts
 
 === observe_stepsister_friend ===
+~ last_girl = SisFriend
 ~ SisFriendState += SisFriendObserved
 Coming soon.
+->->
+
+=== dream_of_stepsister_friend ===
+You have a filthy dream about {SIS_FRIEND}.
 ->->

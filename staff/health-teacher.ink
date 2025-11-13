@@ -19,7 +19,10 @@ VAR HealthTeacherMood = Neutral
 VAR HealthTeacherBaseMood = Neutral
 
 === talk_to_health_teacher ===
+~ last_girl = HealthTeacher
+
 Approach {HEALTH_TEACHER}.
+
 - (opts)
     * "What's your bra size?"
         "36C."
@@ -28,6 +31,11 @@ Approach {HEALTH_TEACHER}.
 
 // After her behavior changes, remove HealthTeacherObserved
 === observe_health_teacher ===
+~ last_girl = HealthTeacher
 ~ HealthTeacherState += HealthTeacherObserved
 Coming soon.
+->->
+
+=== dream_of_health_teacher ===
+You have a filthy dream about {HEALTH_TEACHER}.
 ->->

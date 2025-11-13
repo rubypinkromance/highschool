@@ -18,7 +18,10 @@ VAR SecretaryMood = Friendly
 VAR SecretaryBaseMood = Friendly
 
 === talk_to_secretary ===
+~ last_girl = Secretary
+
 Approach {SECRETARY}.
+
 - (opts)
     * "What's your bra size?"
         "34B."
@@ -26,6 +29,11 @@ Approach {SECRETARY}.
 - -> opts
 
 === observe_secretary ===
+~ last_girl = Secretary
 ~ SecretaryState += SecretaryObserved
 Coming soon.
+->->
+
+=== dream_of_secretary ===
+You have a filthy dream about {SECRETARY}.
 ->->

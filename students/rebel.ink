@@ -23,7 +23,10 @@ VAR RebelMood = Hostile
 VAR RebelBaseMood = Hostile
 
 === talk_to_rebel ===
+~ last_girl = Rebel
+
 Approach {REBEL}.
+
 - (opts)
 * "What's your bra size?"
     "34B."
@@ -31,6 +34,11 @@ Approach {REBEL}.
 - -> opts
 
 === observe_rebel ===
+~ last_girl = Rebel
 ~ RebelState += RebelObserved
 Coming soon.
+->->
+
+=== dream_of_rebel ===
+You have a filthy dream about {REBEL}.
 ->->

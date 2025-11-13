@@ -23,7 +23,10 @@ VAR ActorMood = Neutral
 VAR ActorBaseMood = Neutral
 
 === talk_to_actor ===
+~ last_girl = Actor
+
 Approach {ACTOR}.
+
 - (opts)
 * {ActorState !? ActorObserved} [Observe] -> observe_actor ->
 + {ActorState ? ActorObserved} [Confirm]
@@ -37,6 +40,11 @@ Approach {ACTOR}.
 - -> opts
 
 === observe_actor ===
+~ last_girl = Actor
 ~ ActorState += ActorObserved
 Coming soon.
+->->
+
+=== dream_of_actor ===
+You have a filthy dream about {ACTOR}.
 ->->

@@ -25,7 +25,10 @@ VAR NerdMood = Neutral
 VAR NerdBaseMood = Neutral
 
 === talk_to_nerd ===
+~ last_girl = Nerd
+
 Approach {NERD}.
+
 - (opts)
 * "What's your bra size?"
     "32B."
@@ -33,6 +36,11 @@ Approach {NERD}.
 - -> opts
 
 === observe_nerd ===
+~ last_girl = Nerd
 ~ NerdState += NerdObserved
 Coming soon.
+->->
+
+=== dream_of_nerd ===
+You have a filthy dream about {NERD}.
 ->->

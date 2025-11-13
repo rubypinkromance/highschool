@@ -23,7 +23,10 @@ VAR BelieverMood = Neutral
 VAR BelieverBaseMood = Neutral
 
 === talk_to_believer ===
+~ last_girl = Believer
+
 Approach {BELIEVER}.
+
 - (opts)
 * "What's your bra size?"
     "That's between me and Jesus."
@@ -31,6 +34,11 @@ Approach {BELIEVER}.
 - -> opts
 
 === observe_believer ===
+~ last_girl = Believer
 ~ BelieverState += BelieverObserved
 Coming soon.
+->->
+
+=== dream_of_believer ===
+You have a filthy dream about {BELIEVER}.
 ->->

@@ -23,7 +23,10 @@ VAR AthleteMood = Neutral
 VAR AthleteBaseMood = Neutral
 
 === talk_to_athlete ===
+~ last_girl = Athlete
+
 Approach {ATHLETE}.
+
 - (opts)
 * "What's your bra size?"
     "32B."
@@ -49,6 +52,11 @@ Approach {ATHLETE}.
 - -> opts
 
 === observe_athlete ===
+~ last_girl = Athlete
 ~ AthleteState += AthleteObserved
 Coming soon.
+->->
+
+=== dream_of_athlete ===
+You have a filthy dream about {ATHLETE}.
 ->->

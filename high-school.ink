@@ -3,6 +3,7 @@ INCLUDE beats/intro.ink
 
 // Helpers
 INCLUDE helpers/characters.ink
+INCLUDE helpers/locations.ink
 INCLUDE helpers/score.ink
 INCLUDE helpers/time.ink
 INCLUDE helpers/functions.ink
@@ -48,10 +49,13 @@ INCLUDE staff/nurse.ink
 INCLUDE staff/secretary.ink
 
 
+
 // Variables
 CONST DEBUG = true
 VAR here = INTRO
 VAR Inventory = ()
+VAR last_girl = Cheerleader
+VAR cum_today = false
 ~ clearLocations()
 ~ characterScheduler()
 

@@ -25,7 +25,10 @@ VAR SisBaseMood = Friendly
 LIST SisItems = SisPanties, SisDiary
 
 === talk_to_stepsister ===
+~ last_girl = Stepsister
+
 Approach {SIS}.
+
 - (opts)
 + "What's your bra size?"
     "34C, bro."
@@ -36,6 +39,7 @@ Approach {SIS}.
 - -> opts
 
 === observe_stepsister ===
+~ last_girl = Stepsister
 ~ SisState += SisObserved
 Coming soon.
 ->->
@@ -54,7 +58,6 @@ Look at {SIS}.
 - -> opts
 
 === fuck_stepsister ===
-
 This is it, you're finally going to fuck {SIS}.
 
 - (opts)
@@ -69,7 +72,11 @@ This is it, you're finally going to fuck {SIS}.
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === stepsister_panties ===
+~ last_girl = Stepsister
 Unable to resist the urge, you wrap {SIS}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
 ->->
 
+=== dream_of_stepsister ===
+You have a filthy dream about {SIS}.
+->->

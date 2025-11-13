@@ -24,7 +24,10 @@ VAR PhotographerMood = Neutral
 VAR PhotographerBaseMood = Neutral
 
 === talk_to_photographer ===
+~ last_girl = Photographer
+
 Approach {PHOTOGRAPHER}.
+
 - (opts)
 * "What's your bra size?"
     "34B."
@@ -32,6 +35,11 @@ Approach {PHOTOGRAPHER}.
 - -> opts
 
 === observe_photographer ===
+~ last_girl = Photographer
 ~ PhotographerState += PhotographerObserved
 Coming soon.
+->->
+
+=== dream_of_photographer ===
+You have a filthy dream about {PHOTOGRAPHER}.
 ->->

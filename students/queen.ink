@@ -23,7 +23,10 @@ VAR QueenMood = Hostile
 VAR QueenBaseMood = Hostile
 
 === talk_to_queen ===
+~last_girl = Queen
+
 Approach {QUEEN}.
+
 - (opts)
 * "What's your bra size?"
     "34A."
@@ -31,6 +34,11 @@ Approach {QUEEN}.
 - -> opts
 
 === observe_queen ===
+~last_girl = Queen
 ~ QueenState += QueenObserved
 Coming soon.
+->->
+
+=== dream_of_queen ===
+You have a filthy dream about {QUEEN}.
 ->->

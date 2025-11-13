@@ -36,7 +36,10 @@ VAR NymphoMood = Aroused
 VAR NymphoBaseMood = Aroused
 
 === talk_to_nympho ===
+~ last_girl = Nympho
+
 Approach {NYMPHO}.
+
 - (opts)
 * "What do you know about {NURSE}?"
     // heard other teachers think Nurse is a pushover, gives students what they ask for too easily.
@@ -53,6 +56,11 @@ Approach {NYMPHO}.
 - -> opts
 
 === observe_nympho ===
+~ last_girl = Nympho
 ~ NymphoState += NymphoObserved
 Coming soon.
+->->
+
+=== dream_of_nympho ===
+You have a filthy dream about {NYMPHO}.
 ->->

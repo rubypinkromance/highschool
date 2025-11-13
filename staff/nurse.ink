@@ -18,7 +18,10 @@ VAR NurseMood = Neutral
 VAR NurseBaseMood = Neutral
 
 === talk_to_nurse ===
+~ last_girl = Nurse
+
 Approach {NURSE}.
+
 - (opts)
     * "What's your bra size?"
         "36D."
@@ -26,6 +29,11 @@ Approach {NURSE}.
 - -> opts
 
 === observe_nurse ===
+~ last_girl = Nurse
 ~ NurseState += NurseObserved
 Coming soon.
+->->
+
+=== dream_of_nurse ===
+You have a filthy dream about {NURSE}.
 ->->

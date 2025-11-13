@@ -1,6 +1,6 @@
 LIST Students = Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, SisFriend, Twin1, Twin2, Twins
 LIST Staff = HealthTeacher, Nurse, Secretary
-LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction
+LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction, DreamFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 
 /*
@@ -47,6 +47,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return ActorBaseMood
         - TalkFunction: ~ return -> talk_to_actor
         - ObserveFunction: ~ return -> observe_actor
+        - DreamFunction: ~ return -> dream_of_actor
     }
 - Athlete:
     { what:
@@ -58,6 +59,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return AthleteBaseMood
         - TalkFunction: ~ return -> talk_to_athlete
         - ObserveFunction: ~ return -> observe_athlete
+        - DreamFunction: ~ return -> dream_of_athlete
     }
 - Believer:
     { what:
@@ -69,6 +71,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return BelieverBaseMood
         - TalkFunction: ~ return -> talk_to_believer
         - ObserveFunction: ~ return -> observe_believer
+        - DreamFunction: ~ return -> dream_of_believer
     }
 - Cheerleader:
     { what:
@@ -80,6 +83,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return CheerleaderBaseMood
         - TalkFunction: ~ return -> talk_to_cheerleader
         - ObserveFunction: ~ return -> observe_cheerleader
+        - DreamFunction: ~ return -> dream_of_cheerleader
     }
 - Gossip:
     { what:
@@ -91,6 +95,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return GossipBaseMood
         - TalkFunction: ~ return -> talk_to_gossip
         - ObserveFunction: ~ return -> observe_gossip
+        - DreamFunction: ~ return -> dream_of_gossip
     }
 - Nerd:
     { what:
@@ -102,6 +107,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return NerdBaseMood
         - TalkFunction: ~ return -> talk_to_nerd
         - ObserveFunction: ~ return -> observe_nerd
+        - DreamFunction: ~ return -> dream_of_nerd
     }
 - Jock:
     { what:
@@ -113,6 +119,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return JockBaseMood
         - TalkFunction: ~ return -> talk_to_jock
         - ObserveFunction: ~ return -> observe_jock
+        - DreamFunction: ~ return -> dream_of_jock
     }
 - Nympho:
     { what:
@@ -124,6 +131,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return NymphoBaseMood
         - TalkFunction: ~ return -> talk_to_nympho
         - ObserveFunction: ~ return -> observe_nympho
+        - DreamFunction: ~ return -> dream_of_nympho
     }
 - Photographer:
     { what:
@@ -135,6 +143,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return PhotographerBaseMood
         - TalkFunction: ~ return -> talk_to_photographer
         - ObserveFunction: ~ return -> observe_photographer
+        - DreamFunction: ~ return -> dream_of_photographer
     }
 - Queen:
     { what:
@@ -146,6 +155,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return QueenBaseMood
         - TalkFunction: ~ return -> talk_to_queen
         - ObserveFunction: ~ return -> observe_queen
+        - DreamFunction: ~ return -> dream_of_queen
     }
 - Rebel:
     { what:
@@ -157,6 +167,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return RebelBaseMood
         - TalkFunction: ~ return -> talk_to_rebel
         - ObserveFunction: ~ return -> observe_rebel
+        - DreamFunction: ~ return -> dream_of_rebel
     }
 - Scientist:
     { what:
@@ -168,6 +179,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return ScientistBaseMood
         - TalkFunction: ~ return -> talk_to_scientist
         - ObserveFunction: ~ return -> observe_scientist
+        - DreamFunction: ~ return -> dream_of_scientist
     }
 - Stepsister:
     { what:
@@ -179,6 +191,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return SisBaseMood
         - TalkFunction: ~ return -> talk_to_stepsister
         - ObserveFunction: ~ return -> observe_stepsister
+        - DreamFunction: ~ return -> dream_of_stepsister
     }
 - SisFriend:
     { what:
@@ -190,6 +203,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return SisFriendBaseMood
         - TalkFunction: ~ return -> talk_to_stepsister_friend
         - ObserveFunction: ~ return -> observe_stepsister_friend
+        - DreamFunction: ~ return -> dream_of_stepsister_friend
     }
 - Twin1:
     { what:
@@ -201,6 +215,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return TwinsBaseMood
         - TalkFunction: ~ return -> talk_to_twin1
         - ObserveFunction: ~ return -> observe_twins
+        - DreamFunction: ~ return -> dream_of_twins
     }
 - Twin2:
     { what:
@@ -212,6 +227,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return TwinsBaseMood
         - TalkFunction: ~ return -> talk_to_twin2
         - ObserveFunction: ~ return -> observe_twins
+        - DreamFunction: ~ return -> dream_of_twins
     }
 - Twins:
     { what:
@@ -223,6 +239,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return TwinsBaseMood
         - TalkFunction: ~ return -> talk_to_twins
         - ObserveFunction: ~ return -> observe_twins
+        - DreamFunction: ~ return -> dream_of_twins
     }
 - Nurse:
     { what:
@@ -234,6 +251,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return NurseBaseMood
         - TalkFunction: ~ return -> talk_to_nurse
         - ObserveFunction: ~ return -> observe_nurse
+        - DreamFunction: ~ return -> dream_of_nurse
     }
 - Secretary:
     { what:
@@ -245,6 +263,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return SecretaryBaseMood
         - TalkFunction: ~ return -> talk_to_secretary
         - ObserveFunction: ~ return -> observe_secretary
+        - DreamFunction: ~ return -> dream_of_secretary
     }
 - HealthTeacher:
     { what:
@@ -256,6 +275,7 @@ Try to avoid multiple characters whose names start with the same letter.
         - BaseMood: ~ return HealthTeacherBaseMood
         - TalkFunction: ~ return -> talk_to_health_teacher
         - ObserveFunction: ~ return -> observe_health_teacher
+        - DreamFunction: ~ return -> dream_of_health_teacher
     }
 }
 

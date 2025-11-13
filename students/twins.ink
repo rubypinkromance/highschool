@@ -1,6 +1,6 @@
 /*
-- Twins: Nisha & Misha
-- Kamala Kahn: Indian, long wavy black hair, curvy build, huge tits, 34D, shaved
+- Twins: Hailey & Bailey
+- Alison Brie: long wavy brunette hair, curvy build, huge tits, 34D, shaved
 - Outfit: Navy shirt, white bra with blue flowers, matching panties
 ? intel: the twins share everything. I mean, everything.
 ? recon: learn to tell them apart
@@ -16,12 +16,12 @@
 - 4: Gym/Health          - Bra Store
 - A: Mall                - Bra Store
 */
-CONST TWINS = "Nisha & Misha"
+CONST TWINS = "Hailey & Bailey"
 CONST TWINS_TITLE = "the twins"
-VAR TWIN1 = "Nisha"
-VAR TWIN2 = "Nisha"
-VAR TWIN1_TITLE = "(or is that Misha?)"
-VAR TWIN2_TITLE = "(or is that Misha?)"
+VAR TWIN1 = "Hailey"
+VAR TWIN2 = "Hailey"
+VAR TWIN1_TITLE = "(or is that Bailey?)"
+VAR TWIN2_TITLE = "(or is that Bailey?)"
 LIST TwinsState = TwinsObserved
 VAR TwinsMood = Neutral
 VAR TwinsBaseMood = Neutral
@@ -29,43 +29,57 @@ VAR can_identify_twins = false
 
 === function identify_twins() ===
 ~ can_identify_twins = true
-~ TWIN1 = "Nisha"
-~ TWIN2 = "Misha"
+~ TWIN1 = "Hailey"
+~ TWIN2 = "Bailey"
 ~ TWIN1_TITLE = "the twin"
 ~ TWIN2_TITLE = "the twin"
 
 === talk_to_twin1 ===
+~ last_girl = Twins
+
 Approach {TWIN1}.
+
 - (opts)
 * "What's your bra size?"
     "34D."
 * "Which one are you?"
     ~ identify_twins()
-    "Nisha."
+    "Hailey."
 + [Leave her alone] ->->
 - -> opts
 
 === talk_to_twin2 ===
+~ last_girl = Twins
+
 Approach {TWIN2}.
+
 - (opts)
 * "What's your bra size?"
     "34D."
 * "Which one are you?"
     ~ identify_twins()
-    "Misha."
+    "Bailey."
 + [Leave her alone] ->->
 - -> opts
 
 === talk_to_twins ===
+~ last_girl = Twins
+
 Approach {TWINS}.
+
 - (opts)
 * "How can I tell you apart?"
     ~ identify_twins()
-    "She's Nisha, and I'm Misha."
+    "She's Hailey, and I'm Bailey."
 * [Leave them alone] ->->
 - -> opts
 
 === observe_twins ===
+~ last_girl = Twins
 ~ TwinsState += TwinsObserved
 Coming soon.
+->->
+
+=== dream_of_twins ===
+You have a filthy dream about {TWINS}.
 ->->

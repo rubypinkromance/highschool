@@ -23,7 +23,10 @@ VAR ScientistMood = Neutral
 VAR ScientistBaseMood = Neutral
 
 === talk_to_scientist ===
+~ last_girl = Scientist
+
 Approach {SCIENTIST}.
+
 - (opts)
 * "What's your bra size?"
     "30B."
@@ -31,6 +34,11 @@ Approach {SCIENTIST}.
 - -> opts
 
 === observe_scientist ===
+~ last_girl = Scientist
 ~ ScientistState += ScientistObserved
 Coming soon.
+->->
+
+=== dream_of_scientist ===
+You have a filthy dream about {SCIENTIST}.
 ->->

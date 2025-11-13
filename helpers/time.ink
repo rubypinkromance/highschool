@@ -15,33 +15,37 @@ VAR countdown = false
 */
 === function nameOfTime(time)
 { isWeekday():
-    { time:
-    - Period1: first period
-    - Period2: second period
-    - Lunch: lunch time
-    - Period3: third period
-    - Period4: fourth period
-    - AfterSchool: after school
-    - Night: late
-    }
+    {nameOfTimeWeekday(time)}
 - else:
-    { time:
-    - Period1: early morning
-    - Period2: morning
-    - Lunch: lunch time
-    - Period3: afternoon
-    - Period4: late afternoon
-    - AfterSchool: evening
-    - Night: late
-    }
+    {nameOfTimeWeekend(time)}
+}
+=== function nameOfTimeWeekday(time)
+{ time:
+- Period1: first period
+- Period2: second period
+- Lunch: lunch time
+- Period3: third period
+- Period4: fourth period
+- AfterSchool: after school
+- Night: late
+}
+=== function nameOfTimeWeekend(time)
+{ time:
+- Period1: early morning
+- Period2: morning
+- Lunch: lunch time
+- Period3: afternoon
+- Period4: late afternoon
+- AfterSchool: evening
+- Night: late
 }
 
 /*
 - Announce the current day, time, and your current class.
 */
 === function announceTime()
-<em><small>{ today }, { nameOfTime(now) }.
-{ isWeekday():
+<em><small>{ today }, { isHome(): {nameOfTimeWeekend(now)}|{nameOfTime(now)} }.
+{ isWeekday() and not isHome():
     { now:
     - Period1:
         <> You have Gym class.
@@ -68,10 +72,38 @@ VAR countdown = false
 ~ return WeekendDays ? today
 
 /*
+- Check if the specified day is a weekend
+*/
+=== function isDayWeekend(day)
+~ return WeekendDays ? day
+
+/*
 - Check if it's time for a class
 */
 === function isClassTime()
 ~ return isWeekday() && ClassTimes ? now
+
+// Determine if an action has been used today
+=== function didToday(-> action)
+{ (not next_day and TURNS_SINCE(action) >= 0) or TURNS_SINCE(-> next_day) > TURNS_SINCE(action):
+    ~ return true
+}
+~ return false
+
+TODO bug: jerk off doesn't show up on successive days
+// Determine if an action is new today
+=== function newToday(-> action)
+{ not didToday(action):
+    ~ return true
+}
+~ return false
+
+// Returns the next day of the week
+=== function tomorrow()
+{ today == Saturday:
+    ~ return Sunday   // loop back around
+}
+~ return today + 1
 
 /*
 - Advance the time of day.
@@ -89,15 +121,11 @@ VAR countdown = false
 - Advance the calendar and reset for the next day.
 - Run this at the end of every day.
 */
-=== go_to_sleep ===
+=== next_day ===
 ~ now = Period1        // set the clock
 ~ date++               // update the calendar
 ~ days_remaining--     // update the countdown
-{ today == Saturday:
-    ~ today = Sunday   // loop back around
-- else:
-    ~ today++
-}
+~ today = tomorrow()
 { countdown:
     { days_remaining < 1:
         GAME OVER
@@ -113,6 +141,7 @@ VAR countdown = false
         This is your last day!
     }
 }
+~ cum_today = false    // reset your own cum state
 ~ resetMoods()         // reset people to base mood
 ~ clearLocations()     // empty the rooms
 ~ characterScheduler() // move people to new locations

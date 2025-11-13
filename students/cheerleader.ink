@@ -29,7 +29,10 @@ VAR CheerleaderMood = Neutral
 VAR CheerleaderBaseMood = Neutral
 
 === talk_to_cheerleader ===
+~ last_girl = Cheerleader
+
 You approach {CHEERLEADER}
+
 { CheerleaderState <= intel:<>, who regards you warily. The two of you have gone to school together for years, but you've never actually spoken to her like this. She isn't sure what to expect. "What do you want?"}
 { CheerleaderState == recon or (CheerleaderState == revenge and here != UNDER_BLEACHERS):<>. She glances up at you briefly, but returns her attention to {JOCK}, who seems oblivious to the daggers she's shooting at him.}
 { CheerleaderState == revenge and here == UNDER_BLEACHERS:<>, who is tapping her foot impatiently.}
@@ -92,6 +95,7 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 
 /* After getting intel from Gossip that she's fighting with her boyfriend, you observe she's upset because he's flirting with other girls. */
 === observe_cheerleader ===
+~ last_girl = Cheerleader
 ~ CheerleaderState += CheerleaderObserved
 ~ CheerleaderState = recon
 You keep an eye on {CHEERLEADER} and {JOCK}, looking for any clue of what they might be fighting about. It doesn't take long for you to notice that {JOCK} is shamelessly flirting with another girl. He's flexing and showing off, and she's laughing and touching his arm. {CHEERLEADER} is glaring at him, but he's too distracted to notice.
@@ -184,6 +188,7 @@ You enter the combination for the locker, and it opens. Inside you find a cheerl
 
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === cheerleader_panties ===
+~ last_girl = Cheerleader
 ~ Score += cheerleaderPanties
 Unable to resist the urge, you wrap {CHEERLEADER}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
@@ -191,6 +196,7 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
 /* After recovering her things from her ex's locker, she says to meet her later for a reward. */
 === deliver_cheerleader_stuff ===
+~ last_girl = Cheerleader
 ~ CheerleaderState = reward
 ~ Inventory -= CheerleaderPanties
 "I got your things from the locker."
@@ -225,4 +231,13 @@ You pull up your pants, give her a kiss, and turn away.
 You kiss her.
 "I'm glad you came. I need you inside me again."
 -> cheerleader_sex ->
+->->
+
+=== dream_of_cheerleader ===
+You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. <>
+{ shuffle:
+- You have your cock nestled between her tits, and she’s begging you to finish, to blow your load all over her. You can feel your climax approaching, and you point her cock at her face
+- You are sitting in the back seat of a car, and her hand is in your pants, firmly rubbing your throbbing cock. You gasp and groan as she strokes you with increasing urgency
+}
+<>{isDayWeekend(tomorrow()):, but before you can cum you wake up tangled in your sheets.|. She opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
 ->->
