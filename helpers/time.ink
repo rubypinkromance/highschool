@@ -44,7 +44,9 @@ VAR countdown = false
 - Announce the current day, time, and your current class.
 */
 === function announceTime()
-<em><small>{ today }, { isHome(): {nameOfTimeWeekend(now)}|{nameOfTime(now)} }.
+<em><small>
+<>{ today },
+<>{ isHome(): {nameOfTimeWeekend(now)}|{nameOfTime(now)}}.
 { isWeekday() and not isHome():
     { now:
     - Period1:

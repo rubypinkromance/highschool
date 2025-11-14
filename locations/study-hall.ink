@@ -6,7 +6,7 @@
 CONST STUDY_HALL = "study hall"
 VAR StudyHallPeople = ()
 VAR study_hall_supervised = true
-~ here = STUDY_HALL
+~ here = StudyHall
 -> access_restrictions ->
 
 You are in the {STUDY_HALL}.

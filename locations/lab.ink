@@ -5,7 +5,7 @@
 === lab ===
 CONST LAB = "science classroom"
 VAR LabPeople = ()
-~ here = LAB
+~ here = Lab
 -> access_restrictions ->
 
 You are in the {LAB}.

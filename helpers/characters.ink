@@ -3,6 +3,8 @@ LIST Staff = HealthTeacher, Nurse, Secretary
 LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction, DreamFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 
+VAR last_girl = Cheerleader
+
 /*
 Try to avoid multiple characters whose names start with the same letter.
 
@@ -557,47 +559,6 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ SisBedroomPeople += (Stepsister, SisFriend)
 }
 }
-
-/*
-- Remove all people from every room.
-- Run it before characterScheduler().
-*/
-=== function clearLocations()
-~ CafeteriaPeople = ()
-    ~ StoragePeople = ()
-~ ChurchPeople = ()
-~ ClinicPeople = ()
-    ~ ExamAreaPeople = ()
-~ FieldPeople = ()
-    ~ BleachersPeople = ()
-    ~ UnderBleachersPeople = ()
-~ GymPeople = ()
-    ~ LockerRoomPeople = ()
-~ HealthClassPeople = ()
-~ LabPeople = ()
-~ LibraryPeople = ()
-~ LoungePeople = ()
-~ OfficePeople = ()
-    ~ SupplyClosetPeople = ()
-~ PhotoClassPeople = ()
-    ~ DarkroomPeople = ()
-~ StudyHallPeople = ()
-~ TheaterPeople = ()
-    ~ BackstagePeople = ()
-// Special school locations
-~ StairwellPeople = ()
-~ RoofPeople = ()
-// Mall locations
-~ BraStorePeople = ()
-~ BookStorePeople = ()
-~ DressStorePeople = ()
-~ FoodCourtPeople = ()
-~ MovieTheaterPeople = ()
-~ ShoeStorePeople = ()
-// House locations
-~ BedroomPeople = ()
-~ BathroomPeople = ()
-~ SisBedroomPeople = ()
 
 /*
 - Reset all people to their base state.

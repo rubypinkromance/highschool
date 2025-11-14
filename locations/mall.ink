@@ -5,7 +5,7 @@
 */
 === mall ===
 CONST MALL = "mall"
-~ here = MALL
+~ here = Mall
 -> access_restrictions ->
 
 ~ announceTime()
@@ -61,7 +61,7 @@ You are at the {MALL}. <>
 = food_court
 CONST FOOD_COURT = "the food court"
 VAR FoodCourtPeople = ()
-~ here = FOOD_COURT
+~ here = FoodCourt
 
 You are in the {FOOD_COURT}.
 
@@ -79,7 +79,7 @@ You are in the {FOOD_COURT}.
 = shoe_store
 CONST SHOE_STORE = "Foot Looker"
 VAR ShoeStorePeople = ()
-~ here = SHOE_STORE
+~ here = ShoeStore
 
 You are in the {SHOE_STORE}.
 
@@ -97,7 +97,7 @@ You are in the {SHOE_STORE}.
 = bra_store
 CONST BRA_STORE = "Vixen’s Secret"
 VAR BraStorePeople = ()
-~ here = BRA_STORE
+~ here = BraStore
 
 You are in the {BRA_STORE}.
 
@@ -115,7 +115,7 @@ You are in the {BRA_STORE}.
 = dress_store
 CONST DRESS_STORE = "Forever ’99"
 VAR DressStorePeople = ()
-~ here = DRESS_STORE
+~ here = DressStore
 
 You are in the {DRESS_STORE}.
 
@@ -133,7 +133,7 @@ You are in the {DRESS_STORE}.
 = book_store
 CONST BOOK_STORE = "Bards & Nobles"
 VAR BookStorePeople = ()
-~ here = BOOK_STORE
+~ here = BookStore
 
 You are in the {BOOK_STORE}.
 
@@ -151,7 +151,7 @@ You are in the {BOOK_STORE}.
 = movie_theater
 CONST MOVIE_THEATER = "the movie theater"
 VAR MovieTheaterPeople = ()
-~ here = MOVIE_THEATER
+~ here = MovieTheater
 
 You are in the {MOVIE_THEATER}.
 

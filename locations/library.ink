@@ -5,7 +5,7 @@
 === library ===
 CONST LIBRARY = "library"
 VAR LibraryPeople = ()
-~ here = LIBRARY
+~ here = Library
 -> access_restrictions ->
 
 You are in the {LIBRARY}.

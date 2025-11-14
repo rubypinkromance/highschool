@@ -4,7 +4,7 @@
 === cafeteria ===
 CONST CAFETERIA = "cafeteria"
 VAR CafeteriaPeople = ()
-~ here = CAFETERIA
+~ here = Cafeteria
 
 You are in the {CAFETERIA}.
 
@@ -21,10 +21,10 @@ You are in the {CAFETERIA}.
 - Sex with Nympho
 */
 = storage
-CONST STORAGE = "storage closet"
-VAR StoragePeople = ()
-~ here = STORAGE
+CONST STORAGE_CLOSET = "storage closet"
+VAR StorageClosetPeople = ()
+~ here = StorageCloset
 
-You are in the {STORAGE}. Shelves hold supplies for the chess club and other after-school activities.
+You are in the {STORAGE_CLOSET}. Shelves hold supplies for the chess club and other after-school activities.
 
-+ [Leave the {STORAGE}] -> cafeteria
++ [Leave the {STORAGE_CLOSET}] -> cafeteria

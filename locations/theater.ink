@@ -4,7 +4,7 @@
 === theater ===
 CONST THEATER = "theater"
 VAR TheaterPeople = ()
-~ here = THEATER
+~ here = Theater
 -> access_restrictions ->
 
 You are in the {THEATER}.
@@ -33,7 +33,7 @@ You are in the {THEATER}.
 = backstage
 CONST BACKSTAGE = "backstage"
 VAR BackstagePeople = ()
-~ here = BACKSTAGE
+~ here = Backstage
 
 You are {BACKSTAGE}.
 

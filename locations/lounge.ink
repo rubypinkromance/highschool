@@ -5,7 +5,7 @@
 === lounge ===
 CONST LOUNGE = "teacher’s lounge"
 VAR LoungePeople = ()
-~ here = LOUNGE
+~ here = Lounge
 
 You are in the {LOUNGE}.
 

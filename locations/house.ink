@@ -8,7 +8,7 @@
 === bedroom ===
 CONST BEDROOM = "your bedroom"
 VAR BedroomPeople = ()
-~ here = BEDROOM
+~ here = Bedroom
 
 ~ announceTime()
 
@@ -41,8 +41,7 @@ VAR BedroomPeople = ()
 + { DEBUG or now >= AfterSchool } [Go to sleep]
     -> dream -> next_day ->bedroom
 + [Check your score]
-    Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
-    You { listPrint(Score, -> scoreDetails)}.
+    -> check_score ->
 - -> bedroom_opts
 
 /*
@@ -53,7 +52,7 @@ VAR BedroomPeople = ()
 CONST BATHROOM = "the bathroom"
 VAR BathroomPeople = ()
 VAR BathroomItems = ()
-~ here = BATHROOM
+~ here = Bathroom
 
 You are in the {BATHROOM}.
 <- listHousePeople(BathroomPeople)
@@ -81,7 +80,7 @@ You are in the {BATHROOM}.
 CONST SIS_BEDROOM = "your stepsister’s bedroom"
 VAR SisBedroomPeople = ()
 VAR SisBedroomItems = (SisPanties)
-~ here = SIS_BEDROOM
+~ here = SisBedroom
 
 You are in {SIS_BEDROOM}.
 <- listHousePeople(SisBedroomPeople)

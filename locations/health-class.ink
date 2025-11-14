@@ -5,7 +5,7 @@
 === health_class ===
 CONST HEALTH_CLASS = "health classroom"
 VAR HealthClassPeople = ()
-~ here = HEALTH_CLASS
+~ here = HealthClass
 -> access_restrictions ->
 
 You are in the {HEALTH_CLASS}.

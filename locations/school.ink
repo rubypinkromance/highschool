@@ -4,7 +4,7 @@
 */
 === hallway ===
 CONST HALLWAY = "hallway"
-~ here = HALLWAY
+~ here = Hallway
 -> access_restrictions ->
 
 ~ announceTime()
@@ -70,15 +70,11 @@ The school is closed on weekends, but you can still access the {FIELD}.
 = your_locker
 CONST LOCKER = "your locker"
 VAR LockerItems = ()
-~ here = LOCKER
+~ here = Locker
 
 You are at {LOCKER}.
 
 - (locker_opts)
-+ [Check score]
-    Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
-    You { listPrint(Score, -> scoreDetails)}.
-    -> locker_opts
 * {Inventory ? Schedule} [Tape up the schedule]
     ~ Inventory -= Schedule
     ~ LockerItems += Schedule
@@ -99,6 +95,8 @@ You are at {LOCKER}.
     + + [{nameAndTitle(Scientist)}] { reportSchedule(Scientist) }
     + + [{nameAndTitle(Twins)}] { reportSchedule(Twins) }
     - - -> locker_opts
++ [Check your score]
+    -> check_score -> locker_opts
 + [Leave {LOCKER}] -> hallway
 
 /*
@@ -109,7 +107,7 @@ You are at {LOCKER}.
 CONST STAIRWELL = "stairwell"
 VAR StairwellPeople = ()
 VAR has_stairwell_invite = false
-~ here = STAIRWELL
+~ here = Stairwell
 
 You are in the {STAIRWELL}.
 
@@ -123,7 +121,7 @@ You are in the {STAIRWELL}.
 CONST ROOF = "roof"
 VAR RoofPeople = ()
 VAR has_roof_invite = false
-~ here = ROOF
+~ here = Roof
 
 You are on the {ROOF}.
 

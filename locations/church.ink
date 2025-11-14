@@ -5,7 +5,7 @@
 === church ===
 CONST CHURCH = "church"
 VAR ChurchPeople = ()
-~ here = CHURCH
+~ here = Church
 
 You are in the {CHURCH}.
 

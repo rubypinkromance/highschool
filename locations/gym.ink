@@ -5,7 +5,7 @@
 === gym ===
 CONST GYM = "gymnasium"
 VAR GymPeople = ()
-~ here = GYM
+~ here = Gym
 -> access_restrictions ->
 
 You are in the {GYM}.
@@ -34,7 +34,7 @@ Locker Rooms
 = locker_room
 CONST LOCKER_ROOM = "girl’s locker room"
 VAR LockerRoomPeople = ()
-~ here = LOCKER_ROOM
+~ here = LockerRoom
 
 You are in the {LOCKER_ROOM}.
 

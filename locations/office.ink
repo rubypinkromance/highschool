@@ -6,7 +6,7 @@ CONST OFFICE = "office"
 VAR OfficePeople = ()
 LIST SchoolItems = Schedule
 VAR OfficeItems = (Schedule)
-~ here = OFFICE
+~ here = Office
 
 You are at the {OFFICE}.
 
@@ -31,7 +31,7 @@ You are at the {OFFICE}.
 = supply_closet
 CONST SUPPLY_CLOSET = "supply closet"
 VAR SupplyClosetPeople = ()
-~ here = SUPPLY_CLOSET
+~ here = SupplyCloset
 
 You are in the {SUPPLY_CLOSET}. Post-it notes galore.
 

@@ -4,7 +4,7 @@
 === field ===
 CONST FIELD = "athletic field"
 VAR FieldPeople = ()
-~ here = FIELD
+~ here = Field
 
 You are in the {FIELD}.
 
@@ -49,7 +49,7 @@ You are in the {FIELD}.
 = bleachers
 CONST BLEACHERS = "bleachers"
 VAR BleachersPeople = ()
-~ here = BLEACHERS
+~ here = Bleachers
 
 You are in the {BLEACHERS} overlooking the athletic field.
 
@@ -68,7 +68,7 @@ You are in the {BLEACHERS} overlooking the athletic field.
 = under_bleachers
 CONST UNDER_BLEACHERS = "under the bleachers"
 VAR UnderBleachersPeople = ()
-~ here = UNDER_BLEACHERS
+~ here = UnderBleachers
 
 You are {UNDER_BLEACHERS}.
 

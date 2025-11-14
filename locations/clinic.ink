@@ -4,7 +4,7 @@
 === clinic ===
 CONST CLINIC = "nurse’s office"
 VAR ClinicPeople = ()
-~ here = CLINIC
+~ here = Clinic
 
 You are in the {CLINIC}.
 
@@ -22,7 +22,7 @@ You are in the {CLINIC}.
 = exam_area
 CONST EXAM_AREA = "exam area"
 VAR ExamAreaPeople = ()
-~ here = EXAM_AREA
+~ here = ExamArea
 
 You are in the {EXAM_AREA}. There is a small bed here.
 

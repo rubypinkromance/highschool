@@ -4,7 +4,7 @@
 === photo_class ===
 CONST PHOTO_CLASS = "photography classroom"
 VAR PhotoClassPeople = ()
-~ here = PHOTO_CLASS
+~ here = PhotoClass
 -> access_restrictions ->
 
 You are in the {PHOTO_CLASS}.
@@ -33,7 +33,7 @@ You are in the {PHOTO_CLASS}.
 = darkroom
 CONST DARKROOM = "darkroom"
 VAR DarkroomPeople = ()
-~ here = DARKROOM
+~ here = Darkroom
 
 You are in the {DARKROOM}. It's very dark in here!
 
