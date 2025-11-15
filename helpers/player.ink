@@ -2,6 +2,11 @@ LIST Score = cheerleaderTitjob, cheerleaderSex, sisCreampie, cheerleaderPanties
 
 VAR Inventory = ()
 VAR cum_today = false
+VAR schedule_period_1 = Gym
+VAR schedule_period_2 = HealthClass
+VAR schedule_period_3 = Lab
+VAR schedule_period_4 = PhotoClass
+VAR permission_to_change_schedule = false
 
 === function scoreDetails (scoreItem)
 { scoreItem:

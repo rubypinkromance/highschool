@@ -1,4 +1,4 @@
-LIST Times = Period1, Period2, Lunch, Period3, Period4, AfterSchool, Night
+LIST Times = Nowhen, Period1, Period2, Lunch, Period3, Period4, AfterSchool, Night
 LIST Days = Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
 VAR Weekdays = (Monday, Tuesday, Wednesday, Thursday, Friday)
 VAR WeekendDays = (Saturday, Sunday)
@@ -50,16 +50,58 @@ VAR countdown = false
 { isWeekday() and not isHome():
     { now:
     - Period1:
-        <> You have Gym class.
+        <> You have {locationData(schedule_period_1, LocationClassName)}.
     - Period2:
-        <> You have Health class.
+        <> You have {locationData(schedule_period_2, LocationClassName)}.
     - Period3:
-        <> You have Science class.
+        <> You have {locationData(schedule_period_3, LocationClassName)}.
     - Period4:
-        <> You have Photography class.
+        <> You have {locationData(schedule_period_4, LocationClassName)}.
     }
 }
 <></small></em>
+
+/*
+- Check if we're already taking a class.
+*/
+=== function hasClass(className)
+{
+- schedule_period_1 == className: ~ return Period1
+- schedule_period_2 == className: ~ return Period2
+- schedule_period_3 == className: ~ return Period3
+- schedule_period_4 == className: ~ return Period4
+}
+~ return Nowhen // treat as false
+
+/*
+- Change what class we're taking in a given period.
+*/
+=== function changeSchedule(newClass, period)
+// Look up what class we already have that period
+~ temp oldClass = Nowhere // prime the variable type
+{ period:
+- Period1: ~ oldClass = schedule_period_1
+- Period2: ~ oldClass = schedule_period_2
+- Period3: ~ oldClass = schedule_period_3
+- Period4: ~ oldClass = schedule_period_4
+}
+// If we're already taking this class,
+// move our old class to the period we were taking it in
+// so we don't have a repeat or gap in our schedule.
+~ temp oldPeriod = hasClass(newClass)
+{ oldPeriod:
+- Period1: ~ schedule_period_1 = oldClass
+- Period2: ~ schedule_period_2 = oldClass
+- Period3: ~ schedule_period_3 = oldClass
+- Period4: ~ schedule_period_4 = oldClass
+}
+// Finally, assign our new class to the requested period
+{ period:
+- Period1: ~ schedule_period_1 = newClass
+- Period2: ~ schedule_period_2 = newClass
+- Period3: ~ schedule_period_3 = newClass
+- Period4: ~ schedule_period_4 = newClass
+}
 
 /*
 - Check if today is a weekday

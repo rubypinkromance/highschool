@@ -4,6 +4,7 @@
 */
 === gym ===
 CONST GYM = "gymnasium"
+CONST GYM_CLASS_NAME = "gym class"
 VAR GymPeople = ()
 ~ here = Gym
 -> access_restrictions ->
@@ -21,7 +22,7 @@ You are in the {GYM}.
 
 = access_restrictions
 {
-- isClassTime() and now != Period1:
+- isClassTime() and now != hasClass(Gym):
     You're not in this class! Back to the hallway…
     -> hallway
 }

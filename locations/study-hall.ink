@@ -4,6 +4,7 @@
 */
 === study_hall ===
 CONST STUDY_HALL = "study hall"
+CONST STUDY_HALL_CLASS_NAME = "study hall"
 VAR StudyHallPeople = ()
 VAR study_hall_supervised = true
 ~ here = StudyHall

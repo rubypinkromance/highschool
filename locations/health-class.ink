@@ -4,6 +4,7 @@
 */
 === health_class ===
 CONST HEALTH_CLASS = "health classroom"
+CONST HEALTH_CLASS_NAME = "health class"
 VAR HealthClassPeople = ()
 ~ here = HealthClass
 -> access_restrictions ->
@@ -20,7 +21,7 @@ You are in the {HEALTH_CLASS}.
 
 = access_restrictions
 {
-- isClassTime() and now != Period2:
+- isClassTime() and now != hasClass(HealthClass):
     You're not in this class! Back to the hallway…
     -> hallway
 }

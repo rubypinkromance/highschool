@@ -4,6 +4,7 @@
 */
 === lab ===
 CONST LAB = "science classroom"
+CONST LAB_CLASS_NAME = "science class"
 VAR LabPeople = ()
 ~ here = Lab
 -> access_restrictions ->
@@ -20,7 +21,7 @@ You are in the {LAB}.
 
 = access_restrictions
 {
-- isClassTime() and now != Period3:
+- isClassTime() and now != hasClass(Lab):
     You're not in this class! Back to the hallway…
     -> hallway
 }

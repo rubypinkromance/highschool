@@ -2,6 +2,7 @@
 - Believer: Kate
 - LIS Kate: long brunette pony, average build, medium tits, 32C(34B), full bush
 - Outfit: cardigan, white cami, grey skirt, white lace bra, white lace panties
+- Has detention for disrupting class by arguing with Health Teacher
 ? intel: goes to confess every day after school
 ? recon: evesdrop on confession about fantasies
 ? convo: struggling not to spill seed
@@ -14,7 +15,7 @@
 - L: Cafeteria   - Church
 - 3: Health      - Church
 - 4: Photography - Church
-- A: Church      - Church
+- A: Study Hall  - Church
 */
 CONST BELIEVER = "Kate"
 CONST BELIEVER_TITLE = "the religious girl"

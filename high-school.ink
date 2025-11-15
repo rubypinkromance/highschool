@@ -49,14 +49,13 @@ INCLUDE staff/nurse.ink
 INCLUDE staff/secretary.ink
 
 // Variables
-CONST DEBUG = false
+CONST DEBUG = true
 ~ clearLocations()
 ~ characterScheduler()
 
 // Start with the introduction
 { DEBUG:
-    // -> hallway
-    -> bedroom
+    -> hallway
 - else:
     -> intro
 }

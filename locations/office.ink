@@ -15,7 +15,9 @@ You are at the {OFFICE}.
 
 + {OfficePeople !? Secretary and OfficeItems ? Schedule} [Use the computer]
     Taking advantage of the unsupervised office computer, you access the confidential school records.
-    * * [Print schedule]
+    + + [Change your schedule]
+        -> change_schedule("") ->
+    * * [Print all girl’s schedules]
         ~ OfficeItems -= Schedule
         ~ Inventory += Schedule
         You quickly print off a copy of the schedule for all the girls in school. You can tape this up in your locker as a helpful reference to locate a girl during the school day.
@@ -36,3 +38,39 @@ VAR SupplyClosetPeople = ()
 You are in the {SUPPLY_CLOSET}. Post-it notes galore.
 
 + [Leave the supply closet] -> office
+
+/*
+- Change Schedule
+*/
+= change_schedule(preface)
+"{preface}What period do you want to change?"
+<em><small>Your current schedule: {reportSchedule(You)}</small></em>
+~ temp period = Period1
+~ temp class = Gym
++ [Period 1]
+    ~ period = Period1
++ [Period 2]
+    ~ period = Period2
++ [Period 3]
+    ~ period = Period3
++ [Period 4]
+    ~ period = Period4
+-
+"What class do you want to take?"
++ [Gym Class]
+    ~ class = Gym
++ [Health Class]
+    ~ class = HealthClass
++ [Science Class]
+    ~ class = Lab
++ [Photography Class]
+    ~ class = PhotoClass
++ [Study Hall]
+    ~ class = StudyHall
++ [Theater Class]
+    ~ class = Theater
+-
+~ changeSchedule(class, period)
+"Okay, here's your new schedule."
+{reportSchedule(You)}
+->->

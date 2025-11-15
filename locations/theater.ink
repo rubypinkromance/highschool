@@ -3,6 +3,7 @@
 */
 === theater ===
 CONST THEATER = "theater"
+CONST THEATER_CLASS_NAME = "theater class"
 VAR TheaterPeople = ()
 ~ here = Theater
 -> access_restrictions ->
@@ -20,7 +21,7 @@ You are in the {THEATER}.
 
 = access_restrictions
 {
-- isClassTime():
+- isClassTime() and now != hasClass(Theater):
     You're not in this class! Back to the hallway…
     -> hallway
 }

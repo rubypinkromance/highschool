@@ -26,6 +26,9 @@ Approach {HEALTH_TEACHER}.
 - (opts)
     * "What's your bra size?"
         "36C."
+    + ["Can I change my schedule?"]
+        "Sure!"
+        ~ permission_to_change_schedule = true
     + [Leave her alone] ->->
 - -> opts
 

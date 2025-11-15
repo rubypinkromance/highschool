@@ -3,6 +3,7 @@
 */
 === photo_class ===
 CONST PHOTO_CLASS = "photography classroom"
+CONST PHOTO_CLASS_NAME = "photography class"
 VAR PhotoClassPeople = ()
 ~ here = PhotoClass
 -> access_restrictions ->
@@ -20,7 +21,7 @@ You are in the {PHOTO_CLASS}.
 
 = access_restrictions
 {
-- isClassTime() and now != Period4:
+- isClassTime() and now != hasClass(PhotoClass):
     You're not in this class! Back to the hallway…
     -> hallway
 }

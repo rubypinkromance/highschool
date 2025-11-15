@@ -1,4 +1,4 @@
-LIST Students = Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, SisFriend, Twin1, Twin2, Twins
+LIST Students = You, Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, SisFriend, Twin1, Twin2, Twins
 LIST Staff = HealthTeacher, Nurse, Secretary
 LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction, DreamFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
@@ -431,6 +431,7 @@ Try to avoid multiple characters whose names start with the same letter.
 - Twins: Interestingly, it seems even the school’s staff has trouble telling the twins apart. They have two schedules, both simply labeled “{TWINS}”:
     1. Photography, 2. Health, 3. Theater, 4. Gym
     1. Gym, 2. Theater, 3. Photography, 4. Health
+- You: 1. {schedule_period_1}, 2. {schedule_period_2}, 3. {schedule_period_3}, 4. {schedule_period_4}
 }
 
 /*
@@ -487,14 +488,13 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ HealthClassPeople += (HealthTeacher)
     ~ PhotoClassPeople += (Photographer)
     ~ LabPeople += (Scientist)
-    ~ StudyHallPeople += (Rebel)
+    ~ StudyHallPeople += (Rebel, Believer)
     ~ TheaterPeople += (Actor)
     ~ CafeteriaPeople += (Nerd)
     ~ LibraryPeople += (Nympho)
     ~ FieldPeople += (Jock)
     ~ BleachersPeople += (Cheerleader, Gossip)
     ~ OfficePeople += (Secretary)
-    ~ ChurchPeople += (Believer)
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BathroomPeople += (Stepsister)
     ~ ClinicPeople += (Nurse)
