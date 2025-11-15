@@ -99,7 +99,7 @@ She looks you up and down and scoffs. "Uh, no? I've got a boyfriend."
 You feel foolish. Of course the hot cheerleader has a boyfriend.
 ->->
 
-/* After getting intel from Gossip that she's fighting with her boyfriend, you observe she's upset because he's flirting with other girls. */
+/* After getting intel from Friend that she's fighting with her boyfriend, you observe she's upset because he's flirting with other girls. */
 === observe_cheerleader ===
 ~ last_girl = Cheerleader
 ~ CheerleaderState += CheerleaderObserved

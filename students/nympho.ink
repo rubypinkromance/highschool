@@ -3,7 +3,7 @@
 - Claire from Loudermilk: long wavy bleached blonde hair, skinny build, tiny tits, pierced nipples, 32A(34AA), shaved
 - Outfit: choker, army jacket, black strappy tank top, padded black bra, jean skirt with frayed edge, red satin panties
 - Gives details on teachers (gossip gives details on students)
-? intel: Gossip tells you she's a nympho
+? intel: Friend tells you she's a nympho
 ? recon: Come to chess club, watch her take a guy to the supply closet
 ? convo: Introduce yourself, she invites you in to talk and offer her services
     - likes flirty

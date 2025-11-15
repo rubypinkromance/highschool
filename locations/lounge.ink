@@ -1,6 +1,5 @@
 /*
 - The Teacher's Lounge
-- Sex with Gossip
 */
 === lounge ===
 CONST LOUNGE = "teacher’s lounge"

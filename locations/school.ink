@@ -85,7 +85,7 @@ You are at {LOCKER}.
     + + [{nameAndTitle(Athlete)}] { reportSchedule(Athlete) }
     + + [{nameAndTitle(Believer)}] { reportSchedule(Believer) }
     + + [{nameAndTitle(Cheerleader)}] { reportSchedule(Cheerleader) }
-    + + [{nameAndTitle(Gossip)}] { reportSchedule(Gossip) }
+    + + [{nameAndTitle(Friend)}] { reportSchedule(Friend) }
     + + [{nameAndTitle(Nerd)}] { reportSchedule(Nerd) }
     + + [{nameAndTitle(Nympho)}] { reportSchedule(Nympho) }
     + + [{nameAndTitle(Photographer)}] { reportSchedule(Photographer) }

@@ -31,7 +31,7 @@ INCLUDE students/actor.ink
 INCLUDE students/athlete.ink
 INCLUDE students/believer.ink
 INCLUDE students/cheerleader.ink
-INCLUDE students/gossip.ink
+INCLUDE students/friend.ink
 INCLUDE students/jock.ink
 INCLUDE students/nerd.ink
 INCLUDE students/nympho.ink
@@ -49,7 +49,7 @@ INCLUDE staff/nurse.ink
 INCLUDE staff/secretary.ink
 
 // Variables
-CONST DEBUG = true
+CONST DEBUG = false
 ~ clearLocations()
 ~ characterScheduler()
 

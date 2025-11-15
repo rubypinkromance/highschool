@@ -1,4 +1,4 @@
-LIST Students = You, Actor, Athlete, Believer, Cheerleader, Gossip, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, SisFriend, Twin1, Twin2, Twins
+LIST Students = You, Actor, Athlete, Believer, Cheerleader, Friend, Nerd, Jock, Nympho, Photographer, Queen, Rebel, Scientist, Stepsister, SisFriend, Twin1, Twin2, Twins
 LIST Staff = HealthTeacher, Nurse, Secretary
 LIST CharacterAttributes = Name, Title, State, ObservedState, Mood, BaseMood, TalkFunction, ObserveFunction, DreamFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
@@ -29,7 +29,7 @@ Try to avoid multiple characters whose names start with the same letter.
 - Sofia    - Stepsister's Friend (Latina)
 - Tina?
 - Victoria - Queen
-- Whitney  - Gossip
+- Whitney  - Friend
 - Zia      - Rebel
 */
 
@@ -87,17 +87,17 @@ Try to avoid multiple characters whose names start with the same letter.
         - ObserveFunction: ~ return -> observe_cheerleader
         - DreamFunction: ~ return -> dream_of_cheerleader
     }
-- Gossip:
+- Friend:
     { what:
-        - Name: ~ return GOSSIP
-        - Title: ~ return GOSSIP_TITLE
-        - State: ~ return GossipState
-        - ObservedState: ~ return GossipObserved
-        - Mood: ~ return GossipMood
-        - BaseMood: ~ return GossipBaseMood
-        - TalkFunction: ~ return -> talk_to_gossip
-        - ObserveFunction: ~ return -> observe_gossip
-        - DreamFunction: ~ return -> dream_of_gossip
+        - Name: ~ return FRIEND
+        - Title: ~ return FRIEND_TITLE
+        - State: ~ return FriendState
+        - ObservedState: ~ return FriendObserved
+        - Mood: ~ return FriendMood
+        - BaseMood: ~ return FriendBaseMood
+        - TalkFunction: ~ return -> talk_to_friend
+        - ObserveFunction: ~ return -> observe_friend
+        - DreamFunction: ~ return -> dream_of_friend
     }
 - Nerd:
     { what:
@@ -309,7 +309,7 @@ Try to avoid multiple characters whose names start with the same letter.
 === function nameAndTitle(who)
 ~ temp name = characterData(who, Name)
 ~ temp title = characterData(who, Title)
-{ (Gossip, Stepsister) ? who:
+{ (Friend, Stepsister) ? who:
     ~ return "{title:{title} }{name}" // special case for "your" titles
 }
 ~ return "{name}{title: {title}}"
@@ -421,7 +421,7 @@ Try to avoid multiple characters whose names start with the same letter.
 - Athlete: {ATHLETE}: 1. Gym, 2. Science, 3. Study Hall, 4. Health
 - Believer: {BELIEVER}: 1. Study Hall, 2. Gym, 3. Health, 4. Photography
 - Cheerleader: {CHEERLEADER}: 1. Study Hall, 2. Health, 3. Gym, 4. Theater
-- Gossip: {GOSSIP}: 1. Health, 2. Theater, 3. Science, 4. Study Hall
+- Friend: {FRIEND}: 1. Health, 2. Theater, 3. Science, 4. Study Hall
 - Nerd: {NERD}: 1. Science, 2. Health, 3. Theater, 4. Study Hall
 - Nympho: {NYMPHO}: 1. Theater, 2. Photography, 3. Health, 4. Science
 - Photographer: {PHOTOGRAPHER}: 1. Theater, 2. Science, 3. Gym, 4. Photography
@@ -442,7 +442,7 @@ Try to avoid multiple characters whose names start with the same letter.
 { now:
 - Period1:
     ~ GymPeople += (Athlete, Scientist, Twin2)
-    ~ HealthClassPeople += (HealthTeacher, Actor, Gossip)
+    ~ HealthClassPeople += (HealthTeacher, Actor, Friend)
     ~ PhotoClassPeople += (Queen, Twin1)
     ~ LabPeople += (Nerd, Rebel)
     ~ StudyHallPeople += (Believer, Cheerleader, Jock)
@@ -455,11 +455,11 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ PhotoClassPeople += (Nympho, Scientist)
     ~ LabPeople += (Athlete, Photographer)
     ~ StudyHallPeople += (Actor, Queen)
-    ~ TheaterPeople += (Gossip, Twin2)
+    ~ TheaterPeople += (Friend, Twin2)
     ~ OfficePeople += (Secretary)
     ~ ClinicPeople += (Nurse)
 - Lunch:
-    ~ CafeteriaPeople += (Actor, Believer, Cheerleader, Jock, Gossip, Nympho, Queen, Twin1, Twin2)
+    ~ CafeteriaPeople += (Actor, Believer, Cheerleader, Jock, Friend, Nympho, Queen, Twin1, Twin2)
     ~ LoungePeople = (HealthTeacher, Secretary, Nurse)
     ~ LibraryPeople += (Nerd, Scientist)
     ~ FieldPeople += (Athlete)
@@ -469,7 +469,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ GymPeople += (Cheerleader, Jock, Photographer)
     ~ HealthClassPeople += (HealthTeacher, Believer, Nympho)
     ~ PhotoClassPeople += (Rebel, Twin2)
-    ~ LabPeople += (Actor, Gossip)
+    ~ LabPeople += (Actor, Friend)
     ~ StudyHallPeople += (Athlete, Scientist)
     ~ TheaterPeople += (Nerd, Queen, Twin1)
     ~ OfficePeople += (Secretary)
@@ -479,7 +479,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ HealthClassPeople += (HealthTeacher, Athlete, Twin2)
     ~ PhotoClassPeople += (Believer, Photographer)
     ~ LabPeople += (Nympho, Scientist)
-    ~ StudyHallPeople += (Gossip, Nerd, Rebel)
+    ~ StudyHallPeople += (Friend, Nerd, Rebel)
     ~ TheaterPeople += (Actor, Cheerleader, Jock)
     ~ OfficePeople += (Secretary)
     ~ ClinicPeople += (Nurse)
@@ -493,7 +493,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ CafeteriaPeople += (Nerd)
     ~ LibraryPeople += (Nympho)
     ~ FieldPeople += (Jock)
-    ~ BleachersPeople += (Cheerleader, Gossip)
+    ~ BleachersPeople += (Cheerleader, Friend)
     ~ OfficePeople += (Secretary)
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BathroomPeople += (Stepsister)
@@ -507,7 +507,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ FieldPeople += (Athlete)
     ~ BleachersPeople += (Cheerleader, Jock)
     ~ ChurchPeople += (Believer)
-    ~ DressStorePeople += (Gossip, Photographer)
+    ~ DressStorePeople += (Friend, Photographer)
     ~ ShoeStorePeople += (Queen, Twin1, Twin2)
     ~ BraStorePeople += (Nympho)
     ~ BookStorePeople += (Scientist)
@@ -518,7 +518,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
-    ~ ShoeStorePeople += (Gossip, Nympho)
+    ~ ShoeStorePeople += (Friend, Nympho)
     ~ BraStorePeople += (Stepsister, SisFriend)
     ~ BookStorePeople += (Scientist)
     ~ MovieTheaterPeople += (Nerd, Rebel)
@@ -526,21 +526,21 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ FieldPeople += (Cheerleader, Jock)
     ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
-    ~ FoodCourtPeople += (Gossip, Nerd, Nympho, Queen, Twin1, Twin2, Rebel, Scientist, Stepsister, SisFriend)
+    ~ FoodCourtPeople += (Friend, Nerd, Nympho, Queen, Twin1, Twin2, Rebel, Scientist, Stepsister, SisFriend)
 - Period3:
     ~ FieldPeople += (Cheerleader, Jock)
     ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
     ~ ShoeStorePeople += (Stepsister, SisFriend)
-    ~ BraStorePeople += (Gossip)
+    ~ BraStorePeople += (Friend)
     ~ BookStorePeople += (Nerd, Scientist)
     ~ MovieTheaterPeople += (Nympho, Rebel)
 - Period4:
     ~ FieldPeople += (Athlete)
     ~ BleachersPeople += (Cheerleader, Jock)
     ~ ChurchPeople += (Believer)
-    ~ DressStorePeople += (Gossip)
+    ~ DressStorePeople += (Friend)
     ~ ShoeStorePeople += (Photographer)
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BookStorePeople += (Nerd, Scientist)
@@ -549,7 +549,7 @@ Try to avoid multiple characters whose names start with the same letter.
 - AfterSchool:
     ~ FieldPeople += (Athlete)
     ~ ChurchPeople += (Believer)
-    ~ DressStorePeople += (Gossip, Nympho)
+    ~ DressStorePeople += (Friend, Nympho)
     ~ ShoeStorePeople += (Nerd)
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BookStorePeople += (Scientist)
@@ -569,7 +569,7 @@ Try to avoid multiple characters whose names start with the same letter.
 ~ AthleteMood = AthleteBaseMood
 ~ BelieverMood = BelieverBaseMood
 ~ CheerleaderMood = CheerleaderBaseMood
-~ GossipMood = GossipBaseMood
+~ FriendMood = FriendBaseMood
 ~ JockMood = JockBaseMood
 ~ NerdMood = NerdBaseMood
 ~ NymphoMood = NymphoBaseMood

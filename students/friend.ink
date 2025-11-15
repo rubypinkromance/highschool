@@ -1,5 +1,5 @@
 /*
-- Gossip: Whitney
+- Friend: Whitney
 - Velma Dinkly: short brunette bob, average build, large tits, 34C, trimmed
 - Outfit: Orange shirt, red skirt, black bra, black thong
 - Gives details on schoolgirls (Nympho gives details on teachers)
@@ -31,16 +31,16 @@
 - 4: Study Hall - Dress Store
 - A: Bleachers  - Dress Store
 */
-CONST GOSSIP = "Whitney"
-CONST GOSSIP_TITLE = "your friend"
-LIST GossipState = GossipObserved
-VAR GossipMood = Friendly
-VAR GossipBaseMood = Friendly
+CONST FRIEND = "Whitney"
+CONST FRIEND_TITLE = "your friend"
+LIST FriendState = FriendObserved
+VAR FriendMood = Friendly
+VAR FriendBaseMood = Friendly
 
-=== talk_to_gossip ===
-~last_girl = Gossip
+=== talk_to_friend ===
+~last_girl = Friend
 
-Approach {GOSSIP}.
+Approach {FRIEND}.
 
 - (opts)
 * "What's your bra size?"
@@ -48,12 +48,12 @@ Approach {GOSSIP}.
 + [Walk away] ->->
 - -> opts
 
-=== observe_gossip ===
-~ last_girl = Gossip
-~ GossipState += GossipObserved
+=== observe_friend ===
+~ last_girl = Friend
+~ FriendState += FriendObserved
 Coming soon.
 ->->
 
-=== dream_of_gossip ===
-You have a filthy dream about {GOSSIP}.
+=== dream_of_friend ===
+You have a filthy dream about {FRIEND}.
 ->->
