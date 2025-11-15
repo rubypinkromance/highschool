@@ -16,6 +16,12 @@
 - 4: ---      - Bedroom
 - A: Bathroom - Bathroom
 - N: Bedroom  - Bedroom
+
+- Peep in shower, jerk off in panties, read diary, ask for viagra help.
+- I’m not your little sister. We’re the same age and not related.
+- Forced to share a bed?
+- Sis has a diary revealing her fantasies about you and exploring bisexuality with her best friend. New entries appear every few days.
+- If you fuck Sis & Friend, you unlock a threesome
 */
 CONST SIS = "Alice"
 CONST SIS_TITLE = "your stepsister"
@@ -73,6 +79,7 @@ This is it, you're finally going to fuck {SIS}.
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === stepsister_panties ===
 ~ last_girl = Stepsister
+~ cum_today = true
 Unable to resist the urge, you wrap {SIS}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
 ->->

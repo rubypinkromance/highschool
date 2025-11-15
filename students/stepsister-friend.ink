@@ -15,6 +15,8 @@
 - 4: --- - Bedroom
 - A: --- - Bathroom
 - N: --- - Bedroom
+
+- Sis has a best friend, who is very into you. She climbs into bed with you one night.
 */
 CONST SIS_FRIEND = "Sofia"
 CONST SIS_FRIEND_TITLE = "her friend"

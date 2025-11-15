@@ -15,6 +15,12 @@
 - 3: Photography - Movie Theater
 - 4: Study Hall  - Movie Theater
 - A: Study Hall  - ---
+
+- Detention teacher observation shows he’s a smoker. Offer to watch the class while he takes smoke break. Only ten minutes, limited time
+- When fucking in detention, Rebel threatens Believer not to snitch (but Believer is secretly into it)
+- Rebels mood improves when she sees you in detention or fight or do something bad.
+- Rebel won’t let you talk shit about believer. At least she stands for something. Most people in this school are sheep following all the rules
+
 */
 CONST REBEL = "Zia"
 CONST REBEL_TITLE = "the punk"

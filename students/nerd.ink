@@ -17,6 +17,8 @@
 - 4: Study Hall - Book Store
 - A: Cafeteria  - Shoe Store
 - Afterschool: playing Magic with other nerds in the cafeteria
+
+- nerd observation 1 reveals she plays magic after school in the cafeteria. Observation 2 reveals no one wants to play D&D with her. Observation 3(?) reveals they don’t like how sexually charged her adventures are.
 */
 CONST NERD = "Felicia"
 CONST NERD_TITLE = "the cute nerd"

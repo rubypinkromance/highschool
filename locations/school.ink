@@ -6,7 +6,6 @@
 CONST HALLWAY = "hallway"
 ~ here = Hallway
 -> access_restrictions ->
-
 ~ announceTime()
 
 // Weekdays:

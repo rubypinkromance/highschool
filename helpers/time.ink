@@ -8,6 +8,7 @@ VAR now = Period1
 VAR today = Monday
 VAR date = 1
 VAR days_remaining = 30
+VAR days_total = 30
 VAR countdown = false
 
 /*
@@ -46,8 +47,8 @@ VAR countdown = false
 === function announceTime()
 <em><small>
 <>{ today },
-<>{ isHome(): {nameOfTimeWeekend(now)}|{nameOfTime(now)}}.
-{ isWeekday() and not isHome():
+<>{ isSchool(): {nameOfTime(now)}| {nameOfTimeWeekend(now)}}.
+{ isWeekday() and isSchool():
     { now:
     - Period1:
         <> You have {locationData(schedule_period_1, LocationClassName)}.
@@ -134,7 +135,6 @@ VAR countdown = false
 }
 ~ return false
 
-TODO bug: jerk off doesn't show up on successive days
 // Determine if an action is new today
 === function newToday(-> action)
 { not didToday(action):
@@ -177,13 +177,13 @@ TODO bug: jerk off doesn't show up on successive days
         You { listPrint(Score, -> scoreDetails) }
         -> END
     }
-    This is day { date }.
-    Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
+    <em><small>Day { date } of { days_total }.
     { days_remaining > 1:
-        You have { days_remaining } days remaining, including today.
+        <> You have { days_remaining } days remaining, including today.
     - else:
-        This is your last day!
+        <> This is your last day!
     }
+    <></small></em>
 }
 ~ cum_today = false    // reset your own cum state
 ~ resetMoods()         // reset people to base mood

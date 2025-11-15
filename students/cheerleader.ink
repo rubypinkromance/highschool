@@ -19,6 +19,12 @@ h. optional repeat sex
 - 3: Gym        - Field
 - 4: Theater    - Bleachers
 - A: Bleachers  - ---
+
+v2
+- Cheerleader observations: 1 see jock flirting, cheerleader mad. 2 see them fighting, jock says don’t be a bitch about this and moves away. 3 sitting apart. This is your chance. If you approach before 3, Jock tells you to fuck off
+- Jock fight 1: what are you doing in my locker asshole. We’re not broken up, that’s just a misunderstanding. Face punch, teacher intervenes, gives lance detention, sends you to nurse.
+- Jock fight 2: you trying to steal my girl bro? Think you got the stuff to hook up with my bitch? Think again. Knees you in the nuts, Rebel intervenes. She likes you more, doesn’t like bullies. Takes you to nurse, who ices your balls then you get hard while she examines them.
+- Wanna go under the bleachers again? Let’s go, she leads you there -> bleacher_opts
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
@@ -189,6 +195,7 @@ You enter the combination for the locker, and it opens. Inside you find a cheerl
 /* After finding a pair of her panties in her ex's locker, you jerk off with them. */
 === cheerleader_panties ===
 ~ last_girl = Cheerleader
+~ cum_today = true
 ~ Score += cheerleaderPanties
 Unable to resist the urge, you wrap {CHEERLEADER}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.

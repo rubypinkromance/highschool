@@ -7,7 +7,6 @@
 CONST MALL = "mall"
 ~ here = Mall
 -> access_restrictions ->
-
 ~ announceTime()
 
 You are at the {MALL}. <>

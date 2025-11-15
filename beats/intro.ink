@@ -1,10 +1,11 @@
 === intro ===
 CONST INTRO = "intro"
-* [Timed Mode: You have a limited number of days to achieve your goal]
+* [Timed Mode: You have a {days_total} days to achieve your goal]
     ~ countdown = true
 * [Sandbox Mode: No countdown, play as long as you like.]
     ~ countdown = false
 -
+TODO: Rewrite: Pay attention to girls, bar is low, any interest beyond tits puts you ahead
 I was walking to school when {GOSSIP} crossed the street to walk with me.
 "So," she asked with a grin, "are you still going ahead with this crazy plan to fuck every girl in our grade?"
 * "Not <em>every</em> girl[."]," I said, rolling my eyes.

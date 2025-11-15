@@ -1,47 +1,52 @@
 /*
 - Your bedroom
-- Home is path to stepsister.
-- Peep in shower, jerk off in panties, read diary, ask for viagra help.
-- I’m not your little sister. We’re the same age and not related.
-- Forced to share a bed?
 */
 === bedroom ===
 CONST BEDROOM = "your bedroom"
 VAR BedroomPeople = ()
 ~ here = Bedroom
-
 ~ announceTime()
 
 {
 - now == Period1:
-    // say nothing, the dream conclusion did it for us.    
-- now > Period4:
-    You return to {BEDROOM}, exhausted after a long day.
-- else:
+    // say nothing, dream text set up the day.
+- now < AfterSchool:
     You return to {BEDROOM}.
+- else:
+    You return to {BEDROOM}, exhausted after a long day.
 }
 <- listHousePeople(BedroomPeople)
 
 - (bedroom_opts)
 <- talkAndObserveAllCharacters(BedroomPeople, -> bedroom_opts)
 
+// Inventory Actions
 * { Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
-    -> cheerleader_panties ->
+    -> cheerleader_panties -> bedroom_opts
 * { Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
-    -> stepsister_panties ->
-+ (jerk_off) {newToday(-> jerk_off) and now != Period1} [Jerk off]
-    ~ cum_today = true
-    You spank the monkey
+    -> stepsister_panties -> bedroom_opts
 
+// Computer Actions
++ [Use your laptop]
++ + [Check your score]
+    -> check_score ->
++ + (jerk_off) {not cum_today} [Watch porn]
+    ~ cum_today = true
+    // This isn't a game about masturbation…
+    // But it's odd to have a teenage boy with
+    // a computer and no option to watch porn.
+    You watch some porn and jerk off until you finally blow your load into some tissues. As you close your laptop, you think about how bored you are of masturbating, and increase your resolve to hook up with real girls at school instead.
+
+// Navigation
 + [Go to {BATHROOM}] -> bathroom
 + [Go to {SIS_BEDROOM}] -> sis_bedroom
-+ { now < Night } [Go to school] -> hallway
-+ { now < Night } [Go to the {MALL}] -> mall
-+ { now < Night } [Go to the {CHURCH}] -> church
-+ { DEBUG or now >= AfterSchool } [Go to sleep]
++ {now < Night}[Leave home]
++ + [Go to school] -> hallway
++ + [Go to the {MALL}] -> mall
++ + [Go to the {CHURCH}] -> church
++ + [Cancel] -> bedroom
++ {now >= AfterSchool}[Go to sleep]
     -> dream -> next_day ->bedroom
-+ [Check your score]
-    -> check_score ->
 - -> bedroom_opts
 
 /*
