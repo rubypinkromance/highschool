@@ -48,6 +48,10 @@ INCLUDE staff/health-teacher.ink
 INCLUDE staff/nurse.ink
 INCLUDE staff/secretary.ink
 
+# title: Senior Project
+# author: Ruby Pink
+# theme: dark
+
 // Variables
 CONST DEBUG = false
 ~ clearLocations()

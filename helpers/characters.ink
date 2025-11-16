@@ -340,7 +340,7 @@ Try to avoid multiple characters whose names start with the same letter.
     <- talkToAllCharacters(characters, return_to)
 }
 { LIST_COUNT(unobserved) > 0:
-    + [Observe someone]
+    + [Observation mode]
         Who do you want to observe?
         <- observeAllCharacters(characters, return_to)
         -> DONE
