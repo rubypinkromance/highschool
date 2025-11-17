@@ -9,18 +9,19 @@
     - dislikes serious, sweet
 * Fool around in detention (escalate from flash to masturbation)
 * Sex in detention once unsupervised
-- 1: Science     - Movie Theater
-- 2: Gym         - Movie Theater
-- L: Bleachers   - Food Court
-- 3: Photography - Movie Theater
-- 4: Study Hall  - Movie Theater
-- A: Study Hall  - ---
+- 1: Science     - MovieTheater
+- 2: Gym         - MovieTheater
+- L: Bleachers   - BraStore
+- 3: Photography - FoodCourt
+- 4: Study Hall  - MovieTheater
+- A: Study Hall  - MovieTheater
 
 - Detention teacher observation shows he’s a smoker. Offer to watch the class while he takes smoke break. Only ten minutes, limited time
 - When fucking in detention, Rebel threatens Believer not to snitch (but Believer is secretly into it)
 - Rebels mood improves when she sees you in detention or fight or do something bad.
 - Rebel won’t let you talk shit about believer. At least she stands for something. Most people in this school are sheep following all the rules
-
+- Rebel smokes weed under bleaches, likes if you join her. Cough less over time, increases confidence 
+- Dislikes Preppy clothes
 */
 CONST REBEL = "Zia"
 CONST REBEL_TITLE = "the punk"

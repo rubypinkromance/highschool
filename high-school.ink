@@ -47,13 +47,15 @@ INCLUDE students/twins.ink
 INCLUDE staff/health-teacher.ink
 INCLUDE staff/nurse.ink
 INCLUDE staff/secretary.ink
+INCLUDE helpers/capitalise.ink
+
 
 # title: Senior Project
 # author: Ruby Pink
 # theme: dark
 
 // Variables
-CONST DEBUG = false
+CONST DEBUG = true
 ~ clearLocations()
 ~ characterScheduler()
 

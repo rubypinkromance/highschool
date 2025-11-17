@@ -10,12 +10,14 @@
 * BJ in darkroom
 * sex after nude photoshoot
 * Unavailable on weekends
-- 1: Theater     - Dress Store
-- 2: Science     - Bleachers
-- L: Bleachers   - Bleachers
-- 3: Gym         - Bleachers
-- 4: Photography - Shoe Store
-- A: Photography - ---
+- 1: Theater     - DressStore
+- 2: Science     - Bleachers/BookStore
+- L: Bleachers   - Bleachers/FoodCourt
+- 3: Gym         - Bleachers/BraStore
+- 4: Photography - ShoeStore
+- A: Photography - BookStore
+
+- Likes nudity
 */
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"

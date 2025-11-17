@@ -21,12 +21,12 @@
     6 cum on stomach: just the tip, nude, wet rubbing, pull out!
     7 creampie: doggy-style, pull hair
     8 anal creampie, slap ass, rough and deep
-- 1: Theater     - Bra Store
-- 2: Photography - Shoe Store
-- L: Cafeteria   - Food Court
-- 3: Health      - Movie Theater
-- 4: Science     - Movie Theater
-- A: Library     - Dress Store
+- 1: Theater     - BraStore
+- 2: Photography - ShoeStore
+- L: Cafeteria   - MovieTheater
+- 3: Health      - MovieTheater
+- 4: Science     - ShoeStore
+- A: Library     - FoodCourt
 - Afterschool: looking at porn in library
 */
 CONST NYMPHO = "Claire"

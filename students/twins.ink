@@ -9,12 +9,12 @@
     - dislikes serious
 * Make out on stairwell after flirting with both, challenge you to tell them apart
 * Threesome on roof if identify correctly
-- 1: Photography/Gym     - Shoe Store
-- 2: Health/Theater      - Dress Store
-- L: Cafeteria           - Food Court
-- 3: Theater/Photography - Dress Store
-- 4: Gym/Health          - Bra Store
-- A: Mall                - Bra Store
+- 1: Photography/Gym     - ShoeStore
+- 2: Health/Theater      - DressStore
+- L: Cafeteria           - FoodCourt
+- 3: Theater/Photography - DressStore
+- 4: Gym/Health          - BraStore
+- A: Mall                - BraStore
 */
 CONST TWINS = "Hailey & Bailey"
 CONST TWINS_TITLE = "the twins"

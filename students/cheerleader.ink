@@ -13,12 +13,12 @@ d. get her stuff from Jock's locker
 f. talk: she offers a reward
 g. meet for sex
 h. optional repeat sex
-- 1: Study Hall - Bleachers
-- 2: Health     - Field
-- L: Cafeteria  - Field
-- 3: Gym        - Field
-- 4: Theater    - Bleachers
-- A: Bleachers  - ---
+- 1: Study Hall - Bleachers/BraStore
+- 2: Health     - Field/FoodCourt
+- L: Cafeteria  - Field/BraStore
+- 3: Gym        - Field/ShoeStore
+- 4: Theater    - Bleachers/DressStore
+- A: Bleachers  - Bleachers/ShoeStore
 
 v2
 - Cheerleader observations: 1 see jock flirting, cheerleader mad. 2 see them fighting, jock says don’t be a bitch about this and moves away. 3 sitting apart. This is your chance. If you approach before 3, Jock tells you to fuck off

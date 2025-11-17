@@ -292,7 +292,7 @@ Try to avoid multiple characters whose names start with the same letter.
     ~ characters -= (Twin1, Twin2)
     ~ characters += (Twins) // if both twins are here, list them together
 }
-~ listPrint(characters, -> nameAndTitle)
+~ return listReturn(characters, -> nameAndTitle, "")
 
 /*
 - Return a comma-separated list of people as a full sentence.
@@ -504,59 +504,117 @@ Try to avoid multiple characters whose names start with the same letter.
 - else:
 { now:
 - Period1:
-    ~ FieldPeople += (Athlete)
-    ~ BleachersPeople += (Cheerleader, Jock)
     ~ ChurchPeople += (Believer)
+    ~ FieldPeople += (Athlete)
+    ~ BraStorePeople += (Nympho)
     ~ DressStorePeople += (Friend, Photographer)
     ~ ShoeStorePeople += (Queen, Twin1, Twin2)
-    ~ BraStorePeople += (Nympho)
-    ~ BookStorePeople += (Scientist)
+    ~ BookStorePeople += (Actor, Scientist)
     ~ MovieTheaterPeople += (Nerd, Rebel)
-    ~ SisBedroomPeople += (Stepsister, SisFriend)
+    ~ SisBedroomPeople += (Stepsister)
+    {
+    - today == Saturday:
+        ~ BleachersPeople += (Cheerleader, Jock)
+    - today == Sunday:
+        ~ SisBedroomPeople += (SisFriend)
+        ~ FoodCourtPeople += ()
+        ~ BraStorePeople += (Cheerleader)
+    }
 - Period2:
-    ~ FieldPeople += (Cheerleader, Jock)
-    ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
-    ~ DressStorePeople += (Queen, Twin1, Twin2)
-    ~ ShoeStorePeople += (Friend, Nympho)
+    ~ FoodCourtPeople += (Friend)
     ~ BraStorePeople += (Stepsister, SisFriend)
+    ~ DressStorePeople += (Queen, Twin1, Twin2)
+    ~ ShoeStorePeople += (Nympho)
     ~ BookStorePeople += (Scientist)
     ~ MovieTheaterPeople += (Nerd, Rebel)
+    {
+    - today == Saturday:
+        ~ FieldPeople += (Cheerleader, Jock)
+        ~ BleachersPeople += (Actor, Athlete, Photographer)
+    - today == Sunday:
+        ~ FieldPeople += (Athlete)
+        ~ FoodCourtPeople += (Cheerleader, Actor)
+        ~ BookStorePeople += (Photographer)
+    }
 - Lunch:
-    ~ FieldPeople += (Cheerleader, Jock)
-    ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
-    ~ FoodCourtPeople += (Friend, Nerd, Nympho, Queen, Twin1, Twin2, Rebel, Scientist, Stepsister, SisFriend)
+    ~ FoodCourtPeople += (Queen, Twin1, Twin2)
+    ~ BraStorePeople += (Rebel)
+    ~ DressStorePeople += (Stepsister, SisFriend)
+    ~ ShoeStorePeople += (Friend)
+    ~ BookStorePeople += (Scientist)
+    ~ MovieTheaterPeople += (Nerd, Nympho)
+    {
+    - today == Saturday:
+        ~ FieldPeople += (Cheerleader, Jock)
+        ~ BleachersPeople += (Actor, Athlete, Photographer)
+    - today == Sunday:
+        ~ FieldPeople += (Athlete)
+        ~ FoodCourtPeople += (Photographer)
+        ~ BraStorePeople += (Cheerleader)
+        ~ ShoeStorePeople += (Actor)
+    }
 - Period3:
-    ~ FieldPeople += (Cheerleader, Jock)
-    ~ BleachersPeople += (Actor, Athlete, Photographer)
     ~ ChurchPeople += (Believer)
+    ~ FoodCourtPeople += (Rebel)
+    ~ BraStorePeople += (Friend)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
     ~ ShoeStorePeople += (Stepsister, SisFriend)
-    ~ BraStorePeople += (Friend)
-    ~ BookStorePeople += (Nerd, Scientist)
-    ~ MovieTheaterPeople += (Nympho, Rebel)
-- Period4:
-    ~ FieldPeople += (Athlete)
-    ~ BleachersPeople += (Cheerleader, Jock)
-    ~ ChurchPeople += (Believer)
-    ~ DressStorePeople += (Friend)
-    ~ ShoeStorePeople += (Photographer)
-    ~ BraStorePeople += (Queen, Twin1, Twin2)
-    ~ BookStorePeople += (Nerd, Scientist)
-    ~ MovieTheaterPeople += (Nympho, Rebel)
-    ~ SisBedroomPeople += (Stepsister, SisFriend)
-- AfterSchool:
-    ~ FieldPeople += (Athlete)
-    ~ ChurchPeople += (Believer)
-    ~ DressStorePeople += (Friend, Nympho)
-    ~ ShoeStorePeople += (Nerd)
-    ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BookStorePeople += (Scientist)
+    ~ MovieTheaterPeople += (Nerd, Nympho)
+    {
+    - today == Saturday:
+        ~ FieldPeople += (Cheerleader, Jock)
+        ~ BleachersPeople += (Actor, Athlete, Photographer)
+    - today == Sunday:
+        ~ FieldPeople += (Athlete)
+        ~ FoodCourtPeople += ()
+        ~ BraStorePeople += (Photographer)
+        ~ ShoeStorePeople += (Cheerleader)
+        ~ BookStorePeople += (Actor)
+    }
+- Period4:
+    ~ ChurchPeople += (Believer)
+    ~ FieldPeople += (Athlete)
+    ~ FoodCourtPeople += (Scientist)
+    ~ BraStorePeople += (Queen, Twin1, Twin2)
+    ~ DressStorePeople += (Friend)
+    ~ ShoeStorePeople += (Nympho, Photographer)
+    ~ BookStorePeople += (Nerd)
+    ~ MovieTheaterPeople += (Actor, Rebel)
+    ~ SisBedroomPeople += (Stepsister)
+    {
+    - today == Saturday:
+        ~ BleachersPeople += (Cheerleader, Jock)
+        ~ SisBedroomPeople += (SisFriend)
+    - today == Sunday:
+        ~ FoodCourtPeople += ()
+        ~ DressStorePeople += (Cheerleader)
+    }
+- AfterSchool:
+    ~ ChurchPeople += (Believer)
+    ~ FieldPeople += (Athlete)
+    ~ FoodCourtPeople += (Nympho)
+    ~ BraStorePeople += (Queen, Twin1, Twin2)
+    ~ DressStorePeople += (Friend)
+    ~ ShoeStorePeople += (Nerd)
+    ~ BookStorePeople += (Photographer, Scientist)
+    ~ MovieTheaterPeople += (Actor, Rebel)
     ~ BathroomPeople += (Stepsister)
-    ~ SisBedroomPeople += (SisFriend)
+    {
+    - today == Saturday:
+        ~ BleachersPeople += (Cheerleader, Jock)
+        ~ SisBedroomPeople += (SisFriend)
+    - today == Sunday:
+        ~ FoodCourtPeople += ()
+        ~ ShoeStorePeople += (Cheerleader)
+    }
 - Night:
-    ~ SisBedroomPeople += (Stepsister, SisFriend)
+    ~ SisBedroomPeople += (Stepsister)
+    { today == Saturday:
+        ~ SisBedroomPeople += (SisFriend)
+    }
 }
 }
 

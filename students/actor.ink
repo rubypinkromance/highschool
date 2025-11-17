@@ -9,12 +9,12 @@
     - dislikes sarcasm
 * Make out, blowjob backstage
 * Sixty-nine if you're down to suck her cock too
-- 1: Health     - ---
-- 2: Study Hall - Bleachers
-- L: Cafeteria  - Bleachers
-- 3: Science    - Bleachers
-- 4: Theater    - ---
-- A: Theater    - ---
+- 1: Health     - BookStore
+- 2: Study Hall - Bleachers/FoodCourt
+- L: Cafeteria  - Bleachers/ShoeStore
+- 3: Science    - Bleachers/BookStore
+- 4: Theater    - MovieTheater
+- A: Theater    - MovieTheater
 */
 CONST ACTOR = "Dana"
 CONST ACTOR_TITLE = "the theater kid"

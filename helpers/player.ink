@@ -1,6 +1,8 @@
 LIST Score = cheerleaderTitjob, cheerleaderSex, sisCreampie, cheerleaderPanties
+LIST Outfits = Nude, (Default), (Nice), (Athletic), Preppy
 
 VAR Inventory = ()
+VAR outfit = Default
 VAR cum_today = false
 VAR schedule_period_1 = Gym
 VAR schedule_period_2 = HealthClass

@@ -18,7 +18,9 @@
 - A: Study Hall  - Church
 
 - Church is actually something like scientology, and she’s very down to fuck if you’re willing to join and jump through hoops to level up. Exam 1 tracks stress, kiss lowers stress. Exam 2 tracks pleasure, handjob lowers stress. Exam 3 is fucking in special room
+- Church meter is a butt plug
 - After a while, female founder of religion comes to see this virile young man Believer found. Threesome. Kate, suck my nipples. Kate sit on his face and kiss me
+- Likes nice clothes
 */
 CONST BELIEVER = "Kate"
 CONST BELIEVER_TITLE = "the religious girl"

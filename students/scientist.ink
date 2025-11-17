@@ -9,12 +9,12 @@
     - dislikes flirty, sweet
 * Handjob after uncontrolled erection leaves unable to focus
 * Uncontrollable Sex after invited back to try refined aphrodesiac (why are you slobbing my bean)
-- 1: Gym         - Book Store
-- 2: Photography - Book Store
-- L: Library     - Food Court
-- 3: Study Hall  - Book Store
-- 4: Lab         - Book Store
-- A: Lab         - Book Store
+- 1: Gym         - BookStore
+- 2: Photography - BookStore
+- L: Library     - BookStore
+- 3: Study Hall  - BookStore
+- 4: Lab         - FoodCourt
+- A: Lab         - BookStore
 */
 CONST SCIENTIST = "Grace"
 CONST SCIENTIST_TITLE = "the scientist"

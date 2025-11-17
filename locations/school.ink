@@ -22,7 +22,7 @@ You are in the {HALLWAY}.
 + + [Go to the {THEATER}] -> theater
 + + [Cancel] -> hallway
 
-+ [Go to common areas]
++ [Go to a common area]
 + + [Go to the {CAFETERIA}] -> cafeteria
 + + [Go to the {FIELD}] -> field
 + + [Go to the {LIBRARY}] -> library

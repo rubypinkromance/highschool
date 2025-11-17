@@ -1,11 +1,11 @@
 /*
 - Jock: Lance
-- 1: Study Hall - Bleachers
-- 2: Health     - Field
-- L: Cafeteria  - Field
-- 3: Gym        - Field
-- 4: Theater    - Bleachers
-- A: Field      - ---
+- 1: Study Hall - Bleachers/---
+- 2: Health     - Field/---
+- L: Cafeteria  - Field/---
+- 3: Gym        - Field/---
+- 4: Theater    - Bleachers/---
+- A: Field      - Bleachers/---
 */
 CONST JOCK = "Lance"
 CONST JOCK_TITLE = "the meathead jock"

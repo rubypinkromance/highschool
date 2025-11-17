@@ -18,23 +18,24 @@ You are at the {MALL}. <>
 - else:
     You don't see anyone you recognize.
 }
+
 { LIST_COUNT(FoodCourtPeople) > 0:
-    <> {listRoomPeople(FoodCourtPeople)} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in {FOOD_COURT}.
+    <> {capitalise_start(listRoomPeople(FoodCourtPeople))} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in {FOOD_COURT}.
 }
 { LIST_COUNT(DressStorePeople) > 0:
-    <> {listRoomPeople(DressStorePeople)} {LIST_COUNT(DressStorePeople) > 1:are|is} walking into {DRESS_STORE}.
+    <> {capitalise_start(listRoomPeople(DressStorePeople))} {LIST_COUNT(DressStorePeople) > 1:are|is} walking into {DRESS_STORE}.
 }
 { LIST_COUNT(ShoeStorePeople) > 0:
-    <> {listRoomPeople(ShoeStorePeople)} {LIST_COUNT(ShoeStorePeople) > 1:are|is} browsing in {SHOE_STORE}.
+    <> {capitalise_start(listRoomPeople(ShoeStorePeople))} {LIST_COUNT(ShoeStorePeople) > 1:are|is} browsing in {SHOE_STORE}.
 }
 { LIST_COUNT(BraStorePeople) > 0:
-    <> {listRoomPeople(BraStorePeople)} {LIST_COUNT(BraStorePeople) > 1:are|is} entering {BRA_STORE}.
+    <> {capitalise_start(listRoomPeople(BraStorePeople))} {LIST_COUNT(BraStorePeople) > 1:are|is} entering {BRA_STORE}.
 }
 { LIST_COUNT(BookStorePeople) > 0:
-    <> {listRoomPeople(BookStorePeople)} {LIST_COUNT(BookStorePeople) > 1:are|is} at {BOOK_STORE}.
+    <> {capitalise_start(listRoomPeople(BookStorePeople))} {LIST_COUNT(BookStorePeople) > 1:are|is} at {BOOK_STORE}.
 }
 { LIST_COUNT(MovieTheaterPeople) > 0:
-    <> {listRoomPeople(MovieTheaterPeople)} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} at {MOVIE_THEATER}.
+    <> {capitalise_start(listRoomPeople(MovieTheaterPeople))} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} at {MOVIE_THEATER}.
 }
 
 - (mall_opts)

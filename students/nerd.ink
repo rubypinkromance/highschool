@@ -10,12 +10,12 @@
 * Watches you jerk off after RPG characters flirt, fool around, nearly caught by librarian during Lunch
 * Sex after RPG characters fuck after school
 * Unavailabe on weekend
-- 1: Science    - Movie Theater
-- 2: Health     - Movie Theater
-- L: Library    - Food Court
-- 3: Theater    - Book Store
-- 4: Study Hall - Book Store
-- A: Cafeteria  - Shoe Store
+- 1: Science    - MovieTheater
+- 2: Health     - MovieTheater
+- L: Library    - MovieTheater
+- 3: Theater    - MovieTheater
+- 4: Study Hall - BookStore
+- A: Cafeteria  - ShoeStore
 - Afterschool: playing Magic with other nerds in the cafeteria
 
 - nerd observation 1 reveals she plays magic after school in the cafeteria. Observation 2 reveals no one wants to play D&D with her. Observation 3(?) reveals they don’t like how sexually charged her adventures are.

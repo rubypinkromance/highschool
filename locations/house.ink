@@ -37,6 +37,22 @@ VAR BedroomPeople = ()
     // a computer and no option to watch porn.
     You watch some porn and jerk off until you finally blow your load into some tissues. As you close your laptop, you think about how bored you are of masturbating, and increase your resolve to hook up with real girls at school instead.
 
+// Outfit Actions
++ [Change your clothes]
+    What would you like to wear?
++ + [Default outfit]
+    ~ outfit = Default
+    You put on your normal jeans and t-shirt.
++ + [Nice clothes]
+    ~ outfit = Nice
+    You put on the nicest clothes you own, slacks with a button-up shirt and a tie you last wore for a funeral.
++ + [Athletic gear]
+    ~ outfit = Athletic
+    You put on running clothes.
++ + {Outfits ? Preppy}[Preppy clothes]
+    ~ outfit = Preppy
+    You put on clothes {QUEEN} would like.
+
 // Navigation
 + [Go to {BATHROOM}] -> bathroom
 + [Go to {SIS_BEDROOM}] -> sis_bedroom
@@ -104,14 +120,7 @@ You are in {SIS_BEDROOM}.
 - List combinations of people in the house.
 */
 = listHousePeople(roomPeople)
-{
-- roomPeople ? (Stepsister, SisFriend):
-    <> Your stepsister {SIS} and her friend {SIS_FRIEND} are here.
-- roomPeople ? Stepsister:
-    <> Your stepsister {SIS} is here.
-- roomPeople ? SisFriend:
-    <> Your stepsister’s friend {SIS_FRIEND} is here.
-}
+<> {capitalise_start(listRoomPeople(roomPeople))} {LIST_COUNT(roomPeople) > 1:are|is} here.
 -> DONE
 
 = dream

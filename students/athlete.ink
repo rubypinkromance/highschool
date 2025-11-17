@@ -10,11 +10,13 @@
 * jerk off in locker, watch change
 * Sex after discovering running make her horny, keeping up
 - 1: Gym        - Field (running laps)
-- 2: Science    - Bleachers
-- L: Field      - Bleachers
-- 3: Study Hall - Bleachers
+- 2: Science    - Bleachers/Field
+- L: Field      - Bleachers/Field
+- 3: Study Hall - Bleachers/Field
 - 4: Health     - Field (running laps)
 - A: Gym        - Field (running laps)
+
+- Dislikes non-athletic clothes
 */
 CONST ATHLETE = "Lindsey"
 CONST ATHLETE_TITLE = "the athlete"

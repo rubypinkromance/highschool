@@ -9,11 +9,11 @@
     - dislikes 
 * Story beats
 - 1: --- - Bedroom
-- 2: --- - Bra Store
-- L: --- - Food Court
-- 3: --- - Shoe Store
+- 2: --- - BraStore
+- L: --- - DressStore
+- 3: --- - ShoeStore
 - 4: --- - Bedroom
-- A: --- - Bathroom
+- A: --- - Bedroom
 - N: --- - Bedroom
 
 - Sis has a best friend, who is very into you. She climbs into bed with you one night.

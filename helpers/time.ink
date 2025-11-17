@@ -105,6 +105,15 @@ VAR countdown = false
 }
 
 /*
+- Check if today is a school night (you have school tomorrow)
+*/
+=== function isSchoolNight()
+{ (Friday, Saturday) ? today:
+    ~ return false
+}
+~ return true
+
+/*
 - Check if today is a weekday
 */
 === function isWeekday()

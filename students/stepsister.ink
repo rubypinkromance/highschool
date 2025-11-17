@@ -10,9 +10,9 @@
 * Masturbate together while she showers (have to be quiet!)
 * Sex in her room that night
 - 1: ---      - Bedroom
-- 2: ---      - Bra Store
-- L: ---      - Food Court
-- 3: ---      - Shoe Store
+- 2: ---      - Bra tore
+- L: ---      - DressStore
+- 3: ---      - ShoeStore
 - 4: ---      - Bedroom
 - A: Bathroom - Bathroom
 - N: Bedroom  - Bedroom
@@ -22,6 +22,12 @@
 - Forced to share a bed?
 - Sis has a diary revealing her fantasies about you and exploring bisexuality with her best friend. New entries appear every few days.
 - If you fuck Sis & Friend, you unlock a threesome
+- Can’t snoop sis room if she’s there
+- Sis laptop is broken. Mom and Dad won’t replace it. She borrows yours. After, tells you she saw stepsister porn in your browser history. Asks if you’re into that
+- One Saturday you go to get your laptop back and walk in on Sis and Friend having sex
+- Sis friend goes to Catholic school wears uniform. She shows up one night wearing her little sisters uniform. The skirt is very short
+- Sis and friend do a fashion show for you, wanting a guys opinion. Giggling from closet
+- Sis in towel. Was that you in the bathroom just now? Were you watching me get off? Did you jerk off too?
 */
 CONST SIS = "Alice"
 CONST SIS_TITLE = "your stepsister"

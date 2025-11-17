@@ -30,6 +30,8 @@
 - 3: Science    - Bra Store
 - 4: Study Hall - Dress Store
 - A: Bleachers  - Dress Store
+
+- Makes fun of you for wearing nice or preppy clothes
 */
 CONST FRIEND = "Whitney"
 CONST FRIEND_TITLE = "your friend"
