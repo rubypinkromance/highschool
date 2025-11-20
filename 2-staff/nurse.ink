@@ -14,7 +14,7 @@
 */
 CONST NURSE = "Ms. Honeydew"
 CONST NURSE_TITLE = "the nurse"
-LIST NurseState = (NurseObserved)
+LIST NurseState = NurseInPlay, (NurseObserved)
 VAR NurseMood = Neutral
 VAR NurseBaseMood = Neutral
 
@@ -37,4 +37,8 @@ Coming soon.
 
 === dream_of_nurse ===
 You have a filthy dream about {NURSE}.
+->->
+
+=== nurse_hints ===
+Try observing {NURSE}.
 ->->

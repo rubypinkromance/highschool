@@ -14,7 +14,7 @@
 */
 CONST HEALTH_TEACHER = "Ms. Day"
 CONST HEALTH_TEACHER_TITLE = "the health teacher"
-LIST HealthTeacherState = (HealthTeacherObserved)
+LIST HealthTeacherState = HealthTeacherInPlay, (HealthTeacherObserved)
 VAR flirted_with_teacher = false
 VAR HealthTeacherMood = Neutral
 VAR HealthTeacherBaseMood = Neutral
@@ -57,4 +57,8 @@ Coming soon.
 
 === dream_of_health_teacher ===
 You have a filthy dream about {HEALTH_TEACHER}.
+->->
+
+=== health_teacher_hints ===
+Try observing {HEALTH_TEACHER}.
 ->->

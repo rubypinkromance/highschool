@@ -3,7 +3,7 @@
 */
 CONST THEATER_TEACHER = "Mr. Lane"
 CONST THEATER_TEACHER_TITLE = "the drama teacher"
-LIST TheaterTeacherState = (TheaterTeacherObserved)
+LIST TheaterTeacherState = TheaterTeacherInPlay, (TheaterTeacherObserved)
 VAR TheaterTeacherMood = Neutral
 VAR TheaterTeacherBaseMood = Neutral
 
@@ -38,4 +38,8 @@ Approach {THEATER_TEACHER}.
 === dream_of_theater_teacher ===
 You have a filthy dream about {THEATER_TEACHER}.
 (How did that happen?)
+->->
+
+=== theater_teacher_hints ===
+Try observing {THEATER_TEACHER}.
 ->->

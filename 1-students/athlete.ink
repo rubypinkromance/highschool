@@ -20,7 +20,7 @@
 */
 CONST ATHLETE = "Lindsey"
 CONST ATHLETE_TITLE = "the athlete"
-LIST AthleteState = AthleteObserved
+LIST AthleteState = (AthleteInPlay), AthleteObserved
 VAR AthleteMood = Neutral
 VAR AthleteBaseMood = Neutral
 
@@ -61,4 +61,8 @@ Coming soon.
 
 === dream_of_athlete ===
 You have a filthy dream about {ATHLETE}.
+->->
+
+=== athlete_hints ===
+Try observing {ATHLETE}.
 ->->

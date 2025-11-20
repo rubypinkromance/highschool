@@ -18,7 +18,7 @@
 */
 CONST SCIENTIST = "Grace"
 CONST SCIENTIST_TITLE = "the scientist"
-LIST ScientistState = ScientistObserved
+LIST ScientistState = (ScientistInPlay), ScientistObserved
 VAR ScientistMood = Neutral
 VAR ScientistBaseMood = Neutral
 
@@ -41,4 +41,8 @@ Coming soon.
 
 === dream_of_scientist ===
 You have a filthy dream about {SCIENTIST}.
+->->
+
+=== scientist_hints ===
+Try observing {SCIENTIST}.
 ->->

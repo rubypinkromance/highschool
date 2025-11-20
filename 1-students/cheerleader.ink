@@ -29,7 +29,7 @@ v2
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = CheerleaderObserved, intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
+LIST CheerleaderState = (CheerleaderInPlay), CheerleaderObserved, intel, recon, revenge, followup, quest, has_stuff, reward, repeat, complete
 VAR cheerleaderScore = 0
 LIST CheerleaderItems = CheerleaderPanties
 VAR CheerleaderMood = Neutral
@@ -248,4 +248,8 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 - You are sitting in the back seat of a car, and her hand is in your pants, firmly rubbing your throbbing cock. You gasp and groan as she strokes you with increasing urgency
 }
 <>{isDayWeekend(tomorrow()):, but before you can cum you wake up tangled in your sheets.|. She opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
+->->
+
+=== cheerleader_hints ===
+Try observing {CHEERLEADER}.
 ->->

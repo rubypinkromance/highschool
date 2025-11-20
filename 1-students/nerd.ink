@@ -22,7 +22,7 @@
 */
 CONST NERD = "Felicia"
 CONST NERD_TITLE = "the cute nerd"
-LIST NerdState = NerdObserved
+LIST NerdState = (NerdInPlay), NerdObserved
 VAR NerdMood = Neutral
 VAR NerdBaseMood = Neutral
 
@@ -45,4 +45,8 @@ Coming soon.
 
 === dream_of_nerd ===
 You have a filthy dream about {NERD}.
+->->
+
+=== nerd_hints ===
+Try observing {NERD}.
 ->->

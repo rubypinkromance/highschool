@@ -94,6 +94,9 @@ You are at {LOCKER}.
     + + [{nameAndTitle(Scientist)}] { reportSchedule(Scientist) }
     + + [{nameAndTitle(Twins)}] { reportSchedule(Twins) }
     - - -> locker_opts
++ [Ask for a hint]
+    <- hint_system(-> locker_opts)
+    -> DONE
 + [Check your score]
     -> check_score -> locker_opts
 + [Leave {LOCKER}] -> hallway

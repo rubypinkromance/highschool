@@ -20,7 +20,7 @@
 */
 CONST SIS_FRIEND = "Sofia"
 CONST SIS_FRIEND_TITLE = "her friend"
-LIST SisFriendState = SisFriendObserved, SisFriendIsLesbian, SisFriendIsBi
+LIST SisFriendState = SisFriendInPlay, SisFriendObserved, SisFriendIsLesbian, SisFriendIsBi
 VAR SisFriendMood = Aroused
 VAR SisFriendBaseMood = Aroused
 
@@ -43,4 +43,8 @@ Coming soon.
 
 === dream_of_stepsister_friend ===
 You have a filthy dream about {SIS_FRIEND}.
+->->
+
+=== stepsister_friend_hints ===
+Try observing {SIS_FRIEND}.
 ->->

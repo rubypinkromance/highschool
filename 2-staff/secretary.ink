@@ -15,7 +15,7 @@
 */
 CONST SECRETARY = "Ms. Talltrees"
 CONST SECRETARY_TITLE = "the office assistant"
-LIST SecretaryState = (SecretaryObserved)
+LIST SecretaryState = SecretaryInPlay, (SecretaryObserved)
 VAR SecretaryMood = Friendly
 VAR SecretaryBaseMood = Friendly
 
@@ -50,4 +50,8 @@ Coming soon.
 
 === dream_of_secretary ===
 You have a filthy dream about {SECRETARY}.
+->->
+
+=== secretary_hints ===
+Try observing {SECRETARY}.
 ->->

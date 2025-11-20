@@ -26,7 +26,7 @@
 */
 CONST REBEL = "Zia"
 CONST REBEL_TITLE = "the punk"
-LIST RebelState = RebelObserved
+LIST RebelState = (RebelInPlay), RebelObserved
 VAR RebelMood = Hostile
 VAR RebelBaseMood = Hostile
 
@@ -49,4 +49,8 @@ Coming soon.
 
 === dream_of_rebel ===
 You have a filthy dream about {REBEL}.
+->->
+
+=== rebel_hints ===
+Try observing {REBEL}.
 ->->

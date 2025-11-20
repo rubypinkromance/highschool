@@ -21,7 +21,7 @@
 */
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"
-LIST PhotographerState = PhotographerObserved
+LIST PhotographerState = (PhotographerInPlay), PhotographerObserved
 VAR PhotographerMood = Neutral
 VAR PhotographerBaseMood = Neutral
 
@@ -44,4 +44,8 @@ Coming soon.
 
 === dream_of_photographer ===
 You have a filthy dream about {PHOTOGRAPHER}.
+->->
+
+=== photographer_hints ===
+Try observing {PHOTOGRAPHER}.
 ->->

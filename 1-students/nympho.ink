@@ -31,7 +31,7 @@
 */
 CONST NYMPHO = "Claire"
 CONST NYMPHO_TITLE = "the party girl"
-LIST NymphoState = NymphoObserved
+LIST NymphoState = (NymphoInPlay), NymphoObserved
 VAR NymphoMood = Aroused
 VAR NymphoBaseMood = Aroused
 
@@ -63,4 +63,8 @@ Coming soon.
 
 === dream_of_nympho ===
 You have a filthy dream about {NYMPHO}.
+->->
+
+=== nympho_hints ===
+Try observing {NYMPHO}.
 ->->

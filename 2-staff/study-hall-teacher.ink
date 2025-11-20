@@ -3,7 +3,7 @@
 */
 CONST STUDY_HALL_TEACHER = "Mr. Lamb"
 CONST STUDY_HALL_TEACHER_TITLE = "the study hall supervisor"
-LIST StudyHallTeacherState = (StudyHallTeacherObserved)
+LIST StudyHallTeacherState = StudyHallTeacherInPlay, (StudyHallTeacherObserved)
 VAR StudyHallTeacherMood = Neutral
 VAR StudyHallTeacherBaseMood = Neutral
 
@@ -28,4 +28,8 @@ Approach {STUDY_HALL_TEACHER}.
 === dream_of_study_hall_teacher ===
 You have a filthy dream about {STUDY_HALL_TEACHER}.
 (How did that happen?)
+->->
+
+=== study_hall_teacher_hints ===
+Try observing {STUDY_HALL_TEACHER}.
 ->->

@@ -24,7 +24,7 @@ VAR TWIN1 = "Hailey"
 VAR TWIN2 = "Hailey"
 VAR TWIN1_TITLE = "(or is that Bailey?)"
 VAR TWIN2_TITLE = "(or is that Bailey?)"
-LIST TwinsState = TwinsObserved
+LIST TwinsState = (TwinsInPlay), TwinsObserved
 VAR TwinsMood = Neutral
 VAR TwinsBaseMood = Neutral
 VAR can_identify_twins = false
@@ -84,4 +84,8 @@ Coming soon.
 
 === dream_of_twins ===
 You have a filthy dream about {TWINS}.
+->->
+
+=== twins_hints ===
+Try observing {TWINS}.
 ->->

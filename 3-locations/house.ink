@@ -27,15 +27,20 @@ VAR BedroomPeople = ()
     -> stepsister_panties -> bedroom_opts
 
 // Computer Actions
-+ [Use your laptop]
++ (laptop_opts)[Use your laptop]
 + + [Check your score]
-    -> check_score ->
+    -> check_score -> laptop_opts
++ + [Ask for a hint]
+    <- hint_system(-> laptop_opts)
+    -> DONE
 + + (jerk_off) {not cum_today} [Watch porn]
     ~ cum_today = true
     // This isn't a game about masturbation…
     // But it's odd to have a teenage boy with
     // a computer and no option to watch porn.
     You watch some porn and jerk off until you finally blow your load into some tissues. As you close your laptop, you think about how bored you are of masturbating, and increase your resolve to hook up with real girls at school instead.
++ + [Close your laptop]
+    -> bedroom_opts
 
 // Outfit Actions
 + [Change your clothes]

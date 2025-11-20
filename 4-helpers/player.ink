@@ -23,5 +23,16 @@ VAR has_detention = false
 
 === check_score ===
 Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
+{ LIST_COUNT(Score) > 0:
 You { listPrint(Score, -> scoreDetails)}.
+}
 ->->
+
+=== hint_system(-> return_to) ===
+What do you want a hint about?
+<- hintAllCharacters(Students, return_to)
+<- hintAllCharacters(Staff, return_to)
+* [Locating a girl]
+    If you access the office computer while no one is there, you can print out a class schedule for all the girls.
+    -> return_to
+-> DONE

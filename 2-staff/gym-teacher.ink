@@ -3,7 +3,7 @@
 */
 CONST GYM_TEACHER = "Coach Stewart"
 CONST GYM_TEACHER_TITLE = ""
-LIST GymTeacherState = GymTeacherObserved
+LIST GymTeacherState = GymTeacherInPlay, GymTeacherObserved
 VAR GymTeacherMood = Neutral
 VAR GymTeacherBaseMood = Neutral
 
@@ -39,4 +39,8 @@ Coach Stewart has a shaggy blonde mullet, wears a loose-fitting tank top over a 
 === dream_of_gym_teacher ===
 You have a filthy dream about {GYM_TEACHER}.
 (How did that happen?)
+->->
+
+=== gym_teacher_hints ===
+Bro, she's clearly a lesbian.
 ->->

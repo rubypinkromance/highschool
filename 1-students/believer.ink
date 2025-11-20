@@ -24,7 +24,7 @@
 */
 CONST BELIEVER = "Kate"
 CONST BELIEVER_TITLE = "the religious girl"
-LIST BelieverState = BelieverObserved
+LIST BelieverState = (BelieverInPlay), BelieverObserved
 VAR BelieverMood = Neutral
 VAR BelieverBaseMood = Neutral
 
@@ -47,4 +47,8 @@ Coming soon.
 
 === dream_of_believer ===
 You have a filthy dream about {BELIEVER}.
+->->
+
+=== believer_hints ===
+Try observing {BELIEVER}.
 ->->

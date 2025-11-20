@@ -35,7 +35,7 @@
 */
 CONST FRIEND = "Whitney"
 CONST FRIEND_TITLE = "your friend"
-LIST FriendState = FriendObserved
+LIST FriendState = (FriendInPlay), FriendObserved
 VAR FriendMood = Friendly
 VAR FriendBaseMood = Friendly
 
@@ -58,4 +58,8 @@ Coming soon.
 
 === dream_of_friend ===
 You have a filthy dream about {FRIEND}.
+->->
+
+=== friend_hints ===
+Try observing {FRIEND}.
 ->->

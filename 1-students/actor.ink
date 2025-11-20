@@ -18,7 +18,7 @@
 */
 CONST ACTOR = "Dana"
 CONST ACTOR_TITLE = "the theater kid"
-LIST ActorState = ActorObserved, ActorBraSize
+LIST ActorState = (ActorInPlay), ActorObserved, ActorBraSize
 VAR ActorMood = Neutral
 VAR ActorBaseMood = Neutral
 
@@ -47,4 +47,8 @@ Coming soon.
 
 === dream_of_actor ===
 You have a filthy dream about {ACTOR}.
+->->
+
+=== actor_hints ===
+Try observing {ACTOR}.
 ->->

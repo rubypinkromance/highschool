@@ -21,7 +21,7 @@
 */
 CONST QUEEN = "Victoria"
 CONST QUEEN_TITLE = "the queen bee"
-LIST QueenState = QueenObserved
+LIST QueenState = (QueenInPlay), QueenObserved
 VAR QueenMood = Hostile
 VAR QueenBaseMood = Hostile
 
@@ -44,4 +44,8 @@ Coming soon.
 
 === dream_of_queen ===
 You have a filthy dream about {QUEEN}.
+->->
+
+=== queen_hints ===
+Try observing {QUEEN}.
 ->->

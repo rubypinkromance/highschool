@@ -31,7 +31,7 @@
 */
 CONST SIS = "Alice"
 CONST SIS_TITLE = "your stepsister"
-LIST SisState = (SisObserved), SisIsLesbian, SisIsBi
+LIST SisState = SisInPlay, (SisObserved), SisIsLesbian, SisIsBi
 VAR SisMood = Friendly
 VAR SisBaseMood = Friendly
 LIST SisItems = SisPanties, SisDiary
@@ -92,4 +92,8 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
 === dream_of_stepsister ===
 You have a filthy dream about {SIS}.
+->->
+
+=== stepsister_hints ===
+Try observing {SIS}.
 ->->

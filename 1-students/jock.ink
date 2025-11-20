@@ -9,7 +9,7 @@
 */
 CONST JOCK = "Lance"
 CONST JOCK_TITLE = "the meathead jock"
-LIST JockState = (JockObserved)
+LIST JockState = JockInPlay, (JockObserved)
 VAR JockMood = Hostile
 VAR JockBaseMood = Hostile
 
@@ -28,4 +28,8 @@ Approach {JOCK}.
 === dream_of_jock ===
 You have a filthy dream about {JOCK}.
 (How did that happen?)
+->->
+
+=== jock_hints ===
+Try observing {JOCK}.
 ->->
