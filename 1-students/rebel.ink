@@ -36,8 +36,10 @@ VAR RebelBaseMood = Hostile
 Approach {REBEL}.
 
 - (opts)
-* "What's your bra size?"
+* {RebelMood == Aroused}"What's your bra size?"
     "34B."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

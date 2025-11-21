@@ -25,5 +25,6 @@ You are in {STUDY_HALL}.
 {
 - not has_detention and now == AfterSchool:
     -> access_denied_study_hall_teacher -> hallway
+- else:
+    ->->
 }
-->->

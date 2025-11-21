@@ -22,5 +22,6 @@ You are in the {LAB}.
 = access_restrictions
 { isClassTime() and now != hasClass(Lab):
     -> access_denied_science_teacher -> hallway
+- else:
+    ->->
 }
-->->

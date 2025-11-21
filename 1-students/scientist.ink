@@ -28,8 +28,10 @@ VAR ScientistBaseMood = Neutral
 Approach {SCIENTIST}.
 
 - (opts)
-* "What's your bra size?"
+* {ScientistMood == Aroused}"What's your bra size?"
     "30B."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

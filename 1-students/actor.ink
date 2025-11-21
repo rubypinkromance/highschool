@@ -28,14 +28,16 @@ VAR ActorBaseMood = Neutral
 Approach {ACTOR}.
 
 - (opts)
-* {ActorState !? ActorObserved} [Observe] -> observe_actor ->
-+ {ActorState ? ActorObserved} [Confirm]
++ {DEBUG and ActorState !? ActorObserved} [Observe] -> observe_actor ->
++ {DEBUG and ActorState ? ActorObserved} [Confirm]
     "You've been observed.
-* {ActorState !? ActorBraSize}"What's your bra size?"
++ {ActorMood == Aroused and ActorState !? ActorBraSize}"What's your bra size?"
     ~ ActorState += ActorBraSize
     "36A."
-+ {ActorState ? ActorBraSize}"You wear a 36A, right?"
++ {ActorMood == Aroused and ActorState ? ActorBraSize}"You wear a 36A, right?"
     "Correct."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

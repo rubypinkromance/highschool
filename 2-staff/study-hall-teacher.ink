@@ -10,7 +10,7 @@ VAR StudyHallTeacherBaseMood = Neutral
 === talk_to_study_hall_teacher ===
 Approach {STUDY_HALL_TEACHER}.
 - (opts)
-* "Hello."
++ "Hello."
     "Sorry, I don't have any dialog yet."
 + [Leave him alone] ->->
 - -> opts

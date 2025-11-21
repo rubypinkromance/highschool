@@ -22,8 +22,9 @@ You are in the {THEATER}.
 = access_restrictions
 { isClassTime() and now != hasClass(Theater):
     -> access_denied_theater_teacher -> hallway
+- else:
+    ->->
 }
-->->
 
 /*
 - Backstage

@@ -10,7 +10,7 @@ VAR GymTeacherBaseMood = Neutral
 === talk_to_gym_teacher ===
 Approach {GYM_TEACHER}.
 - (opts)
-* "Hello."
++ "Hello."
     "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts

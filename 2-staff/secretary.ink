@@ -25,7 +25,7 @@ VAR SecretaryBaseMood = Friendly
 Approach {SECRETARY}.
 
 - (opts)
-    * "What's your bra size?"
+    * {SecretaryMood == Aroused}"What's your bra size?"
         "34B."
     + "I want to change my schedule."
         {

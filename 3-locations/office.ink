@@ -13,14 +13,16 @@ You are at the {OFFICE}.
 - (office_opts)
 <- talkAndObserveAllCharacters(OfficePeople, -> office_opts)
 
-+ {OfficePeople !? Secretary and OfficeItems ? Schedule} [Use the computer]
++ {OfficePeople !? Secretary} [Use the computer]
     Taking advantage of the unsupervised office computer, you access the confidential school records.
     + + [Change your schedule]
         -> change_schedule("") ->
-    * * [Print all girl’s schedules]
+    * * {OfficeItems ? Schedule}[Print all girl’s schedules]
         ~ OfficeItems -= Schedule
         ~ Inventory += Schedule
         You quickly print off a copy of the schedule for all the girls in school. You can tape this up in your locker as a helpful reference to locate a girl during the school day.
+    + + [Leave the computer]
+        -> office_opts
 
 + [Go to the {SUPPLY_CLOSET}] -> supply_closet
 + [Leave the {OFFICE}] -> pass_time -> hallway

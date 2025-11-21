@@ -10,7 +10,7 @@ VAR ScienceTeacherBaseMood = Neutral
 === talk_to_science_teacher ===
 Approach {SCIENCE_TEACHER}.
 - (opts)
-* "Hello."
++ "Hello."
     "Sorry, I don't have any dialog yet."
 + [Leave him alone] ->->
 - -> opts

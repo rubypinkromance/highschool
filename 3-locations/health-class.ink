@@ -22,5 +22,6 @@ You are in the {HEALTH_CLASS}.
 = access_restrictions
 { isClassTime() and now != hasClass(HealthClass):
     -> access_denied_health_teacher -> hallway
+- else:
+    ->->
 }
-->->

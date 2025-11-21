@@ -41,17 +41,10 @@ VAR NymphoBaseMood = Aroused
 Approach {NYMPHO}.
 
 - (opts)
-* "What do you know about {NURSE}?"
-    // heard other teachers think Nurse is a pushover, gives students what they ask for too easily.
-    "I'll tell you after you cum on me."
-* "What do you know about {SECRETARY}?"
-    // saw secretary in the lobby for the same therapist she sees for sex addiction
-    "I'll tell you after you cum on me."
-* "What do you know about {HEALTH_TEACHER}?"
-    // heard Teacher got divorced last year and works late every night. Seems lonely.
-    "I'll tell you after you cum on me."
-* "What's your bra size?"
+* {NymphoMood == Aroused}"What's your bra size?"
     "32A."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

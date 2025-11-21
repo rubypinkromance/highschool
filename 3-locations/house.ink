@@ -86,11 +86,6 @@ You are in the {BATHROOM}.
 - (bathroom_opts)
 <- talkAndObserveAllCharacters(BathroomPeople, -> bathroom_opts)
 
-+ [Look at {SIS}]
-    -> look_at_stepsister ->
-+ [Creampie {SIS}]
-    ~ Score += sisCreampie
-    You shove your cock into her dripping cunt and pump her full of cream.
 + { Inventory ? SisPanties } [Put {Stepsister}'s panties in the laundry]
     ~ move(SisPanties, Inventory, BathroomItems)
 

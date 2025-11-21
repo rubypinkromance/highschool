@@ -30,26 +30,34 @@ VAR AthleteBaseMood = Neutral
 Approach {ATHLETE}.
 
 - (opts)
-* "What's your bra size?"
+* {AthleteMood == Aroused}"What's your bra size?"
     "32B."
-+ [Improve her mood]
-    ~ improveMood(AthleteMood)
-    "Thanks, I feel {AthleteMood}"
-    -> opts
-+ [Worsen her mood]
-    ~ worsenMood(AthleteMood)
-    "Now I feel {AthleteMood}"
-    -> opts
-+ [Reset her mood]
-    ~ AthleteMood = AthleteBaseMood
-    "Normally, I feel {AthleteMood}"
-    -> opts
-+ [Make her permanently horny]
-    ~ AthleteBaseMood = Aroused
-    "From now on, I'll be {AthleteBaseMood} every day."
-+ [Make her permanently neutral]
-    ~ AthleteBaseMood = Neutral
-    "From now on, I feel {AthleteBaseMood} every day."
++ (hypnosis){DEBUG}[Hypnotize her]
+    + + [Improve her mood]
+        ~ improveMood(AthleteMood)
+        "Thanks, I feel {AthleteMood}"
+        -> hypnosis
+    + + [Worsen her mood]
+        ~ worsenMood(AthleteMood)
+        "Now I feel {AthleteMood}"
+        -> hypnosis
+    + + [Reset her mood]
+        ~ AthleteMood = AthleteBaseMood
+        "Normally, I feel {AthleteMood}"
+        -> hypnosis
+    + + [Make her permanently horny]
+        ~ AthleteBaseMood = Aroused
+        "From now on, I'll be {AthleteBaseMood} every day."
+        -> hypnosis
+    + + [Make her permanently neutral]
+        ~ AthleteBaseMood = Neutral
+        "From now on, I feel {AthleteBaseMood} every day."
+        -> hypnosis
+    + + [End the hypnosis]
+        "Thanks!"
+        -> opts
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

@@ -57,10 +57,11 @@ The school is closed on weekends, but you can still access the {FIELD}.
 = access_restrictions
 {
 - now == Night:
-    The school is closed. You head home.
-    -> bedroom
+    The school is closed.
+    + [Go home] -> bedroom
+- else:
+    ->->
 }
-->->
 
 
 /*

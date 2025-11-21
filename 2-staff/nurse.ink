@@ -24,8 +24,10 @@ VAR NurseBaseMood = Neutral
 Approach {NURSE}.
 
 - (opts)
-    * "What's your bra size?"
+    * {NurseMood == Aroused}"What's your bra size?"
         "36D."
+    + "Hello."
+        "Sorry, I don't have any dialog yet."
     + [Leave her alone] ->->
 - -> opts
 

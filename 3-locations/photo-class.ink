@@ -22,8 +22,9 @@ You are in the {PHOTO_CLASS}.
 = access_restrictions
 { isClassTime() and now != hasClass(PhotoClass):
     -> access_denied_photo_teacher -> hallway
+- else:
+    ->->
 }
-->->
 
 /*
 - The Darkroom

@@ -21,7 +21,8 @@ You are in the {LIBRARY}.
 = access_restrictions
 {
 - isClassTime():
-    Shouldn't you be in class right now? Back to the hallway…
-    -> hallway
+    Shouldn't you be in class right now?
+    + [Leave the {LIBRARY}] -> hallway
+- else:
+    ->->
 }
-->->

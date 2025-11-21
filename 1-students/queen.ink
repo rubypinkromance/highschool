@@ -31,8 +31,10 @@ VAR QueenBaseMood = Hostile
 Approach {QUEEN}.
 
 - (opts)
-* "What's your bra size?"
+* {QueenMood == Aroused}"What's your bra size?"
     "34A."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

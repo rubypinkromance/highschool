@@ -31,8 +31,10 @@ VAR PhotographerBaseMood = Neutral
 Approach {PHOTOGRAPHER}.
 
 - (opts)
-* "What's your bra size?"
+* {PhotographerMood == Aroused}"What's your bra size?"
     "34B."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

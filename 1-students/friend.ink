@@ -45,8 +45,10 @@ VAR FriendBaseMood = Friendly
 Approach {FRIEND}.
 
 - (opts)
-* "What's your bra size?"
+* {FriendMood == Aroused}"What's your bra size?"
     "34C."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Walk away] ->->
 - -> opts
 

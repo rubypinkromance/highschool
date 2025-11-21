@@ -23,8 +23,9 @@ You are in the {GYM}.
 = access_restrictions
 { isClassTime() and now != hasClass(Gym):
     -> access_denied_gym_teacher -> hallway
+- else:
+    ->->
 }
-->->
 
 /*
 Locker Rooms

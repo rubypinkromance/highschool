@@ -25,11 +25,10 @@ VAR HealthTeacherBaseMood = Neutral
 Approach {HEALTH_TEACHER}.
 
 - (opts)
-    * "What's your bra size?"
+    * {HealthTeacherMood == Aroused}"What's your bra size?"
         "36C."
-    + ["Can I change my schedule?"]
-        "Sure!"
-        ~ permission_to_change_schedule = true
+    + "Hello."
+        "Sorry, I don't have any dialog yet."
     + [Leave her alone] ->->
 - -> opts
 

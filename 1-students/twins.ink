@@ -42,11 +42,13 @@ VAR can_identify_twins = false
 Approach {TWIN1}.
 
 - (opts)
-* "What's your bra size?"
+* {TwinsMood == Aroused}"What's your bra size?"
     "34D."
-* "Which one are you?"
+* {DEBUG}"Which one are you?"
     ~ identify_twins()
     "Hailey."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 
@@ -56,11 +58,13 @@ Approach {TWIN1}.
 Approach {TWIN2}.
 
 - (opts)
-* "What's your bra size?"
+* {TwinsMood == Aroused}"What's your bra size?"
     "34D."
-* "Which one are you?"
+* {DEBUG}"Which one are you?"
     ~ identify_twins()
     "Bailey."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 
@@ -70,9 +74,13 @@ Approach {TWIN2}.
 Approach {TWINS}.
 
 - (opts)
-* "How can I tell you apart?"
+* {TwinsMood == Aroused}"What's your bra size?"
+    "34D."
+* {DEBUG}"How can I tell you apart?"
     ~ identify_twins()
     "She's Hailey, and I'm Bailey."
++ "Hello."
+    "Sorry, we don't have any dialog yet."
 * [Leave them alone] ->->
 - -> opts
 

@@ -42,11 +42,13 @@ LIST SisItems = SisPanties, SisDiary
 Approach {SIS}.
 
 - (opts)
-+ "What's your bra size?"
++ {SisMood == Aroused}"What's your bra size?"
     "34C, bro."
-+ "Wanna fuck?"
++ {DEBUG}"Wanna fuck?"
     "Sure, why not?"
     -> fuck_stepsister ->->
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 
@@ -79,6 +81,9 @@ This is it, you're finally going to fuck {SIS}.
     You pinch her nipples, making her squirm
 + [Bend her over]
     You bend her over and fuck her desperately from behind, until she moans as you pump your load into her tight pussy.
++ [Creampie {SIS}]
+    ~ Score += sisCreampie
+    You shove your cock into her dripping cunt and pump her full of cream.
 + [Walk away] ->->
 - -> opts
 

@@ -10,7 +10,7 @@ VAR PhotoTeacherBaseMood = Neutral
 === talk_to_photo_teacher ===
 Approach {PHOTO_TEACHER}.
 - (opts)
-* "Hello."
++ "Hello."
     "Sorry, I don't have any dialog yet."
 + [Leave him alone] ->->
 - -> opts

@@ -30,8 +30,10 @@ VAR SisFriendBaseMood = Aroused
 Approach {SIS_FRIEND}.
 
 - (opts)
-* "What's your bra size?"
+* {SisFriendMood == Aroused}"What's your bra size?"
     "32D."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 

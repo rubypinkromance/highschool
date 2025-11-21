@@ -34,8 +34,10 @@ VAR BelieverBaseMood = Neutral
 Approach {BELIEVER}.
 
 - (opts)
-* "What's your bra size?"
+* {BelieverMood == Aroused}"What's your bra size?"
     "That's between me and Jesus."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->
 - -> opts
 
