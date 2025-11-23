@@ -48,11 +48,15 @@ INCLUDE 3-locations/theater.ink
 
 // Helpers
 INCLUDE 4-helpers/player.ink
+INCLUDE 4-helpers/character-db.ink
 INCLUDE 4-helpers/characters.ink
 INCLUDE 4-helpers/locations.ink
 INCLUDE 4-helpers/time.ink
+INCLUDE 4-helpers/score.ink
 INCLUDE 4-helpers/functions.ink
 INCLUDE 4-helpers/capitalise.ink
+
+
 
 # title: Senior Project
 # author: Ruby Pink

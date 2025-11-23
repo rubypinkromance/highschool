@@ -31,7 +31,9 @@
 - 4: Study Hall - Dress Store
 - A: Bleachers  - Dress Store
 
+- Friend and Photographer are friends
 - Makes fun of you for wearing nice or preppy clothes
+- Friend knows when you try to put the moves on her, calls you out, but curious
 */
 CONST FRIEND = "Whitney"
 CONST FRIEND_TITLE = "your friend"

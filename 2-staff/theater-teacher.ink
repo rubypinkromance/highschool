@@ -25,6 +25,10 @@ Approach {THEATER_TEACHER}.
     "{PLAYER}? You're not in this class. Come back at {nameOfTimeWeekday(whenHasClass)}."
 }
 - (access_denied_theater_teacher_opts)
++ "Can I come in anyway?"
+    "Oh, who am I to deny a budding lover of the theatrical arts? Sure, come on in, but don't cause a distraction."
+    ~ has_theater_invite = true
+    + + [Enter] -> theater
 + {not permission_to_change_schedule} "Can I transfer to this {whenHasClass == Nowhen:class|period}?"
     ~ permission_to_change_schedule = true
     "Sure, that's fine by me. Head to the office."

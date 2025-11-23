@@ -15,6 +15,8 @@
 - 3: Study Hall  - BookStore
 - 4: Lab         - FoodCourt
 - A: Lab         - BookStore
+
+- Scientist works at book shop
 */
 CONST SCIENTIST = "Grace"
 CONST SCIENTIST_TITLE = "the scientist"

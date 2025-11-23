@@ -9,16 +9,19 @@ CONST MALL = "mall"
 -> access_restrictions ->
 ~ announceTime()
 
-You are at the {MALL}. <>
-
 ~ temp totalMallPeople = LIST_COUNT(FoodCourtPeople) + LIST_COUNT(DressStorePeople) + LIST_COUNT(ShoeStorePeople) + LIST_COUNT(BraStorePeople) + LIST_COUNT(BookStorePeople) + LIST_COUNT(MovieTheaterPeople)
 
-{ totalMallPeople > 1:
-    You look around for anyone you recognize.
+You are at the {MALL}. You look around for anyone you recognize,
+{
+- totalMallPeople < 1:
+    <> but you don't see anyone.
+- today == Saturday:
+    <> and you see nearly half the school.
+- today == Sunday:
+    <> and you see almost everyone you know.
 - else:
-    You don't see anyone you recognize.
+    <> and spot a few people.
 }
-
 { LIST_COUNT(FoodCourtPeople) > 0:
     <> {capitalise_start(listRoomPeople(FoodCourtPeople))} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in {FOOD_COURT}.
 }
@@ -26,16 +29,16 @@ You are at the {MALL}. <>
     <> {capitalise_start(listRoomPeople(DressStorePeople))} {LIST_COUNT(DressStorePeople) > 1:are|is} walking into {DRESS_STORE}.
 }
 { LIST_COUNT(ShoeStorePeople) > 0:
-    <> {capitalise_start(listRoomPeople(ShoeStorePeople))} {LIST_COUNT(ShoeStorePeople) > 1:are|is} browsing in {SHOE_STORE}.
+    <> {capitalise_start(listRoomPeople(ShoeStorePeople))} {LIST_COUNT(ShoeStorePeople) > 1:are|is} shopping in {SHOE_STORE}.
 }
 { LIST_COUNT(BraStorePeople) > 0:
     <> {capitalise_start(listRoomPeople(BraStorePeople))} {LIST_COUNT(BraStorePeople) > 1:are|is} entering {BRA_STORE}.
 }
 { LIST_COUNT(BookStorePeople) > 0:
-    <> {capitalise_start(listRoomPeople(BookStorePeople))} {LIST_COUNT(BookStorePeople) > 1:are|is} at {BOOK_STORE}.
+    <> {capitalise_start(listRoomPeople(BookStorePeople))} {LIST_COUNT(BookStorePeople) > 1:are|is} browsing at {BOOK_STORE}.
 }
 { LIST_COUNT(MovieTheaterPeople) > 0:
-    <> {capitalise_start(listRoomPeople(MovieTheaterPeople))} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} at {MOVIE_THEATER}.
+    <> {capitalise_start(listRoomPeople(MovieTheaterPeople))} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} buying popcorn at {MOVIE_THEATER}.
 }
 
 - (mall_opts)

@@ -17,6 +17,7 @@
 - A: Gym        - Field (running laps)
 
 - Dislikes non-athletic clothes
+- Athlete agrees to go out if you can keep up with her. Requires training. In the meantime, peep show in locker room
 */
 CONST ATHLETE = "Lindsey"
 CONST ATHLETE_TITLE = "the athlete"

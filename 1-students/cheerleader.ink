@@ -26,6 +26,7 @@ v2
 - Jock fight 2: you trying to steal my girl bro? Think you got the stuff to hook up with my bitch? Think again. Knees you in the nuts, Rebel intervenes. She likes you more, doesn’t like bullies. Takes you to nurse, who ices your balls then you get hard while she examines them.
 - Wanna go under the bleachers again? Let’s go, she leads you there -> bleacher_opts
 - Jock doesn’t hang around on bleachers after they break up
+- Flirting is blocked by confidence
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
@@ -215,6 +216,7 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 === cheerleader_reward ===
 ~ CheerleaderState = complete
 ~ Score += cheerleaderSex
+~ confidence++
 You kiss her.
 "I'm glad you came. Let me show you how grateful I am for all your help."
 -> cheerleader_sex ->

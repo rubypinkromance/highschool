@@ -12,6 +12,7 @@
 * Fuck her in the supply closet after school
 
 - Secretary is like babysitter character, likes to flirt, will agree to coach you in flirting if you agree not to fall in love with her
+- Secretary coaching increases confidence
 */
 CONST SECRETARY = "Ms. Talltrees"
 CONST SECRETARY_TITLE = "the office assistant"

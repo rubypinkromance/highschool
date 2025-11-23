@@ -5,6 +5,7 @@
 CONST THEATER = "theater"
 CONST THEATER_CLASS_NAME = "drama class"
 VAR TheaterPeople = ()
+VAR has_theater_invite = false
 ~ here = Theater
 -> access_restrictions ->
 
@@ -20,7 +21,7 @@ You are in the {THEATER}.
 - -> theater_opts
 
 = access_restrictions
-{ isClassTime() and now != hasClass(Theater):
+{ not has_theater_invite and isClassTime() and now != hasClass(Theater):
     -> access_denied_theater_teacher -> hallway
 - else:
     ->->

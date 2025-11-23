@@ -28,6 +28,10 @@
 - 4: Science     - ShoeStore
 - A: Library     - FoodCourt
 - Afterschool: looking at porn in library
+
+- Nympho observation. Other girls gossiping. Why are her nipples always hard? They’re peorced. Omg wouldn’t that hurt? I heard it feels good.
+- Ask about piercings. She tells you she has a clit piercing too
+- Two paths for nympho. Let her lead. Steady escalation as she proves to herself that she’s in control. Tell her what to do. Her resistance quickly crumbles as she slips into sub mode and lets you use her as she begs you for release
 */
 CONST NYMPHO = "Claire"
 CONST NYMPHO_TITLE = "the party girl"

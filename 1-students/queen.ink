@@ -18,6 +18,8 @@
 
 - Likes preppy clothes
 - Can ask her to help you buy preppy clothes
+- Peep on queen while changing. Need to distract twins
+- Two paths with queen. Dom/Sub
 */
 CONST QUEEN = "Victoria"
 CONST QUEEN_TITLE = "the queen bee"

@@ -28,6 +28,7 @@
 - Sis friend goes to Catholic school wears uniform. She shows up one night wearing her little sisters uniform. The skirt is very short
 - Sis and friend do a fashion show for you, wanting a guys opinion. Giggling from closet
 - Sis in towel. Was that you in the bathroom just now? Were you watching me get off? Did you jerk off too?
+- Sis friend catches you peeping in the shower. Stays to help. Once peeped on you, fantasized you were cumming on her
 */
 CONST SIS = "Alice"
 CONST SIS_TITLE = "your stepsister"

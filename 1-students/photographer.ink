@@ -18,6 +18,7 @@
 - A: Photography - BookStore
 
 - Likes nudity
+- Photographer and Friend are friends
 */
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"
