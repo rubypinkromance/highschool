@@ -1,14 +1,14 @@
 /*
 Try to avoid multiple characters whose names start with the same letter.
 
-- Alice    - Stepsister
-- B
+- Amy?
+- Beth?
 - Claire   - Nympho
 - Dana     - Actor
 - Emily?
 - Felicia  - Nerd
 - Grace    - Scientist (Asian)
-- H?
+- Heather  - Stepsister
 - Isabel?
 - Jill     - Photographer
 - Kate     - Believer

@@ -1,5 +1,5 @@
 /*
-- Stepsister: Alice
+- Stepsister: Heather
 - Jade Jones: shaggy black hair, averge build, large tits, 34C, shaved
 - Outfit: TBD, black with pink polkadots underwear and bra.
 ? intel: read diary confessing sexual fantasies
@@ -30,7 +30,7 @@
 - Sis in towel. Was that you in the bathroom just now? Were you watching me get off? Did you jerk off too?
 - Sis friend catches you peeping in the shower. Stays to help. Once peeped on you, fantasized you were cumming on her
 */
-CONST SIS = "Alice"
+CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = SisInPlay, (SisObserved), SisIsLesbian, SisIsBi
 VAR SisMood = Friendly

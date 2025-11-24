@@ -21,9 +21,9 @@ VAR BedroomPeople = ()
 <- talkAndObserveAllCharacters(BedroomPeople, -> bedroom_opts)
 
 // Inventory Actions
-* { Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
+* (cum_in_cheerleader_panties){ Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
     -> cheerleader_panties -> bedroom_opts
-* { Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
+* (cum_in_sis_panties){ Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
     -> stepsister_panties -> bedroom_opts
 
 // Computer Actions
@@ -86,9 +86,6 @@ You are in the {BATHROOM}.
 - (bathroom_opts)
 <- talkAndObserveAllCharacters(BathroomPeople, -> bathroom_opts)
 
-+ { Inventory ? SisPanties } [Put {Stepsister}'s panties in the laundry]
-    ~ move(SisPanties, Inventory, BathroomItems)
-
 + [Leave {BATHROOM}] -> pass_time -> bedroom
 - -> bathroom_opts
 
@@ -109,9 +106,11 @@ You are in {SIS_BEDROOM}.
 - (sis_bedroom_opts)
 <- talkAndObserveAllCharacters(SisBedroomPeople, -> sis_bedroom_opts)
 
-+ { SisBedroomItems ? SisPanties } [Take her panties]
++ { SisBedroomItems ? SisPanties and not cum_in_sis_panties } [Take her panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
     -> sis_bedroom_opts
++ { Inventory ? SisPanties and cum_in_sis_panties } [Put {SIS}'s panties in the laundry basket]
+    ~ move(SisPanties, Inventory, SisBedroomItems)
 
 + [Leave {SIS_BEDROOM}] -> pass_time -> bedroom
 - -> sis_bedroom_opts
