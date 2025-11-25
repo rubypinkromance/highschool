@@ -57,7 +57,7 @@ VAR BleachersPeople = ()
 
 You are in the {BLEACHERS} overlooking the {FIELD}.
 
-{listRoomPeople(BleachersPeople)}
+{listRoomPeople(BleachersPeople)} {LIST_COUNT(BleachersPeople) > 1:are|is} here.
 
 - (bleachers_opts)
 <- talkAndObserveAllCharacters(BleachersPeople, -> bleachers_opts)
@@ -77,8 +77,16 @@ VAR UnderBleachersPeople = ()
 
 You are {UNDER_BLEACHERS}. It's fairly dark under here. Someone dragged in a couple chairs from the {CAFETERIA}, and there's an old coffee can used as an ashtray. It's not the nicest spot to hang out, but it has the advantage of being mostly hidden from view.
 
+{ UnderBleachersPeople ? Cheerleader:
+    {CHEERLEADER} is here, scrolling on her phone.
+}
+
 - (under_bleachers_opts)
 <- talkAndObserveAllCharacters(UnderBleachersPeople, -> under_bleachers_opts)
 
-+ [Leave the bleachers] -> field
++ [Leave the bleachers]
+    { UnderBleachersPeople ? Cheerleader:
+        -> cheerleader_cleanup -> field
+    }
+    -> field
 - -> under_bleachers_opts

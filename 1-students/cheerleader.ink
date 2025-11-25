@@ -16,23 +16,14 @@
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
+LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, (CheerleaderQuest), CheerleaderReward, CheerleaderSex
 VAR CheerleaderInPlay = true
 VAR CheerleaderMood = Neutral
 VAR CheerleaderBaseMood = Neutral
 VAR CheerleaderCum = ()
 LIST CheerleaderItems = CheerleaderPanties, CheerleaderStuff
 
-// Cum states (for descriptions)
-VAR cheerleader_has_facial = false
-VAR cheerleader_has_cum_mouth = false
-VAR cheerleader_has_cum_tits = false
-VAR cheerleader_has_creampie = false
-
 TODO handle score
-TODO remove cheerleader cum status when leaving bleachers
-TODO describe cheerleader when entering bleachers
-TODO Look for ways to skip having to talk to initiate action. Maybe if we're under the bleachers and we recognize her state, we just start the action for the player? Wanna go under the bleachers again? Let’s go, she leads you there -> bleacher_opts
 TODO: what triggers jock fight 2? You trying to steal my girl bro? Think you got the stuff to hook up with my bitch? Think again. Knees you in the nuts, Rebel intervenes. She likes you more, doesn’t like bullies. Takes you to nurse, who ices your balls then you get hard while she examines them.
 
 /*
@@ -58,7 +49,7 @@ You approach {CHEERLEADER}
 - CheerleaderState == CheerleaderQuest:
     <>, who looks at you hopefully. "Did you get my stuff back from {JOCK}'s locker?"
 - CheerleaderState == CheerleaderReward and here == UnderBleachers:
-    <>, who is waiting for you with hunger in her eyes.
+    <>, who looks at you with hunger in her eyes.
 - CheerleaderState >= CheerleaderReward:
     <>, who smiles at you. "What's up?"
 - else:
@@ -85,6 +76,7 @@ You approach {CHEERLEADER}
     -> deliver_cheerleader_stuff ->
 * {CheerleaderState == CheerleaderReward and here == UnderBleachers}
     [Kiss her]
+    You pull her into a kiss.
     -> cheerleader_sex ->
 + {CheerleaderState == CheerleaderSex and newToday(-> cheerleader_sex)}
     ["What are you doing{isWeekday() and now != AfterSchool: later| right now}?"]
@@ -291,7 +283,19 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 ~ CheerleaderState = CheerleaderReward
 ~ Inventory -= CheerleaderPanties
 "I got your things from the locker."
-"Thanks for helping me out." She rummages through the items in the bag. {cheerleader_panties: She picks up the panties you jerked off with. They look sticky, and there's a noticable cum stain. She frowns, and your heart skips a beat. "Ew, did {JOCK} jerk off with these? He's such a creep, I should have broken up with him sooner."} Turning her attention back to you, she bites her lip and says "{here == UnderBleachers:Come here, let me|Meet me under the bleachers again after school, so I can} show you how grateful I am."
+"Thanks for helping me out." She rummages through the items in the bag. {cheerleader_panties: She picks up the panties you jerked off with. They look sticky, and there's a noticable cum stain. She frowns, and your heart skips a beat. "Ew, did {JOCK} jerk off with these? He's such a creep, I should have broken up with him sooner."} Turning her attention back to you, she bites her lip and says
+{
+- now == AfterSchool:
+    <> "Come with me. I want to show you how grateful I am."
+    + [Follow her {UNDER_BLEACHERS}]
+        ~ here = UnderBleachers
+        ~ BleachersPeople -= Cheerleader
+        ~ UnderBleachersPeople += (Cheerleader)
+        You follow her {UNDER_BLEACHERS}, where she pulls you into a kiss.
+        -> cheerleader_sex -> field.under_bleachers
+- else:
+    <> "Meet me under the bleachers again after school, so I can show you how grateful I am."
+}
 ->->
 
 /*
@@ -308,11 +312,9 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 }
 ~ CheerleaderState = CheerleaderSex
 ~ CheerleaderCum += Creampie
-You kiss her.
 "I'm glad you came. {cheerleader_sex == 1: Let me show you how grateful I am for all your help.|I need you inside me again.}"
 {CHEERLEADER} passionately kisses you, and moments later, she's dropped her panties and braced herself as you enter her from behind. She bites her lip to keep from crying out as you fuck her deep, blowing your load inside.
-You pull up your pants, give her a kiss, and turn away.
-->->
++ [Pull up your pants] -> field.under_bleachers_opts
 
 /*
 
@@ -324,7 +326,19 @@ You pull up your pants, give her a kiss, and turn away.
 === ask_cheerleader_for_repeat ===
 ~ CheerleaderState = CheerleaderReward
 "What are you doing{isWeekday() and now != AfterSchool: later| right now}?"
-"You, hopefully. {here != UnderBleachers: Meet me behind the bleachers again after school.}"
+"You, hopefully.
+{
+- now == AfterSchool:
+    <> "Come with me."
+    + [Follow her {UNDER_BLEACHERS}]
+        ~ here = UnderBleachers
+        ~ BleachersPeople -= Cheerleader
+        ~ UnderBleachersPeople += (Cheerleader)
+        You follow her {UNDER_BLEACHERS}, where she pulls you into a kiss.
+        -> cheerleader_sex -> field.under_bleachers
+- else:
+    <> "Meet me under the bleachers again after school."
+}
 ->->
 
 /*
@@ -351,5 +365,15 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 
 */
 === cheerleader_hints ===
+TODO add hints
 Try observing {CHEERLEADER}.
+->->
+
+/*
+
+    Clean up any cum on Cheerleader
+
+*/
+=== cheerleader_cleanup ===
+~ CheerleaderCum = ()
 ->->

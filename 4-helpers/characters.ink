@@ -123,7 +123,8 @@ VAR last_girl = Cheerleader
 === talkToCharacter(who, -> return_to)
 ~ temp name = characterData(who, Name)
 ~ temp target = characterData(who, TalkFunction)
-+ [Talk to {name}] -> target ->
+~ temp in_play = characterData(who, PlayState)
++ {in_play} [Talk to {name}] -> target ->
 -> return_to
 
 /*
