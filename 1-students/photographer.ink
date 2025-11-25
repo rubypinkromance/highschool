@@ -33,7 +33,7 @@ VAR PhotographerBaseMood = Neutral
 Approach {PHOTOGRAPHER}.
 
 - (opts)
-* {PhotographerMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "34B."
 + "Hello."
     "Sorry, I don't have any dialog yet."

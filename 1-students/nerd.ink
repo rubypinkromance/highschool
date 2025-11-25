@@ -39,7 +39,7 @@ VAR NerdBaseMood = Neutral
 Approach {NERD}.
 
 - (opts)
-* {NerdMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "32B."
 + "Hello."
     "Sorry, I don't have any dialog yet."

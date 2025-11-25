@@ -32,7 +32,7 @@ VAR AthleteBaseMood = Neutral
 Approach {ATHLETE}.
 
 - (opts)
-* {AthleteMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "32B."
 + (hypnosis){DEBUG}[Hypnotize her]
     + + [Improve her mood]

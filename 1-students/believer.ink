@@ -35,7 +35,7 @@ VAR BelieverBaseMood = Neutral
 Approach {BELIEVER}.
 
 - (opts)
-* {BelieverMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "That's between me and Jesus."
     "Come on, please? I'd really like to know."
     "Fine. It's 32C."

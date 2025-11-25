@@ -27,7 +27,7 @@ VAR SecretaryBaseMood = Friendly
 Approach {SECRETARY}.
 
 - (opts)
-* {SecretaryMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "34B."
 + "I want to change my schedule."
     {

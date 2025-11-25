@@ -44,7 +44,7 @@ LIST SisItems = SisPanties, SisDiary
 Approach {SIS}.
 
 - (opts)
-+ {SisMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "34C, bro."
 + {DEBUG}"Wanna fuck?"
     "Sure, why not?"

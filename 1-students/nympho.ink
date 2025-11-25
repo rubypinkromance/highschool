@@ -46,7 +46,7 @@ VAR NymphoBaseMood = Aroused
 Approach {NYMPHO}.
 
 - (opts)
-* {NymphoMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "32A."
 + "Hello."
     "Sorry, I don't have any dialog yet."

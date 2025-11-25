@@ -26,7 +26,7 @@ VAR HealthTeacherBaseMood = Neutral
 Approach {HEALTH_TEACHER}.
 
 - (opts)
-* {HealthTeacherMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "36C."
 + "Hello."
     "Sorry, I don't have any dialog yet."

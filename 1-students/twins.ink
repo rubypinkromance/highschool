@@ -43,7 +43,7 @@ VAR can_identify_twins = false
 Approach {TWIN1}.
 
 - (opts)
-* {TwinsMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "34D."
 * {DEBUG}"Which one are you?"
     ~ identify_twins()
@@ -60,7 +60,7 @@ Approach {TWIN1}.
 Approach {TWIN2}.
 
 - (opts)
-* {TwinsMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "34D."
 * {DEBUG}"Which one are you?"
     ~ identify_twins()
@@ -77,7 +77,7 @@ Approach {TWIN2}.
 Approach {TWINS}.
 
 - (opts)
-* {TwinsMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "34D."
 * {DEBUG}"How can I tell you apart?"
     ~ identify_twins()

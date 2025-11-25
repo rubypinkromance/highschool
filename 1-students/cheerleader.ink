@@ -1,6 +1,6 @@
 /*
     Cheerleader: Rosario
-    Looks like Rosario Dawson: Puerto Rican, long wavy black hair, curvy build, huge tits, 34DD, landing strip, 38-26-36
+    Looks like Rosario Dawson: Puerto Rican, long wavy black hair, curvy build, huge tits, 36D(34DD), landing strip, 40-30-40
     Outfit: cheerleader outfit, black sports bra, black boyshort panties
     Likes flirty
     Dislikes sweet
@@ -16,14 +16,13 @@
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, (CheerleaderQuest), CheerleaderReward, CheerleaderSex
+LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
 VAR CheerleaderInPlay = true
 VAR CheerleaderMood = Neutral
 VAR CheerleaderBaseMood = Neutral
 VAR CheerleaderCum = ()
 LIST CheerleaderItems = CheerleaderPanties, CheerleaderStuff
 
-TODO handle score
 TODO: what triggers jock fight 2? You trying to steal my girl bro? Think you got the stuff to hook up with my bitch? Think again. Knees you in the nuts, Rebel intervenes. She likes you more, doesn’t like bullies. Takes you to nurse, who ices your balls then you get hard while she examines them.
 
 /*
@@ -58,12 +57,13 @@ You approach {CHEERLEADER}
     <>. // this shouldn't happen, but just to be safe.
 }
 
-TODO adjust based on confidence
+TODO disable some options based on confidence
 // We adjust your options based on your confidence and her state (but not her mood)
 - (cheerleader_opts)
-* {CheerleaderMood > Friendly}"What's your bra size?"
-    "34DD."
-* {CheerleaderState < CheerleaderObserved}
++ {confidence >= Confident and BraSizes !? Cheerleader and not seenVeryRecently(-> ask_cheerleader_bra_size)}
+    ["What's your bra size?"]
+    -> ask_cheerleader_bra_size ->
+* {confidence >= Confident and CheerleaderState < CheerleaderObserved}
     ["Want to go out with me?"]
     -> ask_cheerleader_out ->
 * {CheerleaderState == CheerleaderObserved}
@@ -78,12 +78,13 @@ TODO adjust based on confidence
 * {Inventory ? CheerleaderStuff}
     ["I got your things."]
     -> deliver_cheerleader_stuff ->
-* {CheerleaderState == CheerleaderReward and here == UnderBleachers}
++ {CheerleaderState == CheerleaderReward and here == UnderBleachers}
     [Kiss her]
     You pull her into a kiss.
     -> cheerleader_sex ->
 + {CheerleaderState == CheerleaderSex and newToday(-> cheerleader_sex)}
-    ["What are you doing{isWeekday() and now != AfterSchool: later| right now}?"]
+    "What are you doing{isWeekday() and now != AfterSchool: later| right now}?"
+    "You, hopefully," she grins.
     -> cheerleader_repeat ->
 + [Check her out]
     -> look_at_cheerleader ->
@@ -97,7 +98,7 @@ TODO adjust based on confidence
 
 */
 === look_at_cheerleader ===
-Puerto Rican, long wavy black hair, curvy build, huge tits, 34DD, landing strip, 38-26-36, cheerleader outfit, black sports bra, black boyshort panties
+Puerto Rican, long wavy black hair, curvy build, huge tits, 36D(34DD), landing strip, 40-30-40, cheerleader outfit, black sports bra, black boyshort panties
 
 It has been {TURNS_SINCE(-> cheerleader_titjob)} turns since {CHEERLEADER} gave you a titjob.
 
@@ -123,6 +124,38 @@ It has been {TURNS_SINCE(-> cheerleader_sex)} turns since you fucked {CHEERLEADE
 
 /*
 
+    0. Ask Cheerleader for Her Bra Size
+    You're conducting a survey.
+
+*/
+=== ask_cheerleader_bra_size ===
+"What's your bra size?"
+{
+- CheerleaderMood == Hostile:
+    "Fuck off!"
+- CheerleaderMood == Neutral:
+    "That's a weird question to ask a girl you barely know, dude."
+    "Oh, sorry, I'm not trying to be a creep, I'm{confidence == Confident:, uh,|} conducting a survey for class."
+    "What class?"
+    "Health class."
+    "That sounds fake. I don't believe you."
+- CheerleaderMood == Friendly:
+    ~ BraSizes += (Cheerleader)
+    "Wow, someone's feeling bold!" she laughs. "Why do you want to know?"
+    "I'm{confidence == Confident:, uh,|} conducting a survey for class."
+    "Alright. I wear a 36D."
+    "Sweet, thanks." You write it down.
+- CheerleaderMood >= Aroused:
+    ~ BraSizes += (Cheerleader)
+    "36D. But, if you wanna know for sure?" She licks her lips.
+    -> cheerleader_repeat ->
+}
+{checkBraScore()}
+->->
+
+
+/*
+
     0. Ask Cheerleader Out
     This isn't going to go well.
 
@@ -137,9 +170,9 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 /*
 
     1. Observe Cheerleader
-    - observe 1: see jock flirting
-    - observe 2: see cheerleader is upset
-    - observe 3: see them fighting, jock says don’t be a bitch about this and moves away. This is your chance!
+    a: see jock flirting
+    b: see cheerleader is upset
+    c: see them fighting, jock says don’t be a bitch about this and moves away. This is your chance!
 
 */
 === observe_cheerleader ===
@@ -153,6 +186,7 @@ An idea forms in your head. Maybe she's mad enough at him to fool around with yo
 
     2. Suggest Revenge to Cheerleader
     After observing she's upset, you suggest a way for her to get back at her boyfriend.
+    Mood: Neutral
 
 */
 === suggest_cheerleader_revenge ===
@@ -183,6 +217,7 @@ Holy shit! You can't believe that worked. Your heart pounds as you imagine what'
 
     3. Cheerleader Titjob
     After offering to help her get revenge, she takes photos of you cumming on her tits to make Jock jealous.
+    Mood: Starts at Neutral, ends at Friendly (unless you cum in her mouth)
 
 */
 === cheerleader_titjob ===
@@ -238,6 +273,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 
     4. Cheerleader Request
     After the titjob, she tells you they broke up, and asks you to get her things from his locker.
+    Mood: Friendly (unless you came in her mouth)
 
 */
 === cheerleader_quest ===
@@ -245,7 +281,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 "How'd {JOCK} react to the pictures we took?"
 "Oh he was a total bitch about it. Said some awful shit. I dumped his ass. Say, do you think you could do me a favor? Some of my stuff is in his locker, and I don't want to deal with him. Could you get it for me?"
 "Sure, what's the combination?"
-"He set it to my measurements: 38-26-36."
+"He set it to my measurements: 40-30-40."
 ->->
 
 /*
@@ -279,13 +315,15 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
     6. Deliver Cheerleader's Stuff
     After returning her things from her ex's locker, she sees your black eye, and says to meet her later for a reward.
-    - CheerleaderMood++ (unless you came in her mouth)
+    Mood: Starts at Friendly (or Neutral), ends at Aroused (or Friendly)
 
 */
 === deliver_cheerleader_stuff ===
 ~ last_girl = Cheerleader
 ~ CheerleaderState = CheerleaderReward
 ~ Inventory -= CheerleaderPanties
+~ improveMood(CheerleaderMood)
+~ improveMood(CheerleaderBaseMood)
 "I got your things from the locker."
 "Thanks for helping me out." She rummages through the items in the bag. {cheerleader_panties: She picks up the panties you jerked off with. They look sticky, and there's a noticable cum stain. She frowns, and your heart skips a beat. "Ew, did {JOCK} jerk off with these? He's such a creep, I should have broken up with him sooner."} Turning her attention back to you, she bites her lip and says
 {
@@ -306,6 +344,8 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
     7. Cheerleader Sex!
     After offering to reward you, you meet her under the bleachers again, and have sex.
+    Mood: Starts at Aroused (or Friendly), base mood ends at Aroused (if not there already)
+    If you take the time to make her cum, you can get her to Desperate, where she'll do anything
 
 
 */
@@ -324,13 +364,12 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
     8. Ask Cheerleader for a Repeat Peformance
     After having sex once, you can ask her to do it again, re-running the sex scene.
+    Mood: Aroused
 
 
 */
 === cheerleader_repeat ===
 ~ CheerleaderState = CheerleaderReward
-"What are you doing{isWeekday() and now != AfterSchool: later| right now}?"
-"You, hopefully.
 {
 - now == AfterSchool:
     <> "Come with me."

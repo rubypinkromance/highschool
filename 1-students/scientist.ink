@@ -31,7 +31,7 @@ VAR ScientistBaseMood = Neutral
 Approach {SCIENTIST}.
 
 - (opts)
-* {ScientistMood > Friendly}"What's your bra size?"
+* {confidence >= Confident}"What's your bra size?"
     "30B."
 + "Hello."
     "Sorry, I don't have any dialog yet."
