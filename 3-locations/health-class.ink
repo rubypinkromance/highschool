@@ -10,8 +10,7 @@ VAR HealthClassPeople = ()
 ~ here = HealthClass
 -> access_restrictions ->
 
-TODO description
-You are in the {HEALTH_CLASS}.
+You are in the {HEALTH_CLASS}. The walls are covered in posters showing human anatomy. A life-size plastic skeleton hangs from a rolling stand near {HEALTH_TEACHER}'s desk.
 
 {listRoomPeopleSentence(HealthClassPeople)}
 

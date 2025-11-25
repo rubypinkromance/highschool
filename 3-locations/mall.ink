@@ -11,7 +11,6 @@ CONST MALL = "mall"
 
 ~ temp totalMallPeople = LIST_COUNT(FoodCourtPeople) + LIST_COUNT(DressStorePeople) + LIST_COUNT(ShoeStorePeople) + LIST_COUNT(BraStorePeople) + LIST_COUNT(BookStorePeople) + LIST_COUNT(MovieTheaterPeople)
 
-TODO description
 You are at the {MALL}. You look around for anyone you recognize,
 {
 - totalMallPeople < 1:
@@ -70,8 +69,7 @@ CONST FOOD_COURT = "the food court"
 VAR FoodCourtPeople = ()
 ~ here = FoodCourt
 
-TODO description
-You are in {FOOD_COURT}.
+You are in {FOOD_COURT}. There's a vaguely Italian-looking restaurant selling pizza and pasta, a fried chicken chain promoting a new sandwich, a teriyaki joint, and a pretzel stand.
 
 {listRoomPeopleSentence(FoodCourtPeople)}
 
@@ -91,8 +89,7 @@ CONST SHOE_STORE = "Foot Looker"
 VAR ShoeStorePeople = ()
 ~ here = ShoeStore
 
-TODO description
-You are in {SHOE_STORE}.
+You are in {SHOE_STORE}. One wall contains displays promoting the latest sneakers, branded with the face of an athlete you don't recognize. On the opposite wall are assorted women's boots, high heels, and sandals.
 
 {listRoomPeopleSentence(ShoeStorePeople)}
 
@@ -112,8 +109,15 @@ CONST BRA_STORE = "Vixen’s Secret"
 VAR BraStorePeople = ()
 ~ here = BraStore
 
-TODO description
-You are in {BRA_STORE}.
+You are in {BRA_STORE}, surrounded by satin and lace and strappy things that put your imagination into overdrive.
+{
+- confidence == Awkward:
+    <> Your palms sweat and you avoid eye contact with any one, horrified at the thought that someone will label you a pervert and throw you out.
+- confidence == Normal:
+    <> You try to project confidence as you walk in, ignoring the anxiety simmering in your gut. Just look like you belong, and it'll be fine.
+- confidence >= Confident:
+    <> You move confidently through the store, unconcerned with what anyone thinks of your presence.
+}
 
 {listRoomPeopleSentence(BraStorePeople)}
 
@@ -133,8 +137,7 @@ CONST DRESS_STORE = "Forever ’99"
 VAR DressStorePeople = ()
 ~ here = DressStore
 
-TODO description
-You are in {DRESS_STORE}.
+You are in {DRESS_STORE}. Groups of girls move between racks, holding dresses up for their friends to approve. A few bored-looking men follow behind their girlfriends, holding shopping bags.
 
 {listRoomPeopleSentence(DressStorePeople)}
 
@@ -154,8 +157,10 @@ CONST BOOK_STORE = "Bards & Nobles"
 VAR BookStorePeople = ()
 ~ here = BookStore
 
-TODO description
-You are in {BOOK_STORE}.
+You are in {BOOK_STORE}. Large displays promote the newest book in a long-running series of vampire romance novels, next to a bin containing discount copies of last year's popular werewolf romance series.
+{ BookStorePeople ? Scientist:
+    <> {SCIENTIST} is behind the register, reading a chemistry textbook while she waits for the next customer.
+}
 
 {listRoomPeopleSentence(BookStorePeople)}
 
@@ -175,8 +180,7 @@ CONST MOVIE_THEATER = "the movie theater"
 VAR MovieTheaterPeople = ()
 ~ here = MovieTheater
 
-TODO description
-You are in {MOVIE_THEATER}.
+You are in {MOVIE_THEATER}. The previews are playing and everyone is getting into their seats.
 
 {listRoomPeopleSentence(MovieTheaterPeople)}
 

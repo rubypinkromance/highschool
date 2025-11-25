@@ -1,6 +1,6 @@
 /*
 - Rebel: Zia
-- Chloe Bennet: medium length wavy brunette hair, average build, medium tits, 34B, trimmed
+- Looks like Chloe Bennet from Agents of SHIELD: medium length wavy brunette hair, average build, medium tits, 34B, trimmed
 - Outfit: Dark eye makeup, leather jacket, loose dark green shirt, hangs off one shoulder, ripped black jeans, black strappy bra, black panties
 ? intel: arrested for public indecency (rumors vary)
 ? recon: snapping topless pics under bleachers

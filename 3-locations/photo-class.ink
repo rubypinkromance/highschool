@@ -10,8 +10,7 @@ VAR PhotoClassPeople = ()
 ~ here = PhotoClass
 -> access_restrictions ->
 
-TODO description
-You are in the {PHOTO_CLASS}.
+You are in the {PHOTO_CLASS}. The upper half of the walls are covered with oversized posters of famous photos, while the lower half are all corkboards for students to tack up their photos during the critique sessions. A door in the back of the room leads to the darkroom.
 
 {listRoomPeopleSentence(PhotoClassPeople)}
 

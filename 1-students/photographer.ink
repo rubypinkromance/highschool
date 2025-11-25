@@ -1,6 +1,6 @@
 /*
 - Photographer: Jill
-- Jill Cunningham: long straight brunette hair, average build, medium tits, 34B, trimmed
+- Looks like Jill from high school: long straight brunette hair, average build, medium tits, 34B, trimmed
 - Outfit: overalls, white cami, pink bra, white panties
 ? intel: stays late in darkroom every night, once confessed her secret fantasy is meeting a stranger in the darkroom
 ? recon: favorite photographer does nudes
@@ -11,9 +11,9 @@
 * sex after nude photoshoot
 * Unavailable on weekends
 - 1: Theater     - DressStore
-- 2: Science     - Bleachers/BookStore
-- L: Bleachers   - Bleachers/FoodCourt
-- 3: Gym         - Bleachers/BraStore
+- 2: Science     - Bleachers / BookStore
+- L: Bleachers   - Bleachers / FoodCourt
+- 3: Gym         - Bleachers / BraStore
 - 4: Photography - ShoeStore
 - A: Photography - BookStore
 

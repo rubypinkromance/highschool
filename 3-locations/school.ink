@@ -12,8 +12,16 @@ CONST HALLWAY = "hallway"
 // Weekdays:
 { isWeekday():
 
-TODO description
-You are in the {HALLWAY}.
+{
+- isClassTime():
+    The {HALLWAY} is bustling and noisy, filled with the chaos of an entire school's worth of students moving between classes. You slip easily into the flow of the crowd as you move to your next class.
+- isWeekday() and now == Lunch:
+    The {HALLWAY} quickly empties, as most students head to the {CAFETERIA} for lunch. A few head outside to eat in the {FIELD}, while all the staff crowd into the {LOUNGE} for a meeting.
+- isWeekday() and now == AfterSchool:
+    The {HALLWAY} is deserted. The school is mostly empty, except for a few students hanging around for after-school activities.
+- else:
+    The {HALLWAY} is empty.
+}
 
 + [Go to a classroom]
 + + [Go to the {GYM}] -> gym
@@ -76,8 +84,7 @@ CONST LOCKER = "your locker"
 VAR LockerItems = ()
 ~ here = Locker
 
-TODO description
-You are at {LOCKER}.
+You are at {LOCKER}. You have a couple photos of friends taped up, a clipped comic from the newspaper, and a flier from a concert you snuck out to hear.
 
 - (locker_opts)
 * {Inventory ? Schedule} [Tape up the schedule]

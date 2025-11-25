@@ -9,8 +9,7 @@ VAR LibraryPeople = ()
 ~ here = Library
 -> access_restrictions ->
 
-TODO description
-You are in the {LIBRARY}.
+You are in the {LIBRARY}. Long shelves hold seemingly endless rows of neatly organized books. Near the front a few tables hold computers whose internet filters are so restrictive as to be essentially offline.
 
 {listRoomPeopleSentence(LibraryPeople)}
 

@@ -1,7 +1,7 @@
 /*
 - Teacher: Jessica Day
-- Teacher based on Jess from new girl. Bubbly, enthusiastic, open to drop in students, until she comes in hungover one day and puts on a video. If observed, can hang back after class to talk and flirt. Will fuck in classroom during lunch and after school, might get interrupted and have to hide under desk
-- Zoe Deschanel: Short, likes to wear skirts, wants to be bent over desk and fucked hard
+- Looks like Zooey Deschanel from New Girl: Short, likes to wear skirts, wants to be bent over desk and fucked hard
+- Bubbly, enthusiastic, open to drop in students, until she comes in hungover one day and puts on a video. If observed, can hang back after class to talk and flirt. Will fuck in classroom during lunch and after school, might get interrupted and have to hide under desk
 ? intel: divorced her husband last year, works late every night
 ? recon: note to talk to doctor about new meds making her aroused
 ? convo: tease and turn her on during sex ed tutoring, she gets flustered and ends tutoring early

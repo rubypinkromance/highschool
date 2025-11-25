@@ -1,6 +1,6 @@
 /*
 - Scientist: Grace
-- Jessica Henwick: Asian, long black ponytail, skinny build, tiny tits, large dark nipples, sensitive, 30B(34AA), landing strip
+- Looks like Jessica Henwick from Iron Fist: Asian, long black ponytail, skinny build, tiny tits, large dark nipples, sensitive, 30B(34AA), landing strip
 - Outfit: glasses, lab coat (in lab), TBD
 ? intel: stays late every night working on a secret project
 ? recon: research secret ingredient

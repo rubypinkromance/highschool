@@ -9,15 +9,13 @@ VAR BedroomPeople = ()
 ~ here = Bedroom
 ~ announceTime()
 
-TODO description
 {
 - now == Period1:
     // say nothing, dream text set up the day.
-- now < AfterSchool:
-    You return to {BEDROOM}.
 - else:
-    You return to {BEDROOM}, exhausted after a long day.
+    You are in {BEDROOM}. {seen_very_recently(-> bedroom): The walls are covered with posters for your favorite video games and movies. Your laptop sits on your desk next to a box of tissues and a bottle of lotion. Your bed is unmade, and a growing pile of laundry looms in the corner.}
 }
+
 <- listHousePeople(BedroomPeople)
 
 - (bedroom_opts)
@@ -84,9 +82,11 @@ VAR BathroomPeople = ()
 VAR BathroomItems = ()
 ~ here = Bathroom
 
-TODO description
-You are in the {BATHROOM}.
-<- listHousePeople(BathroomPeople)
+You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
+
+{ BathroomPeople ? Stepsister:
+    <> The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that {SIS} is wet and naked on the other side of the shower curtain.
+}
 
 - (bathroom_opts)
 <- talkAndObserveAllCharacters(BathroomPeople, -> bathroom_opts)
@@ -106,8 +106,8 @@ VAR SisBedroomPeople = ()
 VAR SisBedroomItems = (SisPanties)
 ~ here = SisBedroom
 
-TODO description
-You are in {SIS_BEDROOM}.
+You are in {SIS_BEDROOM}. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
+
 <- listHousePeople(SisBedroomPeople)
 
 - (sis_bedroom_opts)
@@ -128,9 +128,16 @@ You are in {SIS_BEDROOM}.
 
 */
 = listHousePeople(roomPeople)
+{ LIST_COUNT(roomPeople) > 0:
 <> {capitalise_start(listRoomPeople(roomPeople))} {LIST_COUNT(roomPeople) > 1:are|is} here.
+}
 -> DONE
 
+/*
+
+    Dream
+
+*/
 = dream
 { cum_today:
     You sleep well and wake up refreshed and ready for a new day.

@@ -44,3 +44,8 @@
 ~ from -= item
 ~ to += item
 
+/*
+    Determine if we've seen this target with a few turns.
+*/
+=== function seen_very_recently(-> target)
+   ~ return TURNS_SINCE(target) >= 0 && TURNS_SINCE(target) <= 3

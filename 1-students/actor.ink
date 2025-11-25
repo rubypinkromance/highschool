@@ -1,6 +1,6 @@
 /*
 - Actor: Dana
-- Dana Howl: short pink hair in bangs, average build, medium tits, 36A, shaved
+- Looks like Dana Howl: short pink hair in bangs, average build, medium tits, 36A, shaved
 - Outfit: Black tank top, push-up bra, black lace thong
 ? intel: recently switched schools, heard because old school wouldn't let her use the right bathroom
 ? recon: tired of having to talk about trans stuff all the time
@@ -10,9 +10,9 @@
 * Make out, blowjob backstage
 * Sixty-nine if you're down to suck her cock too
 - 1: Health     - BookStore
-- 2: Study Hall - Bleachers/FoodCourt
-- L: Cafeteria  - Bleachers/ShoeStore
-- 3: Science    - Bleachers/BookStore
+- 2: Study Hall - Bleachers / FoodCourt
+- L: Cafeteria  - Bleachers / ShoeStore
+- 3: Science    - Bleachers / BookStore
 - 4: Theater    - MovieTheater
 - A: Theater    - MovieTheater
 */

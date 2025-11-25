@@ -1,5 +1,6 @@
-LIST Students = You, (Actor), (Athlete), (Believer), (Cheerleader), (Friend), (Nerd), (Jock), (Nympho), (Photographer), (Queen), (Rebel), (Scientist), (Stepsister), (SisFriend), (Twin1), (Twin2), Twins
 LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (StudyHallTeacher), (TheaterTeacher), (Nurse), (Secretary)
+// Assign yourself a value higher than the count of the staff list to ensure that teachers are sorted to the front of any mixed people list.
+LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Friend), (Nerd), (Jock), (Nympho), (Photographer), (Queen), (Rebel), (Scientist), (Stepsister), (SisFriend), (Twin1), (Twin2), Twins
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 LIST CharacterCum = Facial, Mouth, Tits, Creampie, Anal

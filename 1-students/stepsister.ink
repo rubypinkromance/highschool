@@ -1,6 +1,6 @@
 /*
 - Stepsister: Heather
-- Jade Jones: shaggy black hair, averge build, large tits, 34C, shaved
+- Looks like Jade Jones: shaggy black hair, averge build, large tits, 34C, shaved
 - Outfit: TBD, black with pink polkadots underwear and bra.
 ? intel: read diary confessing sexual fantasies
 ? recon: spy on her masturbating in shower
@@ -10,7 +10,7 @@
 * Masturbate together while she showers (have to be quiet!)
 * Sex in her room that night
 - 1: ---      - Bedroom
-- 2: ---      - Bra tore
+- 2: ---      - BraStore
 - L: ---      - DressStore
 - 3: ---      - ShoeStore
 - 4: ---      - Bedroom

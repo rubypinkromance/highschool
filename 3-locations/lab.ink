@@ -10,8 +10,7 @@ VAR LabPeople = ()
 ~ here = Lab
 -> access_restrictions ->
 
-TODO description
-You are in the {LAB}.
+You are in the {LAB}. Rather than the standard tables, there are rows of workbenches, each with a sink and spigot to connect a bunson burner. A large poster of the periodic table hangs on one wall, and a diagram of the solar system covers the opposite wall.
 
 {listRoomPeopleSentence(LabPeople)}
 

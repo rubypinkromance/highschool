@@ -1,6 +1,6 @@
 /*
 - Teacher: Nina Honeydew
-- Eva Green: black hair, big lips, huge tits, big puffy nipples, full bush.
+- Looks like Eva Green: black hair, big lips, huge tits, big puffy nipples, full bush.
 - Nurse has dialog for ouch my balls and fighting
 ? intel: Sweet, but easy to manipulate, sends girls home early for cramps
 ? recon:

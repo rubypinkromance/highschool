@@ -1,7 +1,7 @@
 /*
 - Teacher: Sara Talltrees
+- Looks like Sara Tomko from Resident Alien: black hair, curvy, chestnut skin, small breasts (padded bra), big hips, jeans
 - Flirty
-- Sara Tomko: black hair, curvy, chestnut skin, small breasts (padded bra), big hips, jeans
 ? intel: has tattoos, pierced tongue
 ? recon: watch closely, has pierced nipples
 ? convo: Ask about tattoos, flashes a little skin, ask about piercings, tells you nipples are pierced, clit is pierced, tongue is pierced. Good for blowjobs. Gets turned on, pulls you into supply closet, lets you see, touch, finger, lick her clit, pushes you out when bell rings but tells you to come back after school.

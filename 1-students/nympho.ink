@@ -1,6 +1,6 @@
 /*
 - Nympho: Claire
-- Claire from Loudermilk: long wavy bleached blonde hair, skinny build, tiny tits, pierced nipples, 32A(34AA), shaved
+- Looks like Claire from Loudermilk: long wavy bleached blonde hair, skinny build, tiny tits, pierced nipples, 32A(34AA), shaved
 - Outfit: choker, army jacket, black strappy tank top, padded black bra, jean skirt with frayed edge, red satin panties
 - Gives details on teachers (gossip gives details on students)
 ? intel: Friend tells you she's a nympho

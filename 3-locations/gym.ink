@@ -11,8 +11,13 @@ VAR GymPeople = ()
 ~ here = Gym
 -> access_restrictions ->
 
-TODO description
-You are in the {GYM}.
+You are in the {GYM}. Oversized banners hang from the rafters, celebrating past wins by the school's basketball and football teams.
+{
+- isClassTime():
+    <> Sneakers squeak on the waxed floors, and {GYM_TEACHER} is shouting directions, trying to get the class into position for today's activity.
+- else:
+    <> The room is quiet now, and the sound of your footsteps echoes off the walls.
+}
 
 {listRoomPeopleSentence(GymPeople)}
 

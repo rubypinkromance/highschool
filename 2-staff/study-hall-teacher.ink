@@ -2,7 +2,7 @@
 - Teacher: Jackson Lamb
 */
 CONST STUDY_HALL_TEACHER = "Mr. Lamb"
-CONST STUDY_HALL_TEACHER_TITLE = "the study hall supervisor"
+CONST STUDY_HALL_TEACHER_TITLE = ""
 LIST StudyHallTeacherState = (StudyHallTeacherObserved)
 VAR StudyHallTeacherInPlay = false
 VAR StudyHallTeacherMood = Neutral

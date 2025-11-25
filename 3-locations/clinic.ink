@@ -8,8 +8,7 @@ CONST CLINIC = "nurse’s office"
 VAR ClinicPeople = ()
 ~ here = Clinic
 
-TODO description
-You are in the {CLINIC}.
+You are in the {CLINIC}. The walls are covered with posters showing basic first aid techniques. There are a few seats in front of {NURSE}'s desk, and a floor-to-ceiling curtain is hung to provide a private exam area from the rest of the room.
 
 - (clinic_opts)
 <- talkAndObserveAllCharacters(ClinicPeople, -> clinic_opts)
@@ -28,7 +27,6 @@ CONST EXAM_AREA = "exam area"
 VAR ExamAreaPeople = ()
 ~ here = ExamArea
 
-TODO description
 You are in the {EXAM_AREA}. There is a small bed here.
 
 + [Leave the {EXAM_AREA}] -> clinic

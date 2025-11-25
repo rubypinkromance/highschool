@@ -1,6 +1,6 @@
 /*
 - Believer: Kate
-- LIS Kate: long brunette pony, average build, medium tits, 32C(34B), full bush
+- Looks like Kate from Life is Strange: long brunette pony, average build, medium tits, 32C(34B), full bush
 - Outfit: cardigan, white cami, grey skirt, white lace bra, white lace panties
 - Has detention for disrupting class by arguing with Health Teacher
 ? intel: goes to confess every day after school

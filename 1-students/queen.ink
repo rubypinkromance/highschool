@@ -1,6 +1,6 @@
 /*
 - Queen: Victoria
-- LIS Victoria: short blonde pixie cut, slight build, small tits, 34A, shaved
+- Looks like Victoria from Life is Strange: short blonde pixie cut, slight build, small tits, 34A, shaved
 - Outfit: sweater, black blouse, grey skirt, tights, black mesh thong, black bra with pink lining
 ? intel: find her secret photos showing bdsm interest
 ? recon: observe her belittling, see it arouses her
@@ -14,7 +14,7 @@
 - L: Cafeteria   - FoodCourt
 - 3: Theater     - DressStore
 - 4: Gym         - BraStore
-- A: Mall        - BraStore
+- A: BraStore    - BraStore
 
 - Likes preppy clothes
 - Can ask her to help you buy preppy clothes

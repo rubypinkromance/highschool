@@ -10,8 +10,11 @@ LIST SchoolItems = Schedule
 VAR OfficeItems = (Schedule)
 ~ here = Office
 
-TODO description
-You are at the {OFFICE}.
+You are at the {OFFICE}. A reception desk faces the door, and a few chairs line the wall, where students can wait. Behind the desk is an open area where the teachers make their copies. You see the doors to the principal and vice principal's offices, as well as a supply closet.
+{ OfficePeople ? Secretary:
+    <> {SECRETARY} looks up from her computer.
+    "Can I help you, {PLAYER}?"
+}
 
 - (office_opts)
 <- talkAndObserveAllCharacters(OfficePeople, -> office_opts)

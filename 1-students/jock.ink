@@ -1,11 +1,11 @@
 /*
 - Jock: Lance
-- 1: Study Hall - Bleachers/---
-- 2: Health     - Field/---
-- L: Cafeteria  - Field/---
-- 3: Gym        - Field/---
-- 4: Theater    - Bleachers/---
-- A: Field      - Bleachers/---
+- 1: Study Hall - Bleachers / FoodCourt
+- 2: Health     - Field     / FoodCourt
+- L: Cafeteria  - Field     / FoodCourt
+- 3: Gym        - Field     / FoodCourt
+- 4: Theater    - Bleachers / FoodCourt
+- A: Field      - Bleachers / FoodCourt
 */
 CONST JOCK = "Lance"
 CONST JOCK_TITLE = "the meathead jock"
@@ -17,7 +17,7 @@ VAR JockBaseMood = Hostile
 === talk_to_jock ===
 Approach {JOCK}.
 - (opts)
-* "Hello."
+* "Hey, what's up?"
     "Fuck off, loser."
 + [Leave him alone] ->->
 - -> opts
@@ -27,10 +27,10 @@ Approach {JOCK}.
 ->->
 
 === dream_of_jock ===
-You have a filthy dream about {JOCK}.
+You have a confusing dream about {JOCK}.
 (How did that happen?)
 ->->
 
 === jock_hints ===
-Try observing {JOCK}.
+I wouldn't recommend it.
 ->->

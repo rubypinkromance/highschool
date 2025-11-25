@@ -11,8 +11,10 @@ VAR has_theater_invite = false
 ~ here = Theater
 -> access_restrictions ->
 
-TODO description
-You are in the {THEATER}.
+You are in the {THEATER}. The seats in the auditorium are empty. Massive curtains frame the stage.
+{ isClassTime():
+    <> {THEATER_TEACHER} is organizing the students on stage to rehearse a script.
+}
 
 {listRoomPeopleSentence(TheaterPeople)}
 
@@ -40,6 +42,6 @@ CONST BACKSTAGE = "backstage"
 VAR BackstagePeople = ()
 ~ here = Backstage
 
-You are {BACKSTAGE}.
+You are {BACKSTAGE}. It is dark and dusty. There are chaotic boxes full of props and costumes from previous productions, as well as a small area with a ratty couch.
 
 + [Leave {BACKSTAGE}] -> theater

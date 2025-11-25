@@ -1,6 +1,6 @@
 /*
 - Stepsister’s Friend: Sofia
-- Hazel Heart: Latina, medium-length wavy black hair, average build, large tits, 32D(34C), full bush
+- Looks like Hazel Heart: Latina, medium-length wavy black hair, average build, large tits, 32D(34C), full bush
 - Outfit: pink dress, no bra, no panties
 ? intel: 
 ? recon: 

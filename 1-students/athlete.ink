@@ -1,6 +1,6 @@
 /*
 - Athlete: Lindsey
-- Elle Fanning: medium-length dirty blonde ponytail, slight build, small tits, 32B(34A), trimmed
+- Looks like Elle Fanning: medium-length dirty blonde ponytail, slight build, small tits, 32B(34A), trimmed
 - Outfit: black leggings, red sports bra, blue bikini panties, tank top during class, cute dress at mall
 ? intel: stays after school every day training
 ? recon: watch her shower and masturbate
@@ -10,11 +10,11 @@
 * jerk off in locker, watch change
 * Sex after discovering running make her horny, keeping up
 - 1: Gym        - Field (running laps)
-- 2: Science    - Bleachers/Field
-- L: Field      - Bleachers/Field
-- 3: Study Hall - Bleachers/Field
-- 4: Health     - Field (running laps)
-- A: Gym        - Field (running laps)
+- 2: Science    - Bleachers / Field
+- L: Field      - Bleachers / Field
+- 3: Study Hall - Bleachers / Field
+- 4: Health     - Field
+- A: Gym        - Field
 
 - Dislikes non-athletic clothes
 - Athlete agrees to go out if you can keep up with her. Requires training. In the meantime, peep show in locker room

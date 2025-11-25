@@ -8,8 +8,7 @@ CONST FIELD = "athletic field"
 VAR FieldPeople = ()
 ~ here = Field
 
-TODO description
-You are in the {FIELD}.
+You are in the {FIELD}. A running track surrounds the football field, and a large set of {BLEACHERS} run along one side.
 
 ~ temp FieldPeopleCopy = FieldPeople
 - (fieldPeopleLoop)
@@ -35,7 +34,7 @@ You are in the {FIELD}.
 }
 
 { LIST_COUNT(UnderBleachersPeople) > 0:
-    <> You think you can see someone moving under the bleachers.
+    <> You think you can see someone moving under the {BLEACHERS}.
 }
 
 - (field_opts)
@@ -56,8 +55,7 @@ CONST BLEACHERS = "bleachers"
 VAR BleachersPeople = ()
 ~ here = Bleachers
 
-TODO description
-You are in the {BLEACHERS} overlooking the athletic field.
+You are in the {BLEACHERS} overlooking the {FIELD}.
 
 {listRoomPeople(BleachersPeople)}
 
@@ -77,8 +75,7 @@ CONST UNDER_BLEACHERS = "under the bleachers"
 VAR UnderBleachersPeople = ()
 ~ here = UnderBleachers
 
-TODO description
-You are {UNDER_BLEACHERS}.
+You are {UNDER_BLEACHERS}. It's fairly dark under here. Someone dragged in a couple chairs from the {CAFETERIA}, and there's an old coffee can used as an ashtray. It's not the nicest spot to hang out, but it has the advantage of being mostly hidden from view.
 
 - (under_bleachers_opts)
 <- talkAndObserveAllCharacters(UnderBleachersPeople, -> under_bleachers_opts)
