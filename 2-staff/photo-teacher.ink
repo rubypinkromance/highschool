@@ -3,7 +3,8 @@
 */
 CONST PHOTO_TEACHER = "Mr. Ross"
 CONST PHOTO_TEACHER_TITLE = "the photography teacher"
-LIST PhotoTeacherState = PhotoTeacherInPlay, (PhotoTeacherObserved)
+LIST PhotoTeacherState = (PhotoTeacherObserved)
+VAR PhotoTeacherInPlay = false
 VAR PhotoTeacherMood = Neutral
 VAR PhotoTeacherBaseMood = Neutral
 

@@ -20,7 +20,8 @@
 */
 CONST SCIENTIST = "Grace"
 CONST SCIENTIST_TITLE = "the scientist"
-LIST ScientistState = (ScientistInPlay), ScientistObserved
+LIST ScientistState = ScientistObserved
+VAR ScientistInPlay = true
 VAR ScientistMood = Neutral
 VAR ScientistBaseMood = Neutral
 
@@ -30,7 +31,7 @@ VAR ScientistBaseMood = Neutral
 Approach {SCIENTIST}.
 
 - (opts)
-* {ScientistMood == Aroused}"What's your bra size?"
+* {ScientistMood > Friendly}"What's your bra size?"
     "30B."
 + "Hello."
     "Sorry, I don't have any dialog yet."

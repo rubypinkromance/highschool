@@ -12,7 +12,7 @@ VAR days_total = 30
 VAR countdown = false
 
 /*
-- Return the human-readable time of day.
+    Return the human-readable time of day.
 */
 === function nameOfTime(time)
 { isWeekday():
@@ -42,7 +42,7 @@ VAR countdown = false
 }
 
 /*
-- Announce the current day, time, and your current class.
+    Announce the current day, time, and your current class.
 */
 === function announceTime()
 <em><small>
@@ -63,7 +63,7 @@ VAR countdown = false
 <></small></em>
 
 /*
-- Check if we're already taking a class.
+    Check if we're already taking a class.
 */
 === function hasClass(className)
 {
@@ -75,7 +75,7 @@ VAR countdown = false
 ~ return Nowhen // treat as false
 
 /*
-- Change what class we're taking in a given period.
+    Change what class we're taking in a given period.
 */
 === function changeSchedule(newClass, period)
 // Look up what class we already have that period
@@ -105,7 +105,7 @@ VAR countdown = false
 }
 
 /*
-- Check if today is a school night (you have school tomorrow)
+    Check if today is a school night (you have school tomorrow)
 */
 === function isSchoolNight()
 { (Friday, Saturday) ? today:
@@ -114,44 +114,50 @@ VAR countdown = false
 ~ return true
 
 /*
-- Check if today is a weekday
+    Check if today is a weekday
 */
 === function isWeekday()
 ~ return Weekdays ? today
 
 /*
-- Check if today is a weekend
+    Check if today is a weekend
 */
 === function isWeekend()
 ~ return WeekendDays ? today
 
 /*
-- Check if the specified day is a weekend
+    Check if the specified day is a weekend
 */
 === function isDayWeekend(day)
 ~ return WeekendDays ? day
 
 /*
-- Check if it's time for a class
+    Check if it's time for a class
 */
 === function isClassTime()
 ~ return isWeekday() && ClassTimes ? now
 
-// Determine if an action has been used today
+/*
+    Determine if an action has been used today
+*/
 === function didToday(-> action)
 { (not next_day and TURNS_SINCE(action) >= 0) or TURNS_SINCE(-> next_day) > TURNS_SINCE(action):
     ~ return true
 }
 ~ return false
 
-// Determine if an action is new today
+/*
+    Determine if an action is new today
+*/
 === function newToday(-> action)
 { not didToday(action):
     ~ return true
 }
 ~ return false
 
-// Returns the next day of the week
+/*
+    Return the next day of the week
+*/
 === function tomorrow()
 { today == Saturday:
     ~ return Sunday   // loop back around
@@ -159,20 +165,20 @@ VAR countdown = false
 ~ return today + 1
 
 /*
-- Advance the time of day.
-- Run this every time we leave a location.
+    Advance the time of day.
+    Run this every time we leave a location.
 */
 === pass_time ===
 { now < Night:
-    ~ now++                // tick the clock
+    ~ now++            // tick the clock
 }
 ~ clearLocations()     // empty the rooms
 ~ characterScheduler() // move people to new locations
 ->->
 
 /*
-- Advance the calendar and reset for the next day.
-- Run this at the end of every day.
+    Advance the calendar and reset for the next day.
+    Run this at the end of every day.
 */
 === next_day ===
 ~ now = Period1        // set the clock
@@ -193,6 +199,9 @@ VAR countdown = false
         <> This is your last day!
     }
     <></small></em>
+}
+{ has_black_eye > 0:
+    ~ has_black_eye--  // every day, your black eye gets a bit better
 }
 ~ cum_today = false    // reset your own cum state
 ~ resetMoods()         // reset people to base mood

@@ -1,7 +1,7 @@
 /*
-- The Mall
-- Like the school, the mall is a hub full of stores
-- Sex with Queen
+
+    The Mall
+
 */
 === mall ===
 CONST MALL = "mall"
@@ -11,6 +11,7 @@ CONST MALL = "mall"
 
 ~ temp totalMallPeople = LIST_COUNT(FoodCourtPeople) + LIST_COUNT(DressStorePeople) + LIST_COUNT(ShoeStorePeople) + LIST_COUNT(BraStorePeople) + LIST_COUNT(BookStorePeople) + LIST_COUNT(MovieTheaterPeople)
 
+TODO description
 You are at the {MALL}. You look around for anyone you recognize,
 {
 - totalMallPeople < 1:
@@ -60,13 +61,16 @@ You are at the {MALL}. You look around for anyone you recognize,
 }
 
 /*
-- The Food Court
+
+    The Food Court
+
 */
 = food_court
 CONST FOOD_COURT = "the food court"
 VAR FoodCourtPeople = ()
 ~ here = FoodCourt
 
+TODO description
 You are in {FOOD_COURT}.
 
 {listRoomPeopleSentence(FoodCourtPeople)}
@@ -78,13 +82,16 @@ You are in {FOOD_COURT}.
 - -> food_court_opts
 
 /*
-- The Shoe Store
+
+    The Shoe Store
+
 */
 = shoe_store
 CONST SHOE_STORE = "Foot Looker"
 VAR ShoeStorePeople = ()
 ~ here = ShoeStore
 
+TODO description
 You are in {SHOE_STORE}.
 
 {listRoomPeopleSentence(ShoeStorePeople)}
@@ -96,13 +103,16 @@ You are in {SHOE_STORE}.
 - -> shoe_store_opts
 
 /*
-- The Bra Store
+
+    The Bra Store
+
 */
 = bra_store
 CONST BRA_STORE = "Vixen’s Secret"
 VAR BraStorePeople = ()
 ~ here = BraStore
 
+TODO description
 You are in {BRA_STORE}.
 
 {listRoomPeopleSentence(BraStorePeople)}
@@ -114,13 +124,16 @@ You are in {BRA_STORE}.
 - -> bra_store_opts
 
 /*
-- The Dress Store
+
+    The Dress Store
+
 */
 = dress_store
 CONST DRESS_STORE = "Forever ’99"
 VAR DressStorePeople = ()
 ~ here = DressStore
 
+TODO description
 You are in {DRESS_STORE}.
 
 {listRoomPeopleSentence(DressStorePeople)}
@@ -132,13 +145,16 @@ You are in {DRESS_STORE}.
 - -> dress_store_opts
 
 /*
-- The Book Store
+
+    The Book Store
+
 */
 = book_store
 CONST BOOK_STORE = "Bards & Nobles"
 VAR BookStorePeople = ()
 ~ here = BookStore
 
+TODO description
 You are in {BOOK_STORE}.
 
 {listRoomPeopleSentence(BookStorePeople)}
@@ -150,13 +166,16 @@ You are in {BOOK_STORE}.
 - -> book_store_opts
 
 /*
-- The Movie Theater
+
+    The Movie Theater
+
 */
 = movie_theater
 CONST MOVIE_THEATER = "the movie theater"
 VAR MovieTheaterPeople = ()
 ~ here = MovieTheater
 
+TODO description
 You are in {MOVIE_THEATER}.
 
 {listRoomPeopleSentence(MovieTheaterPeople)}

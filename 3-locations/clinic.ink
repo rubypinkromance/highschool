@@ -1,11 +1,14 @@
 /*
-- The Nurse's Office
+
+    The Nurse's Office
+
 */
 === clinic ===
 CONST CLINIC = "nurse’s office"
 VAR ClinicPeople = ()
 ~ here = Clinic
 
+TODO description
 You are in the {CLINIC}.
 
 - (clinic_opts)
@@ -16,14 +19,16 @@ You are in the {CLINIC}.
 - -> clinic_opts
 
 /*
-- Behind the Exam Curtain
-- Sex with Nurse
+
+    Behind the Exam Curtain
+
 */
 = exam_area
 CONST EXAM_AREA = "exam area"
 VAR ExamAreaPeople = ()
 ~ here = ExamArea
 
+TODO description
 You are in the {EXAM_AREA}. There is a small bed here.
 
 + [Leave the {EXAM_AREA}] -> clinic

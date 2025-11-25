@@ -16,7 +16,8 @@
 */
 CONST SECRETARY = "Ms. Talltrees"
 CONST SECRETARY_TITLE = "the office assistant"
-LIST SecretaryState = SecretaryInPlay, (SecretaryObserved)
+LIST SecretaryState = (SecretaryObserved)
+VAR SecretaryInPlay = false
 VAR SecretaryMood = Friendly
 VAR SecretaryBaseMood = Friendly
 
@@ -26,7 +27,7 @@ VAR SecretaryBaseMood = Friendly
 Approach {SECRETARY}.
 
 - (opts)
-    * {SecretaryMood == Aroused}"What's your bra size?"
+    * {SecretaryMood > Friendly}"What's your bra size?"
         "34B."
     + "I want to change my schedule."
         {

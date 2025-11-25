@@ -1,6 +1,7 @@
 /*
-- The Hallway
-- transit hub
+
+    The Hallway
+
 */
 === hallway ===
 CONST HALLWAY = "hallway"
@@ -11,6 +12,7 @@ CONST HALLWAY = "hallway"
 // Weekdays:
 { isWeekday():
 
+TODO description
 You are in the {HALLWAY}.
 
 + [Go to a classroom]
@@ -34,7 +36,7 @@ You are in the {HALLWAY}.
 + + [Cancel] -> hallway
 
 + [Go to {LOCKER}] -> your_locker
-+ {CheerleaderState == quest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
++ {CheerleaderState == CheerleaderQuest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
     -> cheerleader_locker -> hallway
 
 + [Leave school]
@@ -65,13 +67,16 @@ The school is closed on weekends, but you can still access the {FIELD}.
 
 
 /*
-- Your Locker
+
+    Your Locker
+
 */
 = your_locker
 CONST LOCKER = "your locker"
 VAR LockerItems = ()
 ~ here = Locker
 
+TODO description
 You are at {LOCKER}.
 
 - (locker_opts)
@@ -103,8 +108,9 @@ You are at {LOCKER}.
 + [Leave {LOCKER}] -> hallway
 
 /*
-- The Stairwell
-- Makeout with twins
+
+    The Stairwell
+
 */
 = stairwell
 CONST STAIRWELL = "stairwell"
@@ -117,8 +123,9 @@ You are in the {STAIRWELL}.
 + [Leave the {STAIRWELL}] -> hallway
 
 /*
-- The Roof
-- Sex with twins
+
+    The Roof
+
 */
 = roof
 CONST ROOF = "roof"

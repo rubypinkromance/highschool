@@ -38,7 +38,8 @@
 */
 CONST FRIEND = "Whitney"
 CONST FRIEND_TITLE = "your friend"
-LIST FriendState = (FriendInPlay), FriendObserved
+LIST FriendState = FriendObserved
+VAR FriendInPlay = true
 VAR FriendMood = Friendly
 VAR FriendBaseMood = Friendly
 
@@ -48,7 +49,7 @@ VAR FriendBaseMood = Friendly
 Approach {FRIEND}.
 
 - (opts)
-* {FriendMood == Aroused}"What's your bra size?"
+* {FriendMood > Friendly}"What's your bra size?"
     "34C."
 + "Hello."
     "Sorry, I don't have any dialog yet."

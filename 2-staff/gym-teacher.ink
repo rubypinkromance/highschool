@@ -3,7 +3,8 @@
 */
 CONST GYM_TEACHER = "Coach Stewart"
 CONST GYM_TEACHER_TITLE = ""
-LIST GymTeacherState = GymTeacherInPlay, GymTeacherObserved
+LIST GymTeacherState = GymTeacherObserved
+VAR GymTeacherInPlay = false
 VAR GymTeacherMood = Neutral
 VAR GymTeacherBaseMood = Neutral
 

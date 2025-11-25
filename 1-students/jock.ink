@@ -9,7 +9,8 @@
 */
 CONST JOCK = "Lance"
 CONST JOCK_TITLE = "the meathead jock"
-LIST JockState = JockInPlay, (JockObserved)
+LIST JockState = (JockObserved)
+VAR JockInPlay = false
 VAR JockMood = Hostile
 VAR JockBaseMood = Hostile
 

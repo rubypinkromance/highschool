@@ -2,11 +2,12 @@ LIST Students = You, (Actor), (Athlete), (Believer), (Cheerleader), (Friend), (N
 LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (StudyHallTeacher), (TheaterTeacher), (Nurse), (Secretary)
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
+LIST CharacterCum = Facial, Mouth, Tits, Creampie, Anal
 
 VAR last_girl = Cheerleader
 
 /*
-- Return a comma-separated list of people.
+    Return a comma-separated list of people.
 */
 === function listRoomPeople(characters)
 { not characters:
@@ -19,7 +20,7 @@ VAR last_girl = Cheerleader
 ~ return listReturn(characters, -> nameAndTitle, "")
 
 /*
-- Return a comma-separated list of people as a full sentence.
+    Return a comma-separated list of people as a full sentence.
 */
 === function listRoomPeopleSentence(characters)
 { LIST_COUNT(characters) > 0:
@@ -27,8 +28,8 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Combine a character's name with their title.
-- eg, "Nandor the Relentless".
+    Combine a character's name with their title.
+    e.g., "Nandor the Relentless".
 */
 === function nameAndTitle(who)
 ~ temp name = characterData(who, Name)
@@ -39,8 +40,8 @@ VAR last_girl = Cheerleader
 ~ return "{name}{title: {title}}"
 
 /*
-- Generate a list of options to talk or observe anyone in the room.
-- This list will be nested if there's more than two people.
+    Generate a list of options to talk or observe anyone in the room.
+    This list will be nested if there's more than two people.
 */
 === talkAndObserveAllCharacters(characters, -> return_to)
 ~ temp charactersCopy = characters
@@ -71,7 +72,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Generate a list of options to talk to anyone in the room.
+    Generate a list of options to talk to anyone in the room.
 */
 === talkToAllCharacters(characters, -> return_to)
 { characters ? (Twin1, Twin2):
@@ -86,7 +87,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Generate a list of options to observe anyone in the room.
+    Generate a list of options to observe anyone in the room.
 */
 === observeAllCharacters(characters, -> return_to)
 { characters ? (Twin1, Twin2):
@@ -101,7 +102,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Generate a list of options to receive hints about any character in play.
+    Generate a list of options to receive hints about any character in play.
 */
 === hintAllCharacters(characters, -> return_to)
 { characters ? (Twin1, Twin2):
@@ -116,7 +117,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Generate an option to talk to a person.
+    Generate an option to talk to a person.
 */
 === talkToCharacter(who, -> return_to)
 ~ temp name = characterData(who, Name)
@@ -125,7 +126,7 @@ VAR last_girl = Cheerleader
 -> return_to
 
 /*
-- Generate an option to observe a person if they're not already observed.
+    Generate an option to observe a person if they're not already observed.
 */
 === observeCharacter(who, -> return_to)
 ~ temp name = characterData(who, Name)
@@ -136,17 +137,17 @@ VAR last_girl = Cheerleader
 -> return_to
 
 /*
-- Generate an option to receive a hint about a person if they're in play.
+    Generate an option to receive a hint about a person if they're in play.
 */
 === hintCharacter(who, -> return_to)
 ~ temp state = characterData(who, State)
 ~ temp in_play = characterData(who, PlayState)
 ~ temp target = characterData(who, HintFunction)
-+ {state ? in_play} [{nameAndTitle(who)}] -> target ->
++ {in_play} [{nameAndTitle(who)}] -> target ->
 -> return_to
 
 /*
-- Improve a character's mood.
+    Improve a character's mood.
 */
 === function improveMood(ref mood)
 { mood != Desperate:
@@ -154,7 +155,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Worsen a character's mood.
+    Worsen a character's mood.
 */
 === function worsenMood(ref mood)
 { mood != Hostile:
@@ -162,7 +163,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Return a given student's class schedule.
+    Return a given student's class schedule.
 */
 === function reportSchedule(who)
 { who:
@@ -184,7 +185,7 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Determine who is where, when.
+    Determine who is where, when.
 */
 === function characterScheduler()
 {isWeekday():
@@ -247,6 +248,11 @@ VAR last_girl = Cheerleader
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BathroomPeople += (Stepsister)
     ~ ClinicPeople += (Nurse)
+    {
+    - CheerleaderState == CheerleaderReward:
+        ~ BleachersPeople -= Cheerleader
+        ~ UnderBleachersPeople += (Cheerleader)
+    }
 - Night:
     ~ SisBedroomPeople += (Stepsister)
 }
@@ -263,11 +269,16 @@ VAR last_girl = Cheerleader
     ~ SisBedroomPeople += (Stepsister)
     {
     - today == Saturday:
-        ~ BleachersPeople += (Cheerleader, Jock)
+        ~ BleachersPeople += (Cheerleader)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ BleachersPeople += (Jock)
+        }
     - today == Sunday:
         ~ SisBedroomPeople += (SisFriend)
-        ~ FoodCourtPeople += ()
         ~ BraStorePeople += (Cheerleader)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ FoodCourtPeople += (Jock)
+        }
     }
 - Period2:
     ~ ChurchPeople += (Believer)
@@ -285,6 +296,9 @@ VAR last_girl = Cheerleader
         ~ FieldPeople += (Athlete)
         ~ FoodCourtPeople += (Cheerleader, Actor)
         ~ BookStorePeople += (Photographer)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ FoodCourtPeople += (Jock)
+        }
     }
 - Lunch:
     ~ ChurchPeople += (Believer)
@@ -303,6 +317,9 @@ VAR last_girl = Cheerleader
         ~ FoodCourtPeople += (Photographer)
         ~ BraStorePeople += (Cheerleader)
         ~ ShoeStorePeople += (Actor)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ FoodCourtPeople += (Jock)
+        }
     }
 - Period3:
     ~ ChurchPeople += (Believer)
@@ -318,10 +335,12 @@ VAR last_girl = Cheerleader
         ~ BleachersPeople += (Actor, Athlete, Photographer)
     - today == Sunday:
         ~ FieldPeople += (Athlete)
-        ~ FoodCourtPeople += ()
         ~ BraStorePeople += (Photographer)
         ~ ShoeStorePeople += (Cheerleader)
         ~ BookStorePeople += (Actor)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ FoodCourtPeople += (Jock)
+        }
     }
 - Period4:
     ~ ChurchPeople += (Believer)
@@ -335,11 +354,16 @@ VAR last_girl = Cheerleader
     ~ SisBedroomPeople += (Stepsister)
     {
     - today == Saturday:
-        ~ BleachersPeople += (Cheerleader, Jock)
+        ~ BleachersPeople += (Cheerleader)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ BleachersPeople += (Jock)
+        }
         ~ SisBedroomPeople += (SisFriend)
     - today == Sunday:
-        ~ FoodCourtPeople += ()
         ~ DressStorePeople += (Cheerleader)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ FoodCourtPeople += (Jock)
+        }
     }
 - AfterSchool:
     ~ ChurchPeople += (Believer)
@@ -353,11 +377,16 @@ VAR last_girl = Cheerleader
     ~ BathroomPeople += (Stepsister)
     {
     - today == Saturday:
-        ~ BleachersPeople += (Cheerleader, Jock)
+        ~ BleachersPeople += (Cheerleader)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ BleachersPeople += (Jock)
+        }
         ~ SisBedroomPeople += (SisFriend)
     - today == Sunday:
-        ~ FoodCourtPeople += ()
         ~ ShoeStorePeople += (Cheerleader)
+        { CheerleaderState < CheerleaderTitjob:
+            ~ FoodCourtPeople += (Jock)
+        }
     }
 - Night:
     ~ SisBedroomPeople += (Stepsister)
@@ -368,8 +397,8 @@ VAR last_girl = Cheerleader
 }
 
 /*
-- Reset all people to their base state.
-- Run it at the start of each day.
+    Reset all people to their base state.
+    Run it at the start of each day.
 */
 === function resetMoods()
 ~ ActorMood = ActorBaseMood

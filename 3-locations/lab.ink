@@ -1,6 +1,7 @@
 /*
-- The Science Lab
-- Sex with Scientist
+
+    The Science Lab
+
 */
 === lab ===
 CONST LAB = "science classroom"
@@ -9,6 +10,7 @@ VAR LabPeople = ()
 ~ here = Lab
 -> access_restrictions ->
 
+TODO description
 You are in the {LAB}.
 
 {listRoomPeopleSentence(LabPeople)}

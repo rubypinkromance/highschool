@@ -3,7 +3,8 @@
 */
 CONST SCIENCE_TEACHER = "Mr. Tyson"
 CONST SCIENCE_TEACHER_TITLE = "the science teacher"
-LIST ScienceTeacherState = ScienceTeacherInPlay, (ScienceTeacherObserved)
+LIST ScienceTeacherState = (ScienceTeacherObserved)
+VAR ScienceTeacherInPlay = false
 VAR ScienceTeacherMood = Neutral
 VAR ScienceTeacherBaseMood = Neutral
 

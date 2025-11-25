@@ -1,5 +1,7 @@
 /*
-- The Theater
+
+    The Theater
+
 */
 === theater ===
 CONST THEATER = "theater"
@@ -9,6 +11,7 @@ VAR has_theater_invite = false
 ~ here = Theater
 -> access_restrictions ->
 
+TODO description
 You are in the {THEATER}.
 
 {listRoomPeopleSentence(TheaterPeople)}
@@ -28,8 +31,9 @@ You are in the {THEATER}.
 }
 
 /*
-- Backstage
-- Sex with actor
+
+    Backstage
+
 */
 = backstage
 CONST BACKSTAGE = "backstage"

@@ -1,6 +1,7 @@
 /*
-- The Church
-- Sex with Believer
+
+    The Church
+
 */
 === church ===
 CONST CHURCH = "church"

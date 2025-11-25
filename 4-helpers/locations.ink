@@ -7,8 +7,8 @@ VAR MallLocations = (Mall, BraStore, BookStore, DressStore, FoodCourt, MovieThea
 VAR here = Nowhere
 
 /*
-- Location Information Database.
-- This looks super long and verbose, not to mention repetitive, but it lets us keep all the actual location data in that location's include file, so this file is just for logic.
+    Location Information Database.
+    This looks super long and verbose, not to mention repetitive, but it lets us keep all the actual location data in that location's include file, so this file is just for logic.
 */
 === function locationData(location, what)
 { location:
@@ -185,19 +185,19 @@ VAR here = Nowhere
 }
 
 /*
-- Check if we're currently at home.
+    Check if we're currently at home.
 */
 === function isHome()
 ~ return HomeLocations ? here
 
 /*
-- Check if we're currently at the mall.
+    Check if we're currently at the mall.
 */
 === function isMall()
 ~ return MallLocations ? here
 
 /*
-- Check if we're currently at school.
+    Check if we're currently at school.
 */
 === function isSchool()
 { here == Church or isHome() or isMall():
@@ -206,8 +206,8 @@ VAR here = Nowhere
 ~ return true
 
 /*
-- Remove all people from every room.
-- Run it before characterScheduler().
+    Remove all people from every room.
+    Run it before characterScheduler().
 */
 === function clearLocations()
 ~ CafeteriaPeople = ()

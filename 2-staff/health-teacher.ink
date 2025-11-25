@@ -14,7 +14,8 @@
 */
 CONST HEALTH_TEACHER = "Ms. Day"
 CONST HEALTH_TEACHER_TITLE = "the health teacher"
-LIST HealthTeacherState = HealthTeacherInPlay, (HealthTeacherObserved)
+LIST HealthTeacherState = (HealthTeacherObserved)
+VAR HealthTeacherInPlay = false
 VAR flirted_with_teacher = false
 VAR HealthTeacherMood = Neutral
 VAR HealthTeacherBaseMood = Neutral
@@ -25,7 +26,7 @@ VAR HealthTeacherBaseMood = Neutral
 Approach {HEALTH_TEACHER}.
 
 - (opts)
-    * {HealthTeacherMood == Aroused}"What's your bra size?"
+    * {HealthTeacherMood > Friendly}"What's your bra size?"
         "36C."
     + "Hello."
         "Sorry, I don't have any dialog yet."

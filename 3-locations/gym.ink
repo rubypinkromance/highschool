@@ -1,6 +1,8 @@
 /*
-- The Gym
-- Random activities in gym class: wrestling, dodgeball, etc
+
+    The Gym
+    Random activities in gym class: wrestling, dodgeball, etc
+
 */
 === gym ===
 CONST GYM = "gymnasium"
@@ -9,6 +11,7 @@ VAR GymPeople = ()
 ~ here = Gym
 -> access_restrictions ->
 
+TODO description
 You are in the {GYM}.
 
 {listRoomPeopleSentence(GymPeople)}
@@ -28,8 +31,9 @@ You are in the {GYM}.
 }
 
 /*
-Locker Rooms
-- Sex with Athlete
+
+    Locker Rooms
+
 */
 = locker_room
 CONST LOCKER_ROOM = "girl’s locker room"

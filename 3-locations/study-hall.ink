@@ -1,6 +1,7 @@
 /*
-- Study Hall
-- Sex with Rebel once unsupervised
+
+    Study Hall
+
 */
 === study_hall ===
 CONST STUDY_HALL = "study hall"
@@ -11,6 +12,7 @@ VAR study_hall_supervised = true
 ~ here = StudyHall
 -> access_restrictions ->
 
+TODO description
 You are in {STUDY_HALL}.
 
 {listRoomPeopleSentence(StudyHallPeople)}

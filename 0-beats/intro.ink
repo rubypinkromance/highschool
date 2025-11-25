@@ -1,21 +1,14 @@
 /*
-NOTE: All copy written in second person, present tense.
 
-You walk into her bedroom and take off you pants. She stares up at you.
-+ "I want to cum on your face."
-+ [Cum on her face]
-+ [Rub your cock on her lips]
+    NOTE: All copy written in second person, present tense. e.g.:
+    
+    You walk into her bedroom and take off your pants. She stares up at you.
+    + "I want to cum on your face."
+    + [Cum on her face]
+    + [Rub your cock on her lips]
 
 */
-
 === intro ===
-/*
-* [Timed Mode: You have {days_total} days to achieve your goal]
-    ~ countdown = true
-* [Sandbox Mode: No countdown, play as long as you like.]
-    ~ countdown = false
--
-*/
 It’s the first day of senior year, and you are walking to school when your best friend {FRIEND} crosses the street to walk with you.
 “So,” she asks with a grin, “are you still going ahead with this crazy plan to fuck every girl in our grade?”
 * “Not <em>every</em> girl[.”],” you say, rolling your eyes.

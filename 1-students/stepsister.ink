@@ -32,7 +32,8 @@
 */
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
-LIST SisState = SisInPlay, (SisObserved), SisIsLesbian, SisIsBi
+LIST SisState = (SisObserved), SisIsLesbian, SisIsBi
+VAR SisInPlay = false
 VAR SisMood = Friendly
 VAR SisBaseMood = Friendly
 LIST SisItems = SisPanties, SisDiary
@@ -43,7 +44,7 @@ LIST SisItems = SisPanties, SisDiary
 Approach {SIS}.
 
 - (opts)
-+ {SisMood == Aroused}"What's your bra size?"
++ {SisMood > Friendly}"What's your bra size?"
     "34C, bro."
 + {DEBUG}"Wanna fuck?"
     "Sure, why not?"

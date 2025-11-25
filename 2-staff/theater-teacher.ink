@@ -3,7 +3,8 @@
 */
 CONST THEATER_TEACHER = "Mr. Lane"
 CONST THEATER_TEACHER_TITLE = "the drama teacher"
-LIST TheaterTeacherState = TheaterTeacherInPlay, (TheaterTeacherObserved)
+LIST TheaterTeacherState = (TheaterTeacherObserved)
+VAR TheaterTeacherInPlay = false
 VAR TheaterTeacherMood = Neutral
 VAR TheaterTeacherBaseMood = Neutral
 

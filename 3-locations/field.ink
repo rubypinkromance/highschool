@@ -1,11 +1,14 @@
 /*
-- The Athletics Field
+
+    The Athletics Field
+
 */
 === field ===
 CONST FIELD = "athletic field"
 VAR FieldPeople = ()
 ~ here = Field
 
+TODO description
 You are in the {FIELD}.
 
 ~ temp FieldPeopleCopy = FieldPeople
@@ -21,14 +24,14 @@ You are in the {FIELD}.
     -> fieldPeopleLoop
 - FieldPeopleCopy ? Cheerleader:
     ~ FieldPeopleCopy -= Cheerleader
-    <> {nameAndTitle(Cheerleader)} is dancing on the sidelines.
+    <> {nameAndTitle(Cheerleader)} is cheering on the sidelines.
     -> fieldPeopleLoop
 - LIST_COUNT(FieldPeopleCopy) > 0:
     {listRoomPeopleSentence(FieldPeople)}
 }
 
 { LIST_COUNT(BleachersPeople) > 0:
-    <> {listRoomPeople(BleachersPeople)} {LIST_COUNT(BleachersPeople) > 1:are|is} sitting on the bleachers.
+    <> {capitalise_start(listRoomPeople(BleachersPeople))} {LIST_COUNT(BleachersPeople) > 1:are|is} sitting on the {BLEACHERS}.
 }
 
 { LIST_COUNT(UnderBleachersPeople) > 0:
@@ -44,13 +47,16 @@ You are in the {FIELD}.
 - -> field_opts
 
 /*
-- Bleachers
+
+    Bleachers
+
 */
 = bleachers
 CONST BLEACHERS = "bleachers"
 VAR BleachersPeople = ()
 ~ here = Bleachers
 
+TODO description
 You are in the {BLEACHERS} overlooking the athletic field.
 
 {listRoomPeople(BleachersPeople)}
@@ -62,14 +68,16 @@ You are in the {BLEACHERS} overlooking the athletic field.
 - -> bleachers_opts
 
 /*
-- Under the Bleachers
-- Sex with Cheerleader
+
+    Under the Bleachers
+
 */
 = under_bleachers
 CONST UNDER_BLEACHERS = "under the bleachers"
 VAR UnderBleachersPeople = ()
 ~ here = UnderBleachers
 
+TODO description
 You are {UNDER_BLEACHERS}.
 
 - (under_bleachers_opts)

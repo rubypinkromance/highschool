@@ -35,7 +35,8 @@
 */
 CONST NYMPHO = "Claire"
 CONST NYMPHO_TITLE = "the party girl"
-LIST NymphoState = (NymphoInPlay), NymphoObserved
+LIST NymphoState = NymphoObserved
+VAR NymphoInPlay = true
 VAR NymphoMood = Aroused
 VAR NymphoBaseMood = Aroused
 
@@ -45,7 +46,7 @@ VAR NymphoBaseMood = Aroused
 Approach {NYMPHO}.
 
 - (opts)
-* {NymphoMood == Aroused}"What's your bra size?"
+* {NymphoMood > Friendly}"What's your bra size?"
     "32A."
 + "Hello."
     "Sorry, I don't have any dialog yet."

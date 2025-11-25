@@ -1,5 +1,7 @@
 /*
-- The Photography Classroom
+
+    The Photography Classroom
+
 */
 === photo_class ===
 CONST PHOTO_CLASS = "photography classroom"
@@ -8,6 +10,7 @@ VAR PhotoClassPeople = ()
 ~ here = PhotoClass
 -> access_restrictions ->
 
+TODO description
 You are in the {PHOTO_CLASS}.
 
 {listRoomPeopleSentence(PhotoClassPeople)}
@@ -27,8 +30,9 @@ You are in the {PHOTO_CLASS}.
 }
 
 /*
-- The Darkroom
-- Sex with Photographer
+
+    The Darkroom
+
 */
 = darkroom
 CONST DARKROOM = "darkroom"

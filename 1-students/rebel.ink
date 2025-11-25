@@ -26,7 +26,8 @@
 */
 CONST REBEL = "Zia"
 CONST REBEL_TITLE = "the punk"
-LIST RebelState = (RebelInPlay), RebelObserved
+LIST RebelState = RebelObserved
+VAR RebelInPlay = true
 VAR RebelMood = Hostile
 VAR RebelBaseMood = Hostile
 
@@ -36,7 +37,7 @@ VAR RebelBaseMood = Hostile
 Approach {REBEL}.
 
 - (opts)
-* {RebelMood == Aroused}"What's your bra size?"
+* {RebelMood > Friendly}"What's your bra size?"
     "34B."
 + "Hello."
     "Sorry, I don't have any dialog yet."

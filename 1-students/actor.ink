@@ -18,7 +18,8 @@
 */
 CONST ACTOR = "Dana"
 CONST ACTOR_TITLE = "the theater kid"
-LIST ActorState = (ActorInPlay), ActorObserved, ActorBraSize
+LIST ActorState = ActorObserved, ActorBraSize
+VAR ActorInPlay = true
 VAR ActorMood = Neutral
 VAR ActorBaseMood = Neutral
 
@@ -31,10 +32,10 @@ Approach {ACTOR}.
 + {DEBUG and ActorState !? ActorObserved} [Observe] -> observe_actor ->
 + {DEBUG and ActorState ? ActorObserved} [Confirm]
     "You've been observed.
-+ {ActorMood == Aroused and ActorState !? ActorBraSize}"What's your bra size?"
++ {ActorMood > Friendly and ActorState !? ActorBraSize}"What's your bra size?"
     ~ ActorState += ActorBraSize
     "36A."
-+ {ActorMood == Aroused and ActorState ? ActorBraSize}"You wear a 36A, right?"
++ {ActorState ? ActorBraSize}"You wear a 36A, right?"
     "Correct."
 + "Hello."
     "Sorry, I don't have any dialog yet."

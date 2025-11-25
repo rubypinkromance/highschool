@@ -14,7 +14,8 @@
 */
 CONST NURSE = "Ms. Honeydew"
 CONST NURSE_TITLE = "the nurse"
-LIST NurseState = NurseInPlay, (NurseObserved)
+LIST NurseState = (NurseObserved)
+VAR NurseInPlay = false
 VAR NurseMood = Neutral
 VAR NurseBaseMood = Neutral
 
@@ -24,7 +25,7 @@ VAR NurseBaseMood = Neutral
 Approach {NURSE}.
 
 - (opts)
-    * {NurseMood == Aroused}"What's your bra size?"
+    * {NurseMood > Friendly}"What's your bra size?"
         "36D."
     + "Hello."
         "Sorry, I don't have any dialog yet."

@@ -24,7 +24,8 @@ VAR TWIN1 = "Hailey"
 VAR TWIN2 = "Hailey"
 VAR TWIN1_TITLE = "(or is that Bailey?)"
 VAR TWIN2_TITLE = "(or is that Bailey?)"
-LIST TwinsState = (TwinsInPlay), TwinsObserved
+LIST TwinsState =TwinsObserved
+VAR TwinsInPlay = true
 VAR TwinsMood = Neutral
 VAR TwinsBaseMood = Neutral
 VAR can_identify_twins = false
@@ -42,7 +43,7 @@ VAR can_identify_twins = false
 Approach {TWIN1}.
 
 - (opts)
-* {TwinsMood == Aroused}"What's your bra size?"
+* {TwinsMood > Friendly}"What's your bra size?"
     "34D."
 * {DEBUG}"Which one are you?"
     ~ identify_twins()
@@ -58,7 +59,7 @@ Approach {TWIN1}.
 Approach {TWIN2}.
 
 - (opts)
-* {TwinsMood == Aroused}"What's your bra size?"
+* {TwinsMood > Friendly}"What's your bra size?"
     "34D."
 * {DEBUG}"Which one are you?"
     ~ identify_twins()
@@ -74,7 +75,7 @@ Approach {TWIN2}.
 Approach {TWINS}.
 
 - (opts)
-* {TwinsMood == Aroused}"What's your bra size?"
+* {TwinsMood > Friendly}"What's your bra size?"
     "34D."
 * {DEBUG}"How can I tell you apart?"
     ~ identify_twins()

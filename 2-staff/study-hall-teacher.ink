@@ -3,7 +3,8 @@
 */
 CONST STUDY_HALL_TEACHER = "Mr. Lamb"
 CONST STUDY_HALL_TEACHER_TITLE = "the study hall supervisor"
-LIST StudyHallTeacherState = StudyHallTeacherInPlay, (StudyHallTeacherObserved)
+LIST StudyHallTeacherState = (StudyHallTeacherObserved)
+VAR StudyHallTeacherInPlay = false
 VAR StudyHallTeacherMood = Neutral
 VAR StudyHallTeacherBaseMood = Neutral
 

@@ -1,11 +1,14 @@
 /*
-- The Cafeteria
+
+    The Cafeteria
+
 */
 === cafeteria ===
 CONST CAFETERIA = "cafeteria"
 VAR CafeteriaPeople = ()
 ~ here = Cafeteria
 
+TODO description
 You are in the {CAFETERIA}.
 
 {listRoomPeopleSentence(CafeteriaPeople)}
@@ -17,8 +20,9 @@ You are in the {CAFETERIA}.
 - -> cafeteria_opts
 
 /*
-- The Storage Closet
-- Sex with Nympho
+
+    The Storage Closet
+
 */
 = storage
 CONST STORAGE_CLOSET = "storage closet"

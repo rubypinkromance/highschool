@@ -22,7 +22,8 @@
 */
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"
-LIST PhotographerState = (PhotographerInPlay), PhotographerObserved
+LIST PhotographerState = PhotographerObserved
+VAR PhotographerInPlay = true
 VAR PhotographerMood = Neutral
 VAR PhotographerBaseMood = Neutral
 
@@ -32,7 +33,7 @@ VAR PhotographerBaseMood = Neutral
 Approach {PHOTOGRAPHER}.
 
 - (opts)
-* {PhotographerMood == Aroused}"What's your bra size?"
+* {PhotographerMood > Friendly}"What's your bra size?"
     "34B."
 + "Hello."
     "Sorry, I don't have any dialog yet."

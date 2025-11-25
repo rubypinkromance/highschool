@@ -1,5 +1,5 @@
 /*
-- Remove and returns the first item in a list.
+    Remove and returns the first item in a list.
 */
 === function pop(ref _list)
 ~ temp el = LIST_MIN(_list)
@@ -7,7 +7,7 @@
 ~ return el
 
 /*
-- Print a list with commas, "and".
+    Print a list with commas, "and".
 */
 === function listPrint(list, -> detailFunction)
 ~ temp item = pop (list)
@@ -21,7 +21,7 @@
 }
 
 /*
-- Similar to listPrint, but returns instead of printing
+    Similar to listPrint, but returns instead of printing
 */
 === function listReturn(list, -> detailFunction, string)
 ~ temp item = pop(list)
@@ -38,7 +38,7 @@
 ~ return string
 
 /*
-- Move Item From One List to Another
+    Move Item From One List to Another
 */
 === function move(item, ref from, ref to)
 ~ from -= item

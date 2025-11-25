@@ -20,7 +20,8 @@
 */
 CONST SIS_FRIEND = "Sofia"
 CONST SIS_FRIEND_TITLE = "her friend"
-LIST SisFriendState = SisFriendInPlay, SisFriendObserved, SisFriendIsLesbian, SisFriendIsBi
+LIST SisFriendState = SisFriendObserved, SisFriendIsLesbian, SisFriendIsBi
+VAR SisFriendInPlay = false
 VAR SisFriendMood = Aroused
 VAR SisFriendBaseMood = Aroused
 
@@ -30,7 +31,7 @@ VAR SisFriendBaseMood = Aroused
 Approach {SIS_FRIEND}.
 
 - (opts)
-* {SisFriendMood == Aroused}"What's your bra size?"
+* {SisFriendMood > Friendly}"What's your bra size?"
     "32D."
 + "Hello."
     "Sorry, I don't have any dialog yet."

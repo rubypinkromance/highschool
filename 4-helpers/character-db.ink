@@ -1,5 +1,5 @@
 /*
-Try to avoid multiple characters whose names start with the same letter.
+    Try to avoid multiple characters whose names start with the same letter.
 
 - Amy?
 - Beth?
@@ -27,8 +27,8 @@ Try to avoid multiple characters whose names start with the same letter.
 */
 
 /*
-- Character Information Database.
-- This looks super long and verbose, not to mention repetitive, but it lets us keep all the actual character data in that character's include file, so this file is just for logic.
+    Character Information Database.
+    This looks super long and verbose, not to mention repetitive, but it lets us keep all the actual character data in that character's include file, so this file is just for logic.
 */
 === function characterData(who, what)
 { who:

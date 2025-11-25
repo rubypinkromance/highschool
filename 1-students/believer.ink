@@ -24,7 +24,8 @@
 */
 CONST BELIEVER = "Kate"
 CONST BELIEVER_TITLE = "the religious girl"
-LIST BelieverState = (BelieverInPlay), BelieverObserved
+LIST BelieverState = BelieverObserved
+VAR BelieverInPlay = true
 VAR BelieverMood = Neutral
 VAR BelieverBaseMood = Neutral
 
@@ -34,8 +35,10 @@ VAR BelieverBaseMood = Neutral
 Approach {BELIEVER}.
 
 - (opts)
-* {BelieverMood == Aroused}"What's your bra size?"
+* {BelieverMood > Friendly}"What's your bra size?"
     "That's between me and Jesus."
+    "Come on, please? I'd really like to know."
+    "Fine. It's 32C."
 + "Hello."
     "Sorry, I don't have any dialog yet."
 + [Leave her alone] ->->

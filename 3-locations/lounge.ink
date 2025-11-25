@@ -1,11 +1,14 @@
 /*
-- The Teacher's Lounge
+
+    The Teacher's Lounge
+
 */
 === lounge ===
 CONST LOUNGE = "teacher’s lounge"
 VAR LoungePeople = ()
 ~ here = Lounge
 
+TODO description
 You are in the {LOUNGE}.
 
 {listRoomPeopleSentence(LoungePeople)}

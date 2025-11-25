@@ -1,5 +1,7 @@
 /*
-- Your bedroom
+
+    Your bedroom
+
 */
 === bedroom ===
 CONST BEDROOM = "your bedroom"
@@ -7,6 +9,7 @@ VAR BedroomPeople = ()
 ~ here = Bedroom
 ~ announceTime()
 
+TODO description
 {
 - now == Period1:
     // say nothing, dream text set up the day.
@@ -71,8 +74,9 @@ VAR BedroomPeople = ()
 - -> bedroom_opts
 
 /*
-- The Bathroom
-- Peep on Stepsister
+
+    The Bathroom
+
 */
 = bathroom
 CONST BATHROOM = "the bathroom"
@@ -80,6 +84,7 @@ VAR BathroomPeople = ()
 VAR BathroomItems = ()
 ~ here = Bathroom
 
+TODO description
 You are in the {BATHROOM}.
 <- listHousePeople(BathroomPeople)
 
@@ -91,8 +96,9 @@ You are in the {BATHROOM}.
 
 
 /*
-- Stepsister's Bedroom
-- Sex with Stepsister
+
+    Stepsister's Bedroom
+
 */
 = sis_bedroom
 CONST SIS_BEDROOM = "your stepsister’s bedroom"
@@ -100,6 +106,7 @@ VAR SisBedroomPeople = ()
 VAR SisBedroomItems = (SisPanties)
 ~ here = SisBedroom
 
+TODO description
 You are in {SIS_BEDROOM}.
 <- listHousePeople(SisBedroomPeople)
 
@@ -116,7 +123,9 @@ You are in {SIS_BEDROOM}.
 - -> sis_bedroom_opts
 
 /*
-- List combinations of people in the house.
+
+    List combinations of people in the house.
+
 */
 = listHousePeople(roomPeople)
 <> {capitalise_start(listRoomPeople(roomPeople))} {LIST_COUNT(roomPeople) > 1:are|is} here.

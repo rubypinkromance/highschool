@@ -1,3 +1,7 @@
+# title: Senior Project
+# author: Ruby Pink
+# theme: dark
+
 // Story Beats
 INCLUDE 0-beats/intro.ink
 
@@ -55,12 +59,6 @@ INCLUDE 4-helpers/time.ink
 INCLUDE 4-helpers/score.ink
 INCLUDE 4-helpers/functions.ink
 INCLUDE 4-helpers/capitalise.ink
-
-
-
-# title: Senior Project
-# author: Ruby Pink
-# theme: dark
 
 // Variables
 CONST DEBUG = true

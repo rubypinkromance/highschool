@@ -1,6 +1,7 @@
 /*
-- The Library
-- Sex with Nerd
+
+    The Library
+
 */
 === library ===
 CONST LIBRARY = "library"
@@ -8,6 +9,7 @@ VAR LibraryPeople = ()
 ~ here = Library
 -> access_restrictions ->
 
+TODO description
 You are in the {LIBRARY}.
 
 {listRoomPeopleSentence(LibraryPeople)}

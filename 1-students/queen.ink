@@ -23,7 +23,8 @@
 */
 CONST QUEEN = "Victoria"
 CONST QUEEN_TITLE = "the queen bee"
-LIST QueenState = (QueenInPlay), QueenObserved
+LIST QueenState = QueenObserved
+VAR QueenInPlay = true
 VAR QueenMood = Hostile
 VAR QueenBaseMood = Hostile
 
@@ -33,7 +34,7 @@ VAR QueenBaseMood = Hostile
 Approach {QUEEN}.
 
 - (opts)
-* {QueenMood == Aroused}"What's your bra size?"
+* {QueenMood > Friendly}"What's your bra size?"
     "34A."
 + "Hello."
     "Sorry, I don't have any dialog yet."

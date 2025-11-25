@@ -6,6 +6,7 @@ LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
 VAR confidence = Awkward
 VAR cum_today = false
 VAR ow_my_balls = false
+VAR has_black_eye = 0 // Set this to a positive number to let it slowly heal
 
 // Inventory
 VAR Inventory = ()
@@ -19,6 +20,9 @@ VAR schedule_period_4 = PhotoClass
 VAR permission_to_change_schedule = false
 VAR has_detention = false
 
+/*
+    Hint System
+*/
 === hint_system(-> return_to) ===
 What do you want a hint about?
 <- hintAllCharacters(Students, return_to)

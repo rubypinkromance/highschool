@@ -28,7 +28,8 @@
 */
 CONST NERD = "Felicia"
 CONST NERD_TITLE = "the cute nerd"
-LIST NerdState = (NerdInPlay), NerdObserved
+LIST NerdState = NerdObserved
+VAR NerdInPlay = true
 VAR NerdMood = Neutral
 VAR NerdBaseMood = Neutral
 
@@ -38,7 +39,7 @@ VAR NerdBaseMood = Neutral
 Approach {NERD}.
 
 - (opts)
-* {NerdMood == Aroused}"What's your bra size?"
+* {NerdMood > Friendly}"What's your bra size?"
     "32B."
 + "Hello."
     "Sorry, I don't have any dialog yet."

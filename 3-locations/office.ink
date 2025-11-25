@@ -1,5 +1,7 @@
 /*
-- The Office
+
+    The Office
+
 */
 === office ===
 CONST OFFICE = "office"
@@ -8,6 +10,7 @@ LIST SchoolItems = Schedule
 VAR OfficeItems = (Schedule)
 ~ here = Office
 
+TODO description
 You are at the {OFFICE}.
 
 - (office_opts)
@@ -29,8 +32,9 @@ You are at the {OFFICE}.
 - -> office_opts
 
 /*
-- The Supply Closet
-- Sex with Secretary
+
+    The Supply Closet
+
 */
 = supply_closet
 CONST SUPPLY_CLOSET = "supply closet"
@@ -42,7 +46,9 @@ You are in the {SUPPLY_CLOSET}. Post-it notes galore.
 + [Leave the supply closet] -> office
 
 /*
-- Change Schedule
+
+    Change Schedule
+
 */
 = change_schedule(preface)
 "{preface}What period do you want to change?"

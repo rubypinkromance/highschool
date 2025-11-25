@@ -1,6 +1,7 @@
 /*
-- The Health Classroom
-- Sex with Teacher
+
+    The Health Classroom
+
 */
 === health_class ===
 CONST HEALTH_CLASS = "health classroom"
@@ -9,6 +10,7 @@ VAR HealthClassPeople = ()
 ~ here = HealthClass
 -> access_restrictions ->
 
+TODO description
 You are in the {HEALTH_CLASS}.
 
 {listRoomPeopleSentence(HealthClassPeople)}

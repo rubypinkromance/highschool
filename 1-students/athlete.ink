@@ -21,7 +21,8 @@
 */
 CONST ATHLETE = "Lindsey"
 CONST ATHLETE_TITLE = "the athlete"
-LIST AthleteState = (AthleteInPlay), AthleteObserved
+LIST AthleteState = AthleteObserved
+VAR AthleteInPlay = true
 VAR AthleteMood = Neutral
 VAR AthleteBaseMood = Neutral
 
@@ -31,7 +32,7 @@ VAR AthleteBaseMood = Neutral
 Approach {ATHLETE}.
 
 - (opts)
-* {AthleteMood == Aroused}"What's your bra size?"
+* {AthleteMood > Friendly}"What's your bra size?"
     "32B."
 + (hypnosis){DEBUG}[Hypnotize her]
     + + [Improve her mood]
