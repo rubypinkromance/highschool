@@ -38,7 +38,8 @@ Approach {QUEEN}.
     "34A."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_queen ===

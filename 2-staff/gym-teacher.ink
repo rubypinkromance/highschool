@@ -13,7 +13,8 @@ Approach {GYM_TEACHER}.
 - (opts)
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === access_denied_gym_teacher ===

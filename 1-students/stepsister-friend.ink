@@ -35,7 +35,8 @@ Approach {SIS_FRIEND}.
     "32D."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_stepsister_friend ===

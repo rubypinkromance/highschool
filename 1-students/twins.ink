@@ -50,7 +50,8 @@ Approach {TWIN1}.
     "Hailey."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === talk_to_twin2 ===
@@ -66,7 +67,8 @@ Approach {TWIN2}.
     "Bailey."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === talk_to_twins ===
@@ -82,7 +84,8 @@ Approach {TWINS}.
     "She's Hailey, and I'm Bailey."
 + "Hello."
     "Sorry, we don't have any dialog yet."
-* [Leave them alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_twins ===

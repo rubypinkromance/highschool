@@ -41,7 +41,8 @@ Approach {REBEL}.
     "34B."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_rebel ===

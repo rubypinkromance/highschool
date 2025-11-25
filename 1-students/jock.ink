@@ -19,7 +19,8 @@ Approach {JOCK}.
 - (opts)
 * "Hey, what's up?"
     "Fuck off, loser."
-+ [Leave him alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_jock ===

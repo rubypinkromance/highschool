@@ -41,7 +41,8 @@ Approach {BELIEVER}.
     "Fine. It's 32C."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave her alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_believer ===

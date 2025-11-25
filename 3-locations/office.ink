@@ -46,7 +46,7 @@ VAR SupplyClosetPeople = ()
 
 You are in the {SUPPLY_CLOSET}. Post-it notes galore.
 
-+ [Leave the supply closet] -> office
++ [Leave the {SUPPLY_CLOSET}] -> office
 
 /*
 

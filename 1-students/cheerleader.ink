@@ -87,7 +87,7 @@ TODO adjust based on confidence
     -> cheerleader_repeat ->
 + [Check her out]
     -> look_at_cheerleader ->
-+ [Walk away]
++ [Leave]
     ->->
 - -> cheerleader_opts
 

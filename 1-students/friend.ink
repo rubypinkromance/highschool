@@ -53,7 +53,8 @@ Approach {FRIEND}.
     "34C."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Walk away] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === observe_friend ===

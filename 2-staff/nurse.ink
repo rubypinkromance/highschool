@@ -25,11 +25,12 @@ VAR NurseBaseMood = Neutral
 Approach {NURSE}.
 
 - (opts)
-    * {NurseMood > Friendly}"What's your bra size?"
-        "36D."
-    + "Hello."
-        "Sorry, I don't have any dialog yet."
-    + [Leave her alone] ->->
+* {NurseMood > Friendly}"What's your bra size?"
+    "36D."
++ "Hello."
+    "Sorry, I don't have any dialog yet."
++ [Leave]
+    ->->
 - -> opts
 
 === observe_nurse ===

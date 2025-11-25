@@ -84,7 +84,7 @@ You are {UNDER_BLEACHERS}. It's fairly dark under here. Someone dragged in a cou
 - (under_bleachers_opts)
 <- character_opts(UnderBleachersPeople, -> under_bleachers_opts)
 
-+ [Leave the bleachers]
++ [Leave the {BLEACHERS}]
     { UnderBleachersPeople ? Cheerleader:
         -> cheerleader_cleanup -> field
     }

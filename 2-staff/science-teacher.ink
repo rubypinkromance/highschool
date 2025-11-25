@@ -13,7 +13,8 @@ Approach {SCIENCE_TEACHER}.
 - (opts)
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave him alone] ->->
++ [Leave]
+    ->->
 - -> opts
 
 === access_denied_science_teacher ===
