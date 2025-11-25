@@ -15,22 +15,22 @@ You are in the {FIELD}. A running track surrounds the football field, and a larg
 {
 - FieldPeopleCopy ? Athlete:
     ~ FieldPeopleCopy -= Athlete
-    <> {nameAndTitle(Athlete)} is running laps around the track.
+    <> {getNameAndTitle(Athlete)} is running laps around the track.
     -> fieldPeopleLoop
 - FieldPeopleCopy ? Jock:
     ~ FieldPeopleCopy -= Jock
-    <> {nameAndTitle(Jock)} is playing football with the rest of the team.
+    <> {getNameAndTitle(Jock)} is playing football with the rest of the team.
     -> fieldPeopleLoop
 - FieldPeopleCopy ? Cheerleader:
     ~ FieldPeopleCopy -= Cheerleader
-    <> {nameAndTitle(Cheerleader)} is cheering on the sidelines.
+    <> {getNameAndTitle(Cheerleader)} is cheering on the sidelines.
     -> fieldPeopleLoop
 - LIST_COUNT(FieldPeopleCopy) > 0:
-    {listRoomPeopleSentence(FieldPeople)}
+    {lookForRoomPeople(FieldPeople)}
 }
 
 { LIST_COUNT(BleachersPeople) > 0:
-    <> {capitalise_start(listRoomPeople(BleachersPeople))} {LIST_COUNT(BleachersPeople) > 1:are|is} sitting on the {BLEACHERS}.
+    <> {capitaliseStart(listRoomPeople(BleachersPeople))} {LIST_COUNT(BleachersPeople) > 1:are|is} sitting on the {BLEACHERS}.
 }
 
 { LIST_COUNT(UnderBleachersPeople) > 0:
@@ -38,7 +38,7 @@ You are in the {FIELD}. A running track surrounds the football field, and a larg
 }
 
 - (field_opts)
-<- talkAndObserveAllCharacters(FieldPeople, -> field_opts)
+<- character_opts(FieldPeople, -> field_opts)
 
 + [Sit on the {BLEACHERS}] -> bleachers
 + [Go {UNDER_BLEACHERS}] -> under_bleachers
@@ -60,7 +60,7 @@ You are in the {BLEACHERS} overlooking the {FIELD}.
 {listRoomPeople(BleachersPeople)} {LIST_COUNT(BleachersPeople) > 1:are|is} here.
 
 - (bleachers_opts)
-<- talkAndObserveAllCharacters(BleachersPeople, -> bleachers_opts)
+<- character_opts(BleachersPeople, -> bleachers_opts)
 
 + [Leave the {BLEACHERS}] -> field
 - -> bleachers_opts
@@ -82,7 +82,7 @@ You are {UNDER_BLEACHERS}. It's fairly dark under here. Someone dragged in a cou
 }
 
 - (under_bleachers_opts)
-<- talkAndObserveAllCharacters(UnderBleachersPeople, -> under_bleachers_opts)
+<- character_opts(UnderBleachersPeople, -> under_bleachers_opts)
 
 + [Leave the bleachers]
     { UnderBleachersPeople ? Cheerleader:

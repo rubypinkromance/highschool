@@ -13,13 +13,13 @@ VAR BedroomPeople = ()
 - now == Period1:
     // say nothing, dream text set up the day.
 - else:
-    You are in {BEDROOM}. {seen_very_recently(-> bedroom): The walls are covered with posters for your favorite video games and movies. Your laptop sits on your desk next to a box of tissues and a bottle of lotion. Your bed is unmade, and a growing pile of laundry looms in the corner.}
+    You are in {BEDROOM}. {seenVeryRecently(-> bedroom): The walls are covered with posters for your favorite video games and movies. Your laptop sits on your desk next to a box of tissues and a bottle of lotion. Your bed is unmade, and a growing pile of laundry looms in the corner.}
 }
 
-<- listHousePeople(BedroomPeople)
+<- list_house_people(BedroomPeople)
 
 - (bedroom_opts)
-<- talkAndObserveAllCharacters(BedroomPeople, -> bedroom_opts)
+<- character_opts(BedroomPeople, -> bedroom_opts)
 
 // Inventory Actions
 * (cum_in_cheerleader_panties){ Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
@@ -30,7 +30,7 @@ VAR BedroomPeople = ()
 // Computer Actions
 + (laptop_opts)[Use your laptop]
 + + [Check your score]
-    -> check_score -> laptop_opts
+    -> print_score -> laptop_opts
 + + [Ask for a hint]
     <- hint_system(-> laptop_opts)
     -> DONE
@@ -89,7 +89,7 @@ You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s 
 }
 
 - (bathroom_opts)
-<- talkAndObserveAllCharacters(BathroomPeople, -> bathroom_opts)
+<- character_opts(BathroomPeople, -> bathroom_opts)
 
 + [Leave {BATHROOM}] -> pass_time -> bedroom
 - -> bathroom_opts
@@ -108,10 +108,10 @@ VAR SisBedroomItems = (SisPanties)
 
 You are in {SIS_BEDROOM}. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
 
-<- listHousePeople(SisBedroomPeople)
+<- list_house_people(SisBedroomPeople)
 
 - (sis_bedroom_opts)
-<- talkAndObserveAllCharacters(SisBedroomPeople, -> sis_bedroom_opts)
+<- character_opts(SisBedroomPeople, -> sis_bedroom_opts)
 
 + { SisBedroomItems ? SisPanties and not cum_in_sis_panties } [Take her panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
@@ -127,9 +127,9 @@ You are in {SIS_BEDROOM}. The walls are painted pink and covered in posters for 
     List combinations of people in the house.
 
 */
-= listHousePeople(roomPeople)
+= list_house_people(roomPeople)
 { LIST_COUNT(roomPeople) > 0:
-<> {capitalise_start(listRoomPeople(roomPeople))} {LIST_COUNT(roomPeople) > 1:are|is} here.
+<> {capitaliseStart(listRoomPeople(roomPeople))} {LIST_COUNT(roomPeople) > 1:are|is} here.
 }
 -> DONE
 

@@ -11,7 +11,7 @@ VAR ClinicPeople = ()
 You are in the {CLINIC}. The walls are covered with posters showing basic first aid techniques. There are a few seats in front of {NURSE}'s desk, and a floor-to-ceiling curtain is hung to provide a private exam area from the rest of the room.
 
 - (clinic_opts)
-<- talkAndObserveAllCharacters(ClinicPeople, -> clinic_opts)
+<- character_opts(ClinicPeople, -> clinic_opts)
 
 + [Go to the {EXAM_AREA}] -> exam_area
 + [Leave the {CLINIC}] -> pass_time -> hallway

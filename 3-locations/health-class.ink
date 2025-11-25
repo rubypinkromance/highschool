@@ -12,10 +12,10 @@ VAR HealthClassPeople = ()
 
 You are in the {HEALTH_CLASS}. The walls are covered in posters showing human anatomy. A life-size plastic skeleton hangs from a rolling stand near {HEALTH_TEACHER}'s desk.
 
-{listRoomPeopleSentence(HealthClassPeople)}
+{lookForRoomPeople(HealthClassPeople)}
 
 - (health_class_opts)
-<- talkAndObserveAllCharacters(HealthClassPeople, -> health_class_opts)
+<- character_opts(HealthClassPeople, -> health_class_opts)
 
 + [Leave the {HEALTH_CLASS}] -> pass_time -> hallway
 - -> health_class_opts

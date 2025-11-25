@@ -33,10 +33,10 @@ Approach {SECRETARY}.
         {
         - date <= 7:
             ~ temp date_reply = "Since it's the first week of school, you can change your schedule without permission. "
-            -> office.change_schedule(date_reply) ->
+            -> office.change_schedule_dialog(date_reply) ->
         - permission_to_change_schedule:
             ~ temp permission_reply = "I see you have permission from a teacher. "
-            -> office.change_schedule(permission_reply) ->
+            -> office.change_schedule_dialog(permission_reply) ->
             ~ permission_to_change_schedule = false
         - else:
             "I'm sorry, students are only allowed to change their schedule for the first week. You'll need permission from a teacher to do so now."

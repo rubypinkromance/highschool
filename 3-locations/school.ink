@@ -94,24 +94,24 @@ You are at {LOCKER}. You have a couple photos of friends taped up, a clipped com
     -> locker_opts
 + {LockerItems ? Schedule} [Check the schedule]
     Whose schedule do you want to check?
-    + + [{nameAndTitle(Actor)}] { reportSchedule(Actor) }
-    + + [{nameAndTitle(Athlete)}] { reportSchedule(Athlete) }
-    + + [{nameAndTitle(Believer)}] { reportSchedule(Believer) }
-    + + [{nameAndTitle(Cheerleader)}] { reportSchedule(Cheerleader) }
-    + + [{nameAndTitle(Friend)}] { reportSchedule(Friend) }
-    + + [{nameAndTitle(Nerd)}] { reportSchedule(Nerd) }
-    + + [{nameAndTitle(Nympho)}] { reportSchedule(Nympho) }
-    + + [{nameAndTitle(Photographer)}] { reportSchedule(Photographer) }
-    + + [{nameAndTitle(Queen)}] { reportSchedule(Queen) }
-    + + [{nameAndTitle(Rebel)}] { reportSchedule(Rebel) }
-    + + [{nameAndTitle(Scientist)}] { reportSchedule(Scientist) }
-    + + [{nameAndTitle(Twins)}] { reportSchedule(Twins) }
+    + + [{getNameAndTitle(Actor)}] { printSchedule(Actor) }
+    + + [{getNameAndTitle(Athlete)}] { printSchedule(Athlete) }
+    + + [{getNameAndTitle(Believer)}] { printSchedule(Believer) }
+    + + [{getNameAndTitle(Cheerleader)}] { printSchedule(Cheerleader) }
+    + + [{getNameAndTitle(Friend)}] { printSchedule(Friend) }
+    + + [{getNameAndTitle(Nerd)}] { printSchedule(Nerd) }
+    + + [{getNameAndTitle(Nympho)}] { printSchedule(Nympho) }
+    + + [{getNameAndTitle(Photographer)}] { printSchedule(Photographer) }
+    + + [{getNameAndTitle(Queen)}] { printSchedule(Queen) }
+    + + [{getNameAndTitle(Rebel)}] { printSchedule(Rebel) }
+    + + [{getNameAndTitle(Scientist)}] { printSchedule(Scientist) }
+    + + [{getNameAndTitle(Twins)}] { printSchedule(Twins) }
     - - -> locker_opts
 + [Ask for a hint]
     <- hint_system(-> locker_opts)
     -> DONE
 + [Check your score]
-    -> check_score -> locker_opts
+    -> print_score -> locker_opts
 + [Leave {LOCKER}] -> hallway
 
 /*

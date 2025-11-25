@@ -18,10 +18,10 @@ You are in the {CAFETERIA}.
     <> The tables are empty, and the room is quiet.
 }
 
-{listRoomPeopleSentence(CafeteriaPeople)}
+{lookForRoomPeople(CafeteriaPeople)}
 
 - (cafeteria_opts)
-<- talkAndObserveAllCharacters(CafeteriaPeople, -> cafeteria_opts)
+<- character_opts(CafeteriaPeople, -> cafeteria_opts)
 
 + [Leave the {CAFETERIA}] -> pass_time -> hallway
 - -> cafeteria_opts

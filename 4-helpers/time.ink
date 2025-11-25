@@ -189,7 +189,7 @@ VAR countdown = false
     { days_remaining < 1:
         GAME OVER
         Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
-        You { listPrint(Score, -> scoreDetails) }
+        You { listPrint(Score, -> scoreData) }
         -> END
     }
     <em><small>Day { date } of { days_total }.

@@ -11,7 +11,7 @@ VAR ChurchPeople = ()
 You are in the {CHURCH}.
 
 - (church_opts)
-<- talkAndObserveAllCharacters(ChurchPeople, -> church_opts)
+<- character_opts(ChurchPeople, -> church_opts)
 
 + [Go home] -> pass_time -> bedroom
 - -> church_opts

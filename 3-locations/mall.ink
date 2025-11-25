@@ -22,23 +22,24 @@ You are at the {MALL}. You look around for anyone you recognize,
 - else:
     <> and spot a few people.
 }
+TODO dry up these repeated nested function calls
 { LIST_COUNT(FoodCourtPeople) > 0:
-    <> {capitalise_start(listRoomPeople(FoodCourtPeople))} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in {FOOD_COURT}.
+    <> {capitaliseStart(listRoomPeople(FoodCourtPeople))} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in {FOOD_COURT}.
 }
 { LIST_COUNT(DressStorePeople) > 0:
-    <> {capitalise_start(listRoomPeople(DressStorePeople))} {LIST_COUNT(DressStorePeople) > 1:are|is} walking into {DRESS_STORE}.
+    <> {capitaliseStart(listRoomPeople(DressStorePeople))} {LIST_COUNT(DressStorePeople) > 1:are|is} walking into {DRESS_STORE}.
 }
 { LIST_COUNT(ShoeStorePeople) > 0:
-    <> {capitalise_start(listRoomPeople(ShoeStorePeople))} {LIST_COUNT(ShoeStorePeople) > 1:are|is} shopping in {SHOE_STORE}.
+    <> {capitaliseStart(listRoomPeople(ShoeStorePeople))} {LIST_COUNT(ShoeStorePeople) > 1:are|is} shopping in {SHOE_STORE}.
 }
 { LIST_COUNT(BraStorePeople) > 0:
-    <> {capitalise_start(listRoomPeople(BraStorePeople))} {LIST_COUNT(BraStorePeople) > 1:are|is} entering {BRA_STORE}.
+    <> {capitaliseStart(listRoomPeople(BraStorePeople))} {LIST_COUNT(BraStorePeople) > 1:are|is} entering {BRA_STORE}.
 }
 { LIST_COUNT(BookStorePeople) > 0:
-    <> {capitalise_start(listRoomPeople(BookStorePeople))} {LIST_COUNT(BookStorePeople) > 1:are|is} browsing at {BOOK_STORE}.
+    <> {capitaliseStart(listRoomPeople(BookStorePeople))} {LIST_COUNT(BookStorePeople) > 1:are|is} browsing at {BOOK_STORE}.
 }
 { LIST_COUNT(MovieTheaterPeople) > 0:
-    <> {capitalise_start(listRoomPeople(MovieTheaterPeople))} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} buying popcorn at {MOVIE_THEATER}.
+    <> {capitaliseStart(listRoomPeople(MovieTheaterPeople))} {LIST_COUNT(MovieTheaterPeople) > 1:are|is} buying popcorn at {MOVIE_THEATER}.
 }
 
 - (mall_opts)
@@ -71,10 +72,10 @@ VAR FoodCourtPeople = ()
 
 You are in {FOOD_COURT}. There's a vaguely Italian-looking restaurant selling pizza and pasta, a fried chicken chain promoting a new sandwich, a teriyaki joint, and a pretzel stand.
 
-{listRoomPeopleSentence(FoodCourtPeople)}
+{lookForRoomPeople(FoodCourtPeople)}
 
 - (food_court_opts)
-<- talkAndObserveAllCharacters(FoodCourtPeople, -> food_court_opts)
+<- character_opts(FoodCourtPeople, -> food_court_opts)
 
 + [Leave {FOOD_COURT}] -> pass_time -> mall
 - -> food_court_opts
@@ -91,10 +92,10 @@ VAR ShoeStorePeople = ()
 
 You are in {SHOE_STORE}. One wall contains displays promoting the latest sneakers, branded with the face of an athlete you don't recognize. On the opposite wall are assorted women's boots, high heels, and sandals.
 
-{listRoomPeopleSentence(ShoeStorePeople)}
+{lookForRoomPeople(ShoeStorePeople)}
 
 - (shoe_store_opts)
-<- talkAndObserveAllCharacters(ShoeStorePeople, -> shoe_store_opts)
+<- character_opts(ShoeStorePeople, -> shoe_store_opts)
 
 + [Leave {SHOE_STORE}] -> pass_time -> mall
 - -> shoe_store_opts
@@ -119,10 +120,10 @@ You are in {BRA_STORE}, surrounded by satin and lace and strappy things that put
     <> You move confidently through the store, unconcerned with what anyone thinks of your presence.
 }
 
-{listRoomPeopleSentence(BraStorePeople)}
+{lookForRoomPeople(BraStorePeople)}
 
 - (bra_store_opts)
-<- talkAndObserveAllCharacters(BraStorePeople, -> bra_store_opts)
+<- character_opts(BraStorePeople, -> bra_store_opts)
 
 + [Leave {BRA_STORE}] -> pass_time -> mall
 - -> bra_store_opts
@@ -139,10 +140,10 @@ VAR DressStorePeople = ()
 
 You are in {DRESS_STORE}. Groups of girls move between racks, holding dresses up for their friends to approve. A few bored-looking men follow behind their girlfriends, holding shopping bags.
 
-{listRoomPeopleSentence(DressStorePeople)}
+{lookForRoomPeople(DressStorePeople)}
 
 - (dress_store_opts)
-<- talkAndObserveAllCharacters(DressStorePeople, -> dress_store_opts)
+<- character_opts(DressStorePeople, -> dress_store_opts)
 
 + [Leave {DRESS_STORE}] -> pass_time -> mall
 - -> dress_store_opts
@@ -162,10 +163,10 @@ You are in {BOOK_STORE}. Large displays promote the newest book in a long-runnin
     <> {SCIENTIST} is behind the register, reading a chemistry textbook while she waits for the next customer.
 }
 
-{listRoomPeopleSentence(BookStorePeople)}
+{lookForRoomPeople(BookStorePeople)}
 
 - (book_store_opts)
-<- talkAndObserveAllCharacters(BookStorePeople, -> book_store_opts)
+<- character_opts(BookStorePeople, -> book_store_opts)
 
 + [Leave {BOOK_STORE}] -> pass_time -> mall
 - -> book_store_opts
@@ -182,10 +183,10 @@ VAR MovieTheaterPeople = ()
 
 You are in {MOVIE_THEATER}. The previews are playing and everyone is getting into their seats.
 
-{listRoomPeopleSentence(MovieTheaterPeople)}
+{lookForRoomPeople(MovieTheaterPeople)}
 
 - (movie_theater_opts)
-<- talkAndObserveAllCharacters(MovieTheaterPeople, -> movie_theater_opts)
+<- character_opts(MovieTheaterPeople, -> movie_theater_opts)
 
 + [Leave {MOVIE_THEATER}] -> pass_time -> mall
 - -> movie_theater_opts

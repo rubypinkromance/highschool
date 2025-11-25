@@ -34,6 +34,8 @@ TODO: what triggers jock fight 2? You trying to steal my girl bro? Think you got
 === talk_to_cheerleader ===
 ~ last_girl = Cheerleader
 
+TODO adjust based on mood
+// We adjust her reactions based on her mood and state (but not your confidence)
 You approach {CHEERLEADER}
 {
 - CheerleaderState < CheerleaderObserved and observe_cheerleader < 2:
@@ -56,6 +58,8 @@ You approach {CHEERLEADER}
     <>. // this shouldn't happen, but just to be safe.
 }
 
+TODO adjust based on confidence
+// We adjust your options based on your confidence and her state (but not her mood)
 - (cheerleader_opts)
 * {CheerleaderMood > Friendly}"What's your bra size?"
     "34DD."
@@ -70,7 +74,7 @@ You approach {CHEERLEADER}
     -> cheerleader_titjob ->
 * {CheerleaderState == CheerleaderTitjob and here != UnderBleachers}
     ["How'd {JOCK} react?"]
-    -> cheerleader_request ->
+    -> cheerleader_quest ->
 * {Inventory ? CheerleaderStuff}
     ["I got your things."]
     -> deliver_cheerleader_stuff ->
@@ -80,7 +84,7 @@ You approach {CHEERLEADER}
     -> cheerleader_sex ->
 + {CheerleaderState == CheerleaderSex and newToday(-> cheerleader_sex)}
     ["What are you doing{isWeekday() and now != AfterSchool: later| right now}?"]
-    -> ask_cheerleader_for_repeat ->
+    -> cheerleader_repeat ->
 + [Check her out]
     -> look_at_cheerleader ->
 + [Walk away]
@@ -236,7 +240,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
     After the titjob, she tells you they broke up, and asks you to get her things from his locker.
 
 */
-=== cheerleader_request ===
+=== cheerleader_quest ===
 ~ CheerleaderState = CheerleaderQuest
 "How'd {JOCK} react to the pictures we took?"
 "Oh he was a total bitch about it. Said some awful shit. I dumped his ass. Say, do you think you could do me a favor? Some of my stuff is in his locker, and I don't want to deal with him. Could you get it for me?"
@@ -323,7 +327,7 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
 
 */
-=== ask_cheerleader_for_repeat ===
+=== cheerleader_repeat ===
 ~ CheerleaderState = CheerleaderReward
 "What are you doing{isWeekday() and now != AfterSchool: later| right now}?"
 "You, hopefully.

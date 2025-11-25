@@ -1,9 +1,9 @@
 LIST Score = cheerleaderTitjob, cheerleaderSex, sisCreampie, cheerleaderPanties
 
 /*
-    Score Details
+    Score Information Database
 */
-=== function scoreDetails (scoreItem)
+=== function scoreData (scoreItem)
 { scoreItem:
 - cheerleaderTitjob: came on {CHEERLEADER}'s tits
 - cheerleaderSex: fucked {CHEERLEADER}
@@ -14,10 +14,10 @@ LIST Score = cheerleaderTitjob, cheerleaderSex, sisCreampie, cheerleaderPanties
 /*
     Check Score
 */
-=== check_score ===
+=== print_score ===
 Score: {LIST_COUNT(Score)}/{LIST_COUNT(LIST_ALL(Score))}
 { LIST_COUNT(Score) > 0:
-    You { listPrint(Score, -> scoreDetails)}.
+    You { listPrint(Score, -> scoreData)}.
 - else:
     You haven't done anything yet.
 }

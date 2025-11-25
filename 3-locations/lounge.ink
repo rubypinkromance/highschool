@@ -13,10 +13,10 @@ You are in the {LOUNGE}. A number of couches line the wall. A small kitchenette 
     <> The entire staff of the school seems to be here, having a meeting. A few look up as you walk in, but most ignore you. {STUDY_HALL_TEACHER} gestures for you to leave.
 }
 
-{listRoomPeopleSentence(LoungePeople)}
+{lookForRoomPeople(LoungePeople)}
 
 - (lounge_opts)
-<- talkAndObserveAllCharacters(LoungePeople, -> lounge_opts)
+<- character_opts(LoungePeople, -> lounge_opts)
 
 + [Leave the {LOUNGE}] -> pass_time -> hallway
 - -> lounge_opts

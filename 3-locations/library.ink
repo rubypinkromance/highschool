@@ -11,10 +11,10 @@ VAR LibraryPeople = ()
 
 You are in the {LIBRARY}. Long shelves hold seemingly endless rows of neatly organized books. Near the front a few tables hold computers whose internet filters are so restrictive as to be essentially offline.
 
-{listRoomPeopleSentence(LibraryPeople)}
+{lookForRoomPeople(LibraryPeople)}
 
 - (library_opts)
-<- talkAndObserveAllCharacters(LibraryPeople, -> library_opts)
+<- character_opts(LibraryPeople, -> library_opts)
 
 + [Leave the {LIBRARY}] -> pass_time -> hallway
 - -> library_opts

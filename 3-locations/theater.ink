@@ -16,10 +16,10 @@ You are in the {THEATER}. The seats in the auditorium are empty. Massive curtain
     <> {THEATER_TEACHER} is organizing the students on stage to rehearse a script.
 }
 
-{listRoomPeopleSentence(TheaterPeople)}
+{lookForRoomPeople(TheaterPeople)}
 
 - (theater_opts)
-<- talkAndObserveAllCharacters(TheaterPeople, -> theater_opts)
+<- character_opts(TheaterPeople, -> theater_opts)
 
 + [Go {BACKSTAGE}] -> backstage
 + [Leave the {THEATER}] -> pass_time -> hallway

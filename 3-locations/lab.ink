@@ -12,10 +12,10 @@ VAR LabPeople = ()
 
 You are in the {LAB}. Rather than the standard tables, there are rows of workbenches, each with a sink and spigot to connect a bunson burner. A large poster of the periodic table hangs on one wall, and a diagram of the solar system covers the opposite wall.
 
-{listRoomPeopleSentence(LabPeople)}
+{lookForRoomPeople(LabPeople)}
 
 - (lab_opts)
-<- talkAndObserveAllCharacters(LabPeople, -> lab_opts)
+<- character_opts(LabPeople, -> lab_opts)
 
 + [Leave the {LAB}] -> pass_time -> hallway
 - -> lab_opts

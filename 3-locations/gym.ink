@@ -19,10 +19,10 @@ You are in the {GYM}. Oversized banners hang from the rafters, celebrating past 
     <> The room is quiet now, and the sound of your footsteps echoes off the walls.
 }
 
-{listRoomPeopleSentence(GymPeople)}
+{lookForRoomPeople(GymPeople)}
 
 - (gym_opts)
-<- talkAndObserveAllCharacters(GymPeople, -> gym_opts)
+<- character_opts(GymPeople, -> gym_opts)
 
 + [Go to the {LOCKER_ROOM}] -> locker_room
 + [Leave the {GYM}] -> pass_time -> hallway

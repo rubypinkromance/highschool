@@ -18,12 +18,12 @@ VAR last_girl = Cheerleader
     ~ characters -= (Twin1, Twin2)
     ~ characters += (Twins) // if both twins are here, list them together
 }
-~ return listReturn(characters, -> nameAndTitle, "")
+~ return listReturn(characters, -> getNameAndTitle, "")
 
 /*
-    Return a comma-separated list of people as a full sentence.
+    Print a comma-separated list of people as a full sentence.
 */
-=== function listRoomPeopleSentence(characters)
+=== function lookForRoomPeople(characters)
 { LIST_COUNT(characters) > 0:
     Looking around, you see {listRoomPeople(characters)}.
 }
@@ -32,7 +32,7 @@ VAR last_girl = Cheerleader
     Combine a character's name with their title.
     e.g., "Nandor the Relentless".
 */
-=== function nameAndTitle(who)
+=== function getNameAndTitle(who)
 ~ temp name = characterData(who, Name)
 ~ temp title = characterData(who, Title)
 { (Friend, Stepsister) ? who:
@@ -44,7 +44,7 @@ VAR last_girl = Cheerleader
     Generate a list of options to talk or observe anyone in the room.
     This list will be nested if there's more than two people.
 */
-=== talkAndObserveAllCharacters(characters, -> return_to)
+=== character_opts(characters, -> return_to) ===
 ~ temp charactersCopy = characters
 ~ temp unobserved = ()
 - (top)
@@ -60,22 +60,22 @@ VAR last_girl = Cheerleader
 { LIST_COUNT(characters) > 2:
     + [Talk to someone]
         Who do you want to talk to?
-        <- talkToAllCharacters(characters, return_to)
+        <- talk_all_characters(characters, return_to)
         -> DONE
 - else:
-    <- talkToAllCharacters(characters, return_to)
+    <- talk_all_characters(characters, return_to)
 }
 { LIST_COUNT(unobserved) > 0:
     + [Observation mode]
         Who do you want to observe?
-        <- observeAllCharacters(characters, return_to)
+        <- observe_all_characters(characters, return_to)
         -> DONE
 }
 
 /*
     Generate a list of options to talk to anyone in the room.
 */
-=== talkToAllCharacters(characters, -> return_to)
+=== talk_all_characters(characters, -> return_to) ===
 { characters ? (Twin1, Twin2):
     ~ characters -= (Twin1, Twin2)
     ~ characters += (Twins) // if both twins are here, list them together
@@ -83,14 +83,14 @@ VAR last_girl = Cheerleader
 - (top)
 ~ temp who = pop(characters)
 { who:
-    <- talkToCharacter(who, return_to)
+    <- talk_character(who, return_to)
     -> top
 }
 
 /*
     Generate a list of options to observe anyone in the room.
 */
-=== observeAllCharacters(characters, -> return_to)
+=== observe_all_characters(characters, -> return_to) ===
 { characters ? (Twin1, Twin2):
     ~ characters -= (Twin1, Twin2)
     ~ characters += (Twins) // if both twins are here, list them together
@@ -98,14 +98,14 @@ VAR last_girl = Cheerleader
 - (top)
 ~ temp who = pop(characters)
 { who:
-    <- observeCharacter(who, return_to)
+    <- observe_character(who, return_to)
     -> top
 }
 
 /*
     Generate a list of options to receive hints about any character in play.
 */
-=== hintAllCharacters(characters, -> return_to)
+=== hint_all_characters(characters, -> return_to) ===
 { characters ? (Twin1, Twin2):
     ~ characters -= (Twin1, Twin2)
     ~ characters += (Twins) // if both twins are here, list them together
@@ -113,14 +113,14 @@ VAR last_girl = Cheerleader
 - (top)
 ~ temp who = pop(characters)
 { who:
-    <- hintCharacter(who, return_to)
+    <- hint_character(who, return_to)
     -> top
 }
 
 /*
     Generate an option to talk to a person.
 */
-=== talkToCharacter(who, -> return_to)
+=== talk_character(who, -> return_to) ===
 ~ temp name = characterData(who, Name)
 ~ temp target = characterData(who, TalkFunction)
 ~ temp in_play = characterData(who, PlayState)
@@ -130,7 +130,7 @@ VAR last_girl = Cheerleader
 /*
     Generate an option to observe a person if they're not already observed.
 */
-=== observeCharacter(who, -> return_to)
+=== observe_character(who, -> return_to) ===
 ~ temp name = characterData(who, Name)
 ~ temp state = characterData(who, State)
 ~ temp observed = characterData(who, ObservedState)
@@ -141,11 +141,11 @@ VAR last_girl = Cheerleader
 /*
     Generate an option to receive a hint about a person if they're in play.
 */
-=== hintCharacter(who, -> return_to)
+=== hint_character(who, -> return_to) ===
 ~ temp state = characterData(who, State)
 ~ temp in_play = characterData(who, PlayState)
 ~ temp target = characterData(who, HintFunction)
-+ {in_play} [{nameAndTitle(who)}] -> target ->
++ {in_play} [{getNameAndTitle(who)}] -> target ->
 -> return_to
 
 /*
@@ -167,7 +167,7 @@ VAR last_girl = Cheerleader
 /*
     Return a given student's class schedule.
 */
-=== function reportSchedule(who)
+=== function printSchedule(who)
 { who:
 - Actor: {ACTOR}: 1. Health, 2. Study Hall, 3. Science, 4. Theater
 - Athlete: {ATHLETE}: 1. Gym, 2. Science, 3. Study Hall, 4. Health

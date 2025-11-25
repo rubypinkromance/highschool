@@ -27,12 +27,12 @@ LIST letters = /*
     e.g. capitalise_start("hello") == "Hello"
     e.g. capitalise_start("HELLO") == "HELLO"
 */
-=== function capitalise_start(word) ===
+=== function capitaliseStart(word) ===
     {word == "":
         ~ return ""
     }
-    ~ temp start = first_letter_after(word, "", LIST_ALL(letters))
-    ~ return "{capitalise_letter(start)}" + rest_of_letters(word, get_string(start))
+    ~ temp start = firstLetterAfter(word, "", LIST_ALL(letters))
+    ~ return "{capitaliseLetter(start)}" + restOfLetters(word, getString(start))
 
 /*
     Capitalises a word made of supported symbols.
@@ -40,13 +40,13 @@ LIST letters = /*
     e.g. capitalise_whole("hello") == "HELLO"
     e.g. capitalise_whole("HELLO") == "HELLO"
 */
-=== function capitalise_whole(word) ===
+=== function capitaliseWhole(word) ===
     {word == "":
         ~ return ""
     }
-    ~ temp start = first_letter_after(word, "", LIST_ALL(letters))
-    ~ temp rest = rest_of_letters(word, get_string(start))
-    ~ return "{capitalise_letter(start)}" + capitalise_whole(rest)
+    ~ temp start = firstLetterAfter(word, "", LIST_ALL(letters))
+    ~ temp rest = restOfLetters(word, getString(start))
+    ~ return "{capitaliseLetter(start)}" + capitaliseWhole(rest)
 
 
 // OTHER FUNCTIONS BELOW
@@ -57,7 +57,7 @@ LIST letters = /*
     e.g. get_string(A) == "A"
     e.g. get_string(FullStop) == "."
 */
-=== function get_string(letter)
+=== function getString(letter)
     {letter:
         - Space:
             ~ return " "
@@ -75,15 +75,15 @@ LIST letters = /*
     Gets the rest of the symbols after a certain start (supported symbols only).
     e.g. rest_of_letters("hello", "he") == "llo"
 */
-=== function rest_of_letters(word, start) ===
+=== function restOfLetters(word, start) ===
     {word == start:
         ~ return ""
     }
-    ~ temp next_letter = get_string(first_letter_after(word, start, LIST_ALL(letters)))
+    ~ temp next_letter = getString(firstLetterAfter(word, start, LIST_ALL(letters)))
     {next_letter == "":
             ~ return ""
         - else:
-            ~ return next_letter + rest_of_letters(word, start + next_letter)
+            ~ return next_letter + restOfLetters(word, start + next_letter)
     }
 
 /*
@@ -91,7 +91,7 @@ LIST letters = /*
     e.g. capitalise_letter(a) == A
     e.g. capitalise_letter(A) == A
 */
-=== function capitalise_letter(letter) ===
+=== function capitaliseLetter(letter) ===
     {letters ? letter:
             ~ return letter + LIST_COUNT(letters)
         - else:
@@ -103,13 +103,13 @@ LIST letters = /*
     `options` parameter is an internal detail and should be passed `LIST_ALL(letters)`
     e.g. first_letter_after("hello", "he", LIST_ALL(letters)) == "l"
 */
-=== function first_letter_after(word, start, options) ===
+=== function firstLetterAfter(word, start, options) ===
     {options:
             ~ temp test_letter = pop(options)
-            {starts_with(word, "{start}{get_string(test_letter)}"):
+            {startsWith(word, "{start}{getString(test_letter)}"):
                 ~ return test_letter
             }
-            ~ return first_letter_after(word, start, options)
+            ~ return firstLetterAfter(word, start, options)
         - else:
             ~ return ()
     }
@@ -118,5 +118,5 @@ LIST letters = /*
     Checks if a certain string starts with another string.
     The `START` constant should be set to a value that does not appear within strings.
 */
-=== function starts_with(word, start) ===
+=== function startsWith(word, start) ===
     ~ return START + word ? START + start

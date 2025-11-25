@@ -17,12 +17,12 @@ You are at the {OFFICE}. A reception desk faces the door, and a few chairs line 
 }
 
 - (office_opts)
-<- talkAndObserveAllCharacters(OfficePeople, -> office_opts)
+<- character_opts(OfficePeople, -> office_opts)
 
 + {OfficePeople !? Secretary} [Use the computer]
     Taking advantage of the unsupervised office computer, you access the confidential school records.
     + + [Change your schedule]
-        -> change_schedule("") ->
+        -> change_schedule_dialog("") ->
     * * {OfficeItems ? Schedule}[Print all girl’s schedules]
         ~ OfficeItems -= Schedule
         ~ Inventory += Schedule
@@ -53,9 +53,9 @@ You are in the {SUPPLY_CLOSET}. Post-it notes galore.
     Change Schedule
 
 */
-= change_schedule(preface)
+= change_schedule_dialog(preface)
 "{preface}What period do you want to change?"
-<em><small>Your current schedule: {reportSchedule(You)}</small></em>
+<em><small>Your current schedule: {printSchedule(You)}</small></em>
 ~ temp period = Period1
 ~ temp class = Gym
 + [Period 1]
@@ -83,6 +83,6 @@ You are in the {SUPPLY_CLOSET}. Post-it notes galore.
 -
 ~ changeSchedule(class, period)
 "Okay, here's your new schedule."
-{reportSchedule(You)}
+{printSchedule(You)}
 ~ permission_to_change_schedule = false
 ->->

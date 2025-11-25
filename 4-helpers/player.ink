@@ -25,8 +25,8 @@ VAR has_detention = false
 */
 === hint_system(-> return_to) ===
 What do you want a hint about?
-<- hintAllCharacters(Students, return_to)
-<- hintAllCharacters(Staff, return_to)
+<- hint_all_characters(Students, return_to)
+<- hint_all_characters(Staff, return_to)
 * [Locating a girl]
     If you access the office computer while no one is there, you can print out a class schedule for all the girls.
     -> return_to
