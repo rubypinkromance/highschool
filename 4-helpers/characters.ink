@@ -52,7 +52,6 @@ VAR last_girl = Cheerleader
 { who:
     ~ temp state = characterData(who, State)
     ~ temp observed = characterData(who, ObservedState)
-    TODO confirm Jock and Cheerleader still disappear
     { state < observed:
         ~ unobserved += who
     }
@@ -280,7 +279,7 @@ VAR last_girl = Cheerleader
         ~ SisBedroomPeople += (SisFriend)
         ~ BraStorePeople += (Cheerleader)
         { CheerleaderState < CheerleaderTitjob:
-            ~ FoodCourtPeople += (Jock)
+            ~ BraStorePeople += (Jock)
         }
     }
 - Period2:
@@ -321,7 +320,7 @@ VAR last_girl = Cheerleader
         ~ BraStorePeople += (Cheerleader)
         ~ ShoeStorePeople += (Actor)
         { CheerleaderState < CheerleaderTitjob:
-            ~ FoodCourtPeople += (Jock)
+            ~ BraStorePeople += (Jock)
         }
     }
 - Period3:
@@ -342,7 +341,7 @@ VAR last_girl = Cheerleader
         ~ ShoeStorePeople += (Cheerleader)
         ~ BookStorePeople += (Actor)
         { CheerleaderState < CheerleaderTitjob:
-            ~ FoodCourtPeople += (Jock)
+            ~ ShoeStorePeople += (Jock)
         }
     }
 - Period4:
@@ -365,7 +364,7 @@ VAR last_girl = Cheerleader
     - today == Sunday:
         ~ DressStorePeople += (Cheerleader)
         { CheerleaderState < CheerleaderTitjob:
-            ~ FoodCourtPeople += (Jock)
+            ~ DressStorePeople += (Jock)
         }
     }
 - AfterSchool:
@@ -388,7 +387,7 @@ VAR last_girl = Cheerleader
     - today == Sunday:
         ~ ShoeStorePeople += (Cheerleader)
         { CheerleaderState < CheerleaderTitjob:
-            ~ FoodCourtPeople += (Jock)
+            ~ ShoeStorePeople += (Jock)
         }
     }
 - Night:

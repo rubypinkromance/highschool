@@ -29,4 +29,7 @@ VAR ExamAreaPeople = ()
 
 You are in the {EXAM_AREA}. There is a small bed here.
 
+TODO: write black eye encounter
+TODO: write ow my balls encounter
+
 + [Leave the {EXAM_AREA}] -> clinic

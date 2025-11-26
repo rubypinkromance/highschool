@@ -22,7 +22,6 @@ You are at the {MALL}. You look around for anyone you recognize,
 - else:
     <> and spot a few people.
 }
-TODO dry up these repeated nested function calls
 { LIST_COUNT(FoodCourtPeople) > 0:
     <> {capitaliseStart(listRoomPeople(FoodCourtPeople))} {LIST_COUNT(FoodCourtPeople) > 1:are|is} sitting in {FOOD_COURT}.
 }
@@ -125,6 +124,7 @@ You are in {BRA_STORE}, surrounded by satin and lace and strappy things that put
 - (bra_store_opts)
 <- character_opts(BraStorePeople, -> bra_store_opts)
 
++ [Go to the {DRESSING_ROOM}] -> dressing_room ->
 + [Leave {BRA_STORE}] -> pass_time -> mall
 - -> bra_store_opts
 
@@ -145,6 +145,7 @@ You are in {DRESS_STORE}. Groups of girls move between racks, holding dresses up
 - (dress_store_opts)
 <- character_opts(DressStorePeople, -> dress_store_opts)
 
++ [Go to the {DRESSING_ROOM}] -> dressing_room ->
 + [Leave {DRESS_STORE}] -> pass_time -> mall
 - -> dress_store_opts
 
@@ -190,3 +191,29 @@ You are in {MOVIE_THEATER}. The previews are playing and everyone is getting int
 
 + [Leave {MOVIE_THEATER}] -> pass_time -> mall
 - -> movie_theater_opts
+
+/*
+
+    Dressing Room
+
+*/
+= dressing_room
+CONST DRESSING_ROOM = "dressing room"
+VAR DressingRoomPeople = ()
+~ here = DressingRoom
+
+You are in the {DRESSING_ROOM}. The hangers are full of items tried on and rejected by previous customers. You can hear the murmur of customers in the adjoining dressing rooms.
+
+{ UnderBleachersPeople ? Cheerleader:
+    {CHEERLEADER} is here, {CheerleaderCum: cleaning up your cum|scrolling on her phone}.
+}
+
+- (dressing_room_opts)
+<- character_opts(DressingRoomPeople, -> dressing_room_opts)
+
++ [Leave the {DRESSING_ROOM}]
+    { DressingRoomPeople ? Cheerleader:
+        -> cheerleader_cleanup -> pass_time -> mall
+    }
+    -> pass_time -> mall
+- -> dressing_room_opts

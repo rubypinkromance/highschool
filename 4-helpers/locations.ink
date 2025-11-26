@@ -1,4 +1,4 @@
-LIST Locations = Nowhere, Cafeteria, StorageCloset, Church, Clinic, ExamArea, Field, Bleachers, UnderBleachers, Gym, LockerRoom, HealthClass, Lab, Library, Lounge, Office, SupplyCloset, PhotoClass, Darkroom, Hallway, Locker, Stairwell, Roof, StudyHall, Theater, Backstage, Mall, BraStore, BookStore, DressStore, FoodCourt, MovieTheater, ShoeStore, Bedroom, Bathroom, SisBedroom
+LIST Locations = Nowhere, Cafeteria, StorageCloset, Church, Clinic, ExamArea, Field, Bleachers, UnderBleachers, Gym, LockerRoom, HealthClass, Lab, Library, Lounge, Office, SupplyCloset, PhotoClass, Darkroom, Hallway, Locker, Stairwell, Roof, StudyHall, Theater, Backstage, Mall, BraStore, BookStore, DressStore, FoodCourt, MovieTheater, ShoeStore, DressingRoom, Bedroom, Bathroom, SisBedroom
 LIST LocationAttributes = LocationName, LocationClassName, LocationPeople
 VAR Classrooms = (Gym, HealthClass, Lab, PhotoClass, StudyHall, Theater)
 VAR HomeLocations = (Bedroom, Bathroom, SisBedroom)
@@ -167,6 +167,11 @@ VAR here = Nowhere
         - LocationName: ~ return SHOE_STORE
         - LocationPeople: ~ return ShoeStorePeople
     }
+- DressingRoom:
+    { what:
+        - LocationName: ~ return DRESSING_ROOM
+        - LocationPeople: ~ return DressingRoomPeople
+    }
 - Bedroom:
     { what:
         - LocationName: ~ return BEDROOM
@@ -241,7 +246,51 @@ VAR here = Nowhere
 ~ FoodCourtPeople = ()
 ~ MovieTheaterPeople = ()
 ~ ShoeStorePeople = ()
+~ DressingRoomPeople = ()
 // House locations
 ~ BedroomPeople = ()
 ~ BathroomPeople = ()
 ~ SisBedroomPeople = ()
+
+/*
+    Remove a single person rom every room.
+    Run it before moving someone to a non-scheduled location.
+*/
+=== function removePerson(who)
+~ CafeteriaPeople -= who
+    ~ StorageClosetPeople -= who
+~ ChurchPeople -= who
+~ ClinicPeople -= who
+    ~ ExamAreaPeople -= who
+~ FieldPeople -= who
+    ~ BleachersPeople -= who
+    ~ UnderBleachersPeople -= who
+~ GymPeople -= who
+    ~ LockerRoomPeople -= who
+~ HealthClassPeople -= who
+~ LabPeople -= who
+~ LibraryPeople -= who
+~ LoungePeople -= who
+~ OfficePeople -= who
+    ~ SupplyClosetPeople -= who
+~ PhotoClassPeople -= who
+    ~ DarkroomPeople -= who
+~ StudyHallPeople -= who
+~ TheaterPeople -= who
+    ~ BackstagePeople -= who
+// Special school locations
+~ StairwellPeople -= who
+~ RoofPeople -= who
+// Mall locations
+~ BraStorePeople -= who
+~ BookStorePeople -= who
+~ DressStorePeople -= who
+~ FoodCourtPeople -= who
+~ MovieTheaterPeople -= who
+~ ShoeStorePeople -= who
+~ DressingRoomPeople -= who
+// House locations
+~ BedroomPeople -= who
+~ BathroomPeople -= who
+~ SisBedroomPeople -= who
+

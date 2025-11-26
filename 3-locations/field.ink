@@ -78,7 +78,7 @@ VAR UnderBleachersPeople = ()
 You are {UNDER_BLEACHERS}. It's fairly dark under here. Someone dragged in a couple chairs from the {CAFETERIA}, and there's an old coffee can used as an ashtray. It's not the nicest spot to hang out, but it has the advantage of being mostly hidden from view.
 
 { UnderBleachersPeople ? Cheerleader:
-    {CHEERLEADER} is here, scrolling on her phone.
+    {CHEERLEADER} is here, {CheerleaderCum: cleaning up your cum|scrolling on her phone}.
 }
 
 - (under_bleachers_opts)

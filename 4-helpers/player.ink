@@ -3,7 +3,7 @@ LIST Outfits = Nude, (Default), (Nice), (Athletic), Preppy
 LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
 
 // Status
-VAR confidence = Awkward
+VAR confidence = Confident
 VAR cum_today = false
 VAR ow_my_balls = false
 VAR has_black_eye = 0 // Set this to a positive number to let it slowly heal
