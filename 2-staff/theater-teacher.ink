@@ -38,7 +38,7 @@ Approach {THEATER_TEACHER}.
 + [Leave] ->->
 
 === observe_theater_teacher ===
-~ TheaterTeacherState += TheaterTeacherObserved
+~ TheaterTeacherState = TheaterTeacherObserved
 ->->
 
 === dream_of_theater_teacher ===

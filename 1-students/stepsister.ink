@@ -57,7 +57,7 @@ Approach {SIS}.
 
 === observe_stepsister ===
 ~ last_girl = Stepsister
-~ SisState += SisObserved
+~ SisState = SisObserved
 Coming soon.
 ->->
 

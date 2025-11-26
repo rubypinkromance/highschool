@@ -16,14 +16,12 @@
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
+LIST CheerleaderState = (CheerleaderObserved), CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
 VAR CheerleaderInPlay = true
 VAR CheerleaderMood = Neutral
 VAR CheerleaderBaseMood = Neutral
 VAR CheerleaderCum = ()
-LIST CheerleaderItems = CheerleaderPanties, CheerleaderStuff
-
-TODO: what triggers jock fight 2? You trying to steal my girl bro? Think you got the stuff to hook up with my bitch? Think again. Knees you in the nuts, Rebel intervenes. She likes you more, doesn’t like bullies. Takes you to nurse, who ices your balls then you get hard while she examines them.
+LIST CheerleaderItems = CheerleaderPanties
 
 /*
 
@@ -57,9 +55,14 @@ You approach {CHEERLEADER}
     <>. // this shouldn't happen, but just to be safe.
 }
 
-TODO disable some options based on confidence
 // We adjust your options based on your confidence and her state (but not her mood)
 - (cheerleader_opts)
+* {confidence < Confident and BraSizes !? Cheerleader}
+    ["What's your bra size?" (blocked by Awkward) # CLASS: disabled]
+    You're not yet confident enough to ask such a personal question.
+* {confidence < Confident and CheerleaderState < CheerleaderObserved}
+    ["Want to go out with me?" (blocked by Awkward) # CLASS: disabled]
+    You don't have the confidence yet to risk rejection.
 + {confidence >= Confident and BraSizes !? Cheerleader and not seenVeryRecently(-> ask_cheerleader_bra_size)}
     ["What's your bra size?"]
     -> ask_cheerleader_bra_size ->
@@ -75,7 +78,7 @@ TODO disable some options based on confidence
 * {CheerleaderState == CheerleaderTitjob and here != UnderBleachers}
     ["How'd {JOCK} react?"]
     -> cheerleader_quest ->
-* {Inventory ? CheerleaderStuff}
+* {Inventory ? CheerleaderPanties}
     ["I got your things."]
     -> deliver_cheerleader_stuff ->
 + {CheerleaderState == CheerleaderReward and here == UnderBleachers}
@@ -83,8 +86,7 @@ TODO disable some options based on confidence
     You pull her into a kiss.
     -> cheerleader_sex ->
 + {CheerleaderState == CheerleaderSex and newToday(-> cheerleader_sex)}
-    "What are you doing{isWeekday() and now != AfterSchool: later| right now}?"
-    "You, hopefully," she grins.
+    ["What are you doing{cheerleader_dtf(): later| right now}?"]
     -> cheerleader_repeat ->
 + [Check her out]
     -> look_at_cheerleader ->
@@ -148,7 +150,8 @@ It has been {TURNS_SINCE(-> cheerleader_sex)} turns since you fucked {CHEERLEADE
 - CheerleaderMood >= Aroused:
     ~ BraSizes += (Cheerleader)
     "36D. But, if you wanna know for sure?" She licks her lips.
-    -> cheerleader_repeat ->
+    TODO: test in class, after school, weekend
+    -> cheerleader_invite ->
 }
 {checkBraScore()}
 ->->
@@ -204,14 +207,9 @@ She scowls at you, starts to protest, then looks back at {JOCK} and frowns. "I g
     "Just saying, if you wanted to make him jealous, I'd be happy to help."
 * "Wanna go somewhere and make him jealous?"
 -
-She seems startled by your uncharacteristic boldness, but after a moment, she nods. "You know what? Yeah. Meet me under the bleachers{now != AfterSchool: after school}."
-"Cool. {now == AfterSchool:I'm right behind you|See you there}."
-Holy shit! You can't believe that worked. Your heart pounds as you imagine what's in store.
-{now == AfterSchool:
-*  [Follow her under the bleachers] -> field.under_bleachers
-- else:
-    ->->
-}
+She seems startled by your uncharacteristic boldness, but after a moment, she nods. "You know what? Yeah. Fuck it." Shooting one final glare at {JOCK}, she turns to you.
+TODO: test in class, after school, weekend
+-> cheerleader_invite ->->
 
 /*
 
@@ -278,6 +276,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 */
 === cheerleader_quest ===
 ~ CheerleaderState = CheerleaderQuest
+~ JockState = JockDenial
 "How'd {JOCK} react to the pictures we took?"
 "Oh he was a total bitch about it. Said some awful shit. I dumped his ass. Say, do you think you could do me a favor? Some of my stuff is in his locker, and I don't want to deal with him. Could you get it for me?"
 "Sure, what's the combination?"
@@ -292,8 +291,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
     - has_black_eye = 7
 */
 === cheerleader_locker ===
-~ Inventory += CheerleaderPanties
-~ Inventory += CheerleaderStuff
+~ move(CheerleaderPanties, CheerleaderItems, Inventory)
 You enter the combination for the locker, and it opens. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}'s including some lipstick, a girl's jacket, and some panties.
 * [Close the locker] ->->
 
@@ -320,25 +318,13 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 */
 === deliver_cheerleader_stuff ===
 ~ last_girl = Cheerleader
-~ CheerleaderState = CheerleaderReward
-~ Inventory -= CheerleaderPanties
+~ move(CheerleaderPanties, Inventory, CheerleaderItems)
 ~ improveMood(CheerleaderMood)
 ~ improveMood(CheerleaderBaseMood)
 "I got your things from the locker."
 "Thanks for helping me out." She rummages through the items in the bag. {cheerleader_panties: She picks up the panties you jerked off with. They look sticky, and there's a noticable cum stain. She frowns, and your heart skips a beat. "Ew, did {JOCK} jerk off with these? He's such a creep, I should have broken up with him sooner."} Turning her attention back to you, she bites her lip and says
-{
-- now == AfterSchool:
-    <> "Come with me. I want to show you how grateful I am."
-    + [Follow her {UNDER_BLEACHERS}]
-        ~ here = UnderBleachers
-        ~ BleachersPeople -= Cheerleader
-        ~ UnderBleachersPeople += (Cheerleader)
-        You follow her {UNDER_BLEACHERS}, where she pulls you into a kiss.
-        -> cheerleader_sex -> field.under_bleachers
-- else:
-    <> "Meet me under the bleachers again after school, so I can show you how grateful I am."
-}
-->->
+TODO: test in class, after school, weekend
+-> cheerleader_invite ->->
 
 /*
 
@@ -353,6 +339,8 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 { cheerleader_sex == 1:
     ~ Score += cheerleaderSex
     ~ confidence++
+    ~ JockState = JockFight
+    ~ CheerleaderBaseMood = Aroused
 }
 ~ CheerleaderState = CheerleaderSex
 ~ CheerleaderCum += Creampie
@@ -362,17 +350,38 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
 
 /*
 
-    8. Ask Cheerleader for a Repeat Peformance
-    After having sex once, you can ask her to do it again, re-running the sex scene.
-    Mood: Aroused
-
+    8. Cheerleader Repeat Performance
+    After you've had sex the first time, you can ask her for a repeat performance.
 
 */
 === cheerleader_repeat ===
-~ CheerleaderState = CheerleaderReward
+"What are you doing{cheerleader_dtf(): later| right now}?"
+"You{!cheerleader_dtf():, hopefully}," she grins.
+TODO: test in class, after school, weekend
+-> cheerleader_invite ->->
+
+/*
+
+    Cheerleader Invites You Under the Bleachers
+    Shared between ask_cheerleader_bra_size, suggest_cheerleader_revenge, deliver_cheerleader_stuff, and cheerleader_repeat
+
+*/
+=== cheerleader_invite ===
+/*
+1. At mall: can't do anything now, meet me under bleachers after school on Monday.
+2. After school: come with me under the bleachers right now
+3. During class: meet me under the bleachers after school
+
+if titjob add holy shit text
+if reward, add grateful text
+*/
+TODO: refactor
 {
 - now == AfterSchool:
-    <> "Come with me."
+    <> "Come with me.{CheerleaderState == CheerleaderQuest:  I want to show you how grateful I am.}"
+    // if titjob
+    "Cool. {cheerleader_dtf():I'm right behind you|See you there}."
+    Holy shit! You can't believe that worked. Your heart pounds as you imagine what's in store.
     + [Follow her {UNDER_BLEACHERS}]
         ~ here = UnderBleachers
         ~ BleachersPeople -= Cheerleader
@@ -380,8 +389,11 @@ Afterwards, you feel sheepish, and do your best to wipe up the mess, before retu
         You follow her {UNDER_BLEACHERS}, where she pulls you into a kiss.
         -> cheerleader_sex -> field.under_bleachers
 - else:
-    <> "Meet me under the bleachers again after school."
+    <> "Meet me under the bleachers again after school{CheerleaderState == CheerleaderQuest:, so I can show you how grateful I am}."
 }
+// Do this last so we can check the current state above
+// if repeat or reward
+~ CheerleaderState = CheerleaderReward
 ->->
 
 /*
@@ -408,8 +420,22 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 
 */
 === cheerleader_hints ===
-TODO add hints
-Try observing {CHEERLEADER}.
+{ CheerleaderState:
+- CheerleaderObserved:
+    Seems like {CHEERLEADER} is mad at {JOCK} for hitting on other girls. You could offer to help her make him jealous?
+- CheerleaderRevenge:
+    You suggested to {CHEERLEADER} that you could help her get back at {JOCK} by making him jealous. She said to meet her {UNDER_BLEACHERS} after school.
+- CheerleaderTitjob:
+    You came all over {CHEERLEADER}'s tits, and she sent the photos to {JOCK} to get revenge. Try asking her how it went.
+- CheerleaderQuest:
+    {CHEERLEADER} dumped {JOCK} because he said some horrible things after seeing the photos of someone else's cum on her tits. Now she wants you to get her things from {JOCK}'s locker.
+- CheerleaderReward:
+    You returned {CHEERLEADER} things from {JOCK}'s locker. Now she wants to reward you {UNDER_BLEACHERS} after school.
+- CheerleaderSex:
+    You've completed {CHEERLEADER}'s story, but you can ask her for a repeat performance any time.
+- else:
+    Try observing {CHEERLEADER}.
+}
 ->->
 
 /*
@@ -420,3 +446,6 @@ Try observing {CHEERLEADER}.
 === cheerleader_cleanup ===
 ~ CheerleaderCum = ()
 ->->
+
+=== function cheerleader_dtf()
+~ return isWeekday() && now == AfterSchool

@@ -24,7 +24,7 @@ Approach {STUDY_HALL_TEACHER}.
 + [Leave] ->->
 
 === observe_study_hall_teacher ===
-~ StudyHallTeacherState += StudyHallTeacherObserved
+~ StudyHallTeacherState = StudyHallTeacherObserved
 ->->
 
 === dream_of_study_hall_teacher ===

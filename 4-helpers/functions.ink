@@ -21,7 +21,7 @@
 }
 
 /*
-    Similar to listPrint, but returns instead of printing
+    Similar to listPrint, but returns instead of printing.
 */
 === function listReturn(list, -> detailFunction, string)
 ~ temp item = pop(list)
@@ -38,7 +38,7 @@
 ~ return string
 
 /*
-    Move Item From One List to Another
+    Move item from one list to another.
 */
 === function move(item, ref from, ref to)
 ~ from -= item
@@ -49,4 +49,10 @@
 */
 === function seenVeryRecently(-> target)
    ~ return TURNS_SINCE(target) >= 0 && TURNS_SINCE(target) <= 3
-   
+
+/*
+    Return true N percent of the time.
+    e.g., chance(75) has a 75% chance of being true.
+*/
+=== function chance(percent)
+    ~ return RANDOM(1, 100) <= percent

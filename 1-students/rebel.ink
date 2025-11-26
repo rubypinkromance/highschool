@@ -47,7 +47,7 @@ Approach {REBEL}.
 
 === observe_rebel ===
 ~ last_girl = Rebel
-~ RebelState += RebelObserved
+~ RebelState = RebelObserved
 Coming soon.
 ->->
 

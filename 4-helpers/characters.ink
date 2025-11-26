@@ -52,7 +52,8 @@ VAR last_girl = Cheerleader
 { who:
     ~ temp state = characterData(who, State)
     ~ temp observed = characterData(who, ObservedState)
-    { state !? observed:
+    TODO confirm Jock and Cheerleader still disappear
+    { state < observed:
         ~ unobserved += who
     }
     -> top
@@ -135,7 +136,7 @@ VAR last_girl = Cheerleader
 ~ temp state = characterData(who, State)
 ~ temp observed = characterData(who, ObservedState)
 ~ temp target = characterData(who, ObserveFunction)
-+ {state !? observed} [Observe {name}] -> target ->
++ {state < observed} [Observe {name}] -> target ->
 -> return_to
 
 /*
@@ -251,7 +252,7 @@ VAR last_girl = Cheerleader
     ~ BathroomPeople += (Stepsister)
     ~ ClinicPeople += (Nurse)
     {
-    - CheerleaderState == CheerleaderReward:
+    - CheerleaderState == CheerleaderReward or CheerleaderState == CheerleaderRevenge:
         ~ BleachersPeople -= Cheerleader
         ~ UnderBleachersPeople += (Cheerleader)
     }

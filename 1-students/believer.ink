@@ -47,7 +47,7 @@ Approach {BELIEVER}.
 
 === observe_believer ===
 ~ last_girl = Believer
-~ BelieverState += BelieverObserved
+~ BelieverState = BelieverObserved
 Coming soon.
 ->->
 

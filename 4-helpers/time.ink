@@ -150,10 +150,10 @@ VAR countdown = false
     Determine if an action is new today
 */
 === function newToday(-> action)
-{ not didToday(action):
-    ~ return true
+{ didToday(action):
+    ~ return false
 }
-~ return false
+~ return true
 
 /*
     Return the next day of the week

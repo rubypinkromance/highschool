@@ -66,7 +66,7 @@ Approach {ATHLETE}.
 
 === observe_athlete ===
 ~ last_girl = Athlete
-~ AthleteState += AthleteObserved
+~ AthleteState = AthleteObserved
 Coming soon.
 ->->
 

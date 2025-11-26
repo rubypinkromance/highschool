@@ -47,7 +47,7 @@ Approach {SECRETARY}.
 
 === observe_secretary ===
 ~ last_girl = Secretary
-~ SecretaryState += SecretaryObserved
+~ SecretaryState = SecretaryObserved
 Coming soon.
 ->->
 

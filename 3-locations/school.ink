@@ -13,6 +13,9 @@ CONST HALLWAY = "hallway"
 { isWeekday():
 
 {
+// Jock picks a fight with you the day after you fuck Cheerleader
+- JockState == JockFight and newToday(-> cheerleader_sex):
+    -> jock_fight
 - isClassTime():
     The {HALLWAY} is bustling and noisy, filled with the chaos of an entire school's worth of students moving between classes. You slip easily into the flow of the crowd as you move to your next class.
 - isWeekday() and now == Lunch:
@@ -44,7 +47,7 @@ CONST HALLWAY = "hallway"
 + + [Cancel] -> hallway
 
 + [Go to {LOCKER}] -> your_locker
-+ {CheerleaderState == CheerleaderQuest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
+* {CheerleaderState == CheerleaderQuest} [Go to {JOCK} & {CHEERLEADER}'s Locker]
     -> cheerleader_locker -> hallway
 
 + [Leave school]

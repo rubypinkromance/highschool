@@ -52,7 +52,7 @@ Approach {HEALTH_TEACHER}.
 
 === observe_health_teacher ===
 ~ last_girl = HealthTeacher
-~ HealthTeacherState += HealthTeacherObserved
+~ HealthTeacherState = HealthTeacherObserved
 Coming soon.
 ->->
 

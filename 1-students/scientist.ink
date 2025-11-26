@@ -41,7 +41,7 @@ Approach {SCIENTIST}.
 
 === observe_scientist ===
 ~ last_girl = Scientist
-~ ScientistState += ScientistObserved
+~ ScientistState = ScientistObserved
 Coming soon.
 ->->
 

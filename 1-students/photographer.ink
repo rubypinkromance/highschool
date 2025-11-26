@@ -43,7 +43,7 @@ Approach {PHOTOGRAPHER}.
 
 === observe_photographer ===
 ~ last_girl = Photographer
-~ PhotographerState += PhotographerObserved
+~ PhotographerState = PhotographerObserved
 Coming soon.
 ->->
 

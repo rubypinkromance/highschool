@@ -41,7 +41,7 @@ Approach {SIS_FRIEND}.
 
 === observe_stepsister_friend ===
 ~ last_girl = SisFriend
-~ SisFriendState += SisFriendObserved
+~ SisFriendState = SisFriendObserved
 Coming soon.
 ->->
 

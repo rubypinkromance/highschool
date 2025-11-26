@@ -44,7 +44,7 @@ Approach {QUEEN}.
 
 === observe_queen ===
 ~last_girl = Queen
-~ QueenState += QueenObserved
+~ QueenState = QueenObserved
 Coming soon.
 ->->
 

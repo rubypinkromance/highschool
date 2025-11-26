@@ -90,7 +90,7 @@ Approach {TWINS}.
 
 === observe_twins ===
 ~ last_girl = Twins
-~ TwinsState += TwinsObserved
+~ TwinsState = TwinsObserved
 Coming soon.
 ->->
 

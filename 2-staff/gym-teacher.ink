@@ -34,7 +34,7 @@ Approach {GYM_TEACHER}.
 + [Leave] ->->
 
 === observe_gym_teacher ===
-~ GymTeacherState += GymTeacherObserved
+~ GymTeacherState = GymTeacherObserved
 Coach Stewart has a shaggy blonde mullet, wears a loose-fitting tank top over a grey sports bra and track pants, and has short trimmed nails. The only jewelery she wears is a thumb ring.
 ->->
 

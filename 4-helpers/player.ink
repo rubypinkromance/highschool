@@ -3,13 +3,13 @@ LIST Outfits = Nude, (Default), (Nice), (Athletic), Preppy
 LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
 
 // Status
-VAR confidence = Flirty
+VAR confidence = Awkward
 VAR cum_today = false
 VAR ow_my_balls = false
 VAR has_black_eye = 0 // Set this to a positive number to let it slowly heal
 
 // Inventory
-VAR Inventory = (CheerleaderStuff)
+VAR Inventory = ()
 VAR BraSizes = ()
 VAR outfit = Default
 

@@ -35,7 +35,7 @@ Approach {NURSE}.
 
 === observe_nurse ===
 ~ last_girl = Nurse
-~ NurseState += NurseObserved
+~ NurseState = NurseObserved
 Coming soon.
 ->->
 

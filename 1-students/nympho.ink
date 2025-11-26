@@ -56,7 +56,7 @@ Approach {NYMPHO}.
 
 === observe_nympho ===
 ~ last_girl = Nympho
-~ NymphoState += NymphoObserved
+~ NymphoState = NymphoObserved
 Coming soon.
 ->->
 

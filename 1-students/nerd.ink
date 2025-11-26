@@ -49,7 +49,7 @@ Approach {NERD}.
 
 === observe_nerd ===
 ~ last_girl = Nerd
-~ NerdState += NerdObserved
+~ NerdState = NerdObserved
 Coming soon.
 ->->
 

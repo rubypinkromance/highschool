@@ -45,7 +45,7 @@ Approach {ACTOR}.
 
 === observe_actor ===
 ~ last_girl = Actor
-~ ActorState += ActorObserved
+~ ActorState = ActorObserved
 Coming soon.
 ->->
 

@@ -34,7 +34,7 @@ Approach {PHOTO_TEACHER}.
 + [Leave] ->->
 
 === observe_photo_teacher ===
-~ PhotoTeacherState += PhotoTeacherObserved
+~ PhotoTeacherState = PhotoTeacherObserved
 ->->
 
 === dream_of_photo_teacher ===

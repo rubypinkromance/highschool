@@ -59,7 +59,7 @@ Approach {FRIEND}.
 
 === observe_friend ===
 ~ last_girl = Friend
-~ FriendState += FriendObserved
+~ FriendState = FriendObserved
 Coming soon.
 ->->
 
