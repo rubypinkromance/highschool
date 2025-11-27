@@ -16,9 +16,9 @@
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, (CheerleaderReward), CheerleaderSex
+LIST CheerleaderState = (CheerleaderObserved), CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
 VAR CheerleaderInPlay = true
-VAR CheerleaderMood = Friendly
+VAR CheerleaderMood = Neutral
 VAR CheerleaderBaseMood = Neutral
 VAR CheerleaderCum = ()
 VAR cheerleader_wearing_panties = true
@@ -32,6 +32,10 @@ LIST CheerleaderItems = CheerleaderPanties
     
 */
 === talk_to_cheerleader ===
+{ cheerleader_is_cheering():
+    {CHEERLEADER} is busy cheering for the football game, and can’t talk right now.
+    ->->
+}
 ~ last_girl = Cheerleader
 
 // We adjust her reactions based on her mood and state (but not your confidence)
@@ -816,7 +820,15 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 
 */
 === function cheerleader_dtf()
-~ return isWeekday() && now == AfterSchool
+~ return (isWeekday() && now == AfterSchool) or (today == Saturday)
+
+/*
+
+    Check if Cheerleader is busy cheering at a football game.
+
+*/
+=== function cheerleader_is_cheering()
+~ return today == Saturday and (now == Period2 or now == Lunch or now == Period3)
 
 /*
 
