@@ -16,9 +16,9 @@
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = (CheerleaderObserved), CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
+LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, (CheerleaderReward), CheerleaderSex
 VAR CheerleaderInPlay = true
-VAR CheerleaderMood = Neutral
+VAR CheerleaderMood = Friendly
 VAR CheerleaderBaseMood = Neutral
 VAR CheerleaderCum = ()
 VAR cheerleader_wearing_panties = true
@@ -794,7 +794,7 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 - CheerleaderReward:
     You returned {CHEERLEADER} things from {JOCK}’s locker. Now she wants to reward you {UNDER_BLEACHERS} after school.
 - CheerleaderSex:
-    You’ve completed {CHEERLEADER}’s story, but you can ask her for a repeat performance any time.
+    You’ve completed {CHEERLEADER}’s story{CheerleaderBaseMood >= Aroused:, but you can ask her for a repeat performance any time}.
 - else:
     {observe_cheerleader:Keep|Try} observing {CHEERLEADER}.
 }
