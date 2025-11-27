@@ -35,10 +35,11 @@
 - Makes fun of you for wearing nice or preppy clothes
 - Friend knows when you try to put the moves on her, calls you out, but curious
 - Final detective exam: She brings you home (Mom sees you, asks if you're staying for dinner, she says no, he's just stopping by to borrow some of my notes) Makes you wait in the hall, then says she's arranged some clues that she will ask you about, and pushes you into her room for two minutes. You have a list of things to examine, including panties on the floor (option to steal), then she pushes you into the closet, and quizzes you (she notices the panties in your pocket if you took them). If you get a good score, she says we have five minutes before my Mom gets suspicious, what do you think I want to do with that time. Options include finger her, suck on her nipples, blowjob, and make out.
+- Her quest is asking you to learn the bra size of every girl in school. (Bra size question gated behind FriendState)
 */
 CONST FRIEND = "Whitney"
 CONST FRIEND_TITLE = "your friend"
-LIST FriendState = FriendObserved
+LIST FriendState = FriendObserved, FriendQuest
 VAR FriendInPlay = true
 VAR FriendMood = Friendly
 VAR FriendBaseMood = Friendly

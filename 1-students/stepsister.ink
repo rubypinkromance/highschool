@@ -32,10 +32,11 @@
 */
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
-LIST SisState = (SisObserved), SisIsLesbian, SisIsBi
-VAR SisInPlay = false
+LIST SisState = (SisObserved), SisIsLesbian, SisIsBi, SisSex
+VAR SisInPlay = true
 VAR SisMood = Friendly
 VAR SisBaseMood = Friendly
+VAR SisCum = ()
 LIST SisItems = SisPanties, SisDiary
 
 === talk_to_stepsister ===
@@ -48,7 +49,7 @@ Approach {SIS}.
     "34C, bro."
 + {DEBUG}"Wanna fuck?"
     "Sure, why not?"
-    -> fuck_stepsister ->->
+    -> stepsister_sex ->->
 + "Hello."
     "Sorry, I don't have any dialog yet."
 + [Leave]
@@ -70,32 +71,124 @@ Look at {SIS}.
     Fucking hell, she's hawt
 + [Touch yourself]
     You start wanking to the sight of your stepsister.
-+ [Fuck her] -> fuck_stepsister ->->
++ [Fuck her] -> stepsister_sex ->->
 + [Turn away] ->->
 - -> opts
 
-=== fuck_stepsister ===
+=== stepsister_sex ===
+{ stepsister_sex == 1:
+    ~ Score += sisSex
+    ~ improveConfidence()
+    ~ SisBaseMood = Aroused
+}
+~ SisState = SisSex
+~ cum_today = true
 This is it, you're finally going to fuck {SIS}.
+- (stepsister_sex_opts)
++ {newToday(-> suck_tits)}
+    “I want to suck on your tits.”
+    -> suck_tits ->
++ {newToday(-> finger)}
+    “I want to finger you.”
+    -> finger ->
++ {newToday(-> eat_pussy) and SisMood >= Aroused}
+    “I want to go down on you.”
+    -> eat_pussy ->
++ {newToday(-> titjob)}
+    “I want to fuck your titties.”
+    -> titjob ->
++ {newToday(-> blowjob)}
+    “I want you to go down me.”
+    -> blowjob ->
++ {newToday(-> pussy) and SisMood >= Aroused}
+    “I want to fuck you.”
+    -> pussy ->
++ {newToday(-> anal) and SisMood == Desperate}
+    “I want to fuck your ass.”
+    -> anal ->
++ {titjob}
+    “I want to cum on your tits.”
+    -> cum_tits ->->
++ {titjob or blowjob}
+    “I want to cum on your face.”
+    -> cum_facial ->->
++ {blowjob}
+    “I want to cum in your mouth.”
+    -> cum_mouth ->->
++ {pussy}
+    “I want to cum inside you.”
+    -> cum_creampie ->->
++ {anal}
+    “I want to cum in your ass.”
+    -> cum_anal ->->
+- -> stepsister_sex_opts
 
-- (opts)
-+ "Suck my cock"
-    She swallows your shaft eagerly.
-+ [Pinch nipples]
-    You pinch her nipples, making her squirm
-+ [Bend her over]
-    You bend her over and fuck her desperately from behind, until she moans as you pump your load into her tight pussy.
-+ [Creampie {SIS}]
-    ~ Score += sisCreampie
-    You shove your cock into her dripping cunt and pump her full of cream.
-+ [Walk away] ->->
-- -> opts
+= suck_tits
+~ improveMood(SisMood)
+You pinch her nipples, making her squirm
+->->
 
-/* After finding a pair of her panties in her ex's locker, you jerk off with them. */
+= finger
+~ improveMood(SisMood)
+You push two fingers into her dripping pussy
+->->
+
+= eat_pussy
+~ improveMood(SisMood)
+You lift her skirt and bury your tongue in her pussy
+->->
+
+= titjob
+~ improveMood(SisMood)
+She squeezes her tits around your cock
+->->
+
+= blowjob
+~ improveMood(SisMood)
+She swallows your shaft eagerly.
+->->
+
+= pussy
+~ improveMood(SisMood)
+You bend her over and fuck her desperately from behind
+->->
+
+= anal
+You ease your cock into her ass
+->->
+
+= cum_tits
+~ SisCum = Tits
+You shoot your load on her tits
+->->
+
+= cum_facial
+~ SisCum = Facial
+You shoot your load on her face
+->->
+
+= cum_mouth
+~ SisCum = Mouth
+You cum in her hungry mouth
+->->
+
+= cum_creampie
+~ SisCum = Creampie
+You shove your cock into her dripping cunt and pump her full of cream.
+->->
+
+= cum_anal
+~ SisCum = Anal
+she moans as you pump your load into her tight ass.
+->->
+
+/* After finding a pair of her panties, you jerk off with them. */
 === stepsister_panties ===
 ~ last_girl = Stepsister
 ~ cum_today = true
-Unable to resist the urge, you wrap {SIS}'s silky panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
-Afterwards, you feel sheepish, and do your best to wipe up the mess, before returning her panties to the tote bag.
+~ Score += cheerleaderPanties
+Unable to resist the urge, you wrap {SIS}'s lacy panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
+Afterwards, you feel sheepish, and do your best to clean up the mess.
 ->->
 
 === dream_of_stepsister ===

@@ -1,6 +1,6 @@
 LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (StudyHallTeacher), (TheaterTeacher), (Nurse), (Secretary)
 // Assign yourself a value higher than the count of the staff list to ensure that teachers are sorted to the front of any mixed people list.
-LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Friend), (Nerd), (Jock), (Nympho), (Photographer), (Queen), (Rebel), (Scientist), (Stepsister), (SisFriend), (Twin1), (Twin2), Twins
+LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Jock), (Friend), (Nerd), (Nympho), (Photographer), (Queen), (Twin1), (Twin2), Twins, (Rebel), (Scientist), (Stepsister), (SisFriend)
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 LIST CharacterCum = Facial, Mouth, Tits, Creampie, Anal
@@ -135,7 +135,7 @@ VAR last_girl = Cheerleader
 ~ temp state = characterData(who, State)
 ~ temp observed = characterData(who, ObservedState)
 ~ temp target = characterData(who, ObserveFunction)
-+ {state < observed} [Observe {name}] -> target ->
++ {state < observed and not seenVeryRecently(target)} [Observe {name}] -> target ->
 -> return_to
 
 /*

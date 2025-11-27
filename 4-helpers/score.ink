@@ -1,4 +1,4 @@
-LIST Score = cheerleaderTitjob, cheerleaderSex, sisCreampie, cheerleaderPanties, allStudentBraSizes
+LIST Score = cheerleaderTitjob, cheerleaderSex, cheerleaderPanties, sisSex, sisPanties, allStudentBraSizes
 
 /*
     Score Information Database
@@ -9,7 +9,8 @@ LIST Score = cheerleaderTitjob, cheerleaderSex, sisCreampie, cheerleaderPanties,
 - cheerleaderTitjob: came on {CHEERLEADER}'s tits
 - cheerleaderSex: fucked {CHEERLEADER}
 - cheerleaderPanties: jerked off with {CHEERLEADER}'s panties
-- sisCreampie: came inside {SIS}
+- sisPanties: jerked off with {SIS}'s panties
+- sisSex: fucked {SIS}
 }
 
 /*

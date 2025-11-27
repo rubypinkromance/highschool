@@ -3,7 +3,7 @@ LIST Outfits = Nude, (Default), (Nice), (Athletic), Preppy
 LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
 
 // Status
-VAR confidence = Confident
+VAR confidence = Awkward
 VAR cum_today = false
 VAR ow_my_balls = false
 VAR has_black_eye = 0 // Set this to a positive number to let it slowly heal
@@ -31,4 +31,15 @@ What do you want a hint about?
 * [Locating a girl]
     If you access the office computer while no one is there, you can print out a class schedule for all the girls.
     -> return_to
+* [Why do some actions say “not confident enough”?]
+    Some actions, such as asking a girl out, are restricted by your confidence level. You can increase your confidence by hooking up with girls.
+    -> return_to
 -> DONE
+
+/*
+    Improve your confidence.
+*/
+=== function improveConfidence()
+{ confidence != Player:
+    ~ confidence++
+}

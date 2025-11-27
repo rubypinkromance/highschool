@@ -4,7 +4,7 @@ VAR Weekdays = (Monday, Tuesday, Wednesday, Thursday, Friday)
 VAR WeekendDays = (Saturday, Sunday)
 VAR ClassTimes = (Period1, Period2, Period3, Period4)
 
-VAR now = Period1
+VAR now = AfterSchool
 VAR today = Monday
 VAR date = 1
 VAR days_remaining = 30
