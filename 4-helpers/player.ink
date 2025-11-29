@@ -5,7 +5,7 @@ LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
 // Status
 VAR confidence = Awkward
 VAR cum_today = false
-VAR ow_my_balls = false
+VAR ow_my_balls = true
 VAR has_black_eye = 0 // Set this to a positive number to let it slowly heal
 
 // Inventory

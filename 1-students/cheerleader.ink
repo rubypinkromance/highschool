@@ -250,9 +250,9 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 === observe_cheerleader ===
 ~ last_girl = Cheerleader
 { observe_cheerleader:
-- 1: The first thing you notice about {CHEERLEADER} is that she and {JOCK} are a power couple. They have the same class schedule. Even outside of school they’re always together, either at football practice or the mall. They seem inseparable, which is not great for you, since there’s no way for you to approach {CHEERLEADER} without {JOCK} seeing.
+- 1: The first thing you notice about {CHEERLEADER} is that she and {JOCK} are a power couple. They have the same class schedule. Even outside of school, they’re always together, either at football practice or the mall. They seem inseparable, which is not great for you, since there’s no way for you to approach {CHEERLEADER} without {JOCK} seeing.
 - 2: {CHEERLEADER} looks upset, and it’s not hard to see why. {JOCK} is shamelessly hitting on another girl. He’s flexing and showing off, and she’s laughing and touching his arm. {CHEERLEADER} is glaring at him, but he’s too distracted to notice. Maybe they’re not as inseparable as it seemed? Now that he’s distracted, you think you could probably talk to her without him noticing.
-- 3: Oh shit, things have come to a head between {CHEERLEADER} and {JOCK}. She confronted him about hitting on the other girl, and he just laughed and said “Don’t be a bitch about this.” Her eyes flashed red and she walked away from him. For a second, it looked like he might go after her, but instead he shrugged and made a joke to one of his friends about it being that time of the month.
+- 3: Oh shit, things have come to a head between {CHEERLEADER} and {JOCK}. She confronted him about hitting on the other girl, and he just laughed and said, “Don’t be a bitch about this.” Her eyes flashed red, and she walked away from him. For a second, it looked like he might go after her, but instead he shrugged and made a joke to one of his friends about it being that time of the month.
     An idea forms in your head. Maybe she’s mad enough at him to fool around with you to make him jealous? Seems worth a shot.
     ~ CheerleaderState = CheerleaderObserved
 }
@@ -349,7 +349,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 ~ CheerleaderState = CheerleaderQuest
 ~ JockState = JockDenial
 “How’d {JOCK} react to the pictures we took?”
-“Oh he was a total bitch about it. Said some awful shit. I dumped his ass. Speaking of, do you think you could do me a favor? Some of my stuff is in his locker, and I don’t want to deal with him right now. Could you get it for me?”
+“Oh, he was a total ass about it. Said some awful shit. I dumped his ass. Speaking of, do you think you could do me a favor? Some of my stuff is in his locker, and I don’t want to deal with him right now. Could you get it for me?”
 * “Sure, what’s the combination?”
 * “What kind of stuff?”
     “Like, a bag and a jacket? Maybe some lipstick? Just grab anything that looks girly.”
@@ -384,7 +384,7 @@ Hoping {JOCK} doesn’t see, you quickly enter the combination and open his lock
 ~ cum_today = true
 ~ Score += cheerleaderPanties
 Unable to resist the temptation, you wrap {CHEERLEADER}’s silky panties around your hard cock. You thrust and strain into the panties, savoring the delicious stimulation of the fabric. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your hot cum on her lips.
-Afterwards, you feel awkward, and do your best to wipe up the mess before returning her panties to the tote bag.
+Afterward, you feel awkward, and do your best to wipe up the mess before returning her panties to the tote bag.
 ->->
 
 /*
@@ -410,7 +410,7 @@ You pass her the bag, but she ignores it for a moment.
     “I doubt it,” she considers. “You weren’t actually in the pics or anything. He probably just saw you in his locker and got mad. But more importantly,” she smiles gratefully, 
 -
 <> “I appreciate what you did.”
-She quickly rummages through the items in the bag, nodding at what you brought her. {cheerleader_panties: Then she picks up the panties you jerked off with. They look sticky, and there’s a noticable cum stain. She frowns, and your heart skips a beat. “Ew, did {JOCK} jerk off with these? He’s such a creep, I should have broken up with him sooner.”|<>}
+She quickly rummages through the items in the bag, nodding at what you brought her. {cheerleader_panties: Then she picks up the panties you jerked off with. They look sticky, and there’s a noticeable cum stain. She frowns, and your heart skips a beat. “Ew, did {JOCK} jerk off with these? He’s such a creep, I should have broken up with him sooner.”|<>}
 Turning her attention back to you, she bites her lip and {here == StudyHall:writes|says}
 -> cheerleader_invite() ->->
 
@@ -539,11 +539,11 @@ After a long minute, she raises her head, still breathing heavily.
 = eat_pussy
 “Oh fuck, yes,” she pants,{cheerleader_kneeling: getting to her feet and} leaning back against the wall. You watch as she hitches her skirt up around her waist{cheerleader_wearing_panties:, slips off her underwear,} and spreads her legs. Kneeling between her legs, you savor the sight of her pussy, already dripping with need. She has a neatly trimmed landing strip that guides your eyes downward. Her lips are darker than her brown skin, almost black, but as you spread them with your fingers, you see the secret pink inside. She watches with wide eyes as you lean in closer to inhale the scent of her arousal.
 When you finally run your tongue the length of her slit, she has to bite her knuckle to keep from making any noise. You trace her folds with your tongue, exploring every part of her. She jumps when trace around her clit, and gasps when you plunge your tongue deep inside. The taste of her cream coats your tongue, until her flavor is the only thing you’re aware of.
-You lick and kiss and suck until she’s gasping for breath, with her fingers tangled in your hair. You push deeper inside, and she bucks her hips, grinding against her face. You grab her ass and swivel your head, teasing her clit with your nose while lapping the juices from her pussy with abandon.
+You lick and kiss and suck until she’s gasping for breath, with her fingers tangled in your hair. She bucks her hips, grinding against your face, as you push deeper inside. You grab her ass and swivel your head, teasing her clit with your nose while lapping the juices from her pussy with abandon.
 + [Suck on her clit]
 Her breathing is getting faster and shallower when you shift position to close your lips around her clit. The sensitive little bud is swollen and stiff. You flick your tongue in tight, controlled circles, getting closer each time, until you’re licking it directly. She squeaks in surprise, and you feel a sudden gush of warm fluid wash over your chin.
 + [Slip your thumb into her pussy]
-Her breathing is getting faster and shallower when you move your hand to slip a thumb into her pussy. She squeaks in surprise, then pushes down against you, desperate for more. The two of you fall into a rhythm, her back against the wall, rocking in place, riding your face. You feel her insides clenching around the intruding thickness of your thumb and a sudden gush of warm fluid floods your mouth and drips from your chin.
+Her breathing is getting faster and shallower when you move your hand to slip a thumb into her pussy. She squeaks in surprise, then pushes down against you, desperate for more. The two of you fall into a rhythm, her back against the wall, rocking in place, riding your face. You feel her insides clenching around the intruding thickness of your thumb, and a sudden gush of warm fluid floods your mouth and drips from your chin.
 + [Slip a finger into her ass]
 Her breathing is getting faster and shallower when you shift your hand to allow the tip of your pinky finger to rest against her back door. She squeaks in surprise but doesn’t pull away as you slowly push inward. Her wetness has coated everything, and her finger slips fairly easily inside, up to the second knuckle.
 The two of you fall into a rhythm, her back against the wall, rocking in place, riding your face. Her insides clench around your intruding finger, and a sudden gush of warm fluid floods your mouth and drips from your chin.
@@ -555,7 +555,7 @@ She pushes you away, clamps a hand between her legs and squeezes her thighs toge
 ->->
 
 = titjob
-“You want more, huh?” she grins. “I’m not surprised.” She {cheerleader_kneeling:squeezes her tits|drops to her knees} as you unbutton your jeans and get your cock out, already swelling to life. She spits on her hand and starts vigerously massaging you until she’s stroking up and down the full length of your shaft. {cheerleader_titjob.cum_in_mouth:“But this time, don’t cum in my mouth without asking first.”}
+“You want more, huh?” she grins. “I’m not surprised.” She {cheerleader_kneeling:squeezes her tits|drops to her knees} as you unbutton your jeans and get your cock out, already swelling to life. She spits on her hand and starts vigorously massaging you until she’s stroking up and down the full length of your shaft. {cheerleader_titjob.cum_in_mouth:“But this time, don’t cum in my mouth without asking first.”}
 You watch eagerly as she nestles your throbbing erection between her tits, then squeezes them around you. You moan and rock your hips forward, thrusting into her cleavage, until the tip protrudes, then pulling back into the soft warmth. She grins at the sight as you start moving, your cock peeking out and disappearing like a shy rabbit peeking out of its burrow.
 ~ cheerleader_kneeling = true
 ~ cheerleader_ready_to_cum = true
@@ -575,11 +575,11 @@ You keep going, the head of your cock emerging from the soft embrace of her tits
 “I’d be happy to,” she purrs, {cheerleader_kneeling:squeezing her tits|dropping to her knees} as you unbutton your jeans. Your cock is already swelling to life when you pull it out, and she licks her lips at the sight. {cheerleader_titjob.cum_in_mouth:“But this time, don’t cum in my mouth without asking first.”}
 She wraps her hand around your shaft, stroking as she kisses and licks all over. You find the sight of your cock growing in her hand unbearably erotic, and gasp as she finally pulls you fully into her mouth.
 - (fully_in_mouth)
-You can’t believe {CHEERLEADER} is giving your a blowjob! The heat of her mouth feels incredible. She swirls her tongue along the ridge of your head and squeezes her hand around the base of your shaft.You groan as she bobs her head up and down, pulling you deeper, then sucking hard as she rocks back.
+You can’t believe {CHEERLEADER} is giving you a blowjob! The heat of her mouth feels incredible. She swirls her tongue along the ridge of your head and squeezes her hand around the base of your shaft.You groan as she bobs her head up and down, pulling you deeper, then sucking hard as she rocks back.
 + [Hold her head]
 You put your hand on top of her head, running your fingers through her hair. Wrapping your hand around the back of her head, you encourage her to go a little deeper. {CheerleaderMood >= Aroused: She moans happily and follows your guidance, until your cock is bumping the back of her throat.|She swats your hand away, but continues bobbing her head, taking you a bit deeper each time, until your cock is bumping the back of her throat.} 
 + [Push deeper]
-The feeling is incredible, but you want more. Without meaning to, you find yourself rocking forward to meet her each time, trying to push deeper. {CheerleaderMood >= Aroused: She moans and angles her head to allow you to slip further. You feel a moment of pressure as you bump the back of her mouth and then slip into her throat. She tenses, and struggles not to gag, but holds you in her throat for a long moment before finally backing away.|She digs her fingernails into your thigh as a warning, and you slow down, letting her set the pace. She manages to take you a little deeper each time, until your cock is bumpiing the back of her throat.}
+The feeling is incredible, but you want more. Without meaning to, you find yourself rocking forward to meet her each time, trying to push deeper. {CheerleaderMood >= Aroused: She moans and angles her head to allow you to slip further. You feel a moment of pressure as you bump the back of her mouth and then slip into her throat. She tenses, and struggles not to gag, but holds you in her throat for a long moment before finally backing away.|She digs her fingernails into your thigh as a warning, and you slow down, letting her set the pace. She manages to take you a little deeper each time, until your cock is bumping the back of her throat.}
 + [Fuck her mouth]
 The feeling is incredible, but you want more. You start rocking forward to meet her each time, increasing the pace until you’re thrusting desperately into her mouth. {CheerleaderMood >= Aroused: She moans and reaches around to cup your ass, pulling you forward and encouraging you to fuck her mouth. Her eyes water as she looks up at you, trying not to gag.|She protests wordlessly around your shaft, digging her fingernails into your thigh until you slow down and let her set the pace. Soon, she’s got her hands on your ass, pulling you into her mouth repeatedly.}
 -
@@ -602,7 +602,7 @@ Slowly, you pull out and push back in. She clamps a hand over her mouth to keep 
 + [Pull her hair]
     Without thinking about it, you reach forward and grab her hair in a fist, pulling back with each thrust. {CheerleaderMood == Desperate: She gasps and arches her back as you tug on her hair like a handle, fucking her roughly.|She gasps and swats your hand until you let go.}
 + [Slap her ass]
-    With every thrust, her big ass jiggles, and you can’t resist giving her a little slap. {CheerleaderMood == Desperate: When she doesn’t protest, you slap her a little harder. This time she squeaks in surprise, and pushes back against you.|She squeaks in protest and glares over her shoulder at you.}
+    With every thrust, her big ass jiggles, and you can’t resist giving her a little slap. {CheerleaderMood == Desperate: When she doesn’t protest, you slap her a little harder. This time, she squeaks in surprise, and pushes back against you.|She squeaks in protest and glares over her shoulder at you.}
 -
 You feel your cock swelling and her pussy clenching around you. She bites her lip to keep from crying out as you thrust deeper, feeling your climax approaching.
 ~ cheerleader_kneeling = false
@@ -629,7 +629,7 @@ She shudders as you pull out your finger and rest the tip of your cock against h
     You can’t bear to wait any longer, and thrust hard. For a brief moment, you feel the tight heat of her ass around your cock head, then she squeals in pain and jumps away from you, holding her ass.
     -> upset_aftercare
 -
-You push forward, pressing the head against her. She breathes slowly, trying to relax as the her opening slowly parts around you. It’s incredibly tight, and the first couple tries, you actually pop out, but on the third try, your head suddenly slips inside.
+You push forward, pressing the head against her. She breathes slowly, trying to relax as her opening slowly parts around you. It’s incredibly tight, and the first couple tries, you actually pop out, but on the third try, your head suddenly slips inside.
 “Stop!” she gasps. “Just stop for a minute.”
 You keep a reassuring grip on her hips, feeling your heartbeat throb in the tight grip of her ass. You’re desperate to push further, but you wait.
 “Okay,” she finally breathes. “Try going deeper, still nice and slow.”
@@ -644,7 +644,7 @@ You watch in awe as your cock, slick with her juices, slowly slides into her ass
 + [Fuck her slow]
     Slowly, you slide out and then push back in. She groans every time you pull out, and gasps every time you go deeper. Gradually, as she starts sounding more into it, you increase the pace, until she’s biting her knuckle to keep from making too much noise and pushing back to meet you on every thrust.
 + [Fuck her hard]
-    Unable to wait any longer, you pull out and slam your cock roughly into her ass again. She clamps a hand over her mouth as you start vigerously fucking her ass, pushing back to meet you on every thrust.
+    Unable to wait any longer, you pull out and slam your cock roughly into her ass again. She clamps a hand over her mouth as you start vigorously fucking her ass, pushing back to meet you on every thrust.
 + [Fuck her deep]
     Slowly, you ease out and then push back deep into her ass. She gasps and rocks back to meet you. Quickly you fall into a rhythm, each stroke ending deep inside, until she has a hand clamped over her mouth to keep from making noise, and is pushing back to meet you on every thrust.
 -
@@ -717,7 +717,7 @@ You stroke your cock{pussy:, slick with her juices,} and aim it at her chest. Th
     -> climax_denied_opts
 }
 - (cum_in_pussy)
-Feeling the familiar pulsing deep inside, you thrust your cock deep inside. She moans as you grip her hips, holding her firmly against you as your cock starts twitching, pumping your cum into her pussy. The two of you rock together, moving in sync as each throb of your cock causes her to clench around you. At last, satiated, you stagger back, one last spurt coating her pussy lips.
+Feeling the familiar pulsing deep inside, you thrust your cock deep inside. She moans as you grip her hips, holding her firmly against you as your cock starts twitching, pumping your cum into her pussy. The two of you rock together, moving in sync, as each throb of your cock causes her to clench around you. At last, satiated, you stagger back, one last spurt coating her pussy lips.
 ~ cum_today = true
 ~ CheerleaderCum = Creampie
 + [Catch your breath] -> aftercare
@@ -742,7 +742,7 @@ Feeling the pressure build, you thrust your cock deep inside. She gasps as you g
     <>.”
 }
 “Man, I thought you were different, but that was a real dick move.” She shakes her head. “{CheerleaderCum ? Mouth or CheerleaderCum ? Facial:Now I have to clean this up. }You should get out of here before someone notices us.”
-You scored with {CHEERLEADER}, but even through a post-orgasmic haze, you can tell you fucked up any chance you had to hooking up with her in the future.
+You scored with {CHEERLEADER}, but even through a post-orgasmic haze, you can tell you fucked up any chance you had to hook up with her in the future.
 ~ CheerleaderMood = Hostile
 ~ CheerleaderBaseMood = Neutral
 { isMall:
@@ -785,7 +785,7 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 - You are sitting in the back seat of a car, and her hand is in your pants, firmly rubbing your throbbing cock. She’s topless and urging you to suck on her nipples. You gasp and groan as she strokes you with increasing urgency
 - You have joined the cheerleading squad, and she’s practicing an implausible acrobatic move where you throw her in the air and catch her on your face. She lands with her thighs wrapped around your head, your nose pressed into her panties. She squirms as you struggle for breath, grinding against you, until she throws back her head, moaning in pleasure
 - You’re taking a test that you haven’t studied for, and to make matters worse, there weren’t enough chairs for everyone, so the teacher told {CHEERLEADER} to sit in your lap. It’s difficult to concentrate because she’s squirming against your erection, moaning filthy nonsense in your ear. You finally abandon the test, grabbing her hips to grind her against you
-- You’ve somehow arrived at school without noticing that you’re completely naked. You run desperatly through the halls, trying and failing to cover your impossibly hard erection. {CHEERLEADER} suddenly comes through a door, and you collide, falling to the ground between her legs. Her tits have popped out of her top and your cock is slipping between her impossibly wet lips
+- You’ve somehow arrived at school without noticing that you’re completely naked. You run desperately through the halls, trying and failing to cover your impossibly hard erection. {CHEERLEADER} suddenly comes through a door, and you collide, falling to the ground between her legs. Her tits have popped out of her top and your cock is slipping between her impossibly wet lips
 - It’s halftime at the football game, and all the other cheerleaders are giggling and laughing as you take your place on the field, kneeling behind {CHEERLEADER}, who’s on her hands and knees. You flip her skirt up, revealing her bare pussy, and as the whistle blows, you push inside her, thrusting urgently as the opposing team runs to tackle you
 }
 <>{isDayWeekend(tomorrow()):, but before you can cum you wake up tangled in your sheets.|, when she opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
