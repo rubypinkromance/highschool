@@ -19,6 +19,7 @@
 
 - Likes nudity
 - Photographer and Friend are friends
+- Friend warned photo about you, but she’s kinda into it
 */
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"

@@ -8,7 +8,7 @@ CONST FIELD = "athletic field"
 VAR FieldPeople = ()
 ~ here = Field
 
-You are in the {FIELD}. A running track surrounds the football field, and a large set of {BLEACHERS} run along one side.
+You are in the {FIELD}. A running track surrounds the football field, and a large covered {BLEACHERS} overlooks the field.
 
 ~ temp FieldPeopleCopy = FieldPeople
 - (fieldPeopleLoop)
@@ -51,7 +51,7 @@ You are in the {FIELD}. A running track surrounds the football field, and a larg
 
 */
 = bleachers
-CONST BLEACHERS = "bleachers"
+CONST BLEACHERS = "grandstands"
 VAR BleachersPeople = ()
 ~ here = Bleachers
 
@@ -71,11 +71,11 @@ You are in the {BLEACHERS} overlooking the {FIELD}.
 
 */
 = under_bleachers
-CONST UNDER_BLEACHERS = "under the bleachers"
+CONST UNDER_BLEACHERS = "under the stands"
 VAR UnderBleachersPeople = ()
 ~ here = UnderBleachers
 
-You are {UNDER_BLEACHERS}. It's fairly dark under here. Someone dragged in a couple chairs from the {CAFETERIA}, and there's an old coffee can used as an ashtray. It's not the nicest spot to hang out, but it has the advantage of being mostly hidden from view.
+You are {UNDER_BLEACHERS}. The back is open, but the sides have been covered in plywood to create a storage space for track and field equipment. Someone dragged in a couple chairs from the {CAFETERIA}, and there's an old coffee can used as an ashtray. It's dimly lit, but dry, and it has the advantage of being hidden from view of the school or {FIELD}.
 
 { UnderBleachersPeople ? Cheerleader:
     {CHEERLEADER} is here, {CheerleaderCum: cleaning up your cum|scrolling on her phone}.

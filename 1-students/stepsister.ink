@@ -17,6 +17,8 @@
 - A: Bathroom - Bathroom
 - N: Bedroom  - Bedroom
 
+- Sis goes to all girl school with friend
+- Diary entry about having to pretend to be upset about a school with no boys, but she's secretly into girls.
 - Peep in shower, jerk off in panties, read diary, ask for viagra help.
 - I’m not your little sister. We’re the same age and not related.
 - Forced to share a bed?

@@ -1,5 +1,5 @@
 LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (StudyHallTeacher), (TheaterTeacher), (Nurse), (Secretary)
-// Assign yourself a value higher than the count of the staff list to ensure that teachers are sorted to the front of any mixed people list.
+// Assign first item a value higher than the count of the staff list to ensure that teachers are sorted to the front of any mixed people list.
 LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Jock), (Friend), (Nerd), (Nympho), (Photographer), (Queen), (Twin1), (Twin2), Twins, (Rebel), (Scientist), (Stepsister), (SisFriend)
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
@@ -149,11 +149,31 @@ VAR last_girl = Cheerleader
 -> return_to
 
 /*
+    Improve a character's mood to a certain level, if not already higher.
+*/
+=== function improveMoodTo(ref characterMood, mood)
+{ characterMood < mood:
+    ~ characterMood = mood
+    {DEBUG: DEBUG IMPROVE MOOD TO: {characterMood}}
+}
+
+/*
     Improve a character's mood.
 */
 === function improveMood(ref mood)
 { mood != Desperate:
     ~ mood++
+    DEBUG IMPROVE MOOD: {mood}
+}
+
+/*
+    Improve a character's base mood.
+    Has a lower ceiling than improveMood()
+*/
+=== function improveBaseMood(ref mood)
+{ mood != Aroused:
+    ~ mood++
+    DEBUG IMPROVE BASE MOOD: {mood}
 }
 
 /*
@@ -162,6 +182,7 @@ VAR last_girl = Cheerleader
 === function worsenMood(ref mood)
 { mood != Hostile:
     ~ mood--
+    DEBUG WORSEN MOOD: {mood}
 }
 
 /*

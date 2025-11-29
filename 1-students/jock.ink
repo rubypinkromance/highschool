@@ -58,6 +58,8 @@ TODO write fight scene 1
     Jock Fight 2
     Jock fights you after finding out you fucked Cheerleader.
     You trying to steal my girl bro? Think you got the stuff to hook up with my bitch? Think again. Knees you in the nuts, Rebel intervenes. She likes you more, doesn’t like bullies. Takes you to nurse, who ices your balls then you get hard while she examines them.
+    Rebel threatens to tell coach, lance gets kicked off team if he gets detention again
+
 
 */
 TODO write fight scene 2
