@@ -98,10 +98,10 @@ A hush falls over the crowd as {getNameAndTitle(Rebel)} steps forward.
 -
 “The fuck do you know about it, cunt?” {JOCK} snarls.
 Her eyes flash red at the insult. “Enough to know if I call a teacher over right now, you’d regret it.”
-“Yo, she not wrong,” one of his teammates says quietly. “Think of the team.”
+“Yo, she’s not wrong,” one of his teammates says quietly. “Think of the team.”
 For a long moment, {JOCK} hesitates. “Whatever,” he finally grumbles. “{CHEERLEADER}’s a bitch. I’m done with her, and this loser won’t be able to do shit after the beating we just gave him. Let’s go.”
 As soon as he turns to walk away, the big guy stops holding you up, and you fall to the ground. Your eyes are watering as the crowd disperses and you hold your painfully aching balls.
-“You okay?” There’s a light touch on your shoulder as {REBEL} kneels next to you.
+“Are you okay?” There’s a light touch on your shoulder as {REBEL} kneels next to you.
 + [“Yes.” (lie)]
     You reply with a wheeze and false bravado, “Yeah, I’m okay.”
     She seems unconvinced. <>

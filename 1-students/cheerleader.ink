@@ -112,7 +112,7 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
 
 */
 === look_at_cheerleader ===
-{CHEERLEADER} is one of the most attractive girls at school, and she knows it. Her Puero Rican heritage gave her luscious brown skin, long wavy black hair, a curvy build, and large tits. {BraSizes ? Cheerleader: 36D, you remember.}
+{CHEERLEADER} is one of the most attractive girls at school, and she knows it. Her Puerto Rican heritage gave her luscious brown skin, long wavy black hair, a curvy build, and large tits. {BraSizes ? Cheerleader: 36D, you remember.}
 { CheerleaderCum:
 - Anal:
     She’s topless, glistening with sweat, with one hand clamped over her pussy as your cum drips from her ass.
@@ -219,7 +219,7 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
             -> cheerleader_sex -> mall.dressing_room
         }
 - else: // we’re at school, but it’s not the right time, so we’ll meet later
-    <> “Meet me under the bleachers{cheerleader_titjob: again} after school{oldState == CheerleaderQuest:, so I can show you how grateful I am}.”
+    <> “Meet me {UNDER_BLEACHERS}{cheerleader_titjob: again} after school{oldState == CheerleaderQuest:, so I can show you how grateful I am}.”
     “See you there,” you reply.
     { oldState == CheerleaderObserved:
         Holy shit! You can’t believe that worked. Your heart pounds as you imagine what’s in store.
