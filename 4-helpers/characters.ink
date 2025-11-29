@@ -271,8 +271,11 @@ VAR last_girl = Cheerleader
     ~ BraStorePeople += (Queen, Twin1, Twin2)
     ~ BathroomPeople += (Stepsister)
     ~ ClinicPeople += (Nurse)
-    {
-    - CheerleaderState == CheerleaderReward or CheerleaderState == CheerleaderRevenge:
+    { JockState == JockDetention:
+        ~ FieldPeople -= Jock
+        ~ StudyHallPeople += (Jock)
+    }
+    { CheerleaderState == CheerleaderReward or CheerleaderState == CheerleaderRevenge:
         ~ BleachersPeople -= Cheerleader
         ~ UnderBleachersPeople += (Cheerleader)
     }

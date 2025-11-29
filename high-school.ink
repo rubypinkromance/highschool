@@ -67,7 +67,7 @@ CONST DEBUG = true
 
 // Start with the introduction
 { DEBUG:
-    -> field.under_bleachers
+    -> hallway
 - else:
     -> intro
 }

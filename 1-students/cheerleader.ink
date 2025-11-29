@@ -16,9 +16,9 @@
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"
-LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, (CheerleaderReward), CheerleaderSex
+LIST CheerleaderState = CheerleaderObserved, CheerleaderRevenge, CheerleaderTitjob, CheerleaderQuest, CheerleaderReward, CheerleaderSex
 VAR CheerleaderInPlay = true
-VAR CheerleaderMood = Friendly
+VAR CheerleaderMood = Neutral
 VAR CheerleaderBaseMood = Neutral
 VAR CheerleaderCum = ()
 VAR cheerleader_wearing_panties = true
@@ -370,7 +370,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 */
 === cheerleader_locker ===
 ~ move(CheerleaderPanties, CheerleaderItems, Inventory)
-Moving quickly and hoping {JOCK} doesn’t see, you enter the combination for his locker, and it opens. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}’s including some lipstick, a girl’s jacket, and a pair of silky panties, and put them all in the tote bag.
+Hoping {JOCK} doesn’t see, you quickly enter the combination and open his locker. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}’s including some lipstick, a girl’s jacket, and a pair of silky panties, and put them all in the tote bag.
 * [Close the locker] -> jock_fight_1
 
 /*
@@ -473,7 +473,7 @@ ANAL {didToday(-> anal)}
 + {cheerleader_ready_to_cum and newToday(-> cheerleader_sex.anal)}
     [Cum in her mouth]
     -> climax_mouth ->->
-+ {cheerleader_ready_to_cum and didToday(-> cheerleader_sex.pussy)}
++ {cheerleader_ready_to_cum and didToday(-> cheerleader_sex.pussy) and newToday(-> cheerleader_sex.anal)}
     [Cum in her pussy]    
     -> climax_creampie ->->
 + {cheerleader_ready_to_cum and didToday(-> cheerleader_sex.anal)}
@@ -559,7 +559,7 @@ She pushes you away, clamps a hand between her legs and squeezes her thighs toge
 You watch eagerly as she nestles your throbbing erection between her tits, then squeezes them around you. You moan and rock your hips forward, thrusting into her cleavage, until the tip protrudes, then pulling back into the soft warmth. She grins at the sight as you start moving, your cock peeking out and disappearing like a shy rabbit peeking out of its burrow.
 ~ cheerleader_kneeling = true
 ~ cheerleader_ready_to_cum = true
-{CheerleaderMood >= Aroused: -> titjob_to_blowjob}
+{CheerleaderMood >= Aroused and newToday(-> cheerleader_sex.anal): -> titjob_to_blowjob}
 ->->
 
 = titjob_to_blowjob
@@ -604,15 +604,14 @@ Slowly, you pull out and push back in. She clamps a hand over her mouth to keep 
 + [Slap her ass]
     With every thrust, her big ass jiggles, and you can’t resist giving her a little slap. {CheerleaderMood == Desperate: When she doesn’t protest, you slap her a little harder. This time she squeaks in surprise, and pushes back against you.|She squeaks in protest and glares over her shoulder at you.}
 -
-You feel your cock swelling and her pussy clenching around you. She bites her lip to keep from crying out as you thrust deeper.
+You feel your cock swelling and her pussy clenching around you. She bites her lip to keep from crying out as you thrust deeper, feeling your climax approaching.
 ~ cheerleader_kneeling = false
 ~ cheerleader_wearing_panties = false
 ~ cheerleader_ready_to_cum = true
 ->->
 
 = anal
-TODO add positioning, panty removal, etc
-“Wait, I’m not ready,” she gasps. “Use a finger first.”
+“Wait, I’m not ready,” she gasps{cheerleader_kneeling:, standing up and facing the wall}. “Use a finger first.”
 Wasting no time, you rub your finger between her lips, coat it in her juices, then push the tip against her tightly puckered hole.
 “Slowly!” she squeals. “Ease it in.”
 + [Gently slip your finger in]
@@ -649,7 +648,7 @@ You watch in awe as your cock, slick with her juices, slowly slides into her ass
 + [Fuck her deep]
     Slowly, you ease out and then push back deep into her ass. She gasps and rocks back to meet you. Quickly you fall into a rhythm, each stroke ending deep inside, until she has a hand clamped over her mouth to keep from making noise, and is pushing back to meet you on every thrust.
 -
-You feel an urgent need growing and know that you’re about to cum, hard.
+You feel your cock swelling and her ass squeezing around you. She has one hand between her legs, rubbing tight circles around her clit. She bites her lip to keep from crying out as you thrust deeper, feeling your climax approaching.
 ~ cheerleader_kneeling = false
 ~ cheerleader_wearing_panties = false
 ~ cheerleader_ready_to_cum = true
@@ -746,7 +745,11 @@ Feeling the pressure build, you thrust your cock deep inside. She gasps as you g
 You scored with {CHEERLEADER}, but even through a post-orgasmic haze, you can tell you fucked up any chance you had to hooking up with her in the future.
 ~ CheerleaderMood = Hostile
 ~ CheerleaderBaseMood = Neutral
-->->
+{ isMall:
+    + [Leave] -> mall.dressing_room
+- else:
+    + [Leave] -> field.under_bleachers
+}
 
 = aftercare
 “Holy shit,” you murmur, gasping for breath, “that was incredible.”
@@ -757,11 +760,7 @@ You scored with {CHEERLEADER}, but even through a post-orgasmic haze, you can te
 }
 You pull up your pants and watch as she starts wiping up your cum.
 “Go on,” she whispers. “I need to clean up. You should get out of here before someone notices us.”
-{ isMall:
-    + [Leave] -> mall.dressing_room
-- else:
-    + [Leave] -> field.under_bleachers
-}
+->->
 
 /*
 
