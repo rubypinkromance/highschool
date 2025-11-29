@@ -71,7 +71,7 @@ You are in the {BLEACHERS} overlooking the {FIELD}.
 
 */
 = under_bleachers
-CONST UNDER_BLEACHERS = "under the stands"
+CONST UNDER_BLEACHERS = "under the grandstands"
 VAR UnderBleachersPeople = ()
 ~ here = UnderBleachers
 

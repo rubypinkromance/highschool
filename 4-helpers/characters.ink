@@ -154,7 +154,6 @@ VAR last_girl = Cheerleader
 === function improveMoodTo(ref characterMood, mood)
 { characterMood < mood:
     ~ characterMood = mood
-    {DEBUG: DEBUG IMPROVE MOOD TO: {characterMood}}
 }
 
 /*
@@ -163,7 +162,6 @@ VAR last_girl = Cheerleader
 === function improveMood(ref mood)
 { mood != Desperate:
     ~ mood++
-    DEBUG IMPROVE MOOD: {mood}
 }
 
 /*
@@ -173,7 +171,6 @@ VAR last_girl = Cheerleader
 === function improveBaseMood(ref mood)
 { mood != Aroused:
     ~ mood++
-    DEBUG IMPROVE BASE MOOD: {mood}
 }
 
 /*
@@ -182,7 +179,6 @@ VAR last_girl = Cheerleader
 === function worsenMood(ref mood)
 { mood != Hostile:
     ~ mood--
-    DEBUG WORSEN MOOD: {mood}
 }
 
 /*

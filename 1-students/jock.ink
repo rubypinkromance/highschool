@@ -12,7 +12,7 @@
 */
 CONST JOCK = "Lance"
 CONST JOCK_TITLE = "the meathead jock"
-LIST JockState = JockObserved, JockDenial, JockDetention, (JockFight), JockDumped
+LIST JockState = (JockObserved), JockDenial, JockDetention, JockFight, JockDumped
 VAR JockInPlay = false
 VAR JockMood = Hostile
 VAR JockBaseMood = Hostile
@@ -47,7 +47,7 @@ Approach {JOCK}.
 
 */
 === jock_fight_1 ===
-You close the locker and are greeted by the sight of {JOCK}’s snarling face. Before you have a chance to react, he punches you hard in the face. You collapse to the ground, cursing and holding your eye.
+You close the locker and are greeted by the sight of {JOCK}’s snarling face. Before you have a chance to react, he punches you hard in the eye. You collapse to the ground, cursing.
 “What the fuck are you doing in my locker, asshole?” he demands, standing over you with clenched fists.
 + “{CHEERLEADER} sent me.[”] She said you guys broke up, and asked me to get her stuff back.”
     -> not_broken_up
