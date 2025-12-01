@@ -124,7 +124,7 @@ You are in {BRA_STORE}, surrounded by satin and lace and strappy things that put
 - (bra_store_opts)
 <- character_opts(BraStorePeople, -> bra_store_opts)
 
-+ [Go to the {DRESSING_ROOM}] -> dressing_room ->
+// + [Go to the {DRESSING_ROOM}] -> dressing_room ->
 + [Leave {BRA_STORE}] -> pass_time -> mall
 - -> bra_store_opts
 
@@ -145,7 +145,7 @@ You are in {DRESS_STORE}. Groups of girls move between racks, holding dresses up
 - (dress_store_opts)
 <- character_opts(DressStorePeople, -> dress_store_opts)
 
-+ [Go to the {DRESSING_ROOM}] -> dressing_room ->
+// + [Go to the {DRESSING_ROOM}] -> dressing_room ->
 + [Leave {DRESS_STORE}] -> pass_time -> mall
 - -> dress_store_opts
 
@@ -212,8 +212,5 @@ You are in the {DRESSING_ROOM}. The hangers are full of items tried on and rejec
 <- character_opts(DressingRoomPeople, -> dressing_room_opts)
 
 + [Leave the {DRESSING_ROOM}]
-    { DressingRoomPeople ? Cheerleader:
-        -> cheerleader_cleanup -> pass_time -> mall
-    }
     -> pass_time -> mall
 - -> dressing_room_opts

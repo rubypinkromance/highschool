@@ -67,20 +67,22 @@ VAR PlayableGirls = (Cheerleader)
     -> top
 }
 { LIST_COUNT(inPlayCharacters) > 0:
-    + [Talk to someone]
-        Who do you want to talk to?
+    { LIST_COUNT(inPlayCharacters) > 3:
+        + [Talk to someone]
+            Who do you want to talk to?
+            <- talk_all_characters(characters, return_to)
+            + + [Cancel] -> return_to
+            -> DONE
+    - else:
         <- talk_all_characters(characters, return_to)
-        + + [Cancel] -> return_to
-        -> DONE
-- else:
-    <- talk_all_characters(characters, return_to)
-}
-{ LIST_COUNT(inPlayCharacters) > 0 and LIST_COUNT(unobservedCharacters) > 0:
-    + [Detective mode]
-        Who do you want to observe?
-        <- observe_all_characters(characters, return_to)
-        + + [Cancel] -> return_to
-        -> DONE
+    }
+    { LIST_COUNT(unobservedCharacters) > 0:
+        + [Detective mode]
+            Who do you want to observe?
+            <- observe_all_characters(characters, return_to)
+            + + [Cancel] -> return_to
+            -> DONE
+    }
 }
 
 /*
@@ -147,7 +149,7 @@ VAR PlayableGirls = (Cheerleader)
 ~ temp observed = characterData(who, ObservedState)
 ~ temp target = characterData(who, ObserveFunction)
 ~ temp in_play = characterData(who, PlayState)
-+ {in_play and state < observed and not seenVeryRecently(target)} [Observe {name}] -> target ->
++ {in_play and state < observed and newThisRound(target)} [Observe {name}] -> target ->
 -> return_to
 
 /*

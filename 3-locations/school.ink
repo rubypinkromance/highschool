@@ -90,8 +90,7 @@ CONST LOCKER = "your locker"
 VAR LockerItems = ()
 ~ here = Locker
 
-TODO: he has no friends, update description to hint at what he's into. Align with bedroom decorations
-You are at {LOCKER}. You have a couple photos of friends taped up, a clipped comic from the newspaper, and a flier from a concert you snuck out to hear.
+You are at {LOCKER}. You have a couple printed-out memes taped up, mostly referencing your favorite movies and video games.
 
 - (locker_opts)
 * {Inventory ? Schedule} [Tape up the schedule]

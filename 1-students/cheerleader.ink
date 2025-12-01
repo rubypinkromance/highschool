@@ -94,9 +94,7 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
     [“Yeah, but I got your things.”]
     -> deliver_cheerleader_stuff ->
 + {CheerleaderState == CheerleaderReward and here == UnderBleachers}
-    [Kiss her]
-    You pull her into a kiss.
-    TODO: kissing is too intimate
+    [Pull her into your arms]
     -> cheerleader_sex ->
 + {CheerleaderState == CheerleaderSex and CheerleaderMood >= Aroused and newToday(-> cheerleader_sex) and not cheerleader_sex.upset_aftercare}
     [“What are you doing{isMall() or cheerleader_dtf(): right now| later}?”]
@@ -131,11 +129,10 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
 - Tits:
     Your cum is splattered across her bare chest. { CheerleaderMood >= Aroused: She’s idly tracing her fingers through it and rubbing it into her nipples. }
 - else:
-    TODO: only wear cheerleader outfit on game day
-    { isSchool():
-        She’s wearing sneakers and a yellow and white cheerleader outfit, exposing a bare midriff.
+    { today == Saturday:
+        <> She’s wearing sneakers and a yellow and white cheerleader outfit, exposing a bare midriff.
     - else:
-        She’s wearing a low-cut pink top over a flowy floral print skirt with sandals. You notice the yellow straps of her bra, and wonder if her panties match. The weather isn’t quite warm enough for the outfit, which does little to conceal that her nipples are stiff.
+        <> She’s wearing sneakers, a flowy floral print skirt, and a yellow, loose-fitting, off-the-shoulder crop-top over a bright pink bra. You wonder if her panties match.
     }
 }
 ->->
@@ -193,16 +190,14 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
         “I’m right behind you.”
         Holy shit! You can’t believe that worked. Your heart pounds as you imagine what’s in store.
     }
-    + [Follow her {UNDER_BLEACHERS}]
+    + [Follow her]
+        You follow her {UNDER_BLEACHERS}.
         ~ here = UnderBleachers
         ~ removePerson(Cheerleader)
         ~ UnderBleachersPeople += (Cheerleader)
         { oldState == CheerleaderObserved:
-            You follow her {UNDER_BLEACHERS}.
             -> cheerleader_titjob -> field.under_bleachers
         - else:
-            You follow her {UNDER_BLEACHERS}, where she pulls you into a kiss.
-            TODO: kissing is too intimate
             -> cheerleader_sex -> field.under_bleachers
         }
 - isMall(): // we know we’re at the mall, so let’s go fuck in a dressing room.
@@ -211,16 +206,14 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
         “I’m right behind you.”
         Holy shit! You can’t believe that worked. Your heart pounds as you imagine what’s in store.
     }
-    + [Follow her to the {DRESSING_ROOM}]
+    + [Follow her]
+        You follow her to the {DRESSING_ROOM}.
         ~ here = DressingRoom
         ~ removePerson(Cheerleader)
         ~ DressingRoomPeople += (Cheerleader)
         { oldState == CheerleaderObserved:
-            You follow her to the {DRESSING_ROOM}.
             -> cheerleader_titjob -> mall.dressing_room
         - else:
-            You follow her to the {DRESSING_ROOM}, where she pulls you into a kiss.
-            TODO: kissing is too intimate
             -> cheerleader_sex -> mall.dressing_room
         }
 - else: // we’re at school, but it’s not the right time, so we’ll meet later
@@ -254,11 +247,10 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 */
 === observe_cheerleader ===
 ~ last_girl = Cheerleader
-TODO: add location hints to observation
 { observe_cheerleader:
 - 1:
     -> look_at_cheerleader ->
-    She and {JOCK} are a power couple. They have the same class schedule. Even outside of school, they’re always together, either at football practice or the mall. They seem inseparable, which is not great for you, since there’s no way for you to approach {CHEERLEADER} without {JOCK} seeing. Maybe if you observe her somewhere else, you can learn more?
+    She and {JOCK} are a power couple. It seems like they’re always together, either in class or after school at football practice in the {FIELD}. Which is not great for you, since there’s no way for you to approach {CHEERLEADER} without {JOCK} seeing. Maybe if you observe her somewhere else, you can learn more?
 - 2: {CHEERLEADER} looks upset, and it’s not hard to see why. {JOCK} is shamelessly hitting on another girl. He’s flexing and showing off, and she’s laughing and touching his arm. {CHEERLEADER} is glaring at him, but he’s too distracted to notice. Maybe they’re not as inseparable as it seemed? Now that he’s distracted, you think you could probably talk to her without him noticing. Still, you’re not sure what you would even say to her. Maybe you should keep observing her instead?
 - 3: Oh shit, things have come to a head between {CHEERLEADER} and {JOCK}. She confronted him about hitting on the other girl, and he just laughed and said, “Don’t be a bitch about this.” Her eyes flashed red, and she walked away from him. For a second, it looked like he might go after her, but instead he shrugged and made a joke to one of his friends about it being “that time of the month.”
     An idea forms in your head. Maybe she’s mad enough at him to fool around with you to make him jealous? Seems worth a shot. Time to work up the nerve to talk to her.
@@ -302,10 +294,9 @@ She seems startled by your uncharacteristic boldness, but after a moment, she no
 ~ Score += cheerleaderTitjob
 ~ cum_today = true
 “Are you ready to make {JOCK} jealous?”
-TODO: move what she says to first paragraph
-{CHEERLEADER} wastes no time with pleasantries. As soon as you arrive, she takes off her top and bra. You gawk at the sight of her bare breasts. “Hurry up,” she says, dropping to her knees in front of you. “Whip your dick out before someone finds us under here.”
-Quickly, you unzip your jeans. You’re surprised by how motivated she is. Maybe she’s just nervous about getting caught, but you think it’s more than that. Behind the take-charge attitude, you think she’s just as nervous as you are. Heart pounding, and with no idea what’s going to happen next, you lower your boxers.
-She wraps her hand around your cock and starts rubbing. She knows what she’s doing, and you quickly stiffen in her hand, until she’s stroking the full length of your shaft. “Don’t get too excited,” she warns, “I’m not gonna suck you off. You can put it between my tits and blow your load on my chest. That’ll be enough for me to take some pics to show {JOCK} what he’s missing.”
+{CHEERLEADER} wastes no time with pleasantries. As soon as you arrive, she takes off her top and bra. “Don’t get too excited,” she warns, dropping to her knees as you gawk at her bare breasts. “I’m not gonna suck you off, but you can put it between my tits. Now, whip your dick out before someone finds us under here.”
+You unzip your jeans and lower your boxers, and she starts rubbing your cock. She knows what she’s doing, and you quickly stiffen in her hand, until she’s stroking the full length of your shaft.
+“After you blow your load,” she explains, “I’ll take some pics of your cum on my chest to show {JOCK} what he’s missing.”
 * [Nod gratefully]
     You nod gratefully, still struggling to believe your luck.
 * “Great idea[.”],” you mumble, struggling to focus on anything other than her hand around your cock.
@@ -343,9 +334,14 @@ You both look down as the head of your cock emerges from her cleavage, glistenin
     “Well, lucky for you, this still works.”
 -
 Staggering back, you try to catch your breath as you watch her snap a bunch of selfies of her cum-splattered chest, all carefully cropped not to show her face.
-“That’ll teach him,” she smirks. “Thanks for your help. You can go now.”
-“Anytime,” you grin, zipping your pants and wondering how {JOCK} will react.
-->->
+“That’ll teach him,” she smirks. “{cum_on_chest:Thanks for your help. }You can go now.”
+“Anytime,” you grin, pulling up your pants and wondering how {JOCK} will react.
+~ cheerleader_cleanup()
+{ isMall():
+    + [Leave the {DRESSING_ROOM}] -> mall
+- else:
+    + [Leave the {BLEACHERS}] -> field
+}
 
 /*
 
@@ -435,11 +431,11 @@ Turning her attention back to you, she bites her lip and {here == StudyHall:writ
 === cheerleader_sex ===
 { CheerleaderMood:
 - Desperate:
-    <> She leans in with surprising urgency. You wrap your arms around her waist, pulling her closer. She squirms and grabs your ass as your hands move to her breasts. Her tongue pushes into your mouth as you shove her against the wall. Her hand is between your legs, grinding against your rapidly hardening cock. She almost seems to want you more than you want her.
+    <> You wrap your arms around her waist, pulling her closer, and she leans into you. She squirms and grabs your ass as your hands move to her breasts. You kiss her neck as you shove her against the wall. Her hand is between your legs, grinding against your rapidly hardening cock. She almost seems to want you more than you want her.
 - Aroused:
-    <> She leans into you with surprising urgency. You wrap your arms around her waist, pulling her closer. She grabs your ass as your hands move to her breasts. Her tongue flicks against yours as you push her against the wall. She reaches between your legs, grinding her palm against your rapidly hardening cock. You’re astonished at how she seems to want you just as desperately as you want her.
+    <> You wrap your arms around her waist, pulling her closer, and she leans into you. She grabs your ass as your hands move to her breasts. You kiss her neck as you push her against the wall. She reaches between your legs, grinding her palm against your rapidly hardening cock. You’re astonished at how she seems to want you just as desperately as you want her.
 - else:
-    <> She leans in as you wrap your arms around her waist, pulling her closer. You slip your tongue between her lips and squeeze her breasts as you press her against the wall.
+    <> You wrap your arms around her waist, pulling her closer, and she leans into you. You kiss her neck and squeeze her breasts as you press her against the wall.
 }
 { cheerleader_sex == 1:
     ~ Score += cheerleaderSex
@@ -448,7 +444,7 @@ Turning her attention back to you, she bites her lip and {here == StudyHall:writ
     ~ improveMoodTo(CheerleaderBaseMood, Aroused)
 }
 ~ CheerleaderState = CheerleaderSex
-After a minute, she pushes you away so she can remove her top and bra. Her tits are just as stunning as you remember. “I want {cheerleader_sex == 1:to show you how grateful I am|you},” she purrs. “Tell me what you need.”
+After a minute, she pulls away so she can remove her top and bra. Her tits are just as stunning as you remember. “I want {cheerleader_sex == 1:to show you how grateful I am|you},” she purrs. “Tell me what you need.”
 - (cheerleader_sex_opts)
 + {newToday(-> cheerleader_sex.suck_tits)}
     “Will you let me suck on your tits?”
@@ -490,17 +486,16 @@ After a minute, she pushes you away so she can remove her top and bra. Her tits 
 
 = suck_tits
 “Of course,” she purrs{cheerleader_kneeling: as she gets to her feet}.
-TODO: kissing is too intimate
 { CheerleaderMood:
 - Desperate:
     She moans as you lower your head to pull a large nipple into your mouth. You flick your tongue against the erect nub, and she squirms, squeezing her thighs together. When you switch to the other side, she tangles her fingers in your hair, pushing your face into the soft flesh.
-    “Harder,” she breathes, and you pull more of her breast into your mouth, swirling your tongue in tight, fast circles. “Bite it,” she begs, and when you trap her nipple between your teeth, she shudders with pleasure. After a few minutes, she pulls you up by the hair into a kiss, her hard nipples pressing against your chest.
+    “Harder,” she breathes, and you pull more of her breast into your mouth, swirling your tongue in tight, fast circles. “Bite it,” she begs, and when you trap her nipple between your teeth, she gasps with pleasure. After a few minutes, she shudders and pulls you up.
 - Aroused:
     She sighs approvingly as you lower your head to pull a large nipple into your mouth. You swirl your tongue around her areola, feeling it pucker and tighten. When you switch to the other side, she tangles her fingers in your hair, holding you against her soft flesh.
-    “You can suck harder,” she whispers, and you pull more of her breast into your mouth, flicking your tongue in lazy circles. She starts to squirm a bit, squeezing her thighs together as you move back and forth, lavishing attention on her chest. After a few minutes, she pulls you up into a kiss, her hard nipples pressing against your chest.
+    “You can suck harder,” she whispers, and you pull more of her breast into your mouth, flicking your tongue in lazy circles. She starts to squirm a bit, squeezing her thighs together as you move back and forth, lavishing attention on her chest. After a few minutes, she shivers and pulls you up.
 - else:
     She bites her lip as you lower your head to pull a large nipple into your mouth. You swirl your tongue around her areola, feeling it pucker and harden. When you switch to the other side, she tangles her fingers in your hair, and pulls you back a little.
-    “Not so rough,” she murmurs. Taking her lead, you slow down, swirling your tongue in lazy circles. As you move back and forth, paying attention to what she likes, you sense her begin to relax. After a few minutes, she pulls you up into a kiss, her hard nipples pressing against your chest.
+    “Not so rough,” she murmurs. Taking her lead, you slow down, swirling your tongue in lazy circles. As you move back and forth, paying attention to what she likes, you sense her begin to relax. After a few minutes, she shivers and pulls you up.
 }
 ~ cheerleader_kneeling = false
 ~ improveMood(CheerleaderMood)
@@ -509,8 +504,7 @@ TODO: kissing is too intimate
 = finger
 { CheerleaderMood:
 - Desperate:
-“Give me your fingers,” she pants, thrusting your hand under her skirt. Desperately, she tugs her underwear to one side, and presses your fingers into her soft flesh. She’s dripping wet, and your fingers are quickly coated in her juices. She leans against the wall, pulling you into a kiss as you explore her folds. Before long, she’s rolling her hips to grind against your hand.
-TODO: kissing is too intimate
+“Give me your fingers,” she pants, thrusting your hand under her skirt. Desperately, she tugs her underwear to one side, and presses your fingers into her soft flesh. She’s dripping wet, and your fingers are quickly coated in her juices. She leans against the wall, biting her finger as you explore her folds. Before long, she’s rolling her hips to grind against your hand.
 “Go inside,” she begs. “Use two fingers.” You slip your middle fingers between her lips, and press upward, effortlessly burying them deep inside. Pressing your palm against her clit, you start fucking her. “Yes, just like that.” You fuck her eagerly, until she stifles a squeak and her wetness is dripping from your knuckles.
 - Aroused:
 “Like this,” she whispers, guiding your hand under her skirt. You feel her pull her underwear to one side, then press your fingers into her soft flesh. You’re surprised to discover she’s already wet. Holding her hand over yours, she shows you how to touch her. Before long, your fingers are slick with her juices.
@@ -585,7 +579,6 @@ You keep going, the head of your cock emerging from the soft embrace of her tits
 She wraps her hand around your shaft, stroking as she kisses and licks all over. You find the sight of your cock growing in her hand unbearably erotic, and gasp as she finally pulls you fully into her mouth.
 - (fully_in_mouth)
 You can’t believe {CHEERLEADER} is giving you a blowjob! The heat of her mouth feels incredible. She swirls her tongue along the ridge of your head and squeezes her hand around the base of your shaft.You groan as she bobs her head up and down, pulling you deeper, then sucking hard as she rocks back.
-TODO: options sound too aggressive
 + [Hold her head]
 You put your hand on top of her head, running your fingers through her hair. Wrapping your hand around the back of her head, you encourage her to go a little deeper. {CheerleaderMood >= Aroused: She moans happily and follows your guidance, until your cock is bumping the back of her throat.|She swats your hand away, but continues bobbing her head, taking you a bit deeper each time, until your cock is bumping the back of her throat.} 
 + [Push deeper]
@@ -600,11 +593,9 @@ You feel a familiar swelling sensation deep inside, and know your climax is rapi
 ->->
 
 = pussy
-TODO: kissing is too intimate
-She{cheerleader_kneeling: stands up,} pulls you into a brief, intense kiss, then turns to face the wall. You watch as she hitches her skirt above her waist{cheerleader_wearing_panties:, slips off her underwear,} and spreads her legs for you. Your heartbeat pounds in your ears as you realize that {CHEERLEADER} wants this as much as you do. Your cock throbs and twitches as you let your pants slip around your knees and step into position behind her.
+“Yeah, let’s do it,” she whispers as she {cheerleader_kneeling: stands up and} turns to face the wall. You watch as she hitches her skirt above her waist{cheerleader_wearing_panties:, slips off her underwear,} and spreads her legs for you. Your heartbeat pounds in your ears as you realize that {CHEERLEADER} wants this as much as you do. Your cock throbs and twitches as you let your pants slip around your knees and step into position behind her.
 You rub the head of your cock between her wet lips as she looks back at you in anticipation. You both exhale as your cock pushes in, her insides squeezing tight around you as you enter. When you finally are fully inside, the sensation is nearly overwhelming. Her pussy is hot and soft and tight and wet. She closes her eyes and rests her head on the wall for a moment as you both get used to the sensation.
 Slowly, you pull out and push back in. She clamps a hand over her mouth to keep from making noise as you begin to slowly fuck her from behind. You have your hands on her hips, pulling her back to meet you on every thrust. What started slow and gentle quickly increases in intensity, until she’s gasping every time your cock pushes back inside.
-TODO options sound too aggressive
 + [Grab her tits]
     ~ improveMood(CheerleaderMood)
     Without slowing down, you reach forward to grab her breasts. They’re swaying with each thrust, and when you grip them firmly, she moans and pushes back against you. Trapping her nipples between your fingers, you squeeze them in time with your fucking.
@@ -757,11 +748,11 @@ Feeling the pressure build, you thrust your cock deep inside. She gasps as you g
 You scored with {CHEERLEADER}, but even through a post-orgasmic haze, you can tell you fucked up any chance you had to hook up with her in the future.
 ~ CheerleaderMood = Hostile
 ~ CheerleaderBaseMood = Neutral
-TODO: exit the area
+~ cheerleader_cleanup()
 { isMall():
-    + [Leave] -> mall.dressing_room
+    + [Leave the {DRESSING_ROOM}] -> mall
 - else:
-    + [Leave] -> field.under_bleachers
+    + [Leave the {BLEACHERS}] -> field
 }
 
 = aftercare
@@ -773,11 +764,11 @@ TODO: exit the area
 }
 You pull up your pants and watch as she starts wiping up your cum.
 “Go on,” she whispers. “I need to clean up. You should get out of here before someone notices us.”
-TODO exit the area
+~ cheerleader_cleanup()
 { isMall():
-    + [Leave] -> mall.dressing_room
+    + [Leave the {DRESSING_ROOM}] -> mall
 - else:
-    + [Leave] -> field.under_bleachers
+    + [Leave the {BLEACHERS}] -> field
 }
 
 /*
@@ -843,12 +834,11 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
     Run this whenever leaving the bleachers or dressing room if the Cheerleader is there.
 
 */
-=== cheerleader_cleanup ===
+=== function cheerleader_cleanup() ===
 ~ CheerleaderCum = ()
 ~ cheerleader_wearing_panties = true
 ~ cheerleader_kneeling = false
 ~ cheerleader_ready_to_cum = false
-->->
 
 /*
 

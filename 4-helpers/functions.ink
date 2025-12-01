@@ -56,3 +56,20 @@
 */
 === function chance(percent)
     ~ return RANDOM(1, 100) <= percent
+
+/*
+	Tests if the flow has reached one divert more recently than another.
+	If we have never reached the first divert, we return false. 
+	If we have never reached the second divert, we return true. 
+*/
+
+=== function seenMoreRecentlyThan(-> link, -> marker)
+{ TURNS_SINCE(link) >= 0: 
+    { TURNS_SINCE(marker) == -1: 
+        ~ return true 
+    } 
+    ~ return TURNS_SINCE(link) < TURNS_SINCE(marker) 
+}
+~ return false 
+
+   

@@ -2,7 +2,7 @@ LIST Locations = Nowhere, Cafeteria, StorageCloset, Church, Clinic, ExamArea, Fi
 LIST LocationAttributes = LocationName, LocationClassName, LocationPeople
 VAR Classrooms = (Gym, HealthClass, Lab, PhotoClass, StudyHall, Theater)
 VAR HomeLocations = (Bedroom, Bathroom, SisBedroom)
-VAR MallLocations = (Mall, BraStore, BookStore, DressStore, FoodCourt, MovieTheater, ShoeStore)
+VAR MallLocations = (Mall, BraStore, BookStore, DressStore, FoodCourt, MovieTheater, ShoeStore, DressingRoom)
 
 VAR here = Nowhere
 

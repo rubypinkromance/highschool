@@ -141,19 +141,28 @@ VAR countdown = false
     Determine if an action has been used today
 */
 === function didToday(-> action)
-{ TURNS_SINCE(action) >= 0:
-    { TURNS_SINCE(-> next_day) == -1:
-        ~ return true // it's the first day, and we did the action already
-    }
-    ~ return TURNS_SINCE(action) < TURNS_SINCE(-> next_day) // we did the action today
-}
-~ return false // we've never done the action at all
+~ return seenMoreRecentlyThan(action, -> next_day)
+
+/*
+    Determine if an action has been used this round
+*/
+=== function didThisRound(-> action)
+~ return seenMoreRecentlyThan(action, -> pass_time)
 
 /*
     Determine if an action is new today
 */
 === function newToday(-> action)
 { didToday(action):
+    ~ return false
+}
+~ return true
+
+/*
+    Determine if an action is new this round
+*/
+=== function newThisRound(-> action)
+{ didThisRound(action):
     ~ return false
 }
 ~ return true

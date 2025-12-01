@@ -84,9 +84,5 @@ You are {UNDER_BLEACHERS}. The back is open, but the sides have been covered in 
 - (under_bleachers_opts)
 <- character_opts(UnderBleachersPeople, -> under_bleachers_opts)
 
-+ [Leave the {BLEACHERS}]
-    { UnderBleachersPeople ? Cheerleader:
-        -> cheerleader_cleanup -> field
-    }
-    -> field
++ [Leave the {BLEACHERS}] -> field
 - -> under_bleachers_opts
