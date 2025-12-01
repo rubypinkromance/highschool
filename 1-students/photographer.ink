@@ -24,7 +24,7 @@
 CONST PHOTOGRAPHER = "Jill"
 CONST PHOTOGRAPHER_TITLE = "the photographer"
 LIST PhotographerState = PhotographerObserved
-VAR PhotographerInPlay = true
+VAR PhotographerInPlay = false
 VAR PhotographerMood = Neutral
 VAR PhotographerBaseMood = Neutral
 
@@ -38,7 +38,7 @@ Approach {PHOTOGRAPHER}.
     "34B."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

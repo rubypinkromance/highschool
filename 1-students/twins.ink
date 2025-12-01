@@ -22,10 +22,10 @@ CONST TWINS = "Hailey & Bailey"
 CONST TWINS_TITLE = "the twins"
 VAR TWIN1 = "Hailey"
 VAR TWIN2 = "Hailey"
-VAR TWIN1_TITLE = "(or is that Bailey?)"
-VAR TWIN2_TITLE = "(or is that Bailey?)"
+VAR TWIN1_TITLE = "(or is that Bailey?) the twin"
+VAR TWIN2_TITLE = "(or is that Bailey?) the twin"
 LIST TwinsState =TwinsObserved
-VAR TwinsInPlay = true
+VAR TwinsInPlay = false
 VAR TwinsMood = Neutral
 VAR TwinsBaseMood = Neutral
 VAR can_identify_twins = false
@@ -50,7 +50,7 @@ Approach {TWIN1}.
     "Hailey."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 
@@ -67,7 +67,7 @@ Approach {TWIN2}.
     "Bailey."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 
@@ -84,7 +84,7 @@ Approach {TWINS}.
     "She's Hailey, and I'm Bailey."
 + "Hello."
     "Sorry, we don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

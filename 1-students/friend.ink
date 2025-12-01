@@ -54,7 +54,7 @@ Approach {FRIEND}.
     "34C."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

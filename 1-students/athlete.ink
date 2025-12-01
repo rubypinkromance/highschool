@@ -22,7 +22,7 @@
 CONST ATHLETE = "Lindsey"
 CONST ATHLETE_TITLE = "the athlete"
 LIST AthleteState = AthleteObserved
-VAR AthleteInPlay = true
+VAR AthleteInPlay = false
 VAR AthleteMood = Neutral
 VAR AthleteBaseMood = Neutral
 
@@ -60,7 +60,7 @@ Approach {ATHLETE}.
         -> opts
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

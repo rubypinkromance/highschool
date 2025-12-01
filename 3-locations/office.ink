@@ -30,7 +30,7 @@ You are at the {OFFICE}. A reception desk faces the door, and a few chairs line 
     + + [Leave the computer]
         -> office_opts
 
-+ [Go to the {SUPPLY_CLOSET}] -> supply_closet
+// + [Go to the {SUPPLY_CLOSET}] -> supply_closet
 + [Leave the {OFFICE}] -> pass_time -> hallway
 - -> office_opts
 

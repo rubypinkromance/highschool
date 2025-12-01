@@ -29,7 +29,7 @@
 CONST NERD = "Felicia"
 CONST NERD_TITLE = "the cute nerd"
 LIST NerdState = NerdObserved
-VAR NerdInPlay = true
+VAR NerdInPlay = false
 VAR NerdMood = Neutral
 VAR NerdBaseMood = Neutral
 
@@ -43,7 +43,7 @@ Approach {NERD}.
     "32B."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

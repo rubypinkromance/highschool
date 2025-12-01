@@ -13,7 +13,7 @@ Approach {STUDY_HALL_TEACHER}.
 - (opts)
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 
@@ -21,7 +21,8 @@ Approach {STUDY_HALL_TEACHER}.
 ~ temp whenHasClass = hasClass(HealthClass)
 {STUDY_HALL_TEACHER} stops you as you try to enter.
 "{PLAYER}? You don't have detention. Clear off. This isn't a social hour."
-+ [Leave] ->->
++ [Leave conversation]
+    ->->
 
 === observe_study_hall_teacher ===
 ~ StudyHallTeacherState = StudyHallTeacherObserved

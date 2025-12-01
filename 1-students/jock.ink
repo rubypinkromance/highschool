@@ -27,7 +27,7 @@ Approach {JOCK}.
 - (opts)
 * "Hey, what's up?"
     "Fuck off, loser."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

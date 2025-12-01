@@ -21,7 +21,7 @@
 CONST SCIENTIST = "Grace"
 CONST SCIENTIST_TITLE = "the scientist"
 LIST ScientistState = ScientistObserved
-VAR ScientistInPlay = true
+VAR ScientistInPlay = false
 VAR ScientistMood = Neutral
 VAR ScientistBaseMood = Neutral
 
@@ -35,7 +35,7 @@ Approach {SCIENTIST}.
     "30B."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

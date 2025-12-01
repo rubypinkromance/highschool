@@ -27,7 +27,7 @@
 CONST REBEL = "Zia"
 CONST REBEL_TITLE = "the punk"
 LIST RebelState = RebelObserved
-VAR RebelInPlay = true
+VAR RebelInPlay = false
 VAR RebelMood = Hostile
 VAR RebelBaseMood = Hostile
 
@@ -41,7 +41,7 @@ Approach {REBEL}.
     "34B."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

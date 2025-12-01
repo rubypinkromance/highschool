@@ -19,7 +19,7 @@
 CONST ACTOR = "Dana"
 CONST ACTOR_TITLE = "the theater kid"
 LIST ActorState = ActorObserved, ActorBraSize
-VAR ActorInPlay = true
+VAR ActorInPlay = false
 VAR ActorMood = Neutral
 VAR ActorBaseMood = Neutral
 
@@ -39,7 +39,7 @@ Approach {ACTOR}.
     "Correct."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

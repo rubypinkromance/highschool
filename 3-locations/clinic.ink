@@ -19,7 +19,7 @@ You are in the {CLINIC}. The walls are covered with posters showing basic first 
 - (clinic_opts)
 <- character_opts(ClinicPeople, -> clinic_opts)
 
-+ [Go to the {EXAM_AREA}] -> exam_area
+// + [Go to the {EXAM_AREA}] -> exam_area
 + [Leave the {CLINIC}] -> pass_time -> hallway
 - -> clinic_opts
 

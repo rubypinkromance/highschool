@@ -21,7 +21,7 @@ You are in the {THEATER}. The seats in the auditorium are empty. Massive curtain
 - (theater_opts)
 <- character_opts(TheaterPeople, -> theater_opts)
 
-+ [Go {BACKSTAGE}] -> backstage
+// + [Go {BACKSTAGE}] -> backstage
 + [Leave the {THEATER}] -> pass_time -> hallway
 - -> theater_opts
 

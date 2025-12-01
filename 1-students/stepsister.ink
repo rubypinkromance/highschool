@@ -35,7 +35,7 @@
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SisIsLesbian, SisIsBi, SisSex
-VAR SisInPlay = true
+VAR SisInPlay = false
 VAR SisMood = Friendly
 VAR SisBaseMood = Friendly
 VAR SisCum = ()
@@ -54,7 +54,7 @@ Approach {SIS}.
     -> stepsister_sex ->->
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

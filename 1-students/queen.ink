@@ -24,7 +24,7 @@
 CONST QUEEN = "Victoria"
 CONST QUEEN_TITLE = "the queen bee"
 LIST QueenState = QueenObserved
-VAR QueenInPlay = true
+VAR QueenInPlay = false
 VAR QueenMood = Hostile
 VAR QueenBaseMood = Hostile
 
@@ -38,7 +38,7 @@ Approach {QUEEN}.
     "34A."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

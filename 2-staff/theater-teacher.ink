@@ -13,7 +13,7 @@ Approach {THEATER_TEACHER}.
 - (opts)
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 
@@ -35,7 +35,8 @@ Approach {THEATER_TEACHER}.
     ~ permission_to_change_schedule = true
     "Sure, that's fine by me. Head to the office."
     -> access_denied_theater_teacher_opts
-+ [Leave] ->->
++ [Leave conversation]
+    ->->
 
 === observe_theater_teacher ===
 ~ TheaterTeacherState = TheaterTeacherObserved

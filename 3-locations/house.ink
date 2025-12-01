@@ -58,6 +58,8 @@ VAR BedroomPeople = ()
 + + {Outfits ? Preppy}[Preppy clothes]
     ~ outfit = Preppy
     You put on clothes {QUEEN} would like.
++ + [Cancel]
+    -> bedroom_opts
 
 // Navigation
 + [Go to {BATHROOM}] -> bathroom
@@ -65,7 +67,7 @@ VAR BedroomPeople = ()
 + {now < Night}[Leave home]
 + + [Go to school] -> hallway
 + + [Go to the {MALL}] -> mall
-+ + [Go to the {CHURCH}] -> church
+// + + [Go to the {CHURCH}] -> church
 + + [Cancel] -> bedroom
 + {now >= AfterSchool}[Go to sleep]
     -> dream -> next_day ->bedroom
@@ -91,7 +93,7 @@ You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s 
 - (bathroom_opts)
 <- character_opts(BathroomPeople, -> bathroom_opts)
 
-+ [Leave {BATHROOM}] -> pass_time -> bedroom
++ [Leave {BATHROOM}] -> bedroom
 - -> bathroom_opts
 
 
@@ -119,7 +121,7 @@ You are in {SIS_BEDROOM}. The walls are painted pink and covered in posters for 
 + { Inventory ? SisPanties and cum_in_sis_panties } [Put {SIS}'s panties in the laundry basket]
     ~ move(SisPanties, Inventory, SisBedroomItems)
 
-+ [Leave {SIS_BEDROOM}] -> pass_time -> bedroom
++ [Leave {SIS_BEDROOM}] -> bedroom
 - -> sis_bedroom_opts
 
 /*

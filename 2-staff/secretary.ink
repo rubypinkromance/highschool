@@ -41,7 +41,7 @@ Approach {SECRETARY}.
     - else:
         "I'm sorry, students are only allowed to change their schedule for the first week. You'll need permission from a teacher to do so now."
     }
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

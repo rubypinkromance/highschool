@@ -36,7 +36,7 @@
 CONST NYMPHO = "Claire"
 CONST NYMPHO_TITLE = "the party girl"
 LIST NymphoState = NymphoObserved
-VAR NymphoInPlay = true
+VAR NymphoInPlay = false
 VAR NymphoMood = Aroused
 VAR NymphoBaseMood = Aroused
 
@@ -50,7 +50,7 @@ Approach {NYMPHO}.
     "32A."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

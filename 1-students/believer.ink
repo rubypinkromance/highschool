@@ -25,7 +25,7 @@
 CONST BELIEVER = "Kate"
 CONST BELIEVER_TITLE = "the religious girl"
 LIST BelieverState = BelieverObserved
-VAR BelieverInPlay = true
+VAR BelieverInPlay = false
 VAR BelieverMood = Neutral
 VAR BelieverBaseMood = Neutral
 
@@ -41,7 +41,7 @@ Approach {BELIEVER}.
     "Fine. It's 32C."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

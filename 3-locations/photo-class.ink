@@ -17,7 +17,7 @@ You are in the {PHOTO_CLASS}. The upper half of the walls are covered with overs
 - (photo_class_opts)
 <- character_opts(PhotoClassPeople, -> photo_class_opts)
 
-+ [Go to the {DARKROOM}] -> darkroom
+// + [Go to the {DARKROOM}] -> darkroom
 + [Leave the {PHOTO_CLASS}] -> pass_time -> hallway
 - -> photo_class_opts
 

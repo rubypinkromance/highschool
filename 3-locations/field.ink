@@ -51,7 +51,7 @@ You are in the {FIELD}. A running track surrounds the football field, and a larg
 
 */
 = bleachers
-CONST BLEACHERS = "grandstands"
+CONST BLEACHERS = "bleachers"
 VAR BleachersPeople = ()
 ~ here = Bleachers
 
@@ -71,11 +71,11 @@ You are in the {BLEACHERS} overlooking the {FIELD}.
 
 */
 = under_bleachers
-CONST UNDER_BLEACHERS = "under the grandstands"
+CONST UNDER_BLEACHERS = "under the bleachers"
 VAR UnderBleachersPeople = ()
 ~ here = UnderBleachers
 
-You are {UNDER_BLEACHERS}. The back is open, but the sides have been covered in plywood to create a storage space for track and field equipment. Someone dragged in a couple chairs from the {CAFETERIA}, and there's an old coffee can used as an ashtray. It's dimly lit, but dry, and it has the advantage of being hidden from view of the school or {FIELD}.
+You are {UNDER_BLEACHERS}. The back is open, but the sides have been covered in plywood to create a storage space for track and field equipment. It's dimly lit, but dry, and it has the advantage of being hidden from view of the school or {FIELD}.
 
 { UnderBleachersPeople ? Cheerleader:
     {CHEERLEADER} is here, {CheerleaderCum: cleaning up your cum|scrolling on her phone}.

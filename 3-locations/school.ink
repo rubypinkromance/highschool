@@ -7,14 +7,13 @@
 CONST HALLWAY = "hallway"
 ~ here = Hallway
 -> access_restrictions ->
-~ announceTime()
 
 // Weekdays:
 { isWeekday():
 
 {
 - isClassTime():
-    The {HALLWAY} is bustling and noisy, filled with the chaos of an entire school's worth of students moving between classes. You slip easily into the flow of the crowd as you move to your next class.
+    The {HALLWAY} is bustling and noisy, filled with the chaos of an entire school's worth of students moving between classes. You slip easily into the flow of the crowd.
 - isWeekday() and now == Lunch:
     The {HALLWAY} quickly empties, as most students head to the {CAFETERIA} for lunch. A few head outside to eat in the {FIELD}, while all the staff crowd into the {LOUNGE} for a meeting.
 - isWeekday() and now == AfterSchool:
@@ -23,7 +22,9 @@ CONST HALLWAY = "hallway"
     The {HALLWAY} is empty.
 }
 
-+ [Go to a classroom]
+~ announceTime()
+
++ [Go to {isClassTime():class|a classroom}]
 { JockState == JockFight and newToday(-> cheerleader_sex):
     // Jock picks a fight with you the day after you fuck Cheerleader
     -> jock_fight_2
@@ -44,8 +45,8 @@ CONST HALLWAY = "hallway"
 + + [Go to the {OFFICE}] -> office
 + + [Go to the {LOUNGE}] -> lounge
 + + [Go to the {CLINIC}] -> clinic
-+ + {has_stairwell_invite} [Go to the {STAIRWELL}] -> stairwell
-+ + {has_roof_invite} [Go to the {ROOF}] -> roof
+// + + {has_stairwell_invite} [Go to the {STAIRWELL}] -> stairwell
+// + + {has_roof_invite} [Go to the {ROOF}] -> roof
 + + [Cancel] -> hallway
 
 + [Go to {LOCKER}] -> your_locker
@@ -55,7 +56,7 @@ CONST HALLWAY = "hallway"
 + [Leave school]
 + + [Go home] -> bedroom
 + + [Go to the {MALL}] -> mall
-+ + [Go to the {CHURCH}] -> church
+// + + [Go to the {CHURCH}] -> church
 + + [Cancel] -> hallway
 
 // Weekends:
@@ -66,7 +67,7 @@ The school is closed on weekends, but you can still access the {FIELD}.
 + + [Go to the {FIELD}] -> field
 + + [Go home] -> bedroom
 + + [Go to the {MALL}] -> mall
-+ + [Go to the {CHURCH}] -> church
+// + + [Go to the {CHURCH}] -> church
 }
 
 = access_restrictions
@@ -89,6 +90,7 @@ CONST LOCKER = "your locker"
 VAR LockerItems = ()
 ~ here = Locker
 
+TODO: he has no friends, update description to hint at what he's into. Align with bedroom decorations
 You are at {LOCKER}. You have a couple photos of friends taped up, a clipped comic from the newspaper, and a flier from a concert you snuck out to hear.
 
 - (locker_opts)

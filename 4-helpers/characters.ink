@@ -5,7 +5,11 @@ LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, B
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 LIST CharacterCum = Facial, Mouth, Tits, Creampie, Anal
 
+// The last girl you interacted with will be who you dream about.
 VAR last_girl = Cheerleader
+
+// These girls have playable content.
+VAR PlayableGirls = (Cheerleader)
 
 /*
     Return a comma-separated list of people.
@@ -46,29 +50,36 @@ VAR last_girl = Cheerleader
 */
 === character_opts(characters, -> return_to) ===
 ~ temp charactersCopy = characters
-~ temp unobserved = ()
+~ temp unobservedCharacters = ()
+~ temp inPlayCharacters = ()
 - (top)
 ~ temp who = pop(charactersCopy)
 { who:
     ~ temp state = characterData(who, State)
     ~ temp observed = characterData(who, ObservedState)
+    ~ temp in_play = characterData(who, PlayState)
     { state < observed:
-        ~ unobserved += who
+        ~ unobservedCharacters += who
+    }
+    { in_play:
+        ~ inPlayCharacters += who
     }
     -> top
 }
-{ LIST_COUNT(characters) > 2:
+{ LIST_COUNT(inPlayCharacters) > 0:
     + [Talk to someone]
         Who do you want to talk to?
         <- talk_all_characters(characters, return_to)
+        + + [Cancel] -> return_to
         -> DONE
 - else:
     <- talk_all_characters(characters, return_to)
 }
-{ LIST_COUNT(unobserved) > 0:
-    + [Observation mode]
+{ LIST_COUNT(inPlayCharacters) > 0 and LIST_COUNT(unobservedCharacters) > 0:
+    + [Detective mode]
         Who do you want to observe?
         <- observe_all_characters(characters, return_to)
+        + + [Cancel] -> return_to
         -> DONE
 }
 
@@ -135,7 +146,8 @@ VAR last_girl = Cheerleader
 ~ temp state = characterData(who, State)
 ~ temp observed = characterData(who, ObservedState)
 ~ temp target = characterData(who, ObserveFunction)
-+ {state < observed and not seenVeryRecently(target)} [Observe {name}] -> target ->
+~ temp in_play = characterData(who, PlayState)
++ {in_play and state < observed and not seenVeryRecently(target)} [Observe {name}] -> target ->
 -> return_to
 
 /*

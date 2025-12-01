@@ -24,7 +24,7 @@ You are in the {GYM}. Oversized banners hang from the rafters, celebrating past 
 - (gym_opts)
 <- character_opts(GymPeople, -> gym_opts)
 
-+ [Go to the {LOCKER_ROOM}] -> locker_room
+// + [Go to the {LOCKER_ROOM}] -> locker_room
 + [Leave the {GYM}] -> pass_time -> hallway
 - -> gym_opts
 

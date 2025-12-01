@@ -1,7 +1,7 @@
 /*
 
     NOTE: All copy written in second person, present tense. e.g.:
-    
+
     You walk into her bedroom and take off your pants. She stares up at you.
     + "I want to cum on your face."
     + [Cum on her face]
@@ -16,7 +16,7 @@ It’s the first day of senior year, and you are walking to school when your bes
     “It’s not like that,” you frown. “The point is try something big.
 * “Why, are you jealous?”[] you ask with a raised eyebrow.
     “You wish,” she snorts.
-    “Come on, you of all people should understand why I have to try something, anything.
+    “Come on, you of all people should understand why I have to try something.
 * “It’s not crazy[.”],” you frown. “It’s ambitious. There’s a difference.”
     “Sure,” she nods. “Ambitious. Extremely ambitious. You might even say <em>crazy</em> ambitious.”
     “That’s exactly the point,” you say resolutely. “Shoot for the moon.
@@ -30,20 +30,23 @@ It’s the first day of senior year, and you are walking to school when your bes
     “More likely, I’ll be telling the news I knew you before you were beaten to death by a mob of angry women,” she snorts.
     “Alright,” you laugh. “Any suggestions for how I can avoid death by angry mob?”
 * “I still think you’re jealous.”
-    “Keep dreaming, Casinova.” <>
+    “Keep dreaming, Casanova.” <>
 -
 She stops walking as you approach the front door. “If you’re really going to do this, you can't just start chatting them all up with no plan. Do your research first.”
 “What a surprise,” you laugh. “The woman who loves detective movies says I should conduct an investigation.”
-“I'm serious, dude. Pay attention. Like in a video game. Go into ‘observation mode’ and try to figure out what a girl’s got going on, what she’s interested in, or what you can offer her.”
+“I'm serious, dude. Pay attention. Go into ‘detective mode’ and try to figure out what a girl’s got going on, what she’s interested in, or what you can offer her.”
 * [“It can’t be that easy.”]“Just pay attention?” you scoff. “It can’t be that easy.”
     “Oh, it won’t be easy,” she laughs, <>
 * (stalker)“Sounds kinda stalker-y.”
     “I’m not telling you to peep in their windows. Just listen when they’re talking.” She shakes her head. <>
-* “Engage observation mode!”[] you repeat in a robot voice.
+* “Detective mode?!”[] you chortle.
     “You’re laughing,” she shrugs, <>
 -
 “{stalker:Y|but y}ou have no idea how low the bar is. Literally, if you can show any interest in a girl beyond her tits, you’ll be leaps and bounds beyond every other guy at school.”
 “That makes sense.” you take a deep breath. “Okay, here we go. Senior year.”
 “Senior year!” She grins, patting you on the shoulder. “Good luck!”
 Taking a deep breath, you follow her in.
-* [Time to change your life] -> hallway
+* [Time to change your life]
+    #CLEAR
+    <em>NOTE: this is an early build of the game, and {capitaliseStart(listRoomPeople(PlayableGirls))} {LIST_COUNT(PlayableGirls) > 1:are|is} the only one with content so far.</em>
+    -> hallway

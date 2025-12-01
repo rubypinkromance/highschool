@@ -29,7 +29,7 @@ Approach {NURSE}.
     "36D."
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 

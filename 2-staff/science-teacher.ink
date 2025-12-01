@@ -13,7 +13,7 @@ Approach {SCIENCE_TEACHER}.
 - (opts)
 + "Hello."
     "Sorry, I don't have any dialog yet."
-+ [Leave]
++ [Leave conversation]
     ->->
 - -> opts
 
@@ -31,7 +31,8 @@ Approach {SCIENCE_TEACHER}.
     ~ permission_to_change_schedule = true
     "Sure, that's fine by me. Head to the office."
     -> access_denied_science_teacher_opts
-+ [Leave] ->->
++ [Leave conversation]
+    ->->
 
 === observe_science_teacher ===
 ~ ScienceTeacherState = ScienceTeacherObserved
