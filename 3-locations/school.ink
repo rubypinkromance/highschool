@@ -25,18 +25,13 @@ CONST HALLWAY = "hallway"
 ~ announceTime()
 
 + [Go to {isClassTime():class|a classroom}]
-{ JockState == JockFight and newToday(-> cheerleader_sex):
-    // Jock picks a fight with you the day after you fuck Cheerleader
-    -> jock_fight_2
-- else:
-    + + [Go to the {GYM}] -> gym
-    + + [Go to the {HEALTH_CLASS}] -> health_class
-    + + [Go to the {PHOTO_CLASS}] -> photo_class
-    + + [Go to the {LAB}] -> lab
-    + + [Go to {now == AfterSchool:{DETENTION_NAME}|the {STUDY_HALL}}] -> study_hall
-    + + [Go to the {THEATER}] -> theater
-    + + [Cancel] -> hallway
-}
++ + [Go to the {GYM}] -> gym
++ + [Go to the {HEALTH_CLASS}] -> health_class
++ + [Go to the {PHOTO_CLASS}] -> photo_class
++ + [Go to the {LAB}] -> lab
++ + [Go to {now == AfterSchool:{DETENTION_NAME}|the {STUDY_HALL}}] -> study_hall
++ + [Go to the {THEATER}] -> theater
++ + [Cancel] -> hallway
 
 + [Go to a common area]
 + + [Go to the {CAFETERIA}] -> cafeteria

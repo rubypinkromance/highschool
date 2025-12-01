@@ -169,10 +169,10 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
 /*
 
     Cheerleader Invites You Under the Bleachers
-    Shared between ask_cheerleader_bra_size, suggest_cheerleader_revenge, deliver_cheerleader_stuff, and cheerleader_repeat
-    - oldState == CheerleaderObserved (just invited to titfuck)
-    - oldState == CheerleaderQuest (just invited to fuck)
-    - oldState == CheerleaderSex (just invited to repeat fuck)
+    Shared between ask_cheerleader_bra_size, suggest_cheerleader_revenge, deliver_cheerleader_stuff, and cheerleader_repeat.
+    - oldState == CheerleaderObserved (just invited to titfuck).
+    - oldState == CheerleaderQuest (just invited to fuck).
+    - oldState == CheerleaderSex (just invited to repeat fuck).
 
 */
 === cheerleader_invite() ===
@@ -240,7 +240,7 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 /*
 
     1. Observe Cheerleader
-    a: see jock and cheerleader are a power couple, always together
+    a: see jock and cheerleader are always together
     b: see jock flirting, cheerleader is upset
     c: see them fighting, jock says don’t be a bitch about this and moves away. This is your chance!
 
@@ -262,7 +262,7 @@ You feel foolish. Of course the hot cheerleader has a boyfriend.
 
     2. Suggest Revenge to Cheerleader
     After observing she’s upset, you suggest a way for her to get back at her boyfriend.
-    Mood: Neutral
+    Mood: Neutral.
 
 */
 === suggest_cheerleader_revenge ===
@@ -286,7 +286,7 @@ She seems startled by your uncharacteristic boldness, but after a moment, she no
 
     3. Cheerleader Titjob
     After offering to help her get revenge, she takes photos of you cumming on her tits to make Jock jealous.
-    Mood: Starts at Neutral, ends at Friendly (unless you cum in her mouth)
+    Mood: Starts at Neutral, ends at Friendly (unless you cum in her mouth).
 
 */
 === cheerleader_titjob ===
@@ -347,7 +347,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 
     4. Cheerleader Request
     After the titjob, she tells you they broke up, and asks you to get her things from his locker.
-    Mood: Friendly (unless you came in her mouth)
+    Mood: Friendly (unless you came in her mouth).
 
 */
 === cheerleader_quest ===
@@ -370,13 +370,13 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 /*
 
     5. Cheerleader’s Locker
-    After she asks for your help, you recover her things from her ex’s locker, and have a fight with Jock
+    After she asks for your help, you recover her things from her ex’s locker, and have a fight with Jock.
 
 */
 === cheerleader_locker ===
 ~ move(CheerleaderPanties, CheerleaderItems, Inventory)
 Hoping {JOCK} doesn’t see, you quickly enter the combination and open his locker. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}’s including some lipstick, a girl’s jacket, and a pair of silky panties, and put them all in the tote bag.
-* [Close the locker] -> jock_fight_1
+* [Close the locker] -> jock_fight
 
 /*
 
@@ -396,7 +396,7 @@ Afterward, you feel awkward, and do your best to wipe up the mess before returni
 
     6. Deliver Cheerleader’s Stuff
     After returning her things from her ex’s locker, she sees your black eye, and says to meet her later for a reward.
-    Mood: Starts at Friendly, ends at Aroused (or if you came in her mouth, starts at Friendly, ends at Aroused)
+    Mood: Starts at Friendly, ends at Aroused (or if you came in her mouth, starts at Friendly, ends at Aroused).
 
 */
 === deliver_cheerleader_stuff ===
@@ -423,8 +423,8 @@ Turning her attention back to you, she bites her lip and {here == StudyHall:writ
 
     7. Cheerleader Sex!
     After offering to reward you, you meet her under the bleachers again, and have sex.
-    Mood: Starts at Aroused (or Friendly if you came in her mouth), base mood ends at Aroused (if not there already)
-    If you take the time to make her cum, you can get her to Desperate, where she’ll do anything
+    Mood: Starts at Aroused (or Friendly if you came in her mouth), base mood ends at Aroused (if not there already).
+    If you take the time to make her cum, you can get her to Desperate, where she’ll do anything (including anal, on repeat performances).
 
 
 */
@@ -440,7 +440,7 @@ Turning her attention back to you, she bites her lip and {here == StudyHall:writ
 { cheerleader_sex == 1:
     ~ Score += cheerleaderSex
     ~ improveConfidence()
-    ~ JockState = JockFight
+    ~ JockState = JockDumped
     ~ improveMoodTo(CheerleaderBaseMood, Aroused)
 }
 ~ CheerleaderState = CheerleaderSex
@@ -797,7 +797,7 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 - You’ve somehow arrived at school without noticing that you’re completely naked. You run desperately through the halls, trying and failing to cover your impossibly hard erection. {CHEERLEADER} suddenly comes through a door, and you collide, falling to the ground between her legs. Her tits have popped out of her top and your cock is slipping between her impossibly wet lips
 - It’s halftime at the football game, and all the other cheerleaders are giggling and laughing as you take your place on the field, kneeling behind {CHEERLEADER}, who’s on her hands and knees. You flip her skirt up, revealing her bare pussy, and as the whistle blows, you push inside her, thrusting urgently as the opposing team runs to tackle you
 }
-<>{isDayWeekend(tomorrow()):, but before you can cum you wake up tangled in your sheets.|, when she opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
+<>{isDayWeekend(tomorrow()):, but before you can cum, you wake up tangled in your sheets.|, when she opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
 ->->
 
 /*

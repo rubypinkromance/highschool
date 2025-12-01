@@ -146,6 +146,6 @@ You are in {SIS_BEDROOM}. The walls are painted pink and covered in posters for 
 - else:
     ~ temp dream_about_girl = characterData(last_girl, DreamFunction)
     -> dream_about_girl ->
-    You wake up with frustrated, with a throbbing erection and increased motivation.
+    You wake up with frustrated, with a throbbing erection.
 }
 ->->

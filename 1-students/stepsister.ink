@@ -188,7 +188,7 @@ she moans as you pump your load into her tight ass.
 === stepsister_panties ===
 ~ last_girl = Stepsister
 ~ cum_today = true
-~ Score += cheerleaderPanties
+~ Score += sisPanties
 Unable to resist the urge, you wrap {SIS}'s lacy panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
 Afterwards, you feel sheepish, and do your best to clean up the mess.
 ->->

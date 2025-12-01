@@ -12,7 +12,7 @@
 */
 CONST JOCK = "Lance"
 CONST JOCK_TITLE = "the meathead jock"
-LIST JockState = (JockObserved), JockDenial, JockDetention, JockFight, JockDumped
+LIST JockState = (JockObserved), JockDenial, JockDetention, JockDumped
 VAR JockInPlay = false
 VAR JockMood = Hostile
 VAR JockBaseMood = Hostile
@@ -42,11 +42,11 @@ Approach {JOCK}.
 
 /*
 
-    Jock Fight 1
+    Jock Fight
     Jock fights you when he finds you taking Cheerleader's things from his locker.
 
 */
-=== jock_fight_1 ===
+=== jock_fight ===
 You close the locker and are greeted by the sight of {JOCK}’s snarling face. Before you have a chance to react, he punches you hard in the eye. You collapse to the ground, cursing.
 “What the fuck are you doing in my locker, asshole?” he demands, standing over you with clenched fists.
 + “{CHEERLEADER} sent me.[”] She said you guys broke up, and asked me to get her stuff back.”

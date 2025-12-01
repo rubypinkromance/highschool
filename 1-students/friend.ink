@@ -44,6 +44,10 @@ VAR FriendInPlay = true
 VAR FriendMood = Friendly
 VAR FriendBaseMood = Friendly
 
+TODO add observation
+TODO add first quest (get every girls bra size)
+TODO add ability to talk about your mission
+
 === talk_to_friend ===
 ~last_girl = Friend
 
