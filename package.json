@@ -3,16 +3,23 @@
 	"version": "1.0.0",
 	"author": "Ruby Pink",
 	"license": "UNLICENSED",
+	"type": "module",
 	"scripts": {
 		"start": "http-server ./dist",
-		"lint": "yarn lint:prettier",
-		"lint:check": "yarn lint:prettier:check",
+		"lint": "run-s lint:css lint:prettier",
+		"lint:check": "run-s lint:*:check",
+		"lint:css": "stylelint --fix '**/*.css'",
+		"lint:css:check": "stylelint '**/*.css'",
 		"lint:prettier": "prettier . --write",
 		"lint:prettier:check": "prettier . --check",
 		"test": "yarn lint"
 	},
-	"dependencies": {
+	"dependencies": {},
+	"devDependencies": {
 		"http-server": "14.1.1",
-		"prettier": "3.7.4"
+		"npm-run-all2": "8.0.4",
+		"prettier": "3.7.4",
+		"stylelint": "16.26.1",
+		"stylelint-config-spaceninja": "15.0.0"
 	}
 }
