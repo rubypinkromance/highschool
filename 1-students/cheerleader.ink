@@ -70,10 +70,10 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
 // We adjust your options based on your confidence and her state (but not her mood)
 - (cheerleader_opts)
 * {confidence < Confident and can_ask_cheerleader_bra_size()}
-    [“What’s your bra size?” (not confident enough) # CLASS: disabled]
+    [“What’s your bra size?” (not confident enough) #UNCLICKABLE]
     You’re not yet confident enough to ask such a personal question.
 * {confidence < Confident and CheerleaderState < CheerleaderObserved}
-    [“Want to go out with me?” (not confident enough) # CLASS: disabled]
+    [“Want to go out with me?” (not confident enough) #UNCLICKABLE]
     You don’t have the confidence yet to risk rejection.
 + {confidence >= Confident and can_ask_cheerleader_bra_size()}
     [“What’s your bra size?”]

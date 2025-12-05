@@ -1,82 +1,203 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300,700|Quattrocento:700';
 
-body {
-	background: white;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: lighter;
-	overflow: hidden;
+@font-face {
+	font-display: swap;
+	font-family: 'Mission Gothic';
+	font-style: italic;
+	font-weight: 900;
+	src: url('/fonts/mission_gothic_black_italic.woff2') format('woff2');
 }
 
-@media screen and (prefers-reduced-motion: no-preference) {
-	body.switched {
-		transition:
-			color 0.6s,
-			background-color 0.6s;
+:root {
+	--system-fonts: ui-sans-serif, system-ui, sans-serif;
+	--serif-fonts: georgia, serif;
+	--mono-fonts: ui-monospace, consolas, monospace;
+	--title-fonts: 'Mission Gothic', var(--system-fonts);
+	--body-weight: 400;
+	--heading-weight: 900;
+	--color-primary: #600029;
+	--color-on-primary: #fff;
+	--color-primary-container: #92244a;
+	--color-on-primary-container: #ffe9ec;
+	--color-bg: #fff8f7;
+	--color-bg-alt: #fee9ec;
+	--color-fg: #24191b;
+	--color-subtle: #564145;
+	--color-border: #897175;
+	--color-border-subtle: #dcbfc4;
+	--color-shadow: #897175;
+	--color-link: var(--color-primary);
+	--color-link-underline: #ffb1c2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--body-weight: 300;
+		--color-primary: #ffb1c2;
+		--color-on-primary: #66002b;
+		--color-primary-container: #720533;
+		--color-on-primary-container: #ffb5c5;
+		--color-bg: #281d1f;
+		--color-bg-alt: #332729;
+		--color-fg: #dcbfc4;
+		--color-subtle: #a48a8f;
+		--color-border: #a48a8f;
+		--color-border-subtle: #564145;
+		--color-shadow: #000;
+		--color-link: var(--color-primary);
+		--color-link-underline: #720533;
 	}
+}
+
+.t-light {
+	--body-weight: 300;
+	--color-primary: #600029;
+	--color-on-primary: #fff;
+	--color-primary-container: #92244a;
+	--color-on-primary-container: #ffe9ec;
+	--color-bg: #fff8f7;
+	--color-bg-alt: #fee9ec;
+	--color-fg: #24191b;
+	--color-subtle: #564145;
+	--color-border: #897175;
+	--color-border-subtle: #dcbfc4;
+	--color-shadow: #897175;
+	--color-link: var(--color-primary);
+	--color-link-underline: #ffb1c2;
+	background: var(--color-bg);
+	color: var(--color-fg);
+}
+
+.t-dark {
+	--color-primary: #ffb1c2;
+	--color-on-primary: #66002b;
+	--color-primary-container: #720533;
+	--color-on-primary-container: #ffb5c5;
+	--color-bg: #281d1f;
+	--color-bg-alt: #332729;
+	--color-fg: #dcbfc4;
+	--color-subtle: #a48a8f;
+	--color-border: #a48a8f;
+	--color-border-subtle: #564145;
+	--color-shadow: #000;
+	--color-link: var(--color-primary);
+	--color-link-underline: #720533;
+	background: var(--color-bg);
+	color: var(--color-fg);
+}
+
+/*
+
+Base Styles
+
+*/
+html {
+	color-scheme: light dark;
+	font-size: 16px;
+	font-weight: var(--body-weight);
+
+	@media screen and (width >= 48em) {
+		font-size: 18px;
+	}
+
+	@media screen and (width >= 64em) {
+		font-size: 20px;
+	}
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-fg);
+	font-family: var(--serif-fonts);
+	line-height: 1.75;
+	overflow: hidden;
+	transition:
+		color 0.6s,
+		background-color 0.6s;
 }
 
 h1,
-h2 {
-	font-family: Quattrocento, Georgia, 'Times New Roman', Times, serif;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-}
-
-h1 {
-	font-size: 30pt;
-	margin-bottom: 10px;
-}
-
-h2 {
-	color: #bbb;
-	font-family: sans-serif;
-	font-size: 14pt;
+h2,
+h3 {
+	color: var(--color-primary);
+	font-family: var(--title-fonts);
 	font-style: italic;
-	font-weight: lighter;
+	font-weight: var(--heading-weight);
 }
 
-.header {
-	padding-bottom: 3em;
-	padding-top: 3em;
-}
+a {
+	color: var(--color-link, linktext);
+	text-decoration-color: var(--color-link-underline, linktext);
+	text-decoration-thickness: 0.0625em;
+	text-underline-offset: 0.0938em;
+	transition: color 0.6s;
 
-/*
-  Built-in class:
-    # author: Name
-*/
-.byline {
-	font-style: italic;
-}
-
-.written-in-ink {
-	background: white;
-	display: block;
-	font-family: sans-serif;
-	font-size: 9pt;
-	font-weight: 700;
-	height: 14px;
-	margin: 0;
-	padding-bottom: 6px;
-	padding-top: 6px;
-	position: fixed;
-	text-align: center;
-	top: 0;
-	width: 100%;
-	z-index: 3;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-	.written-in-ink {
-		transition:
-			color 0.6s,
-			background 0.6s;
+	&:hover,
+	&:focus {
+		color: var(--color-link-underline, linktext);
+		text-decoration-color: currentcolor;
+		text-decoration-thickness: 0.0938em;
+		text-underline-offset: auto;
 	}
 }
 
+strong {
+	color: var(--color-primary);
+	font-weight: bold;
+}
+
+img {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
 /*
-  Enables <iframe> support work on itch.io when using mobile iOS
+
+	Layout Styles
+
 */
+.publication__header {
+	margin-bottom: 3em;
+	margin-top: 3em;
+}
+
+.publication__title {
+	color: var(--color-primary);
+	font-size: 2em;
+	line-height: 1;
+	margin: 0;
+	text-wrap: balance;
+
+	@media (width >= 25em) {
+		font-size: 2.5em;
+	}
+
+	@media (width >= 30em) {
+		font-size: 3em;
+	}
+
+	@media (width >= 42em) {
+		text-align: center;
+	}
+
+	@media (width >= 60em) {
+		font-size: 4em;
+	}
+}
+
+.publication__excerpt {
+	color: var(--color-subtle);
+	line-height: 1.4;
+	margin-bottom: 0;
+
+	@media (width >= 42em) {
+		text-align: center;
+	}
+}
+
+/* Enables <iframe> support work on itch.io when using mobile iOS */
 .outerContainer {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -103,147 +224,33 @@ h2 {
 }
 
 .container {
-	background: white;
+	background: var(--color-bg);
 	display: block;
 	margin: 0 auto;
 	max-width: 600px;
 	padding: 20px;
 	padding-top: 4em;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-	.switched .container {
-		transition: background-color 0.6s;
-	}
-}
-
-p {
-	color: #888;
-	font-size: 13pt;
-	font-weight: lighter;
-	line-height: 1.7em;
-}
-
-a {
-	color: #b97c2c;
-	font-family: sans-serif;
-	font-weight: 700;
-	text-decoration: none;
-}
-
-.unclickable {
-	color: #4f3411;
-	cursor: not-allowed;
-	font-family: sans-serif;
-	font-weight: 700;
-	text-decoration: none;
-}
-
-a:hover {
-	color: black;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-	a {
-		transition: color 0.6s;
-	}
-
-	a:hover {
-		transition: color 0.1s;
-	}
-}
-
-strong {
-	color: black;
-	font-weight: bold;
-}
-
-img {
-	display: block;
-	margin: 0 auto;
-	max-width: 100%;
-}
-
-.container .hide {
-	opacity: 0;
-}
-
-.container .invisible {
-	display: none;
-}
-
-.container > * {
-	opacity: 1;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-	.container > * {
-		transition: opacity 1s;
-	}
+	transition: background-color 0.6s;
 }
 
 /*
-  Class applied to all choices
-  (Will always appear inside <p> element by default.)
-*/
-.choice {
-	line-height: 1.7em;
-	text-align: center;
-}
 
-/*
-  Class applied to first choice
-*/
-:not(.choice) + .choice {
-	padding-top: 1em;
-}
+	Controls Styles
 
-/*
-  Class applied to choice links
 */
-.choice a,
-.choice span {
-	font-size: 15pt;
-}
-
-/*
-  Built-in class:
-    The End # CLASS: end
-*/
-.end {
-	color: black;
-	font-weight: bold;
-	padding-bottom: 20px;
-	padding-top: 20px;
-	text-align: center;
-}
-
 #controls {
-	background: white;
+	background: var(--color-bg-alt);
 	font-size: 9pt;
 	padding-bottom: 6px;
 	position: fixed;
 	right: 14px;
 	text-align: center;
 	top: 4px;
+	transition:
+		color 0.6s,
+		background 0.6s;
 	user-select: none;
 	z-index: 4;
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-	#controls {
-		transition:
-			color 0.6s,
-			background 0.6s;
-	}
-}
-
-#controls [disabled] {
-	color: #ccc;
-}
-
-#controls > *:not(:last-child)::after {
-	content: ' | ';
 }
 
 @media screen and (width <= 980px) {
@@ -256,59 +263,94 @@ img {
 	}
 }
 
+#controls [disabled] {
+	color: var(--color-subtle);
+}
+
+#controls > *:not(:last-child)::after {
+	content: ' | ';
+}
+
 /*
-  Dark Theme (Added in Inky 0.10.0)
-    # theme: dark
+
+	Story Styles
+
 */
 
-body.dark {
-	background: black;
-	color: white;
+.container > * {
+	opacity: 1;
+	transition: opacity 1s;
 }
 
-.dark h2 {
-	color: #666;
+.container .hide {
+	opacity: 0;
 }
 
-.dark .container {
-	background: black;
+.container .invisible {
+	display: none;
 }
 
-.dark .written-in-ink {
-	background: black;
+/* Built-in class: # author: Name */
+.byline {
+	font-size: 1.1em;
+	font-style: italic;
 }
 
-.dark a {
-	color: #cc8f1a;
+/* Built-in class: The End # CLASS: end */
+.end {
+	color: var(--color-fg);
+	font-weight: bold;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	text-align: center;
 }
 
-.dark .unclickable {
-	color: #c4af87;
+.written-in-ink {
+	background: var(--color-bg-alt);
+	display: block;
+	font-family: sans-serif;
+	font-size: 9pt;
+	font-weight: 700;
+	height: 14px;
+	margin: 0;
+	padding-bottom: 6px;
+	padding-top: 6px;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	transition:
+		color 0.6s,
+		background 0.6s;
+	width: 100%;
+	z-index: 3;
+}
+
+/*
+
+	Choice Styles
+
+*/
+.unclickable {
+	color: var(--color-subtle);
 	cursor: not-allowed;
+	font-family: sans-serif;
+	font-weight: 700;
+	text-decoration: none;
 }
 
-.dark a:hover {
-	color: white;
-}
+/* Applied to all choices (always wrapped in a <p> element by default.) */
+.choice {
+	line-height: 1.7em;
+	text-align: center;
 
-@media screen and (prefers-reduced-motion: no-preference) {
-	.dark a {
-		transition: color 0.6s;
+	/* stylelint-disable-next-line no-descending-specificity */
+	a,
+	span {
+		font-size: 15pt;
 	}
 }
 
-.dark strong {
-	color: white;
-}
-
-.dark #controls [disabled] {
-	color: #444;
-}
-
-.dark .end {
-	color: white;
-}
-
-.dark #controls {
-	background: black;
+/* Class applied to first choice */
+:not(.choice) + .choice {
+	padding-top: 1em;
 }

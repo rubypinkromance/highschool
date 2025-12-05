@@ -377,7 +377,7 @@
 			(savedTheme == undefined && globalTagTheme === 'dark') ||
 			(savedTheme == undefined && globalTagTheme == undefined && browserDark)
 		)
-			document.body.classList.add('dark');
+			document.body.classList.add('t-dark');
 	}
 
 	// Used to hook up the functionality for global functionality buttons
@@ -399,7 +399,7 @@
 					document.getElementById('reload').removeAttribute('disabled');
 					window.localStorage.setItem(
 						'theme',
-						document.body.classList.contains('dark') ? 'dark' : '',
+						document.body.classList.contains('t-dark') ? 'dark' : '',
 					);
 				} catch (e) {
 					console.warn("Couldn't save state");
