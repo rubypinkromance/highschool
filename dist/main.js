@@ -376,8 +376,11 @@
 			savedTheme === 'dark' ||
 			(savedTheme == undefined && globalTagTheme === 'dark') ||
 			(savedTheme == undefined && globalTagTheme == undefined && browserDark)
-		)
+		) {
 			document.body.classList.add('t-dark');
+		} else {
+			document.body.classList.add('t-light');
+		}
 	}
 
 	// Used to hook up the functionality for global functionality buttons
@@ -428,7 +431,8 @@
 		if (themeSwitchEl)
 			themeSwitchEl.addEventListener('click', function (event) {
 				document.body.classList.add('switched');
-				document.body.classList.toggle('dark');
+				document.body.classList.toggle('t-dark');
+				document.body.classList.toggle('t-light');
 			});
 	}
 })(storyContent);

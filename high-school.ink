@@ -1,6 +1,5 @@
 # title: Senior Project
 # author: Ruby Pink
-# theme: dark
 
 // Story Beats
 INCLUDE 0-beats/intro.ink
