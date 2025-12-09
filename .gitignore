@@ -1,2 +1,4 @@
 students/inspiration/
 staff/inspiration/
+.DS_Store
+node_modules/

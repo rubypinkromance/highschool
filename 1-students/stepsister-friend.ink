@@ -21,9 +21,9 @@
 CONST SIS_FRIEND = "Sofia"
 CONST SIS_FRIEND_TITLE = "her friend"
 LIST SisFriendState = SisFriendObserved, SisFriendIsLesbian, SisFriendIsBi
-VAR SisFriendInPlay = false
-VAR SisFriendMood = Aroused
-VAR SisFriendBaseMood = Aroused
+VAR SisFriendInPlay = true
+VAR SisFriendMood = Friendly
+VAR SisFriendBaseMood = Friendly
 
 === talk_to_stepsister_friend ===
 ~ last_girl = SisFriend

@@ -13,10 +13,18 @@ VAR BedroomPeople = ()
 - now == Period1:
     // say nothing, dream text set up the day.
 - else:
-    You are in {BEDROOM}. {seenVeryRecently(-> bedroom): The walls are covered with posters for your favorite video games and movies. Your laptop sits on your desk next to a box of tissues and a bottle of lotion. Your bed is unmade, and a growing pile of laundry looms in the corner.}
+    You are in {BEDROOM}. The walls are covered with posters for your favorite video games and movies. Your laptop sits on your desk next to a box of tissues and a bottle of lotion. Your bed is unmade, and a growing pile of laundry looms in the corner.
+}
+{
+- BathroomPeople ? Stepsister:
+    You can hear {getNameAndTitle(Stepsister)} singing in the shower.
+- SisBedroomPeople ? (Stepsister, SisFriend):
+    You can hear giggling from {SIS_BEDROOM}. {SIS}’s friend {SIS_FRIEND} must be sleeping over again.
+- LIST_COUNT(SisBedroomPeople) > 0:
+    You can hear music playing in {SIS_BEDROOM}.
 }
 
-<- list_house_people(BedroomPeople)
+-> sis_on_the_bed(BedroomPeople) ->
 
 - (bedroom_opts)
 <- character_opts(BedroomPeople, -> bedroom_opts)
@@ -62,15 +70,17 @@ VAR BedroomPeople = ()
     -> bedroom_opts
 
 // Navigation
-+ [Go to {BATHROOM}] -> bathroom
++ [{BathroomPeople ? Stepsister:Sneak into|Go to} {BATHROOM}] -> bathroom
 + [Go to {SIS_BEDROOM}] -> sis_bedroom
 + {now < Night}[Leave home]
 + + [Go to school] -> hallway
 + + [Go to the {MALL}] -> mall
 // + + [Go to the {CHURCH}] -> church
 + + [Cancel] -> bedroom
++ {DEBUG} [Pass time]
+    -> pass_time -> bedroom
 + {now >= AfterSchool}[Go to sleep]
-    -> dream -> next_day ->bedroom
+    -> dream -> next_day -> bedroom
 - -> bedroom_opts
 
 /*
@@ -84,15 +94,18 @@ VAR BathroomPeople = ()
 VAR BathroomItems = ()
 ~ here = Bathroom
 
-You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
-
-{ BathroomPeople ? Stepsister:
-    <> The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that {SIS} is wet and naked on the other side of the shower curtain.
+{
+- BathroomPeople ? Stepsister:
+    You sneak into the bathroom as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain.
+- else:
+    You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
 }
 
 - (bathroom_opts)
 <- character_opts(BathroomPeople, -> bathroom_opts)
 
++ { BathroomPeople ? Stepsister } [Try to peek in the shower]
+    -> peep_stepsister_shower ->
 + [Leave {BATHROOM}] -> bedroom
 - -> bathroom_opts
 
@@ -108,32 +121,18 @@ VAR SisBedroomPeople = ()
 VAR SisBedroomItems = (SisPanties)
 ~ here = SisBedroom
 
-You are in {SIS_BEDROOM}. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
+You are in {getNameAndTitle(Stepsister)}’s bedroom. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
 
-<- list_house_people(SisBedroomPeople)
+-> sis_on_the_bed(SisBedroomPeople) ->
 
 - (sis_bedroom_opts)
 <- character_opts(SisBedroomPeople, -> sis_bedroom_opts)
 
-+ { SisBedroomItems ? SisPanties and not cum_in_sis_panties } [Take her panties]
-    ~ move(SisPanties, SisBedroomItems, Inventory)
-    -> sis_bedroom_opts
-+ { Inventory ? SisPanties and cum_in_sis_panties } [Put {SIS}'s panties in the laundry basket]
-    ~ move(SisPanties, Inventory, SisBedroomItems)
-
-+ [Leave {SIS_BEDROOM}] -> bedroom
++ { SisBedroomPeople == () } [Explore her room]
+    -> explore_stepsister_room ->
++ [Leave {SIS_BEDROOM}]
+    -> bedroom
 - -> sis_bedroom_opts
-
-/*
-
-    List combinations of people in the house.
-
-*/
-= list_house_people(roomPeople)
-{ LIST_COUNT(roomPeople) > 0:
-<> {capitaliseStart(listRoomPeople(roomPeople))} {LIST_COUNT(roomPeople) > 1:are|is} here.
-}
--> DONE
 
 /*
 

@@ -374,6 +374,7 @@ Staggering back, you try to catch your breath as you watch her snap a bunch of s
 
 */
 === cheerleader_locker ===
+~ last_girl = Cheerleader
 ~ move(CheerleaderPanties, CheerleaderItems, Inventory)
 Hoping {JOCK} doesn’t see, you quickly enter the combination and open his locker. Inside you find a cheerleading camp tote bag. You grab the things that are obviously {CHEERLEADER}’s including some lipstick, a girl’s jacket, and a pair of silky panties, and put them all in the tote bag.
 * [Close the locker] -> jock_fight
@@ -400,7 +401,6 @@ Afterward, you feel awkward, and do your best to wipe up the mess before returni
 
 */
 === deliver_cheerleader_stuff ===
-~ last_girl = Cheerleader
 ~ move(CheerleaderPanties, Inventory, CheerleaderItems)
 ~ improveMood(CheerleaderMood)
 ~ improveBaseMood(CheerleaderBaseMood)

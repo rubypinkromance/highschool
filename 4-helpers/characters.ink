@@ -3,7 +3,7 @@ LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (S
 LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Jock), (Friend), (Nerd), (Nympho), (Photographer), (Queen), (Twin1), (Twin2), Twins, (Rebel), (Scientist), (Stepsister), (SisFriend)
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
-LIST CharacterCum = Facial, Mouth, Tits, Creampie, Anal
+LIST CharacterCum = Panties, Facial, Mouth, Tits, Creampie, Anal
 
 // The last girl you interacted with will be who you dream about.
 VAR last_girl = Cheerleader

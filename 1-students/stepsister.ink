@@ -35,12 +35,17 @@
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SisIsLesbian, SisIsBi, SisSex
-VAR SisInPlay = false
+VAR SisInPlay = true
 VAR SisMood = Friendly
 VAR SisBaseMood = Friendly
 VAR SisCum = ()
 LIST SisItems = SisPanties, SisDiary
 
+/*
+
+    Talk to Stepsister
+
+*/
 === talk_to_stepsister ===
 ~ last_girl = Stepsister
 
@@ -58,12 +63,22 @@ Approach {SIS}.
     ->->
 - -> opts
 
+/*
+
+    Observe Stepsister
+
+*/
 === observe_stepsister ===
 ~ last_girl = Stepsister
 ~ SisState = SisObserved
 Coming soon.
 ->->
 
+/*
+
+    Look at Stepsister
+
+*/
 === look_at_stepsister ===
 Look at {SIS}.
 - (opts)
@@ -77,6 +92,100 @@ Look at {SIS}.
 + [Turn away] ->->
 - -> opts
 
+/*
+
+    Describe Stepsister on the Bed
+
+*/
+=== sis_on_the_bed(RoomPeople) ===
+{
+- RoomPeople ? (Stepsister, SisFriend):
+    {SIS} and her friend {SIS_FRIEND} are
+    {
+    - SisMood == Hostile:
+        <> glaring at you.
+    - SisMood == Aroused:
+        <> sitting on the bed, looking at you seductively.
+    - SisMood == Desperate:
+        <> making out on the bed.
+    - else:
+        <> lounging on the bed.
+    }
+- RoomPeople ? Stepsister:
+    {SIS} is
+    {
+    - SisMood == Hostile:
+        <> glaring at you.
+    - SisMood == Aroused:
+        <> sitting on the bed, squeezing her legs together and looking flushed.
+    - SisMood == Desperate:
+        <> squirming on the bed, beckoning you to come closer.
+    - else:
+        <> lounging on the bed.
+    }
+- RoomPeople ? SisFriend:
+    {SIS}’s friend {SIS_FRIEND} is
+    {
+    - SisFriendMood == Hostile:
+        <> glaring at you.
+    - SisFriendMood == Friendly:
+        <> sitting on the bed, smiling at you.
+    - SisFriendMood == Aroused:
+        <> sitting on the bed, licking her lips and winking at you.
+    - SisFriendMood == Desperate:
+        <> squeezing her tits, urging you to come closer.
+    - SisFriendMood:
+        <> lounging on the bed.
+    }
+- LIST_COUNT(RoomPeople) > 0:
+    {lookForRoomPeople(RoomPeople)}
+}
+->->
+
+/*
+
+    Explore Stepsister’s Room
+
+*/
+=== explore_stepsister_room ===
+You look around at all the girly stuff.
+- (explore_sis_bedroom_opts)
++ { SisBedroomItems ? SisPanties and not bedroom.cum_in_sis_panties } [Take her panties]
+    ~ move(SisPanties, SisBedroomItems, Inventory)
++ { Inventory ? SisPanties and bedroom.cum_in_sis_panties } [Put {SIS}'s panties in the laundry basket]
+    ~ move(SisPanties, Inventory, SisBedroomItems)
++ [Stop exploring] ->->
+- -> explore_sis_bedroom_opts
+->->
+
+/*
+
+    Jerk Off with Stepsister’s Panties
+    After finding a pair of her panties, you jerk off with them.
+
+*/
+=== stepsister_panties ===
+~ last_girl = Stepsister
+~ cum_today = true
+~ Score += sisPanties
+Unable to resist the urge, you wrap {SIS}'s lacy panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
+Afterwards, you feel sheepish, and do your best to clean up the mess.
+->->
+
+/*
+
+    Peep on Stepsister in the Shower
+
+*/
+=== peep_stepsister_shower ===
+You peep on your stepsister in the shower.
+->->
+
+/*
+
+    Stepsister Sex!
+
+*/
 === stepsister_sex ===
 { stepsister_sex == 1:
     ~ Score += sisSex
@@ -184,19 +293,20 @@ You shove your cock into her dripping cunt and pump her full of cream.
 she moans as you pump your load into her tight ass.
 ->->
 
-/* After finding a pair of her panties, you jerk off with them. */
-=== stepsister_panties ===
-~ last_girl = Stepsister
-~ cum_today = true
-~ Score += sisPanties
-Unable to resist the urge, you wrap {SIS}'s lacy panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
-Afterwards, you feel sheepish, and do your best to clean up the mess.
-->->
+/*
 
+    Stepsister Dreams
+
+*/
 === dream_of_stepsister ===
 You have a filthy dream about {SIS}.
 ->->
 
+/*
+
+    Stepsister Hints
+
+*/
 === stepsister_hints ===
 Try observing {SIS}.
 ->->
