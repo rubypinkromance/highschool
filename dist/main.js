@@ -132,6 +132,7 @@
 				// RESTART - clears everything and restarts the story from the beginning
 				else if (tag == 'CLEAR' || tag == 'RESTART') {
 					removeAll('p');
+					removeAll('ul');
 					removeAll('img');
 
 					// Comment out this line if you want to leave the header visible when clearing
@@ -163,6 +164,10 @@
 			delay += 200.0;
 		}
 
+		var choiceWrapperElement = document.createElement('ul');
+		choiceWrapperElement.classList.add('choices');
+		storyContainer.appendChild(choiceWrapperElement);
+
 		// Create HTML choices from ink choices
 		story.currentChoices.forEach(function (choice) {
 			// Create paragraph with anchor element
@@ -183,7 +188,7 @@
 				}
 			}
 
-			var choiceParagraphElement = document.createElement('p');
+			var choiceParagraphElement = document.createElement('li');
 			choiceParagraphElement.classList.add('choice');
 
 			for (var i = 0; i < customClasses.length; i++)
@@ -194,7 +199,7 @@
 			} else {
 				choiceParagraphElement.innerHTML = `<span class='unclickable'>${choice.text}</span>`;
 			}
-			storyContainer.appendChild(choiceParagraphElement);
+			choiceWrapperElement.appendChild(choiceParagraphElement);
 
 			// Fade choice in after a short delay
 			showAfter(delay, choiceParagraphElement);
@@ -389,6 +394,7 @@
 		if (rewindEl)
 			rewindEl.addEventListener('click', function (event) {
 				removeAll('p');
+				removeAll('ul');
 				removeAll('img');
 				setVisible('.header', false);
 				restart();
@@ -417,6 +423,7 @@
 			if (reloadEl.getAttribute('disabled')) return;
 
 			removeAll('p');
+			removeAll('ul');
 			removeAll('img');
 			try {
 				let savedState = window.localStorage.getItem('save-state');

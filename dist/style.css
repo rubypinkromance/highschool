@@ -328,9 +328,9 @@ img {
 	Choice Styles
 
 */
-.unclickable {
-	color: var(--color-subtle);
-	cursor: not-allowed;
+.choices {
+	list-style: none;
+	padding: 0;
 }
 
 /* Applied to all choices (always wrapped in a <p> element by default.) */
@@ -348,4 +348,9 @@ img {
 /* Class applied to first choice */
 :not(.choice) + .choice {
 	padding-top: 1em;
+}
+
+.unclickable {
+	color: var(--color-subtle);
+	cursor: not-allowed;
 }
