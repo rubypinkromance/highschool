@@ -1,4 +1,5 @@
 /*
+
     Cheerleader: Rosario
     Looks like Rosario Dawson: Puerto Rican, long wavy black hair, curvy build, huge tits, 36D(34DD), landing strip, 40-30-40
     Outfit: cheerleader outfit, black sports bra, black boyshort panties
@@ -13,6 +14,7 @@
     3: Gym        - Field     / ShoeStore
     4: Theater    - Bleachers / DressStore
     A: Bleachers  - Bleachers / ShoeStore
+
 */
 CONST CHEERLEADER = "Rosario"
 CONST CHEERLEADER_TITLE = "the cheerleader"

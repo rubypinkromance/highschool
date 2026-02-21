@@ -1,6 +1,7 @@
 VAR PLAYER = "Mike"
 LIST Outfits = Nude, (Default), (Nice), (Athletic), Preppy
 LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
+LIST PlayerItems = Laptop
 
 // Status
 VAR confidence = Awkward

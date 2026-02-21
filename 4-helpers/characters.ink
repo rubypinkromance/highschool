@@ -3,7 +3,7 @@ LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (S
 LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Jock), (Friend), (Nerd), (Nympho), (Photographer), (Queen), (Twin1), (Twin2), Twins, (Rebel), (Scientist), (Stepsister), (SisFriend)
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
-LIST CharacterCum = Panties, Facial, Mouth, Tits, Creampie, Anal
+LIST CharacterCum = Panties, Hand, Facial, Mouth, Tits, Creampie, Anal
 
 // The last girl you interacted with will be who you dream about.
 VAR last_girl = Cheerleader
@@ -39,7 +39,7 @@ VAR PlayableGirls = (Cheerleader)
 === function getNameAndTitle(who)
 ~ temp name = characterData(who, Name)
 ~ temp title = characterData(who, Title)
-{ (Friend, Stepsister) ? who:
+{ (Friend, Stepsister, SisFriend) ? who:
     ~ return "{title:{title} }{name}" // special case for "your" titles
 }
 ~ return "{name}{title: {title}}"
@@ -159,7 +159,7 @@ VAR PlayableGirls = (Cheerleader)
 ~ temp state = characterData(who, State)
 ~ temp in_play = characterData(who, PlayState)
 ~ temp target = characterData(who, HintFunction)
-+ {in_play} [{getNameAndTitle(who)}] -> target ->
++ {in_play} [{capitaliseStart(getNameAndTitle(who))}] -> target ->
 -> return_to
 
 /*
