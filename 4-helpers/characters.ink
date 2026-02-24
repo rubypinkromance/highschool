@@ -279,7 +279,6 @@ VAR PlayableGirls = (Cheerleader)
     ~ BleachersPeople += (Cheerleader, Friend)
     ~ OfficePeople += (Secretary)
     ~ BraStorePeople += (Queen, Twin1, Twin2)
-    ~ BathroomPeople += (Stepsister)
     ~ ClinicPeople += (Nurse)
     { JockState == JockDetention:
         ~ FieldPeople -= Jock
@@ -289,8 +288,19 @@ VAR PlayableGirls = (Cheerleader)
         ~ BleachersPeople -= Cheerleader
         ~ UnderBleachersPeople += (Cheerleader)
     }
+    {
+    - chance(50):
+        ~ BathroomPeople += (Stepsister)
+    - else:
+        ~ SisBedroomPeople += (Stepsister)
+    }
 - Night:
-    ~ SisBedroomPeople += (Stepsister)
+    {
+    - chance(50):
+        ~ BathroomPeople += (Stepsister)
+    - else:
+        ~ SisBedroomPeople += (Stepsister)
+    }
 }
 - else:
 { now:
@@ -410,7 +420,12 @@ VAR PlayableGirls = (Cheerleader)
     ~ ShoeStorePeople += (Nerd)
     ~ BookStorePeople += (Photographer, Scientist)
     ~ MovieTheaterPeople += (Actor, Rebel)
-    ~ BathroomPeople += (Stepsister)
+    {
+    - chance(50):
+        ~ BathroomPeople += (Stepsister)
+    - else:
+        ~ SisBedroomPeople += (Stepsister)
+    }
     {
     - today == Saturday:
         ~ BleachersPeople += (Cheerleader)
@@ -425,7 +440,12 @@ VAR PlayableGirls = (Cheerleader)
         }
     }
 - Night:
-    ~ SisBedroomPeople += (Stepsister)
+    {
+    - chance(50):
+        ~ BathroomPeople += (Stepsister)
+    - else:
+        ~ SisBedroomPeople += (Stepsister)
+    }
     { today == Saturday:
         ~ SisBedroomPeople += (SisFriend)
     }

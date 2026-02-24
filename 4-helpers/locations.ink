@@ -253,7 +253,7 @@ VAR here = Nowhere
 ~ SisBedroomPeople = ()
 
 /*
-    Remove a single person rom every room.
+    Remove a single person from every room.
     Run it before moving someone to a non-scheduled location.
 */
 === function removePerson(who)
