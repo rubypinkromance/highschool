@@ -16,13 +16,13 @@ VAR BedroomItems = (Laptop)
 }
 {
 - SisFacts ? SisSawYourPorn and sis_is_home() and now > Period1 and chance(33):
-    -> stepsister_wants_to_talk ->
-- BathroomPeople ? Stepsister:
-    You can hear {getNameAndTitle(Stepsister)} singing in the shower.
-- SisBedroomPeople ? (Stepsister, SisFriend):
+    -> sister_wants_to_talk ->
+- BathroomPeople ? Sister:
+    You can dimly hear {getNameAndTitle(Sister)} singing in the shower.
+- SisBedroomPeople ? (Sister, SisFriend):
     You can hear giggling from {SIS_BEDROOM}. {SIS}’s friend {SIS_FRIEND} must be sleeping over again.
 - LIST_COUNT(SisBedroomPeople) > 0:
-    You can hear music playing in {SIS_BEDROOM}.
+    Through the wall, you can hear music playing in {SIS_BEDROOM}.
 }
 
 - (bedroom_opts)
@@ -32,7 +32,7 @@ VAR BedroomItems = (Laptop)
 * (cum_in_cheerleader_panties){ Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
     -> cheerleader_panties -> bedroom_opts
 * (cum_in_sis_panties){ Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
-    -> stepsister_panties -> bedroom_opts
+    -> sister_panties -> bedroom_opts
 
 // Computer Actions
 + (laptop_opts){BedroomItems ? Laptop}[Use your laptop]
@@ -46,7 +46,7 @@ VAR BedroomItems = (Laptop)
     // Stepsis might might catch you jerkin' it
     - sis_is_home() and chance(66):
         ~ SisFacts += SisSawYourPorn
-        -> stepsister_catches_you_jerking_off -> bedroom_opts
+        -> sister_catches_you_jerking_off -> bedroom_opts
     - else:
         ~ cum_today = true
         You watch some porn and jerk off until you finally blow your load into some tissues. As you close your laptop, you think about how bored you are of masturbating, and increase your resolve to hook up with real girls at school instead.
@@ -74,7 +74,7 @@ VAR BedroomItems = (Laptop)
 
 // Navigation
 + {!BathroomPeople}[Go to {BATHROOM}] -> bathroom
-+ {BathroomPeople ? Stepsister}[Sneak into {BATHROOM}] -> bathroom
++ {BathroomPeople ? Sister}[Sneak into {BATHROOM}] -> bathroom
 + {!SisBedroomPeople}[Go to {SIS_BEDROOM}] -> sis_bedroom(false) // if no one's there, no need to knock
 + {SisBedroomPeople}[Go to {SIS_BEDROOM}]
 + + [Knock first] -> sis_bedroom(true)
@@ -102,7 +102,7 @@ VAR BathroomItems = ()
 ~ here = Bathroom
 
 {
-- BathroomPeople ? Stepsister:
+- BathroomPeople ? Sister:
     You sneak into the bathroom as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain.
 - else:
     You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
@@ -111,15 +111,15 @@ VAR BathroomItems = ()
 - (bathroom_opts)
 <- character_opts(BathroomPeople, -> bathroom_opts)
 
-+ { BathroomPeople ? Stepsister } [Try to peek in the shower]
-    -> peep_stepsister_shower ->
++ { BathroomPeople ? Sister } [Try to peek in the shower]
+    -> peep_sister_shower ->
 + [Leave {BATHROOM}] -> bedroom
 - -> bathroom_opts
 
 
 /*
 
-    Stepsister's Bedroom
+    Sister's Bedroom
 
 
 */
@@ -129,7 +129,7 @@ VAR SisBedroomPeople = ()
 VAR SisBedroomItems = (SisPanties)
 ~ here = SisBedroom
 
-You are in {getNameAndTitle(Stepsister)}’s bedroom. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
+You are in {getNameAndTitle(Sister)}’s bedroom. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
 {not SisBedroomPeople and SisBedroomItems ? Laptop:Your laptop is sitting on her bed, with the screensaver playing.}
 
 -> sis_on_the_bed(SisBedroomPeople, knock) ->
@@ -138,9 +138,9 @@ You are in {getNameAndTitle(Stepsister)}’s bedroom. The walls are painted pink
 <- character_opts(SisBedroomPeople, -> sis_bedroom_opts)
 
 + { SisBedroomPeople == () and SisBedroomItems ? Laptop }[Take your laptop]
-    -> retrieve_laptop_from_stepsister ->
+    -> retrieve_laptop_from_sister ->
 + { SisBedroomPeople == () } [Explore her room]
-    -> explore_stepsister_room ->
+    -> explore_sister_room ->
 + [Leave {SIS_BEDROOM}]
     -> bedroom
 - -> sis_bedroom_opts

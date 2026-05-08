@@ -1,6 +1,6 @@
 /*
 
-    Stepsister’s Friend: Sofia
+    Sister’s Friend: Sofia
     Looks like Hazel Heart: Latina, medium-length wavy black hair, average build, large tits, 32D(34C), full bush
     Outfit: pink dress, no bra, no panties
 
@@ -15,11 +15,11 @@
     N: ---      - SisBedroom - ---
 
 
-? intel: 
-? recon: 
-? convo: 
-    - likes 
-    - dislikes 
+? intel:
+? recon:
+? convo:
+    - likes
+    - dislikes
 * Story beats
 
 - Sis has a best friend, who is very into you. She climbs into bed with you one night.
@@ -35,7 +35,7 @@ VAR SisFriendInPlay = true
 VAR SisFriendMood = Friendly
 VAR SisFriendBaseMood = Friendly
 
-=== talk_to_stepsister_friend ===
+=== talk_to_sister_friend ===
 ~ last_girl = SisFriend
 
 Approach {SIS_FRIEND}.
@@ -49,16 +49,16 @@ Approach {SIS_FRIEND}.
     ->->
 - -> opts
 
-=== observe_stepsister_friend ===
+=== observe_sister_friend ===
 ~ last_girl = SisFriend
 ~ SisFriendState = SisFriendObserved
 Coming soon.
 ->->
 
-=== dream_of_stepsister_friend ===
+=== dream_of_sister_friend ===
 You have a filthy dream about {SIS_FRIEND}.
 ->->
 
-=== stepsister_friend_hints ===
+=== sister_friend_hints ===
 Try observing {SIS_FRIEND}.
 ->->

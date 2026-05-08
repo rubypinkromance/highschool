@@ -8,7 +8,7 @@
 - Emily?
 - Felicia  - Nerd
 - Grace    - Scientist (Asian)
-- Heather  - Stepsister
+- Heather  - Sister
 - Isabel?
 - Jill     - Photographer
 - Kate     - Believer
@@ -19,7 +19,7 @@
 - Paige?
 - Quinn?
 - Rosario  - Cheerleader (Puerto Rican)
-- Sofia    - Stepsister's Friend (Latina)
+- Sofia    - Sister's Friend (Latina)
 - Tina?
 - Victoria - Queen
 - Whitney  - Friend
@@ -200,7 +200,7 @@
         - DreamFunction: ~ return -> dream_of_scientist
         - HintFunction: ~ return -> scientist_hints
     }
-- Stepsister:
+- Sister:
     { what:
         - Name: ~ return SIS
         - Title: ~ return SIS_TITLE
@@ -209,10 +209,10 @@
         - ObservedState: ~ return SisObserved
         - Mood: ~ return SisMood
         - BaseMood: ~ return SisBaseMood
-        - TalkFunction: ~ return -> talk_to_stepsister
-        - ObserveFunction: ~ return -> observe_stepsister
-        - DreamFunction: ~ return -> dream_of_stepsister
-        - HintFunction: ~ return -> stepsister_hints
+        - TalkFunction: ~ return -> talk_to_sister
+        - ObserveFunction: ~ return -> observe_sister
+        - DreamFunction: ~ return -> dream_of_sister
+        - HintFunction: ~ return -> sister_hints
     }
 - SisFriend:
     { what:
@@ -223,10 +223,10 @@
         - ObservedState: ~ return SisFriendObserved
         - Mood: ~ return SisFriendMood
         - BaseMood: ~ return SisFriendBaseMood
-        - TalkFunction: ~ return -> talk_to_stepsister_friend
-        - ObserveFunction: ~ return -> observe_stepsister_friend
-        - DreamFunction: ~ return -> dream_of_stepsister_friend
-        - HintFunction: ~ return -> stepsister_friend_hints
+        - TalkFunction: ~ return -> talk_to_sister_friend
+        - ObserveFunction: ~ return -> observe_sister_friend
+        - DreamFunction: ~ return -> dream_of_sister_friend
+        - HintFunction: ~ return -> sister_friend_hints
     }
 - Twin1:
     { what:

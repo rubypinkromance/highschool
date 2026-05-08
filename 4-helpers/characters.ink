@@ -1,6 +1,6 @@
 LIST Staff = (GymTeacher), (HealthTeacher), (PhotoTeacher), (ScienceTeacher), (StudyHallTeacher), (TheaterTeacher), (Nurse), (Secretary)
 // Assign first item a value higher than the count of the staff list to ensure that teachers are sorted to the front of any mixed people list.
-LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Jock), (Friend), (Nerd), (Nympho), (Photographer), (Queen), (Twin1), (Twin2), Twins, (Rebel), (Scientist), (Stepsister), (SisFriend)
+LIST Students = You = 20, (Actor), (Athlete), (Believer), (Cheerleader), (Jock), (Friend), (Nerd), (Nympho), (Photographer), (Queen), (Twin1), (Twin2), Twins, (Rebel), (Scientist), (Sister), (SisFriend)
 LIST CharacterAttributes = Name, Title, State, PlayState, ObservedState, Mood, BaseMood, Confidence, TalkFunction, ObserveFunction, DreamFunction, HintFunction
 LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 LIST CharacterCum = Panties, Hand, Facial, Mouth, Tits, Creampie, Anal
@@ -39,7 +39,7 @@ VAR PlayableGirls = (Cheerleader)
 === function getNameAndTitle(who)
 ~ temp name = characterData(who, Name)
 ~ temp title = characterData(who, Title)
-{ (Friend, Stepsister, SisFriend) ? who:
+{ (Friend, Sister, SisFriend) ? who:
     ~ return "{title:{title} }{name}" // special case for "your" titles
 }
 ~ return "{name}{title: {title}}"
@@ -290,16 +290,16 @@ VAR PlayableGirls = (Cheerleader)
     }
     {
     - chance(50):
-        ~ BathroomPeople += (Stepsister)
+        ~ BathroomPeople += (Sister)
     - else:
-        ~ SisBedroomPeople += (Stepsister)
+        ~ SisBedroomPeople += (Sister)
     }
 - Night:
     {
     - chance(50):
-        ~ BathroomPeople += (Stepsister)
+        ~ BathroomPeople += (Sister)
     - else:
-        ~ SisBedroomPeople += (Stepsister)
+        ~ SisBedroomPeople += (Sister)
     }
 }
 - else:
@@ -312,7 +312,7 @@ VAR PlayableGirls = (Cheerleader)
     ~ ShoeStorePeople += (Queen, Twin1, Twin2)
     ~ BookStorePeople += (Actor, Scientist)
     ~ MovieTheaterPeople += (Nerd, Rebel)
-    ~ SisBedroomPeople += (Stepsister)
+    ~ SisBedroomPeople += (Sister)
     {
     - today == Saturday:
         ~ BleachersPeople += (Cheerleader)
@@ -329,7 +329,7 @@ VAR PlayableGirls = (Cheerleader)
 - Period2:
     ~ ChurchPeople += (Believer)
     ~ FoodCourtPeople += (Friend)
-    ~ BraStorePeople += (Stepsister, SisFriend)
+    ~ BraStorePeople += (Sister, SisFriend)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
     ~ ShoeStorePeople += (Nympho)
     ~ BookStorePeople += (Scientist)
@@ -350,7 +350,7 @@ VAR PlayableGirls = (Cheerleader)
     ~ ChurchPeople += (Believer)
     ~ FoodCourtPeople += (Queen, Twin1, Twin2)
     ~ BraStorePeople += (Rebel)
-    ~ DressStorePeople += (Stepsister, SisFriend)
+    ~ DressStorePeople += (Sister, SisFriend)
     ~ ShoeStorePeople += (Friend)
     ~ BookStorePeople += (Scientist)
     ~ MovieTheaterPeople += (Nerd, Nympho)
@@ -372,7 +372,7 @@ VAR PlayableGirls = (Cheerleader)
     ~ FoodCourtPeople += (Rebel)
     ~ BraStorePeople += (Friend)
     ~ DressStorePeople += (Queen, Twin1, Twin2)
-    ~ ShoeStorePeople += (Stepsister, SisFriend)
+    ~ ShoeStorePeople += (Sister, SisFriend)
     ~ BookStorePeople += (Scientist)
     ~ MovieTheaterPeople += (Nerd, Nympho)
     {
@@ -397,7 +397,7 @@ VAR PlayableGirls = (Cheerleader)
     ~ ShoeStorePeople += (Nympho, Photographer)
     ~ BookStorePeople += (Nerd)
     ~ MovieTheaterPeople += (Actor, Rebel)
-    ~ SisBedroomPeople += (Stepsister)
+    ~ SisBedroomPeople += (Sister)
     {
     - today == Saturday:
         ~ BleachersPeople += (Cheerleader)
@@ -422,9 +422,9 @@ VAR PlayableGirls = (Cheerleader)
     ~ MovieTheaterPeople += (Actor, Rebel)
     {
     - chance(50):
-        ~ BathroomPeople += (Stepsister)
+        ~ BathroomPeople += (Sister)
     - else:
-        ~ SisBedroomPeople += (Stepsister)
+        ~ SisBedroomPeople += (Sister)
     }
     {
     - today == Saturday:
@@ -442,9 +442,9 @@ VAR PlayableGirls = (Cheerleader)
 - Night:
     {
     - chance(50):
-        ~ BathroomPeople += (Stepsister)
+        ~ BathroomPeople += (Sister)
     - else:
-        ~ SisBedroomPeople += (Stepsister)
+        ~ SisBedroomPeople += (Sister)
     }
     { today == Saturday:
         ~ SisBedroomPeople += (SisFriend)

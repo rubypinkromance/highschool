@@ -17,8 +17,8 @@ INCLUDE 1-students/photographer.ink
 INCLUDE 1-students/queen.ink
 INCLUDE 1-students/rebel.ink
 INCLUDE 1-students/scientist.ink
-INCLUDE 1-students/stepsister.ink
-INCLUDE 1-students/stepsister-friend.ink
+INCLUDE 1-students/sister.ink
+INCLUDE 1-students/sister-friend.ink
 INCLUDE 1-students/twins.ink
 
 // Staff
