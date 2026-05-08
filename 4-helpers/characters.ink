@@ -289,14 +289,14 @@ VAR PlayableGirls = (Cheerleader)
         ~ UnderBleachersPeople += (Cheerleader)
     }
     {
-    - chance(50):
-        ~ BathroomPeople += (Sister)
-    - else:
+    - today == Tuesday or today == Thursday:
         ~ SisBedroomPeople += (Sister)
+    - else:
+        ~ BathroomPeople += (Sister)
     }
 - Night:
     {
-    - chance(50):
+    - today == Tuesday or today == Thursday:
         ~ BathroomPeople += (Sister)
     - else:
         ~ SisBedroomPeople += (Sister)
@@ -422,9 +422,9 @@ VAR PlayableGirls = (Cheerleader)
     ~ MovieTheaterPeople += (Actor, Rebel)
     {
     - chance(50):
-        ~ BathroomPeople += (Sister)
-    - else:
         ~ SisBedroomPeople += (Sister)
+    - else:
+        ~ BathroomPeople += (Sister)
     }
     {
     - today == Saturday:
@@ -440,12 +440,7 @@ VAR PlayableGirls = (Cheerleader)
         }
     }
 - Night:
-    {
-    - chance(50):
-        ~ BathroomPeople += (Sister)
-    - else:
-        ~ SisBedroomPeople += (Sister)
-    }
+    ~ SisBedroomPeople += (Sister)
     { today == Saturday:
         ~ SisBedroomPeople += (SisFriend)
     }

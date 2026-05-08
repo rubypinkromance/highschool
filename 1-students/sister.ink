@@ -116,6 +116,7 @@ TODO write dialog
 */
 TODO write dialog
 === sister_flirt ===
+~ last_girl = Sister
 - (flirt_opts)
 + [“Wanna fool around?”]
     -> sister_sex ->
@@ -131,7 +132,8 @@ TODO write dialog
 
 */
 === look_at_sister ===
-{ CheerleaderCum:
+~ last_girl = Sister
+{ SisCum:
 - Anal:
     {SIS} sighs happily, completely relaxed as your cum leaks from her asshole.
 - Creampie:
@@ -219,11 +221,11 @@ You look around at all the girly stuff.
 - (explore_sis_bedroom_opts)
 + [Read her diary]
     -> read_sister_diary ->
-+ { SisBedroomItems ? SisPanties and not bedroom.cum_in_sis_panties } [Take her panties]
++ { SisBedroomItems ? SisPanties and not use_sister_panties } [Take her panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
-+ { Inventory ? SisPanties and bedroom.cum_in_sis_panties } [Put {SIS}'s panties in the laundry basket]
++ { Inventory ? SisPanties and use_sister_panties } [Put {SIS}'s panties in the laundry basket]
     ~ move(SisPanties, Inventory, SisBedroomItems)
-+ [Stop exploring]
++ [Leave {SIS_BEDROOM}]
     -> pass_time -> bedroom
 - -> explore_sis_bedroom_opts
 
@@ -239,6 +241,7 @@ You look around at all the girly stuff.
 */
 TODO add diary entries
 === read_sister_diary ===
+~ last_girl = Sister
 Full of filthy fantasies!
 ->->
 
@@ -249,7 +252,7 @@ Full of filthy fantasies!
 
 */
 TODO write panty jerkoff scene
-=== sister_panties ===
+=== use_sister_panties ===
 ~ last_girl = Sister
 ~ cum_today = true
 ~ Score += sisPanties
@@ -269,6 +272,7 @@ Afterwards, you feel sheepish, and do your best to clean up the mess.
 */
 TODO add interactive scene
 === peep_sister_shower ===
+~ last_girl = Sister
 You peep on your stepsister in the shower.
 -> pass_time -> bedroom
 

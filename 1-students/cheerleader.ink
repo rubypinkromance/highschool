@@ -387,7 +387,7 @@ Hoping {JOCK} doesn’t see, you quickly enter the combination and open his lock
     After finding a pair of her panties in her ex’s locker, you jerk off with them.
 
 */
-=== cheerleader_panties ===
+=== use_cheerleader_panties ===
 ~ last_girl = Cheerleader
 ~ cum_today = true
 ~ Score += cheerleaderPanties
@@ -417,7 +417,7 @@ You pass her the bag, but she ignores it for a moment.
     “I doubt it,” she considers. “You weren’t actually in the pics or anything. He probably just saw you in his locker and got mad.” she smiles gratefully, 
 -
 <> “Thanks for getting my stuff. I’m sorry you had to deal with that.”
-She quickly rummages through the items in the bag, nodding at what you brought her. {cheerleader_panties: Then she picks up the panties you jerked off with. They look sticky, and there’s a noticeable cum stain. She frowns, and your heart skips a beat. “Ew, did {JOCK} jerk off with these? He’s such a creep, I should have broken up with him sooner.”|<>}
+She quickly rummages through the items in the bag, nodding at what you brought her. {use_cheerleader_panties: Then she picks up the panties you jerked off with. They look sticky, and there’s a noticeable cum stain. She frowns, and your heart skips a beat. “Ew, did {JOCK} jerk off with these? He’s such a creep, I should have broken up with him sooner.”|<>}
 Turning her attention back to you, she bites her lip and {here == StudyHall:writes|says}
 -> cheerleader_invite() ->->
 

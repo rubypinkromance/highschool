@@ -28,34 +28,30 @@ VAR BedroomItems = (Laptop)
 - (bedroom_opts)
 <- character_opts(BedroomPeople, -> bedroom_opts)
 
-// Inventory Actions
-* (cum_in_cheerleader_panties){ Inventory ? CheerleaderPanties } [Jerk off with {CHEERLEADER}'s panties]
-    -> cheerleader_panties -> bedroom_opts
-* (cum_in_sis_panties){ Inventory ? SisPanties } [Jerk off with {SIS}'s panties]
-    -> sister_panties -> bedroom_opts
+// Masturbation Actions (only show one)
+{
+- Inventory ? CheerleaderPanties and not use_cheerleader_panties and cum_today:
+    * [Jerk off with {CHEERLEADER}'s panties] -> use_cheerleader_panties -> bedroom_opts
+- Inventory ? SisPanties and not use_sister_panties and not cum_today:
+    * [Jerk off with {SIS}'s panties] -> use_sister_panties -> bedroom_opts
+- not cum_today:
+    + [Jerk off] -> jerk_off -> bedroom_opts
+}
 
 // Computer Actions
 + (laptop_opts){BedroomItems ? Laptop}[Use your laptop]
++ + {not cum_today} [Watch porn]
+    -> watch_porn -> bedroom_opts
 + + [Check your score]
     -> print_score -> laptop_opts
 + + [Ask for a hint]
     <- hint_system(-> laptop_opts)
     -> DONE
-+ + (jerk_off) {not cum_today} [Watch porn]
-    {
-    // Stepsis might might catch you jerkin' it
-    - sis_is_home() and chance(66):
-        ~ SisFacts += SisSawYourPorn
-        -> sister_catches_you_jerking_off -> bedroom_opts
-    - else:
-        ~ cum_today = true
-        You watch some porn and jerk off until you finally blow your load into some tissues. As you close your laptop, you think about how bored you are of masturbating, and increase your resolve to hook up with real girls at school instead.
-    }
 + + [Close your laptop]
     -> bedroom_opts
 
 // Outfit Actions
-+ [Change your clothes]
++ {now < Night}[Change your clothes]
     What would you like to wear?
 + + [Default outfit]
     ~ outfit = Default
@@ -73,17 +69,21 @@ VAR BedroomItems = (Laptop)
     -> bedroom_opts
 
 // Navigation
-+ {!BathroomPeople}[Go to {BATHROOM}] -> bathroom
-+ {BathroomPeople ? Sister}[Sneak into {BATHROOM}] -> bathroom
-+ {!SisBedroomPeople}[Go to {SIS_BEDROOM}] -> sis_bedroom(false) // if no one's there, no need to knock
-+ {SisBedroomPeople}[Go to {SIS_BEDROOM}]
-+ + [Knock first] -> sis_bedroom(true)
-+ + [Just open the door] -> sis_bedroom(false)
-+ {now < Night}[Leave home]
-+ + [Go to school] -> hallway
-+ + [Go to the {MALL}] -> mall
-// + + [Go to the {CHURCH}] -> church
-+ + [Cancel] -> bedroom
++ [Leave your room]
++ + {!BathroomPeople}[Go to {BATHROOM}] -> bathroom
++ + {BathroomPeople ? Sister}[Sneak into {BATHROOM}] -> bathroom
++ + {!SisBedroomPeople}[Go to {SIS_BEDROOM}] -> sis_bedroom(false) // if no one's there, no need to knock
++ + {SisBedroomPeople}[Go to {SIS_BEDROOM}]
++ + + [Knock first] -> sis_bedroom(true)
++ + + [Just open the door] -> sis_bedroom(false)
++ + + [Nevermind] -> bedroom
++ + {now < Night}[Leave home]
++ + + [Go to school] -> hallway
++ + + [Go to the {MALL}] -> mall
+// + + + [Go to the {CHURCH}] -> church
++ + + [Cancel] -> bedroom
+
+// Time Actions
 + {now >= AfterSchool}[Go to sleep]
     -> dream -> next_day -> bedroom
 + {DEBUG} [Pass time #DEBUG]
@@ -142,7 +142,7 @@ You are in {getNameAndTitle(Sister)}’s bedroom. The walls are painted pink and
 + { SisBedroomPeople == () } [Explore her room]
     -> explore_sister_room ->
 + [Leave {SIS_BEDROOM}]
-    -> bedroom
+    -> pass_time -> bedroom
 - -> sis_bedroom_opts
 
 /*
