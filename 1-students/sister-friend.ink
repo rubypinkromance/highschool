@@ -31,7 +31,7 @@
 CONST SIS_FRIEND = "Sofia"
 CONST SIS_FRIEND_TITLE = "her friend"
 LIST SisFriendState = (SisFriendObserved), SisFriendIsLesbian, SisFriendIsBi
-VAR SisFriendInPlay = true
+VAR SisFriendInPlay = false
 VAR SisFriendMood = Friendly
 VAR SisFriendBaseMood = Friendly
 

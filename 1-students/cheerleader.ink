@@ -799,7 +799,7 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {CHEERLEADER}. 
 - You’ve somehow arrived at school without noticing that you’re completely naked. You run desperately through the halls, trying and failing to cover your impossibly hard erection. {CHEERLEADER} suddenly comes through a door, and you collide, falling to the ground between her legs. Her tits have popped out of her top and your cock is slipping between her impossibly wet lips
 - It’s halftime at the football game, and all the other cheerleaders are giggling and laughing as you take your place on the field, kneeling behind {CHEERLEADER}, who’s on her hands and knees. You flip her skirt up, revealing her bare pussy, and as the whistle blows, you push inside her, thrusting urgently as the opposing team runs to tackle you
 }
-<>{isDayWeekend(tomorrow()):, but before you can cum, you wake up tangled in your sheets.|, when she opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
+<>{isDayWeekend(tomorrow()):, but before you can cum, she laughs and runs away, ignoring your protests.|, when she opens her mouth and starts making a strange noise that you eventually recognize as your alarm.}
 ->->
 
 /*

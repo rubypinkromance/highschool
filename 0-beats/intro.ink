@@ -48,5 +48,5 @@ She stops walking as you approach the front door. “If you’re really going to
 Taking a deep breath, you follow her in.
 * [Time to change your life]
     #CLEAR
-    <em>NOTE: this is an early build of the game, and {capitaliseStart(listRoomPeople(PlayableGirls))} {LIST_COUNT(PlayableGirls) > 1:are|is} the only one with content so far.</em>
+    <em>NOTE: this is an early build of the game. {capitaliseStart(listRoomPeople(PlayableGirls))} {LIST_COUNT(PlayableGirls) > 1:are|is} the only girl{LIST_COUNT(PlayableGirls) > 1:s} with content so far.</em>
     -> hallway

@@ -55,14 +55,15 @@ What do you want a hint about?
 
 */
 === watch_porn
+You pull out your cock as you load one of your favorite videos, <>
 {shuffle:
-- You watch a video of a stepbrother jerking off as his stepsister gets undressed in front of him for no apparent reason. When she notices, she pretends to be shocked, but it doesn't take long before she's riding his cock as he squeezes her tits.
-- You play a video of a cheerleader fucking an entire soccer team. She moans around the cock in her mouth as two players thrust into her pussy and ass. As each guy cums on her and steps away, another takes his place.
-- You find a video of a girl slowly undressing. She seems to be looking straight at you, talking in a low voice about all the things she wants you to do to her. The intensity of the fantasy escalates until her fingers are frantically rubbing her clit as she begs you to cum for her.
-- You load a video of a couple fooling around in a park. He pays her escalating amounts of money to flash him, to rub her pussy, and to suck his cock. They keep having to move when people come by, until finally she lifts her skirt and lets him fuck her against a tree.
+- of a stepbrother jerking off as his stepsister gets undressed in front of him for no apparent reason. When she notices, she pretends to be shocked, but it doesn't take long before she's riding his cock as he squeezes her tits. You imagine yourself in the scene, thrusting up into the heat of her pussy.
+- of a cheerleader fucking an entire soccer team. She moans around the cock in her mouth as two players thrust into her pussy and ass. As each guy cums on her and steps away, another takes his place. You imagine joining in, how her pussy would feel around your cock.
+- of a girl slowly undressing. She seems to be looking straight at you, talking in a low voice about all the things she wants you to do to her. The intensity of the fantasy escalates until her fingers are frantically rubbing her clit as she begs you to cum for her. You picture yourself standing over her, pressing your cock to her lips until she parts them for you.
+- of a couple fooling around in a park. He pays her escalating amounts of money to flash him, to rub her pussy, and to suck his cock. They keep having to move when people come by, until finally she lifts her skirt and lets him fuck her against a tree. You image how it would feel, the dangerous thrill of getting caught with your cock buried in her pussy.
 }
-<> Before long, your erection is throbbing.
-+ [Stroke it] -> climax_or_interruption(GymTeacher)
+<> Before long, your erection is throbbing in your grip.
++ [Keep stroking] -> climax_or_interruption(GymTeacher)
 
 /*
 
@@ -71,7 +72,7 @@ What do you want a hint about?
 */
 === jerk_off
 ~ temp fantasy_girl = last_girl
-As you pull out your cock and start stroking, you fantasize about {getNameAndTitle(fantasy_girl)}.
+You decide to take advantage of the moment of privacy. As you pull out your cock, you begin to fantasize about {getNameAndTitle(fantasy_girl)}.
 + [Keep going]
 + [Someone else]
     + + [{getNameAndTitle(Actor)}]
@@ -116,14 +117,14 @@ As you pull out your cock and start stroking, you fantasize about {getNameAndTit
 
 */
 === climax_or_interruption(fantasy_girl)
-~ temp busted = sis_is_home() and chance(66) and not sister_catches_you_jerking_off
-Your cock swells in your grip as you allow the fantasy to fill your mind. The feel of her skin against yours, the heat of her body, the desire in her eyes. You feel the pressure building.
+~ temp busted = sis_is_home() and chance(66) and not sister_catches_you_jerking_off and SisFacts !? SisRejected
+Your cock swells in your grip as you allow the fantasy to fill your mind. The feel of her skin against yours, the heat of her body, the desire in her eyes. You feel the pressure growing. In your head, she's moaning and begging for you to cum. You're so close…
++ [Cum for her]
 {
 - busted:
-    ~ SisFacts += SisSawYourPorn
     -> sister_catches_you_jerking_off ->
 - else:
     ~ cum_today = true
-    { fantasy_girl != GymTeacher: "Oh fuck, {characterData(fantasy_girl, Name)}!" You breathe her name as your|<> Your} cock twitches in your grip, cum spurting into the tissue. At last, you collapse, gasping for breath as the intensity fades.
+    { fantasy_girl != GymTeacher: "Oh fuck, {characterData(fantasy_girl, Name)}!" You breathe her name as your|<> Your} cock twitches over and over, cum spurting into the tissue. At last, you collapse, gasping for breath as the intensity of your climax fades.
 }
 ->->

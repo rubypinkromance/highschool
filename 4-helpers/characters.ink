@@ -6,10 +6,10 @@ LIST CharacterMoods = Hostile, Neutral, Friendly, Aroused, Desperate
 LIST CharacterCum = Panties, Hand, Facial, Mouth, Tits, Creampie, Anal
 
 // The last girl you interacted with will be who you dream about.
-VAR last_girl = Cheerleader
+VAR last_girl = Sister
 
 // These girls have playable content.
-VAR PlayableGirls = (Cheerleader)
+VAR PlayableGirls = (Cheerleader, Sister)
 
 /*
     Return a comma-separated list of people.

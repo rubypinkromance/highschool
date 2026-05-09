@@ -217,7 +217,7 @@ VAR countdown = false
 }
 ~ cum_today = false    // reset your own cum state
 ~ resetMoods()         // reset people to base mood
-~ sis_stole_laptop()   // see if your sister stole your laptop again
+~ sis_stole_laptop()   // see if your sister stole your laptop
 ~ clearLocations()     // empty the rooms
 ~ characterScheduler() // move people to new locations
 ->->

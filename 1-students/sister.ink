@@ -20,7 +20,7 @@
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SawSisNaked, SisMasturbate, SisHandjob, SisBlowjob, SisSex
-LIST SisFacts = SisIsLesbian, SisIsBi, SisFantasies, SisSawYourPorn, SisCaughtYouPeeking, (SisIsInterested)
+LIST SisFacts = SisMightBeQueer, SisIsBi, ReadSisDiary, SawSisPorn, SisSawYourPorn, SisCaughtYouPeeking, SisIsInterested, SisRejected
 VAR SisInPlay = true
 VAR SisMood = Hostile
 VAR SisBaseMood = Hostile
@@ -42,10 +42,13 @@ Approach {SIS}.
 - (opts)
 * {FriendState == FriendQuest and BraSizes !? Sister}"What's your bra size?"
     "34C, bro."
-+ {SisState == SisSex and SisMood >= Aroused and newToday(-> sister_sex)}
++ { SisBedroomItems ? Laptop }"I need my laptop back."
+    "That's fine, I'm done with it."
+    ~ move(Laptop, SisBedroomItems, BedroomItems)
++ {SisState == SisSex and SisMood >= Aroused and newToday(-> sister_sex) and SisFacts !? SisRejected}
     [“Wanna fool around?”]
     -> sister_sex ->
-+ {not seenVeryRecently(-> look_at_sister)}
++ {not seenVeryRecently(-> look_at_sister) and SisFacts !? SisRejected}
     [Check her out]
     -> look_at_sister ->
 + [Leave conversation]
@@ -72,6 +75,10 @@ TODO write dialog
     "Whatever." {SIS} shrugs and closes the door.
     ~ removePerson(Sister)
     ~ SisBedroomPeople += (Sister)
+    + + [(Don't show me stepsister content)]
+        ~ SisFacts += SisRejected
+    + + [(Stepsister content is fine)]
+    - -
     ->->
 + ["What do you want?"]
     -> sister_flirt ->->
@@ -96,6 +103,10 @@ TODO write dialog
     "Your loss." {SIS} shrugs and closes the door.
     ~ removePerson(Sister)
     ~ SisBedroomPeople += (Sister)
+    + + [(Don't show me stepsister content)]
+        ~ SisFacts += SisRejected
+    + + [(Stepsister content is fine)]
+    - -
     ->->
 + ["What do you want?"]
     -> sister_flirt ->->
@@ -242,6 +253,7 @@ You look around at all the girly stuff.
 TODO add diary entries
 === read_sister_diary ===
 ~ last_girl = Sister
+~ SisFacts += ReadSisDiary
 Full of filthy fantasies!
 ->->
 
@@ -273,6 +285,7 @@ Afterwards, you feel sheepish, and do your best to clean up the mess.
 TODO add interactive scene
 === peep_sister_shower ===
 ~ last_girl = Sister
+~ SisFacts += SawSisNaked
 You peep on your stepsister in the shower.
 -> pass_time -> bedroom
 
@@ -432,9 +445,16 @@ This is it, you're finally going to fuck {SIS}.
     Sister Dreams
 
 */
-TODO add wet dreams
 === dream_of_sister ===
-You have a filthy dream about {SIS}.
+You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
+{ shuffle:
+- You sneak into the bathroom while she showers. She's unaware of your presence, with her back to the room as she rubs her clit under the spray of hot water. You quickly strip off your clothes and slip into the shower as quietly as you can. Your cock is alarmingly hard, swollen red and twitching. She squeals in surprise as you grab her by the hips and bury yourself in her dripping pussy with one thrust. She doesn't stop rubbing her clit as you start roughly fucking her from behind
+- You feel your blanket lift as she climbs into your bed behind you. She mumbles something about being scared, and presses her body against your back. You are surprised to find that you're both naked, and her skin is burning hot against yours. Her stiff nipples press into your back as her hand closes around your erection. You roll onto your back and she moves to straddle you, until your cock is throbbing inside her tight pussy. She moans and starts rocking, squeezing her tits
+- The two of you are sitting in the darkened living room watching a movie. She keeps nodding off, and eventually lays her head in your lap. It's not long until her proximity has you rock hard. You try to resist, but your cock seems to have a mind of its own, slipping out of your shorts to bob in front of her face. You groan as she opens her mouth to yawn, allowing you to push into the heat of her mouth. She makes a sleepy surprised sound and closes her lips around you. Is she still asleep? You can't tell and don't care, as you start rocking your hips to push deeper. She moans around you
+- She and {SIS_FRIEND} and you are all naked and rubbing against each other. Their bodies writhe against yours. They kiss each other desperately, then both lower their heads to your cock. You can't tell whose mouth is whose, but as soon as you're hard, {SIS_FRIEND} moves {SIS} to sit on top of you, guiding your cock into the heat of your stepsister's pussy. {SIS_FRIEND} swings her leg to straddle your face, and you bury your tongue in her cunt as she starts kissing {SIS}. The three of you move as one
+- The two of you are in the back seat of the family car on a long boring family trip. Your parents are talking in the front seat and paying no attention as {SIS} snuggles closer to you under a blanket. Her hand is in your lap, firmly rubbing and squeezing your cock through your shorts. She squirms and tries not to make a sound as you squeeze her nipples through her top. When you push your shorts down around your ankles, she doesn't hesitate, pulling the blanket over her head as she leans over to take your cock in her mouth. Soon, you're biting your lip as she sucks you deeper
+}
+<>{isDayWeekend(tomorrow()):, but just as you're about to cum, {SIS} pulls away, crying "We shouldn't be doing this!"|, when the noise of your alarm rudely shatters the dream.}
 ->->
 
 /*
@@ -443,7 +463,16 @@ You have a filthy dream about {SIS}.
 
 */
 === sister_hints ===
-Wait for {SIS} to borrow your laptop, or snoop around in her room, or peep on her in the shower.
+{
+- SisFacts ? SisIsInterested:
+    You already know {SIS}'s into you! Just go talk to her.
+- SisFacts ? ReadSisDiary:
+    Try talking to {SIS} about the fantasies you read in her diary.
+- SisFacts ? SawSisPorn:
+    Try talking to {SIS} about the porn she watched on your laptop.
+- else:
+    Wait for {SIS} to borrow your laptop, or snoop around in her room, or peep on her in the shower.
+}
 ->->
 
 /*
@@ -470,8 +499,9 @@ You pick up your laptop, brushing your finger across the trackpad. The screensav
 + [Close the browser]
     You quickly close the browser. It's none of your business what porn she likes.
 + [Look at her history]
-    You quickly skim through her watch history, and are surprised to find it's mostly girl-on-girl videos. Not everything. She also seems to enjoy threesomes with two girls and a guy. Could {SIS} be a lesbian? Maybe she's just curious?
-    ~ SisFacts += SisIsLesbian
+    ~ SisFacts += SisMightBeQueer
+    ~ SisFacts += SawSisPorn
+    You quickly skim through her watch history, and are surprised to find it's mostly girl-on-girl videos. The only videos with guys are threesomes with two girls and a guy. Is {SIS} a lesbian? Maybe she's just curious? You suddenly wonder just how close she and her friend {SIS_FRIEND} really are.
 - ->->
 
 
@@ -491,7 +521,7 @@ You pick up your laptop, brushing your finger across the trackpad. The screensav
 /*
 
     Did Sister Steal Your Laptop?
-    This function runs every morning, and has a 25% chance that Heather took your laptop.
+    This function runs every morning, and has a 25% chance that she took your laptop.
 
 */
 === function sis_stole_laptop()
