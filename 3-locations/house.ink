@@ -30,7 +30,7 @@ VAR BedroomItems = (Laptop)
 
 // Masturbation Actions (only show one)
 {
-- Inventory ? CheerleaderPanties and not use_cheerleader_panties and cum_today:
+- Inventory ? CheerleaderPanties and not use_cheerleader_panties and not cum_today:
     * [Jerk off with {CHEERLEADER}'s panties] -> use_cheerleader_panties -> bedroom_opts
 - Inventory ? SisPanties and not use_sister_panties and not cum_today:
     * [Jerk off with {SIS}'s panties] -> use_sister_panties -> bedroom_opts

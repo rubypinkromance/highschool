@@ -33,12 +33,17 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 /*
 
     Talk to Sister
-    - If you ask to talk at the mall, she says she's busy and to talk to her at home later
 
 */
 TODO write dialog
 === talk_to_sister ===
 ~ last_girl = Sister
+
+// If you ask to talk at the mall, she says she's busy
+{ not sis_is_home():
+    "I can't talk right now. Catch me at home?"
+    ->->
+}
 
 Approach {SIS}.
 
@@ -62,63 +67,74 @@ Approach {SIS}.
 
     Sister Wants To Talk
     After seeing your porn preferences, she enters your room without knocking. You can choose to kick her out, or play along.
-    - event: After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
 
 */
-TODO write dialog
 === sister_wants_to_talk ===
-~ last_girl = Sister
 ~ removePerson(Sister)
 ~ BedroomPeople += (Sister)
 
-{SIS} opens your door without knocking. She says "we need to talk about your porn preferences, bro."
+{SIS} opens your door without knocking. "Hey bro, can I talk to you about something?"
 
-- (opts)
-+ ["Get out!"]
-    "Whatever." {SIS} shrugs and closes the door.
++ ["Get out!" (Don't show stepsister content)]
+    "Get out of my room!"
+    "Ugh, forget it." {SIS} rolls her eyes and closes the door.
     ~ removePerson(Sister)
     ~ SisBedroomPeople += (Sister)
-    + + [(Don't show me stepsister content)]
-        ~ SisFacts += SisRejected
-    + + [(Stepsister content is fine)]
-    - -
-    ->->
-+ ["What do you want?"]
-    -> sister_flirt ->->
-- -> opts
+    ~ SisFacts += SisRejected
++ ["What's up?"]
+    ~ last_girl = Sister
+    -> sister_flirt ->
+- ->->
 
 /*
 
     Sister Catches You Jerking Off
-    She enters without knocking, catches you in the act, and sees you like stepsister porn. You can choose to kick her out, or play along.
+    She enters without knocking and catches you in the act. You can choose to kick her out, or play along.
 
 */
-TODO write dialog
 === sister_catches_you_jerking_off ===
 ~ last_girl = Sister
 ~ removePerson(Sister)
 ~ BedroomPeople += (Sister)
 
-{SIS} opens your door without knocking. Her eyes open wide at the sight of you jerking off.
+{SIS} opens your door without knocking. "Hey bro, can I…" She trails off, eyes open wide at the sight of you jerking off.
 
 - (opts)
-+ ["Get out!"]
++ ["Get out!" (Don't show stepsister content)]
+    "What the fuck? Get out of my room!"
     "Your loss." {SIS} shrugs and closes the door.
     ~ removePerson(Sister)
     ~ SisBedroomPeople += (Sister)
-    + + [(Don't show me stepsister content)]
-        ~ SisFacts += SisRejected
-    + + [(Stepsister content is fine)]
-    - -
+    ~ SisFacts += SisRejected
     ->->
-+ ["What do you want?"]
++ [Cover up]
+    "{SIS}, what the fuck?" you yelp, frantically trying to cover yourself.
+    "Don't stop on my account," she grins, stepping in and closing the door behind her. "I just wanted to ask you something, but this is way more interesting."
+    "You want to watch me jerk off?"
+    ~SisFacts += SisMightBeIntoYou
+    {SisFacts ? SisCaughtYouPeeking: "Why not? You watched me in the shower. Seems only fair."|"It's kinda hot," she confesses.}
+    + + [Keep going]
+        -> sister_sex.you_masturbate ->->
+    + + "I don't think [so."]that's a good idea," you say, as you somewhat reluctantly put your cock away.
+        "Boring," she frowns. "Well, if you're not gonna let me watch, then can I talk to you about something?"
+        "What's on your mind?"
+    -> sister_flirt ->->
++ [Keep going]
+    "Do you mind?" You ask, without slowing your stroke. "I'm a little busy."
+    "I can see that," she grins, stepping in and closing the door behind her. "And while I'm flattered, do you think you could stop beating your meat for a minute so I can talk to you about something?"
+    ~SisFacts += SisMightBeIntoYou
+    + + "I can't stop[."] now," you groan, "But you can stay and watch if you want."
+        -> sister_sex.you_masturbate ->->
+    + + "I guess[."]," you sigh, putting your cock away. "What do you need?"
     -> sister_flirt ->->
 - -> opts
 
 /*
 
     Flirt with Sister
+    Truth or dare?
     She teases you, asks leading questions, is generally obnoxious.
+    + SisIsInterested
     Ask questions about what girls like
         (if SisIsLesbian) If you saw her porn or fooling around with her friend, you can ask about her preferences
         (if SisFantasies) If you've read her diary, you can mention her sex fantasies.
@@ -126,6 +142,7 @@ TODO write dialog
         (if SisCaughtYouPeeking) If she caught you creeping, you can talk about it more
         (if SisIsInterested) If you know she's into you, you can ask to fool around
             -> SisSex
+    - event: After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
 
 */
 TODO write dialog
@@ -145,6 +162,7 @@ TODO write dialog
     Look at Sister
 
 */
+TODO handle sis in shower
 === look_at_sister ===
 ~ last_girl = Sister
 { SisCum:
@@ -247,6 +265,7 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
 * (sis_room_bag) [Open the bag]
     ~ SisFacts += FoundSisStrapOn
     You pull the black satin back out from under the bed, and open the drawstring. You're not sure what you expected to find inside, but it certainly wasn't a leather strap-on harness holding a large black dildo. Does she use this with {SIS_FRIEND}? As you put it back, you wonder {SisFacts ? SisMightBeQueer: again} if {SIS} might be a lesbian. 
+    ~ SisFacts += SisMightBeQueer
 * (sis_room_laundry) [Rummage through her laundry]
     The laundry basket is mostly filled with clothing you've seen {SIS} wearing: skirts, shirts, tights, jeans and hoodies. More interesting is the underwear. You discover that she mostly wears simple cotton panties in a range of colors, and soft bralettes that are either nude or black. However, near the bottom you find what can only be date-night underwear. A pair of lacy black panties entirely unlike her standard underwear.
 * (examined_panties) {sis_room_laundry} [Examine the lace panties]
@@ -318,6 +337,7 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
 ->->
 
 = diary_bedshare
+~ SisFacts += SisMightBeIntoYou
 "Well, this was a new one. I had a dream about {PLAYER}. I've never really thought about him like that. I guess technically we're only stepsiblings, but it feels so wrong to admit that ever since I can't help but wonder what it would be like…"
 "In the dream, we had guests visiting. Some aunt or other. It wasn't clear, except that they needed my room, so Mom said I had to share a bed with {PLAYER}. I was annoyed, but didn't really question it. When it was time for bed, we decided we both had to sleep naked, because it was so hot in his room. I remember lying down and realizing how small his bed was. Even lying on our sides, like we were spooning, he was still pressed up against my back. His skin was so hot, and it wasn't long before I felt his erection against my butt."
 + [Keep reading]
@@ -334,6 +354,7 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
 ->->
 
 = diary_sleepwalker
+~ SisFacts += SisMightBeIntoYou
 "Another dream about {PLAYER}. Maybe… No. But it's affecting things. The other day I left the bathroom after taking a shower, and he was standing outside, waiting his turn. I wondered if he'd heard me moaning through the door. Part of me hoped he did."
 "Anyway, the dream was kinda funny. I was on the phone with {SIS_FRIEND} when {PLAYER} came into my room without knocking. He was just wearing boxers, and I could clearly see that he was hard. 'OMG, {SIS_FRIEND},' I squealed, '{PLAYER} just came in here with a fucking hard-on!'"
 + [Keep reading]
@@ -351,6 +372,7 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
 ->->
 
 = diary_threesome
+~ SisFacts += SisMightBeIntoYou
 "Okay, my dreams are definitely going to get me in trouble one of these days. Last night I dreamed that {SIS_FRIEND} and {PLAYER} fucked me together."
 "There was no background or reason for it. It was just happening. We were all in my my bed, naked and rolling around together. {PLAYER} was kissing {SIS_FRIEND} while I sucked on her tits. Then she was kissing me while {PLAYER} fingered her. She sat on his face while I sucked his cock. We moved together easily, languidly, drifting from position to position."
 + [Keep reading]
@@ -414,6 +436,7 @@ The image takes you over the finish line and your thick white cum spurts again a
     Peep on Sister in the Shower
     SisShowerPeep
         + SawSisNaked
+        + SisCaughtYouPeeking
         Increasingly risky behavior to jerk off while she's in the shower
         a. spy on her masturbating in shower using the shower head -> SisShowerPeep
         b. If caught -> SisShowerSex
@@ -487,6 +510,17 @@ This is it, you're finally going to fuck {SIS}.
     “I want to cum in your ass.”
     -> cum_anal ->->
 - -> sister_sex_opts
+
+= you_masturbate
+~ improveMood(SisMood)
+~ cum_today = true
+She watches as you rub one out
+->->
+
+= she_masturbates
+~ improveMood(SisMood)
+You watch her rub one out
+->->
 
 = suck_tits
 ~ improveMood(SisMood)
@@ -585,13 +619,13 @@ This is it, you're finally going to fuck {SIS}.
 === dream_of_sister ===
 You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
 { shuffle:
-- You sneak into the bathroom while she showers. She's unaware of your presence, with her back to the room as she rubs her clit under the spray of hot water. You quickly strip off your clothes and slip into the shower as quietly as you can. Your cock is alarmingly hard, swollen red and twitching. She squeals in surprise as you grab her by the hips and bury yourself in her dripping pussy with one thrust. She doesn't stop rubbing her clit as you start roughly fucking her from behind
-- You feel your blanket lift as she climbs into your bed behind you. She mumbles something about being scared, and presses her body against your back. You are surprised to find that you're both naked, and her skin is burning hot against yours. Her stiff nipples press into your back as her hand closes around your erection. You roll onto your back and she moves to straddle you, until your cock is throbbing inside her tight pussy. She moans and starts rocking, squeezing her tits
-- The two of you are sitting in the darkened living room watching a movie. She keeps nodding off, and eventually lays her head in your lap. It's not long until her proximity has you rock hard. You try to resist, but your cock seems to have a mind of its own, slipping out of your shorts to bob in front of her face. You groan as she opens her mouth to yawn, allowing you to push into the heat of her mouth. She makes a sleepy surprised sound and closes her lips around you. Is she still asleep? You can't tell and don't care, as you start rocking your hips to push deeper. She moans around you
-- She and {SIS_FRIEND} and you are all naked and rubbing against each other. Their bodies writhe against yours. They kiss each other desperately, then both lower their heads to your cock. You can't tell whose mouth is whose, but as soon as you're hard, {SIS_FRIEND} moves {SIS} to sit on top of you, guiding your cock into the heat of your stepsister's pussy. {SIS_FRIEND} swings her leg to straddle your face, and you bury your tongue in her cunt as she starts kissing {SIS}. The three of you move as one
-- The two of you are in the back seat of the family car on a long boring family trip. Your parents are talking in the front seat and paying no attention as {SIS} snuggles closer to you under a blanket. Her hand is in your lap, firmly rubbing and squeezing your cock through your shorts. She squirms and tries not to make a sound as you squeeze her nipples through her top. When you push your shorts down around your ankles, she doesn't hesitate, pulling the blanket over her head as she leans over to take your cock in her mouth. Soon, you're biting your lip as she sucks you deeper
+- You sneak into the bathroom while she showers. She's unaware of your presence, as you quickly strip off your clothes and slip into the shower as quietly as you can. Your cock is hard and twitching. She squeals in surprise as you grab her by the hips and bury yourself in her dripping pussy with one thrust. She starts rubbing her clit as you roughly fuck her from behind
+- You feel your blanket lift as she climbs into your bed and presses her body against your back. You're both naked, and her skin is burning hot against yours. Her stiff nipples press into your back as her hand closes around your erection. You roll onto your back and she moves to straddle you, until your cock is throbbing inside her tight pussy. She moans and starts rocking, squeezing her tits
+- The two of you are watching a movie. She keeps nodding off, and eventually lays her head in your lap. Your cock seems to have a mind of its own as it stiffens and slips out of your shorts to bob in front of her face. When she yawns, it pops into her mouth. She makes a surprised sound and closes her lips around you. Is she still asleep? You can't tell and don't care, as you start pushing deeper. She moans around you
+- She and {SIS_FRIEND} are naked and squirming with you. They both lower their heads to your cock. You can't tell whose mouth is whose, but as soon as you're hard, {SIS_FRIEND} moves {SIS} to sit on top of you, guiding your cock into the heat of your stepsister's pussy. {SIS_FRIEND} swings her leg to straddle your face, and you bury your tongue in her cunt as she starts kissing {SIS}. The three of you move as one
+- The two of you are in the back seat of the family car. Your parents are talking in the front and paying no attention as {SIS} snuggles closer to you under a blanket. Her hand is in your lap, rubbing your cock through your shorts. She squirms and tries not to make a sound as you squeeze her tits through her top. Finally, she pulls the blanket over her head and leans down to take your cock in her mouth. You're biting your lip as she sucks you deeper
 }
-<>{isDayWeekend(tomorrow()):, but just as you're about to cum, {SIS} pulls away, crying "We shouldn't be doing this!"|, when the noise of your alarm rudely shatters the dream.}
+<>{isDayWeekend(tomorrow()):, but just as you're about to cum, she pulls away, crying "We shouldn't be doing this!"|, when the noise of your alarm rudely shatters the dream.}
 ->->
 
 /*
