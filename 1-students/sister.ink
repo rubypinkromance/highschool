@@ -5,6 +5,9 @@
     Outfit: TBD, black with pink polkadots underwear and bra.
     Likes earnest, sweet
     Dislikes serious
+    
+    Sis goes to all girl school with friend
+
 
        Weekdays   Weekends
     ------------------------
@@ -20,7 +23,7 @@
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SawSisNaked, SisMasturbate, SisHandjob, SisBlowjob, SisSex
-LIST SisFacts = SisMightBeQueer, SisIsBi, ReadSisDiary, SawSisPorn, SisSawYourPorn, SisCaughtYouPeeking, SisIsInterested, SisRejected
+LIST SisFacts = SisMightBeQueer, SisMightBeIntoYou, SisIsBi, ReadSisDiary, SawSisPorn, SisSawYourPorn, SisCaughtYouPeeking, SisIsInterested, SisRejected
 VAR SisInPlay = true
 VAR SisMood = Hostile
 VAR SisBaseMood = Hostile
@@ -226,16 +229,20 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
         + SisFantasies
 
 */
-TODO add room snooping
+TODO add room snooping, vibrator, dildo, lube, strap-on
 === explore_sister_room ===
 You look around at all the girly stuff.
 - (explore_sis_bedroom_opts)
-+ [Read her diary]
++ {not read_sister_diary} [Read her diary]
     -> read_sister_diary ->
++ {read_sister_diary} [Read another diary entry]
+    -> sister_diary_entries ->
 + { SisBedroomItems ? SisPanties and not use_sister_panties } [Take her panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
-+ { Inventory ? SisPanties and use_sister_panties } [Put {SIS}'s panties in the laundry basket]
+    You quickly grab the panties and shove them into your pocket.
++ { Inventory ? SisPanties and use_sister_panties } [Put {SIS}'s panties back in the laundry basket]
     ~ move(SisPanties, Inventory, SisBedroomItems)
+    Sheepishly, you return the panties to her laundry basket, burying them beneath some other clothes. You pray she won't notice they're covered in your cum.
 + [Leave {SIS_BEDROOM}]
     -> pass_time -> bedroom
 - -> explore_sis_bedroom_opts
@@ -243,19 +250,129 @@ You look around at all the girly stuff.
 /*
 
     Read Sister's Diary
-    Sis has a diary revealing her fantasies about you and exploring bisexuality with her best friend. New entries appear every few days.
-    Sis goes to all girl school with friend
-    Diary entry about having to pretend to be upset about a school with no boys, but she's secretly into girls.
-    Forced to share a bed
-    Sleepwalker
+    Sis has a diary revealing her fantasies about you and exploring bisexuality with her best friend.
 
 */
 TODO add diary entries
 === read_sister_diary ===
 ~ last_girl = Sister
 ~ SisFacts += ReadSisDiary
-Full of filthy fantasies!
+You flip through her diary, expecting to find what you imagine a typical teenage girl writes about: friend drama, makeup, boys, whatever. Instead you're shocked to find an explicit description of a wet dream.
+"…taller than me, wearing a leather jacket and tight jeans. She pushed me against the wall and silenced my protests with a demanding kiss."
++ {SisFacts !? SisMightBeQueer}[She?] Wait, <em>she</em>? Is {SIS} a lesbian? You keep reading, fascinated.
+    ~ SisFacts += SisMightBeQueer
+    -> sister_diary_entries
++ [Keep reading]
+    -> sister_diary_entries
++ [Stop reading]
+    You quickly close the diary. It's none of your business what her fantasies are.
+    ->->
+
+=== sister_diary_entries
+{cycle:
+- -> diary_lesbian ->
+- -> diary_friend_sex ->
+- -> diary_bedshare ->
+- -> diary_sleepwalker ->
+- -> diary_threesome ->
+}
 ->->
+
+= diary_lesbian
+"She pushed me against the wall and silenced my protests with a demanding kiss. I found myself melting against her body as her tongue flirted with mine. She slipped a hand under my shirt, and I felt the heat of her palm against my stomach, sliding down past the waistband of my sleep shorts."
+"I squirmed and pawed at her chest, overwhelmed by a confusing mixture of desire and shame. Her fingers moved slowly but insistenly, lower and lower, until they found my slit. I shivered with need, and she did not wait for permission before one nimble digit curled effortlessly inside me."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"I broke the kiss, gasping for breath, and desperately pulled her shirt up to expose a soft pink bralette, a surprisingly feminine contrast to her masculine frame. I pulled the cup to one side and wrapped my lips around her firm nipple, flicking my tongue against it in time with the motion of her finger inside me. She moaned quietly and rewarded me with another finger."
+"As always, I woke up before the dream finished. My heart was pounding and my panties were soaked. As I finished myself off, I had to bite my pillow to keep from moaning so loud {PLAYER} could hear."
+->->
+
+= diary_friend_sex
+"I had <em>another</em> wet dream about {SIS_FRIEND}. If this keeps up, I'm going to start blushing every time she's around. I should tell her, but I'm worried how she'll react."
+A different handwriting in the margin reads, "You silly lovely girl, you had nothing to worry about. I'm glad you told me to read this. Now I'm going to quit writing and kiss you."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"She was spending the night like normal, and we went to bed. But in the middle of the night, I woke up because she was moving and murmuring something. She lay on her back, clearly still asleep, although one hand was down her shorts and the other was squeezing her tits. I leaned close, holding my ear to her lips so I could understand what she was saying."
+"'{SIS},' she gasped, 'I need you.' I sat up in surprise, and watched as she squirmed and breathed my name over and over. I couldn't believe I was watching my best friend masturbate while dreaming of me. It didn't take long before I started squirming a bit, too. 'Please,' she begged, 'touch me, kiss me!'"
++ [Keep reading]
++ [Stop reading] ->->
+-
+"You know how dream logic is. I didn't stop to think if this was a good idea, or if I was taking advantage of her. I just kissed her. She moaned as I sucked on her bottom lip and kissed down her neck. I was so turned on, all I could think of was kissing every part of her body. I pushed up her shirt and licked circles around her nipples until she was gasping, then I kissed down to her hips."
+"She gasped as I slid her shorts off and spread her thighs, allowing me to see the two fingers she had buried deep in her pussy. I pulled them out and eagerly licked up the cream that coated them before going to the source. Her lips parted for me and her taste filled my mouth. I sucked and kissed and licked until her body stiffed under me and she screamed loud enough to wake me from my dream."
+"When I was done, I was so wet I had to take a shower before I could go to school."
+->->
+
+= diary_bedshare
+"Well, this was a new one. I had a dream about {PLAYER}. I've never really thought about him like that. I guess technically we're only stepsiblings, but it feels so wrong to admit that ever since I can't help but wonder what it would be like…"
+"In the dream, we had guests visiting. Some aunt or other. It wasn't clear, except that they needed my room, so Mom said I had to share a bed with {PLAYER}. I was annoyed, but didn't really question it. When it was time for bed, we decided we both had to sleep naked, because it was so hot in his room. I remember lying down and realizing how small his bed was. Even lying on our sides, like we were spooning, he was still pressed up against my back. His skin was so hot, and it wasn't long before I felt his erection against my butt."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"I tried to sleep. I tried to ignore him. But every few seconds, he would move a little, and his dick would rub against me. I found myself becoming incredibly aroused, but I didn't want him to know. I squeezed my thighs together, feeling my lips were already puffy and slick. Then he threw his arm over me, cupping my breast with his hand."
+"I never thought he was trying to take advantage of the situation. I was so afraid he would feel how hard my nipple was under his palm. I found myself squirming every time he moved, pushing my ass back against him. He never responded like he was aware that anything was happening, which just left me even more worked up. Somehow, his cock slipped between my thighs."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"I was utterly lost by this point. His dick was so hard, throbbing between my legs, pressing against my lips. I started rocking my hips, rubbing along the length of him, until his shaft was slippery with my wetness. How could he not be aware of how desperate I was? Perhaps unconciously, he squeezed my breast, the pressure on my nipple sending shivers down my spine."
+"I couldn't handle it anymore. As slowly as I could, I slid my hips forward, moving down the length of him until he was pressing against my opening. My heart was pounding and I bit my lip to keep from moaning as I very, very carefully rocked back, impaling myself on him. My insides clenched around his shaft and…"
+"I woke up confused and desperate. If he had been there, I would have jumped him without thinking about it. Instead, I took my dildo in the shower, stuck it to the wall, and fucked myself from behind."
+->->
+
+= diary_sleepwalker
+"Another dream about {PLAYER}. Maybe… No. But it's affecting things. The other day I left the bathroom after taking a shower, and he was standing outside, waiting his turn. I wondered if he'd heard me moaning through the door. Part of me hoped he did."
+"Anyway, the dream was kinda funny. I was on the phone with {SIS_FRIEND} when {PLAYER} came into my room without knocking. He was just wearing boxers, and I could clearly see that he was hard. 'OMG, {SIS_FRIEND},' I squealed, '{PLAYER} just came in here with a fucking hard-on!'"
++ [Keep reading]
++ [Stop reading] ->->
+-
+"'Shut up,' she laughed. 'What are you gonna do?'"
+"'I can't do anything,' I giggled, 'because he's sleepwalking. You know you can't wake up a sleepwalker. Oh, he's climbing on the bed and pulling his cock out!'"
+"'Well, you'd better suck him off before he wakes up,' she teased."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"I didn't hesitate at all. It seemed obvious this was just what you have to do to help a sleepwalker with a boner. I rolled onto my stomach and wrapped my lips around his head. He groaned and started pushing into my mouth."
+"With every thrust, I became more turned on by the situation. He kept growing longer and longer, until he was sliding down my throat. I moaned as he fucked my mouth faster and harder. I was lying on my hand, pressing on my clit, as I felt him start to cum."
+"I woke up and had to rub one out while sucking on my fingers, imagining it was {PLAYER}'s cock."
+->->
+
+= diary_threesome
+"Okay, my dreams are definitely going to get me in trouble one of these days. Last night I dreamed that {SIS_FRIEND} and {PLAYER} fucked me together."
+"There was no background or reason for it. It was just happening. We were all in my my bed, naked and rolling around together. {PLAYER} was kissing {SIS_FRIEND} while I sucked on her tits. Then she was kissing me while {PLAYER} fingered her. She sat on his face while I sucked his cock. We moved together easily, languidly, drifting from position to position."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"But the part of the dream that has stuck with me, the part I can't stop thinking about at odd moments, the part that distracts me in class… Oh my god, I'm getting flushed just thinking about it now."
+"I was sandwiched between the two of them. {SIS_FRIEND} was lying on her back, and I was on top of her. She was wearing an enormous black strap-on, and I was slowly easing myself onto it. {PLAYER} was behind me, hands on my hips, encouraging me. His cock was inside {SIS_FRIEND}, but I knew where he wanted to go, as soon as I took the full length of {SIS_FRIEND}'s girlcock."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"Sure enough, no sooner had I settled my thighs against her hips, gasping at the girth of the dildo spreading me open, I felt {PLAYER} positioning himself at my back door. Because it was a dream, there was no pain, no need to relax or go slow. He just slipped inside."
+"I moaned and rocked back, taking them both as deep as I could. I felt incredible. They were filling me up. My insides seemed to ripple and clench and squeeze around them. I could feel every inch of them in me. And then they started moving. Slowly at first, and then with increasing urgency."
++ [Keep reading]
++ [Stop reading] ->->
+-
+"All the slow, languid, gentle lovemaking from earlier in the dream was gone. What we did now was animalistic. I felt claimed. {SIS_FRIEND} bit my lip and pinched my nipples, hard. {PLAYER} snarled in my ear, digging his fingers in my hip and fucking me like a beast from behind. They alternated thrusts, and all I could do was moan and cry and cum over and over around their relentless cocks."
+"I woke up straddling my pillow, grinding and drooling. I didn't hesitate, reaching around from behind and pushing a finger deep in my ass, fucking myself to another orgasm. I had to wash all my sheets and the pillow."
+->->
+
+/*
+
+    Retrieve Laptop from Sister
+    If you take your laptop back while she's not in the room, you can discover her porn history.
+
+*/
+=== retrieve_laptop_from_sister ===
+~ move(Laptop, SisBedroomItems, BedroomItems)
+You pick up your laptop, brushing your finger across the trackpad. The screensaver turns off and you're surprised to see the browser open to an adult site. {SIS} must have been using your laptop to watch porn!
++ [Close the browser]
+    You quickly close the browser. It's none of your business what porn she likes.
++ [Look at her history]
+    ~ SisFacts += SisMightBeQueer
+    ~ SisFacts += SawSisPorn
+    You quickly skim through her watch history, and are surprised to find it's mostly girl-on-girl videos. The only videos with guys are threesomes with two girls and a guy. Is {SIS} a lesbian? Maybe she's just curious? You suddenly wonder just how close she and her friend {SIS_FRIEND} really are.
+- ->->
 
 /*
 
@@ -263,13 +380,20 @@ Full of filthy fantasies!
     After finding a pair of her panties, you jerk off with them.
 
 */
-TODO write panty jerkoff scene
 === use_sister_panties ===
 ~ last_girl = Sister
 ~ cum_today = true
 ~ Score += sisPanties
-Unable to resist the urge, you wrap {SIS}'s lacy panties around your cock. Quickly, it swells to life, the fabric deliciously stimulating. You thrust and strain into the panties, imagining her putting them on. The head of your cock slips into the gusset, which is enough to push you over the edge, and you blow your load imagining her putting the wet panties on, feeling your cum on her lips.
-Afterwards, you feel sheepish, and do your best to clean up the mess.
+Heart pounding, you lift her panties to your face and take a deep breath. The scent of her pussy fills your nostrils, immediately flooding your body with lust. Urgently, you free your cock, squeezing it with one hand while holding her underwear against your nose with the other. It's not long until you are painfully erect, throbbing and twitching with need.
++ [Wrap them around your shaft]
+-
+Instinctively, you wrap her panties around your erection. The lace teases and stimulates as it brushes against the rim of your head. You start stroking, allowing the unfamiliar texture to caress the length of your shaft. The knowledge that what you're doing is wrong lends the moment a powerful intensity. Your cock throbs in your grip and you pump harder, faster, increasing the stimulation. A wet spot appears as some of your precum soaks through the fabric.
++ [Imagine her putting on cum-soaked panties]
+-
+The head of your cock strains against the gusset as you imagine her putting them on after you finish. The confusion on her face as your hot cum meets her sensitive skin. You picture her reaching down, dipping a finger into the cream and frowning as she inspects it. The surprise as she realizes what it is giving way to desire as she licks her finger clean. Her nipples instantly harden and she gasps, shoving a hand between her legs to desperately rub your spunk between her lips.
++ [Cum!]
+-
+The image takes you over the finish line and your thick white cum spurts again and again into her panties. You reluctantly unwrap them when the stimulation becomes overwhelming. The black lace fabric is a complete mess, smeared with a shocking amount of cum. You do your best to wipe it all up with a tissue, but it's hopeless. You make a note to hide them under some other clothes when you return them to her laundry basket. Maybe you'll get lucky and she won't notice.
 ->->
 
 /*
@@ -486,24 +610,6 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
 ~ SisState = SisObserved
 You live together. You have observed her plenty.
 ->->
-
-/*
-
-    Retrieve Laptop from Sister
-    If you take your laptop back while she's not in the room, you can discover her porn history.
-
-*/
-=== retrieve_laptop_from_sister ===
-~ move(Laptop, SisBedroomItems, BedroomItems)
-You pick up your laptop, brushing your finger across the trackpad. The screensaver turns off and you're surprised to see the browser open to a porn site.
-+ [Close the browser]
-    You quickly close the browser. It's none of your business what porn she likes.
-+ [Look at her history]
-    ~ SisFacts += SisMightBeQueer
-    ~ SisFacts += SawSisPorn
-    You quickly skim through her watch history, and are surprised to find it's mostly girl-on-girl videos. The only videos with guys are threesomes with two girls and a guy. Is {SIS} a lesbian? Maybe she's just curious? You suddenly wonder just how close she and her friend {SIS_FRIEND} really are.
-- ->->
-
 
 /*
 
