@@ -23,12 +23,12 @@
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SawSisNaked, SisMasturbate, SisHandjob, SisBlowjob, SisSex
-LIST SisFacts = SisMightBeQueer, SisMightBeIntoYou, SisIsBi, ReadSisDiary, SawSisPorn, SisSawYourPorn, SisCaughtYouPeeking, SisIsInterested, SisRejected
+LIST SisFacts = SisMightBeQueer, SisMightBeIntoYou, SisIsBi, ReadSisDiary, SawSisPorn, SisSawYourPorn, SisCaughtYouPeeking, SisIsInterested, SisRejected, FoundSisVibrator, FoundSisStrapOn
 VAR SisInPlay = true
 VAR SisMood = Hostile
 VAR SisBaseMood = Hostile
 VAR SisCum = ()
-LIST SisItems = SisPanties, SisDiary, SisVibrator
+LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 
 /*
 
@@ -229,20 +229,34 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
         + SisFantasies
 
 */
-TODO add room snooping, vibrator, dildo, lube, strap-on
 === explore_sister_room ===
-You look around at all the girly stuff.
 - (explore_sis_bedroom_opts)
-+ {not read_sister_diary} [Read her diary]
+* (sis_room_drawer) [Open her bedside table drawer]
+    Inside you find batteries, chapsticks, a bottle of lube, and her diary.
++ {sis_room_drawer and not read_sister_diary} [Read her diary]
     -> read_sister_diary ->
 + {read_sister_diary} [Read another diary entry]
     -> sister_diary_entries ->
-+ { SisBedroomItems ? SisPanties and not use_sister_panties } [Take her panties]
+* (sis_room_pillow) [Look under her pillow]
+    ~ SisFacts += FoundSisVibrator
+    You move her pillow and are rewarded by finding a vibrator wrapped in an old t-shirt you recognize as {SIS_FRIEND}'s.
+* {sis_room_pillow} [Examine the vibrator]
+    It has a pink body with two buttons, and a large round head. When you press the first button, the head begins rumbling loudly. When you press the other button, it cycles through increasing intensities and patterns, eventually getting so loud, you nervously switch it off and put it back under the pillow before someone hears.
+* (sis_room_bed) [Look beneath the bed]
+    Getting on your hands and knees, you peer under her bed. There are a handful of magazines down there, some socks, and a large black satin drawstring bag.
+* (sis_room_bag) [Open the bag]
+    ~ SisFacts += FoundSisStrapOn
+    You pull the black satin back out from under the bed, and open the drawstring. You're not sure what you expected to find inside, but it certainly wasn't a leather strap-on harness holding a large black dildo. Does she use this with {SIS_FRIEND}? As you put it back, you wonder {SisFacts ? SisMightBeQueer: again} if {SIS} might be a lesbian. 
+* (sis_room_laundry) [Rummage through her laundry]
+    The laundry basket is mostly filled with clothing you've seen {SIS} wearing: skirts, shirts, tights, jeans and hoodies. More interesting is the underwear. You discover that she mostly wears simple cotton panties in a range of colors, and soft bralettes that are either nude or black. However, near the bottom you find what can only be date-night underwear. A pair of lacy black panties entirely unlike her standard underwear.
+* (examined_panties) {sis_room_laundry} [Examine the lace panties]
+    They're soft, with a floral pattern and just a little pink stitching on the inside. The lace is mostly see-through, except for a tiny black fabric gusset at the bottom. Excitingly, the fabric has a bit of creamy white residue on it. When you take a sniff, you catch the unmistakable scent of pussy.
+* { examined_panties and SisBedroomItems ? SisPanties } [Take the lace panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
-    You quickly grab the panties and shove them into your pocket.
-+ { Inventory ? SisPanties and use_sister_panties } [Put {SIS}'s panties back in the laundry basket]
+    You quickly shove the panties into your pocket.
+* { Inventory ? SisPanties and use_sister_panties } [Put the panties back in the laundry basket]
     ~ move(SisPanties, Inventory, SisBedroomItems)
-    Sheepishly, you return the panties to her laundry basket, burying them beneath some other clothes. You pray she won't notice they're covered in your cum.
+    Sheepishly, you return the lace panties to her laundry basket, burying them beneath some other clothes. You pray she won't notice they're covered in your cum.
 + [Leave {SIS_BEDROOM}]
     -> pass_time -> bedroom
 - -> explore_sis_bedroom_opts
@@ -253,7 +267,6 @@ You look around at all the girly stuff.
     Sis has a diary revealing her fantasies about you and exploring bisexuality with her best friend.
 
 */
-TODO add diary entries
 === read_sister_diary ===
 ~ last_girl = Sister
 ~ SisFacts += ReadSisDiary
