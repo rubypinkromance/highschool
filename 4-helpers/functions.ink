@@ -45,6 +45,12 @@
 ~ to += item
 
 /*
+	Tests if the flow passes a particular gather on this turn.
+*/
+=== function came_from(-> from) 
+    ~ return TURNS_SINCE(from) == 0
+
+/*
     Determine if we've seen this target with a few turns.
 */
 === function seenVeryRecently(-> target)

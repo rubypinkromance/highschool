@@ -20,7 +20,11 @@ You are in {STUDY_HALL}, a standard classroom lacking in any personality at all.
 - (study_hall_opts)
 <- character_opts(StudyHallPeople, -> study_hall_opts)
 
-+ [Leave the {STUDY_HALL}] -> pass_time -> hallway
++ [Leave the {STUDY_HALL}]
+    { now >= AfterSchool:
+        ~ has_detention = false
+    }
+    -> pass_time -> hallway
 - -> study_hall_opts
 
 = access_restrictions

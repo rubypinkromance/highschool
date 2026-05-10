@@ -21,6 +21,7 @@ VAR schedule_period_3 = Lab
 VAR schedule_period_4 = PhotoClass
 VAR permission_to_change_schedule = false
 VAR has_detention = false
+VAR cut_class = false
 
 /*
 

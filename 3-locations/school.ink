@@ -22,6 +22,15 @@ CONST HALLWAY = "hallway"
     The {HALLWAY} is empty.
 }
 
+- else:
+
+The school is closed on weekends, but you can still access the {FIELD}.
+
+}
+
+- (hallway_opts)
+{ isWeekday():
+
 ~ announceTime()
 
 + [Go to {isClassTime():class|a classroom}]
@@ -48,7 +57,7 @@ CONST HALLWAY = "hallway"
 * {CheerleaderState == CheerleaderQuest} [Go to {JOCK}'s Locker]
     -> cheerleader_locker -> hallway
 
-+ [Leave school]
++ [Leave school] -> detention_check ->
 + + [Go home] -> bedroom
 + + [Go to the {MALL}] -> mall
 // + + [Go to the {CHURCH}] -> church
@@ -57,12 +66,23 @@ CONST HALLWAY = "hallway"
 // Weekends:
 - else:
 
-The school is closed on weekends, but you can still access the {FIELD}.
-
 + + [Go to the {FIELD}] -> field
 + + [Go home] -> bedroom
 + + [Go to the {MALL}] -> mall
 // + + [Go to the {CHURCH}] -> church
+}
+
+= detention_check
+{ has_detention:
+    { now >= AfterSchool:
+        As you approach the door, you hear {STUDY_HALL_TEACHER} behind you. "{PLAYER}, I've got you on my list for detention today. Come with me."
+        + [Follow him] -> study_hall
+    - else:
+        As you approach the door, you hear {STUDY_HALL_TEACHER} behind you. "{PLAYER}, I hope you're not trying to skip out early. You've got detention today, remember?"
+        + [Go back] -> hallway_opts
+    }
+- else:
+    ->->
 }
 
 = access_restrictions

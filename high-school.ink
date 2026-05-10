@@ -66,7 +66,7 @@ CONST DEBUG = true
 
 // Start with the introduction
 { DEBUG:
-    -> bedroom
+    -> hallway
 - else:
     -> intro
 }
