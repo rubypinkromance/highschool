@@ -7,6 +7,9 @@
 CONST HALLWAY = "hallway"
 ~ here = Hallway
 -> access_restrictions ->
+{ has_principal_meeting:
+    -> principal_meeting ->
+}
 
 // Weekdays:
 { isWeekday():

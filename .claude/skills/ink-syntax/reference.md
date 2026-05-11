@@ -21,6 +21,7 @@ I ran through the forest.
 ```
 
 ### Nested Weave
+
 ```ink
 - "Murder or suicide?"
     * "Murder!"
@@ -38,6 +39,7 @@ I ran through the forest.
 Level depth: `*`, `* *`, `* * *`… / `-`, `- -`, `- - -`…
 
 ### Labelled Gathers & Options
+
 ```ink
 - (hub)
     * (greet) [Greet him] 'Hello.'
@@ -52,6 +54,7 @@ Level depth: `*`, `* *`, `* * *`… / `-`, `- -`, `- - -`…
 ## Advanced Variable Text
 
 ### Multiline Alternatives
+
 ```ink
 { stopping:
     - I entered the casino.
@@ -76,6 +79,7 @@ Level depth: `*`, `* *`, `* * *`… / `-`, `- -`, `- - -`…
 ```
 
 ### Modified Shuffles
+
 ```ink
 { shuffle once:   ... }     // play once, then nothing
 { shuffle stopping: ... }   // shuffle all-but-last, then stick on last
@@ -86,27 +90,32 @@ Level depth: `*`, `* *`, `* * *`… / `-`, `- -`, `- - -`…
 ## Lists — Advanced Operations
 
 ### Comparing Lists
+
 - `A > B` — every value in A is numerically greater than every value in B
 - `A >= B` — A's range entirely overlaps or exceeds B's range
 - Standard `==`, `!=`, `<`, `<=` also work for single-value lists
 
 ### Intersection
+
 ```ink
 { desiredValues ^ actualValues }   // returns overlapping elements
 { LIST_COUNT(a ^ b) > 0: overlap exists }
 ```
 
 ### Inversion
+
 ```ink
 ~ GuardsOnDuty = LIST_INVERT(GuardsOnDuty)  // flip all in/out states
 ```
 
 ### Range Slice
+
 ```ink
 LIST_RANGE(LIST_ALL(primeNumbers), 10, 20)   // values between 10–20 inclusive
 ```
 
 ### Type-refreshing an Empty List
+
 ```ink
 LIST ValueList = first, second, third
 VAR myList = ()
@@ -114,6 +123,7 @@ VAR myList = ()
 ```
 
 ### Multi-family Lists
+
 ```ink
 LIST Characters = Alfred, Batman, Robin
 LIST Props = champagne_glass, newspaper
@@ -128,6 +138,7 @@ VAR BallroomContents = (Alfred, Batman, newspaper)
 ## Tunnels — Advanced
 
 ### Returning Somewhere Else from a Tunnel
+
 ```ink
 === hurt(x) ===
     ~ stamina -= x
@@ -138,6 +149,7 @@ VAR BallroomContents = (Alfred, Batman, newspaper)
 ```
 
 ### Conversation Loop with Tunnel Exit
+
 ```ink
 -> talk_to_jim ->
 
@@ -173,6 +185,7 @@ Threads fork content and collect options from multiple sources before presenting
 ```
 
 Key rules:
+
 - Global variables are **not** forked between threads.
 - Threads end when they run out of content; mark intentional ends with `-> DONE`.
 - `-> END` inside a thread ends the **entire story**, not just the thread.
@@ -235,9 +248,9 @@ These patterns appear in most inkle projects:
 
 ## Compiler Warnings to Know
 
-| Situation | Fix |
-|-----------|-----|
-| Flow runs out without `-> END` or choice | Add `-> END` or `-> DONE` |
-| Thread ends without content | Add `-> DONE` |
-| Ambiguous list value (two lists share a name) | Use `ListName.value` syntax |
-| Loose end in tunnel | Ensure all paths reach `->->` |
+| Situation                                     | Fix                           |
+| --------------------------------------------- | ----------------------------- |
+| Flow runs out without `-> END` or choice      | Add `-> END` or `-> DONE`     |
+| Thread ends without content                   | Add `-> DONE`                 |
+| Ambiguous list value (two lists share a name) | Use `ListName.value` syntax   |
+| Loose end in tunnel                           | Ensure all paths reach `->->` |

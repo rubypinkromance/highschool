@@ -12,6 +12,7 @@ This project tests Ink source files by compiling them with inkjs and running ass
 Prefer extracting logic into named `=== function` blocks over embedding it inline in knot bodies. Inline logic can only be exercised through integration tests; extracted functions can be unit-tested directly and cheaply.
 
 **Prefer this:**
+
 ```ink
 === function can_afford_fuel(fuel_amount)
 ~ return PlayerBankBalance >= FLOOR(fuel_amount * get_fuel_price(here))
@@ -21,6 +22,7 @@ Prefer extracting logic into named `=== function` blocks over embedding it inlin
 ```
 
 **Over this:**
+
 ```ink
 = fuel_station
 + {PlayerBankBalance >= FLOOR((ShipFuelCapacity - ShipFuel) * get_fuel_price(here))} [Fill it up] -> buy_fuel(...)
@@ -34,11 +36,15 @@ Whenever a new Ink function is added or an existing one is changed, add a corres
 
 ```js
 // Pass list values using the createListItem() helper
-const result = story.EvaluateFunction('get_cargo_pay', [createListItem(story, 'AllCargo.003_Water'), 14]);
+const result = story.EvaluateFunction('get_cargo_pay', [
+	createListItem(story, 'AllCargo.003_Water'),
+	14,
+]);
 expect(result).toBe(1680);
 ```
 
 Good candidates for unit tests (in order of priority):
+
 - **Pure math functions** — `get_cargo_pay`, `get_trip_fuel_cost`, `get_trip_duration`
 - **Data lookups** — `CargoData`, `EngineData`, `LocationData` / `get_distance`
 - **Boolean predicates** — `cargo_has_express`, `cargo_blocks_turbo`, `cargo_is_mixed_hazardous`
@@ -58,6 +64,7 @@ Integration tests drive the story via `pickChoice()` and assert on `variablesSta
 ## Test helpers
 
 All tests share the factory in `tests/helpers/story.js`:
+
 - `createStory()` — compiles `.ink` source fresh; call once per test or `beforeAll`
 - `createListItem(story, 'ListName.ItemName')` — constructs the `InkList` value representing a single LIST item (needed to cross the JS↔Ink boundary)
 - `createListUnion(story, ...names)` — constructs a multi-item `InkList` by unioning list-item values together
@@ -75,15 +82,15 @@ All tests share the factory in `tests/helpers/story.js`:
 // Good: one story, many iterations
 const s = createStory();
 for (let i = 0; i < 30; i++) {
-  s.ResetState();
-  s.EvaluateFunction("add_daily_tasks");
-  // ... assert ...
-  if (conditionMet) break; // early exit
+	s.ResetState();
+	s.EvaluateFunction('add_daily_tasks');
+	// ... assert ...
+	if (conditionMet) break; // early exit
 }
 
 // Bad: new story per iteration (causes CI timeouts)
 for (let i = 0; i < 30; i++) {
-  const s = createStory(); // compiles every time!
-  // ...
+	const s = createStory(); // compiles every time!
+	// ...
 }
 ```

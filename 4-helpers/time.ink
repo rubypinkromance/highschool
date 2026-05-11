@@ -75,6 +75,43 @@ VAR countdown = false
 ~ return Nowhen // treat as false
 
 /*
+
+    classInPeriod
+    Look up what class the player is scheduled for in a given period.
+
+*/
+=== function classInPeriod(period)
+{ period:
+- Period1: ~ return schedule_period_1
+- Period2: ~ return schedule_period_2
+- Period3: ~ return schedule_period_3
+- Period4: ~ return schedule_period_4
+}
+~ return Nowhere
+
+/*
+
+    checkAttendance
+    Record a class cut if the player isn't in their scheduled classroom.
+    Called from pass_time before now advances.
+
+*/
+=== function checkAttendance()
+{ isWeekday() and ClassTimes ? now and here != classInPeriod(now):
+    ~ MissedClasses += now
+}
+
+/*
+
+    printMissedPeriod
+    Print the period name for a missed class (used with listPrint in attendance_notification).
+    Uses nameOfTimeWeekday directly to avoid the weekend variant when called from next_day.
+
+*/
+=== function printMissedPeriod(period)
+{nameOfTimeWeekday(period)}
+
+/*
     Change what class we're taking in a given period.
 */
 === function changeSchedule(newClass, period)
@@ -182,6 +219,7 @@ VAR countdown = false
 */
 === pass_time ===
 { now < Night:
+    ~ checkAttendance()
     ~ now++            // tick the clock
 }
 ~ clearLocations()     // empty the rooms
@@ -216,8 +254,33 @@ VAR countdown = false
     ~ has_black_eye--  // every day, your black eye gets a bit better
 }
 ~ cum_today = false    // reset your own cum state
+{ LIST_COUNT(MissedClasses) > 0:
+    -> attendance_notification ->
+}
+~ MissedClasses = ()
 ~ resetMoods()         // reset people to base mood
 ~ sis_stole_laptop()   // see if your sister stole your laptop
 ~ clearLocations()     // empty the rooms
 ~ characterScheduler() // move people to new locations
+->->
+
+/*
+
+    attendance_notification
+    Processes any class cuts from the previous day and notifies the player via a school text.
+    Called from next_day when MissedClasses is non-empty.
+
+*/
+=== attendance_notification ===
+~ temp was_full_day = LIST_COUNT(MissedClasses) == 4
+<em><small>Your phone buzzes. A text from the school: </small></em>
+{ was_full_day:
+    ~ full_day_absences++
+    ~ has_detention += full_day_absences
+    ~ has_principal_meeting = true
+    "{PLAYER} was marked absent for the entire school day. { full_day_absences == 1: This is an unexcused absence. Please report to the principal's office upon your return.| This is unexcused absence #{full_day_absences}. The principal will see you upon your return. You have {full_day_absences} days of detention to serve.}"
+- else:
+    ~ has_detention++
+    "{PLAYER} was marked absent from {listPrint(MissedClasses, -> printMissedPeriod)}. Detention will be served at the next opportunity."
+}
 ->->

@@ -22,7 +22,7 @@ You are in {STUDY_HALL}, a standard classroom lacking in any personality at all.
 
 + [Leave the {STUDY_HALL}]
     { now >= AfterSchool:
-        ~ has_detention = false
+        ~ has_detention--
     }
     -> pass_time -> hallway
 - -> study_hall_opts

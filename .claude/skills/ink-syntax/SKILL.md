@@ -10,6 +10,7 @@ Ink is a narrative scripting language for interactive stories. Files use the `.i
 ## Core Building Blocks
 
 ### Content & Comments
+
 ```ink
 Plain text is printed as-is.
 
@@ -19,6 +20,7 @@ TODO: Compiler prints this as a reminder
 ```
 
 ### Choices
+
 ```ink
 * Once-only choice (disappears after selected)
 + Sticky choice (always available)
@@ -27,12 +29,14 @@ TODO: Compiler prints this as a reminder
 ```
 
 ### Knots & Stitches
+
 ```ink
 === knot_name ===      // top-level section; === name is fine too
 = stitch_name          // sub-section inside a knot
 ```
 
 ### Diverts
+
 ```ink
 -> knot_name           // jump to knot
 -> knot_name.stitch    // jump to stitch
@@ -42,6 +46,7 @@ TODO: Compiler prints this as a reminder
 ```
 
 ### Gathers
+
 ```ink
 - Gather point: rejoins branching flow
 -- Nested gather (level 2)
@@ -60,6 +65,7 @@ CONST MAX = 100           // constant
 ```
 
 ### Conditionals
+
 ```ink
 { condition: text if true | text if false }
 { condition: text if true }
@@ -78,6 +84,7 @@ CONST MAX = 100           // constant
 ```
 
 ### Conditional Choices
+
 ```ink
 * { condition } [Choice only shown if condition is true]
 * { not visited_paris } [Go to Paris] -> visit_paris
@@ -168,7 +175,9 @@ npm run lint
 This runs `inkjs-compiler space-truckers.ink` (the project entry point), which compiles all included files and reports errors. `TODO:` lines are informational and can be ignored. Any `ERROR:` lines must be fixed.
 
 **Common errors to watch for:**
+
 - `~` must be on its own line — never inline inside `{ }`. Use a multi-line block instead:
+
   ```ink
   // Wrong:
   { condition: ~ return true }
@@ -178,6 +187,7 @@ This runs `inkjs-compiler space-truckers.ink` (the project entry point), which c
       ~ return true
   }
   ```
+
 - Functions cannot contain diverts (`->`) — use recursion instead of gather+loop patterns.
 - Every flow path in a function must end with `~ return` or fall through to one.
 
@@ -209,6 +219,7 @@ INCLUDE other_file.ink     // always at top of file, outside knots
 ## Common Patterns
 
 **Loop with fallback:**
+
 ```ink
 === find_help ===
 * The woman in the hat[?] pushes you aside. -> find_help
@@ -219,6 +230,7 @@ INCLUDE other_file.ink     // always at top of file, outside knots
 ```
 
 **Question hub (re-entrant):**
+
 ```ink
 - (opts)
     * [Ask about X] ... -> opts
@@ -228,6 +240,7 @@ INCLUDE other_file.ink     // always at top of file, outside knots
 ```
 
 **Parameterised knot as tunnel:**
+
 ```ink
 -> generic_sleep(-> wake_up) ->
 

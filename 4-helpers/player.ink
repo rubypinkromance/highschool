@@ -20,8 +20,10 @@ VAR schedule_period_2 = HealthClass
 VAR schedule_period_3 = Lab
 VAR schedule_period_4 = PhotoClass
 VAR permission_to_change_schedule = false
-VAR has_detention = false
-VAR cut_class = false
+VAR has_detention = 0
+VAR full_day_absences = 0
+VAR MissedClasses = ()
+VAR has_principal_meeting = false
 
 /*
 

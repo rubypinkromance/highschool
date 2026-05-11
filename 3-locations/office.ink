@@ -36,6 +36,32 @@ You are at the {OFFICE}. A reception desk faces the door, and a few chairs line 
 
 /*
 
+    Principal's Office — Unexcused Absence Meeting
+    Triggered from the hallway when has_principal_meeting is set.
+    Fires the morning after any full-day unexcused absence.
+
+*/
+=== principal_meeting ===
+~ has_principal_meeting = false
+~ here = Office
+{SECRETARY} looks up as you enter. "{PLAYER}. The principal is expecting you. Go right in."
+You knock and enter the principal's office. He gestures to the chair across from his desk, his expression grim.
+{ full_day_absences:
+- 1:
+    "{PLAYER}, you missed school yesterday. I don't know what was so important, but I want to be clear: this is your first unexcused absence, and we take attendance seriously here. You've got one day of detention. Don't let me see you in here again."
+- 2:
+    "{PLAYER}, this is the second time you've skipped school. I had hoped our previous conversation would have made an impression. Apparently not. Two days of detention. Get your act together."
+- 3:
+    "{PLAYER}, three full days of school you've now missed. I'm starting to wonder if you understand the meaning of 'mandatory.' Three days of detention. We're going to be having a serious conversation about your future if this continues."
+- else:
+    "{PLAYER}. Again. I'm running out of patience and out of things to say to you. {full_day_absences} days of detention. I sincerely hope this is the last time we have this conversation."
+}
+"Now get back to class."
++ [Leave the office]
+    -> hallway
+
+/*
+
     The Supply Closet
 
 */
@@ -53,7 +79,7 @@ You are in the {SUPPLY_CLOSET}. Post-it notes galore.
     Change Schedule
 
 */
-= change_schedule_dialog(preface)
+=== change_schedule_dialog(preface) ===
 "{preface}What period do you want to change?"
 <em><small>Your current schedule: {printSchedule(You)}</small></em>
 ~ temp period = Period1

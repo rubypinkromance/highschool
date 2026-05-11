@@ -6,8 +6,9 @@
 	"type": "module",
 	"scripts": {
 		"start": "http-server ./dist",
-		"lint": "run-s lint:css lint:prettier",
+		"lint": "run-s lint:ink lint:css lint:prettier",
 		"lint:check": "run-s lint:*:check",
+		"lint:ink": "inkjs-compiler high-school.ink",
 		"lint:css": "stylelint --fix '**/*.css'",
 		"lint:css:check": "stylelint '**/*.css'",
 		"lint:prettier": "prettier . --write",
@@ -17,6 +18,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"http-server": "14.1.1",
+		"inkjs": "^2.4.0",
 		"npm-run-all2": "8.0.4",
 		"prettier": "3.7.4",
 		"stylelint": "16.26.1",
