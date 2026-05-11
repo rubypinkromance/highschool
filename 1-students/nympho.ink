@@ -22,10 +22,10 @@
     7 creampie: doggy-style, pull hair
     8 anal creampie, slap ass, rough and deep
 - 1: Theater     - BraStore
-- 2: Photography - ShoeStore
+- 2: Gym         - ShoeStore
 - L: Cafeteria   - MovieTheater
 - 3: Health      - MovieTheater
-- 4: Science     - ShoeStore
+- 4: Photo       - ShoeStore
 - A: Library     - FoodCourt
 - Afterschool: looking at porn in library
 

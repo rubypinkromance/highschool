@@ -273,14 +273,14 @@ VAR countdown = false
 */
 === attendance_notification ===
 ~ temp was_full_day = LIST_COUNT(MissedClasses) == 4
-<em><small>Your phone buzzes. A text from the school: </small></em>
+Your phone buzzes. A text from the school: “You received an unexcused <>
 { was_full_day:
     ~ full_day_absences++
     ~ has_detention += full_day_absences
     ~ has_principal_meeting = true
-    "{PLAYER} was marked absent for the entire school day. { full_day_absences == 1: This is an unexcused absence. Please report to the principal's office upon your return.| This is unexcused absence #{full_day_absences}. The principal will see you upon your return. You have {full_day_absences} days of detention to serve.}"
+    full-day absence yesterday. Please report to the principal’s office before your next classes.”
 - else:
     ~ has_detention++
-    "{PLAYER} was marked absent from {listPrint(MissedClasses, -> printMissedPeriod)}. Detention will be served at the next opportunity."
+    absence from {listPrint(MissedClasses, -> printMissedPeriod)} yesterday. You have been assigned detention.”
 }
 ->->

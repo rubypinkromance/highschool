@@ -9,11 +9,11 @@
     - dislikes sarcasm
 * (easy) Follow to mall, submissive, teases you, makes you carry stuff, follow her to lingerie store, finally lets you eat her out while the twins give you a ruined orgasm footjob
 * (hard) Follow to mall, but assert yourself, pull her into family bathroom, make twins strip her, spank her, fuck her ass, demeaning her the whole time, call her a cumslut
-- 1: Photography - ShoeStore
-- 2: Study Hall  - DressStore
+- 1: Gym         - ShoeStore
+- 2: Photo       - DressStore
 - L: Cafeteria   - FoodCourt
-- 3: Theater     - DressStore
-- 4: Gym         - BraStore
+- 3: Study Hall  - DressStore
+- 4: Science     - BraStore
 - A: BraStore    - BraStore
 
 - Likes preppy clothes

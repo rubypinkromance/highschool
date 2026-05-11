@@ -10,10 +10,10 @@
 * Fool around in detention (escalate from flash to masturbation)
 * Sex in detention once unsupervised
 - 1: Science     - MovieTheater
-- 2: Gym         - MovieTheater
+- 2: Theater     - MovieTheater
 - L: Bleachers   - BraStore
 - 3: Photography - FoodCourt
-- 4: Study Hall  - MovieTheater
+- 4: Gym         - MovieTheater
 - A: Study Hall  - MovieTheater
 
 - Detention teacher observation shows he’s a smoker. Offer to watch the class while he takes smoke break. Only ten minutes, limited time

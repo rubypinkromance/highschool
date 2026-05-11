@@ -12,6 +12,28 @@ VAR last_girl = Sister
 VAR PlayableGirls = (Cheerleader, Sister)
 
 /*
+
+Girls you share classes with:
+
+- Athlete (gym)
+- Queen (gym)
+- Twin2 (gym)
+- Cheerleader (health)
+- Nerd (health)
+- Twin1 (health)
+- Actor (science)
+- Friend (science)
+- Scientist (science)
+- Believer (photo)
+- Photographer (photo)
+- Nympho (photo)
+
+
+- Rebel (detention)
+
+*/
+
+/*
     Return a comma-separated list of people.
 */
 === function listRoomPeople(characters)
@@ -224,21 +246,21 @@ VAR PlayableGirls = (Cheerleader, Sister)
 {isWeekday():
 { now:
 - Period1:
-    ~ GymPeople += (GymTeacher, Athlete, Scientist, Twin2)
+    ~ GymPeople += (GymTeacher, Athlete, Queen, Twin2)
     ~ HealthClassPeople += (HealthTeacher, Actor, Friend)
-    ~ PhotoClassPeople += (PhotoTeacher, Queen, Twin1)
+    ~ PhotoClassPeople += (PhotoTeacher, Scientist, Twin1)
     ~ LabPeople += (ScienceTeacher, Nerd, Rebel)
     ~ StudyHallPeople += (StudyHallTeacher, Believer, Cheerleader, Jock)
     ~ TheaterPeople += (TheaterTeacher, Photographer, Nympho)
     ~ OfficePeople += (Secretary)
     ~ ClinicPeople += (Nurse)
 - Period2:
-    ~ GymPeople += (GymTeacher, Believer, Rebel)
+    ~ GymPeople += (GymTeacher, Believer, Nympho)
     ~ HealthClassPeople += (HealthTeacher, Cheerleader, Jock, Nerd, Twin1)
-    ~ PhotoClassPeople += (PhotoTeacher, Nympho, Scientist)
+    ~ PhotoClassPeople += (PhotoTeacher, Queen, Twin2)
     ~ LabPeople += (ScienceTeacher, Athlete, Photographer)
-    ~ StudyHallPeople += (StudyHallTeacher, Actor, Queen)
-    ~ TheaterPeople += (TheaterTeacher, Friend, Twin2)
+    ~ StudyHallPeople += (StudyHallTeacher, Actor, Scientist)
+    ~ TheaterPeople += (TheaterTeacher, Friend, Rebel)
     ~ OfficePeople += (Secretary)
     ~ ClinicPeople += (Nurse)
 - Lunch:
@@ -251,18 +273,18 @@ VAR PlayableGirls = (Cheerleader, Sister)
 - Period3:
     ~ GymPeople += (GymTeacher, Cheerleader, Jock, Photographer)
     ~ HealthClassPeople += (HealthTeacher, Believer, Nympho)
-    ~ PhotoClassPeople += (PhotoTeacher, Rebel, Twin2)
-    ~ LabPeople += (ScienceTeacher, Actor, Friend)
-    ~ StudyHallPeople += (StudyHallTeacher, Athlete, Scientist)
-    ~ TheaterPeople += (TheaterTeacher, Nerd, Queen, Twin1)
+    ~ PhotoClassPeople += (PhotoTeacher, Rebel, Nerd)
+    ~ LabPeople += (ScienceTeacher, Actor, Friend, Scientist)
+    ~ StudyHallPeople += (StudyHallTeacher, Athlete, Queen)
+    ~ TheaterPeople += (TheaterTeacher, Twin1, Twin2)
     ~ OfficePeople += (Secretary)
     ~ ClinicPeople += (Nurse)
 - Period4:
-    ~ GymPeople += (GymTeacher, Queen, Twin1)
+    ~ GymPeople += (GymTeacher, Rebel, Scientist)
     ~ HealthClassPeople += (HealthTeacher, Athlete, Twin2)
-    ~ PhotoClassPeople += (PhotoTeacher, Believer, Photographer)
-    ~ LabPeople += (ScienceTeacher, Nympho, Scientist)
-    ~ StudyHallPeople += (StudyHallTeacher, Friend, Nerd, Rebel)
+    ~ PhotoClassPeople += (PhotoTeacher, Believer, Photographer, Nympho)
+    ~ LabPeople += (ScienceTeacher, Queen, Twin1)
+    ~ StudyHallPeople += (StudyHallTeacher, Friend, Nerd)
     ~ TheaterPeople += (TheaterTeacher, Actor, Cheerleader, Jock)
     ~ OfficePeople += (Secretary)
     ~ ClinicPeople += (Nurse)

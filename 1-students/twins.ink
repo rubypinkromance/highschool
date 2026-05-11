@@ -10,10 +10,10 @@
 * Make out on stairwell after flirting with both, challenge you to tell them apart
 * Threesome on roof if identify correctly
 - 1: Photography / Gym         - ShoeStore
-- 2: Health      / Theater     - DressStore
+- 2: Health      / Photography - DressStore
 - L: Cafeteria                 - FoodCourt
-- 3: Theater     / Photography - DressStore
-- 4: Gym         / Health      - BraStore
+- 3: Theater     / Theater     - DressStore
+- 4: Science     / Health      - BraStore
 - A: BraStore                  - BraStore
 
 - Twins agree to show you their birthmarks but won’t do more until you can tell them apart “is there any difference?” “There is, but you can’t see it when we’re dressed so it won’t help you

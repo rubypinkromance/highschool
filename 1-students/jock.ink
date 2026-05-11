@@ -49,27 +49,33 @@ Approach {JOCK}.
 === jock_fight ===
 You close the locker and are greeted by the sight of {JOCK}’s snarling face. Before you have a chance to react, he punches you hard in the eye. You collapse to the ground, cursing.
 “What the fuck are you doing in my locker, asshole?” he demands, standing over you with clenched fists.
-+ “{CHEERLEADER} sent me.[”] She said you guys broke up, and asked me to get her stuff back.”
++ “{CHEERLEADER} sent me.[”] She said you guys broke up and asked me to get her stuff from your locker.”
     -> not_broken_up
 + “Nothing!”[] you blurt, unsure if it’s a good idea to mention {CHEERLEADER}.
-+ “Don’t hit me!”[] you plead, scrambling away from him.
 -
 He spots the bag of her stuff and rolls his eyes. “She sent you to get her stuff, huh?”
-“She said you guys broke up,” you explain.
+“She said you broke up,” you grumble as you stand up, holding your eye.
 - (not_broken_up)
-“We’re not broken up,” he sneers, “that was just a misunderstanding. I can’t believe she’s being such a bitch about this. Now, give me her shit back, so I can go explain things to her.”
-+ [Give him the bag]
-+ [Don’t give him the bag]
+“We’re didn’t break up,” he sneers, “that was just a misunderstanding. I can’t believe she’s being such a bitch about this. Now, give me her shit back, so I can go explain things to her.”
++ “No[.”],” you snarl and brace yourself to fight
++ [Hit him back]
+    You raise your fist to hit him back
 -
-Before you can do anything, a woman’s voice cuts through the noise of the crowd.
+<>, but before you can do anything, a woman’s voice cuts through the noise of the crowd.
 “{JOCK}!” The onlookers quickly move out of {GYM_TEACHER}’s way. “Another fight, seriously?”
-“No, no,” he blurts, unclenching his fists and glancing at you on the floor. “I was just—”
-“Save it for the principal,” she sighs. “You can explain it to him before detention.”
-“But I’ll miss practice!” he protests.
-“You should have thought of that before. Now come with me to the office.” She looks down at you and frowns. “You’d better go see {NURSE} to get some ice on that shiner.”
+“No, no,” he blurts, unclenching his fists and glaring at you. “I was just—”
+“Save it,” she cuts him off. “You can explain it to the principal.”
++ “Serves you right, dick!”
++ [Laugh in his face]
+-
+{GYM_TEACHER} turns on you. “Come on, {PLAYER}. I expected better from you. Report to detention after school.”
++ “But I didn't do anything[!”],” you try to explain.
++ “He hit me first[!”],” you try to explain.
+-
+“It doesn’t matter,” she sighs. “The school has a zero-tolerance policy for fighting. Now, you’d better go see {NURSE} to get some ice on that shiner. {JOCK}, come with me.”
 {JOCK} shoots a dirty look at you as they walk away.
 ~ has_black_eye = 7
-~ JockState = JockDetention
+~ has_detention++
 + [Go to the {CLINIC}] -> clinic
 
 /*

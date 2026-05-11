@@ -13,7 +13,7 @@
 - 1: Science    - MovieTheater
 - 2: Health     - MovieTheater
 - L: Library    - MovieTheater
-- 3: Theater    - MovieTheater
+- 3: Photo      - MovieTheater
 - 4: Study Hall - BookStore
 - A: Cafeteria  - ShoeStore
 - Afterschool: playing Magic with other nerds in the cafeteria

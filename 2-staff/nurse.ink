@@ -50,8 +50,9 @@ Her lips are plump, and you wonder what it would be like to kiss them. Or rub th
     Nurse Treats Your Black Eye
 
 */
+TODO improve this
 === nurse_treat_black_eye ===
-“Oh, that looks like it hurts,” {NURSE} tuts with concern. She has you sit on the chair by her desk holding a ice pack wrapped in a towel against your face.
+“Oh, that looks like it hurts,” {NURSE} tuts with concern. She has you sit on the chair by her desk holding a ice pack wrapped in a towel against your face. “Hold that there for a bit, and the swelling should go down.”
     + + [Wait]
     + + [Check out {NURSE}] -> observe_nurse ->
     - -

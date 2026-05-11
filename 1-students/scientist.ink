@@ -9,11 +9,11 @@
     - dislikes flirty, sweet
 * Handjob after uncontrolled erection leaves unable to focus
 * Uncontrollable Sex after invited back to try refined aphrodesiac (why are you slobbing my bean)
-- 1: Gym         - BookStore
-- 2: Photography - BookStore
+- 1: Photography - BookStore
+- 2: Study Hall  - BookStore
 - L: Library     - BookStore
-- 3: Study Hall  - BookStore
-- 4: Lab         - FoodCourt
+- 3: Science     - BookStore
+- 4: Gym         - FoodCourt
 - A: Lab         - BookStore
 
 - Scientist works at book shop
