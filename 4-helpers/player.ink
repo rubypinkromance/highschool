@@ -111,7 +111,7 @@ You decide to take advantage of the moment of privacy. As you pull out your cock
 - {fantasy_name} straddles you, already naked and griding against your erection. As she rocks back and forth, you squeeze her breasts, and she groans. You imagine the feel of her lips, slick with desire, sliding up and down your shaft. You lift your hips, desperate to bury yourself in her heat, but she squirms away every time, teasing you until you're groaning with frustration.
 - {fantasy_name} stands before you, challenging you with her eyes, daring you to take action. She squeals with a mix of excitement and surprise as you spin her around and forcefully bend her over your desk. She pretends to struggle as you tear off her panties, and roughly push her legs apart. Your cocks throbs as you rubs it between her lips, already dripping with arousal. She laughs and dares you to do it, to bury yourself deep and claim her as your own.
 }
-+ [Keep stroking] -> climax_or_interruption(fantasy_girl)
++ [Keep going] -> climax_or_interruption(fantasy_girl)
 
 /*
 
@@ -120,12 +120,12 @@ You decide to take advantage of the moment of privacy. As you pull out your cock
 
 */
 === climax_or_interruption(fantasy_girl)
-~ temp busted = sis_is_home() and chance(66) and not sister_catches_you_jerking_off and SisFacts !? SisRejected
+~ temp busted = sis_is_home() and chance(66) and not sis_catches_you_jerking_off and not SisRejected
 Your cock swells in your grip as you allow the fantasy to fill your mind. The feel of her skin against yours, the heat of her body, the desire in her eyes. You feel the pressure growing. In your head, she's moaning and begging for you to cum. You're so close…
-+ [Cum for her]
++ [Cum]
 {
 - busted:
-    -> sister_catches_you_jerking_off ->
+    -> sis_catches_you_jerking_off ->
 - else:
     ~ cum_today = true
     { fantasy_girl != GymTeacher: "Oh fuck, {characterData(fantasy_girl, Name)}!" You breathe her name as your|<> Your} cock twitches over and over, cum spurting into the tissue. At last, you collapse, gasping for breath as the intensity of your climax fades.

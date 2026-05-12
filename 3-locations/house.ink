@@ -15,8 +15,8 @@ VAR BedroomItems = (Laptop)
     You are in {BEDROOM}. The walls are covered with posters for your favorite video games and movies. {BedroomItems ? Laptop:Your laptop sits on your desk next to|On your desk is} a box of tissues and a bottle of lotion. Your bed is unmade, and a growing pile of laundry looms in the corner. {BedroomItems !? Laptop: Your laptop is missing. {SIS} must have borrowed it again.}
 }
 {
-- SisFacts ? SisSawYourPorn and sis_is_home() and now > Period1 and chance(33) and not sister_wants_to_talk and SisFacts !? SisRejected:
-    -> sister_wants_to_talk ->
+- SisFacts ? SisSawYourPorn and sis_is_home() and now > Period1 and chance(33) and not sis_wants_to_talk and not SisRejected:
+    -> sis_wants_to_talk ->
 - BathroomPeople ? Sister:
     You can dimly hear {getNameAndTitle(Sister)} singing in the shower.
 - SisBedroomPeople ? (Sister, SisFriend):
@@ -32,8 +32,8 @@ VAR BedroomItems = (Laptop)
 {
 - Inventory ? CheerleaderPanties and not use_cheerleader_panties and not cum_today:
     * [Jerk off with {CHEERLEADER}'s panties] -> use_cheerleader_panties -> bedroom_opts
-- Inventory ? SisPanties and not use_sister_panties and not cum_today:
-    * [Jerk off with {SIS}'s panties] -> use_sister_panties -> bedroom_opts
+- Inventory ? SisPanties and not use_sis_panties and not cum_today:
+    * [Jerk off with {SIS}'s panties] -> use_sis_panties -> bedroom_opts
 - not cum_today and (now == Period1 or now == Night):
     + [{~Jerk off|Spank the monkey|Rub one out|Wank}] -> jerk_off -> bedroom_opts
 }
@@ -53,7 +53,7 @@ VAR BedroomItems = (Laptop)
 // Outfit Actions
 + {now < Night}[Change your clothes]
     What would you like to wear?
-+ + [Default outfit]
++ + [Normal clothes]
     ~ outfit = Default
     You put on your normal jeans and t-shirt.
 + + [Nice clothes]
@@ -71,17 +71,16 @@ VAR BedroomItems = (Laptop)
 // Navigation
 + [Leave your room]
 + + {!BathroomPeople}[Go to {BATHROOM}] -> bathroom
-+ + {BathroomPeople ? Sister and SisFacts !? SisRejected}[Sneak into {BATHROOM}] -> bathroom
-+ + {!SisBedroomPeople}[Go to {SIS_BEDROOM}] -> sis_bedroom(false) // if no one's there, no need to knock
++ + {BathroomPeople ? Sister and not SisRejected}[Sneak into {BATHROOM}] -> bathroom
++ + {!SisBedroomPeople}[Go to {SIS_BEDROOM}] -> sis_bedroom // if no one's there, no need to knock
 + + {SisBedroomPeople}[Go to {SIS_BEDROOM}]
-+ + + [Knock first] -> sis_bedroom(true)
-+ + + [Just open the door] -> sis_bedroom(false)
++ + + [Knock first] -> sis_knock
++ + + [Just open the door] -> sis_bedroom
 + + + [Nevermind] -> bedroom
-+ + {now < Night}[Leave home]
-+ + + [Go to school] -> hallway
-+ + + [Go to the {MALL}] -> mall
-// + + + [Go to the {CHURCH}] -> church
-+ + + [Cancel] -> bedroom
++ + [Go to school] -> hallway
++ + [Go to the {MALL}] -> mall
+// + + [Go to the {CHURCH}] -> church
++ + [Cancel] -> bedroom
 
 // Time Actions
 + {now >= AfterSchool}[Go to sleep]
@@ -112,7 +111,7 @@ VAR BathroomItems = ()
 <- character_opts(BathroomPeople, -> bathroom_opts)
 
 + { BathroomPeople ? Sister } [Try to peek in the shower]
-    -> peep_sister_shower ->
+    -> peep_sis_shower ->
 + [Leave {BATHROOM}] -> bedroom
 - -> bathroom_opts
 
@@ -123,24 +122,24 @@ VAR BathroomItems = ()
 
 
 */
-= sis_bedroom(knock)
+= sis_bedroom
 CONST SIS_BEDROOM = "your stepsister’s bedroom"
 VAR SisBedroomPeople = ()
 VAR SisBedroomItems = (SisPanties)
 ~ here = SisBedroom
 
 You are in {getNameAndTitle(Sister)}’s bedroom. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
-{not SisBedroomPeople and SisBedroomItems ? Laptop:Your laptop is sitting on her bed, with the screensaver playing.}
+{SisBedroomPeople !? Sister and SisBedroomItems ? Laptop:<> Your laptop is sitting on the bed, with the screensaver playing.}
 
--> sis_on_the_bed(SisBedroomPeople, knock) ->
+-> sis_on_the_bed ->
 
 - (sis_bedroom_opts)
 <- character_opts(SisBedroomPeople, -> sis_bedroom_opts)
 
 + { SisBedroomPeople == () and SisBedroomItems ? Laptop }[Take your laptop]
-    -> retrieve_laptop_from_sister ->
-+ { SisBedroomPeople == () and SisFacts !? SisRejected } [Explore her room]
-    -> explore_sister_room ->
+    -> retrieve_laptop_from_sis ->
++ { SisBedroomPeople == () and not SisRejected } [Explore her room]
+    -> explore_sis_room ->
 + [Leave {SIS_BEDROOM}]
     -> pass_time -> bedroom
 - -> sis_bedroom_opts

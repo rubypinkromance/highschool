@@ -209,10 +209,10 @@
         - ObservedState: ~ return SisObserved
         - Mood: ~ return SisMood
         - BaseMood: ~ return SisBaseMood
-        - TalkFunction: ~ return -> talk_to_sister
-        - ObserveFunction: ~ return -> observe_sister
-        - DreamFunction: ~ return -> dream_of_sister
-        - HintFunction: ~ return -> sister_hints
+        - TalkFunction: ~ return -> talk_to_sis
+        - ObserveFunction: ~ return -> observe_sis
+        - DreamFunction: ~ return -> dream_of_sis
+        - HintFunction: ~ return -> sis_hints
     }
 - SisFriend:
     { what:

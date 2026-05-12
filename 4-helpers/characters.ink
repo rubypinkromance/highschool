@@ -442,12 +442,7 @@ Girls you share classes with:
     ~ ShoeStorePeople += (Nerd)
     ~ BookStorePeople += (Photographer, Scientist)
     ~ MovieTheaterPeople += (Actor, Rebel)
-    {
-    - chance(50):
-        ~ SisBedroomPeople += (Sister)
-    - else:
-        ~ BathroomPeople += (Sister)
-    }
+    ~ BathroomPeople += (Sister)
     {
     - today == Saturday:
         ~ BleachersPeople += (Cheerleader)

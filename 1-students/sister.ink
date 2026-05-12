@@ -5,10 +5,8 @@
     Outfit: TBD, black with pink polkadots underwear and bra.
     Likes earnest, sweet
     Dislikes serious
+    Goes to all girl school with friend
     
-    Sis goes to all girl school with friend
-
-
        Weekdays   Weekends
     ------------------------
     1: ---      - Bedroom
@@ -22,12 +20,13 @@
 */
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
-LIST SisState = (SisObserved), SawSisNaked, SisMasturbate, SisHandjob, SisBlowjob, SisSex
-LIST SisFacts = SisMightBeQueer, SisMightBeIntoYou, SisIsBi, ReadSisDiary, SawSisPorn, SisSawYourPorn, SisCaughtYouPeeking, SisIsInterested, SisRejected, FoundSisVibrator, FoundSisStrapOn
+LIST SisState = (SisObserved), SisQuestions, SisTruthOrDare, SisSex
+LIST SisFacts = ReadSisDiary, SawSisPorn, SisMightBeQueer, SisLikesFriend, SisLikesYou, SisIsBi, SawSisNaked, SisSawYourPorn, SisSawYouFapping, SisCaughtYouPeeking, SisIsInterested, FoundSisVibrator, FoundSisStrapOn
 VAR SisInPlay = true
-VAR SisMood = Hostile
-VAR SisBaseMood = Hostile
+VAR SisMood = Neutral
+VAR SisBaseMood = Neutral
 VAR SisCum = ()
+VAR SisRejected = false
 LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 
 /*
@@ -35,8 +34,7 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
     Talk to Sister
 
 */
-TODO write dialog
-=== talk_to_sister ===
+=== talk_to_sis ===
 ~ last_girl = Sister
 
 // If you ask to talk at the mall, she says she's busy
@@ -45,20 +43,26 @@ TODO write dialog
     ->->
 }
 
-Approach {SIS}.
-
 - (opts)
-* {FriendState == FriendQuest and BraSizes !? Sister}"What's your bra size?"
+* {FriendState == FriendQuest and BraSizes !? Sister}
+    "What's your bra size?"
     "34C, bro."
-+ { SisBedroomItems ? Laptop }"I need my laptop back."
++ { SisBedroomItems ? Laptop }
+    "I need my laptop back."
     "That's fine, I'm done with it."
     ~ move(Laptop, SisBedroomItems, BedroomItems)
-+ {SisState == SisSex and SisMood >= Aroused and newToday(-> sister_sex) and SisFacts !? SisRejected}
-    [“Wanna fool around?”]
-    -> sister_sex ->
-+ {not seenVeryRecently(-> look_at_sister) and SisFacts !? SisRejected}
++ {SisState == SisQuestions and not SisRejected}
+    ["Can I ask a personal question?"]
+    -> sis_questions ->
++ {SisState == SisTruthOrDare}
+    [“Wanna play truth or dare again?”]
+    -> sis_truth_or_dare ->
++ {SisState == SisSex and SisMood >= Aroused and newToday(-> sis_sex)}
+    [“Wanna fool around again?”]
+    -> sis_sex ->
++ {not seenVeryRecently(-> look_at_sis) and not SisRejected}
     [Check her out]
-    -> look_at_sister ->
+    -> look_at_sis ->
 + [Leave conversation]
     ->->
 - -> opts
@@ -66,104 +70,176 @@ Approach {SIS}.
 /*
 
     Sister Wants To Talk
-    After seeing your porn preferences, she enters your room without knocking. You can choose to kick her out, or play along.
+    After seeing your porn preferences, she enters without knocking. You can kick her out, or play along.
 
 */
-=== sister_wants_to_talk ===
+=== sis_wants_to_talk ===
 ~ removePerson(Sister)
 ~ BedroomPeople += (Sister)
 
-{SIS} opens your door without knocking. "Hey bro, can I talk to you about something?"
+{SIS} opens your door without knocking. "Hey bro, can I talk to you about something kinda personal?"
 
 + ["Get out!" (Don't show stepsister content)]
     "Get out of my room!"
     "Ugh, forget it." {SIS} rolls her eyes and closes the door.
-    ~ removePerson(Sister)
-    ~ SisBedroomPeople += (Sister)
-    ~ SisFacts += SisRejected
-+ ["What's up?"]
+    ~ SisRejected = true
++ "Sure, what's up?"
     ~ last_girl = Sister
-    -> sister_flirt ->
+    { SisState < SisQuestions:
+        ~ SisState = SisQuestions
+    }
+    -> sis_questions.q_saw_your_porn ->
+-
+~ removePerson(Sister)
+~ SisBedroomPeople += (Sister)
 - ->->
 
 /*
 
     Sister Catches You Jerking Off
-    She enters without knocking and catches you in the act. You can choose to kick her out, or play along.
+    She enters without knocking and catches you in the act. You can kick her out, or play along.
 
 */
-=== sister_catches_you_jerking_off ===
-~ last_girl = Sister
+=== sis_catches_you_jerking_off ===
 ~ removePerson(Sister)
 ~ BedroomPeople += (Sister)
+~ SisFacts += SisSawYouFapping
 
 {SIS} opens your door without knocking. "Hey bro, can I…" She trails off, eyes open wide at the sight of you jerking off.
 
-- (opts)
 + ["Get out!" (Don't show stepsister content)]
     "What the fuck? Get out of my room!"
     "Your loss." {SIS} shrugs and closes the door.
-    ~ removePerson(Sister)
-    ~ SisBedroomPeople += (Sister)
-    ~ SisFacts += SisRejected
-    ->->
+    ~ SisRejected = true
 + [Cover up]
+    ~ last_girl = Sister
+    { SisState < SisQuestions:
+        ~ SisState = SisQuestions
+    }
     "{SIS}, what the fuck?" you yelp, frantically trying to cover yourself.
     "Don't stop on my account," she grins, stepping in and closing the door behind her. "I just wanted to ask you something, but this is way more interesting."
     "You want to watch me jerk off?"
-    ~SisFacts += SisMightBeIntoYou
     {SisFacts ? SisCaughtYouPeeking: "Why not? You watched me in the shower. Seems only fair."|"It's kinda hot," she confesses.}
     + + [Keep going]
-        -> sister_sex.you_masturbate ->->
-    + + "I don't think [so."]that's a good idea," you say, as you somewhat reluctantly put your cock away.
+        "Alright," you say, "but don't get weird about this."
+        -> sis_sex.you_masturbate ->
+    + + [Stop]
+        "I dunno[…"]," you say, "that sounds like a bad idea."
         "Boring," she frowns. "Well, if you're not gonna let me watch, then can I talk to you about something?"
-        "What's on your mind?"
-    -> sister_flirt ->->
+        + + + "Sure, what's on your mind?"
+        - - - -> sis_questions.q_saw_you_fapping ->
 + [Keep going]
+    ~ last_girl = Sister
+    { SisState < SisQuestions:
+        ~ SisState = SisQuestions
+    }
     "Do you mind?" You ask, without slowing your stroke. "I'm a little busy."
     "I can see that," she grins, stepping in and closing the door behind her. "And while I'm flattered, do you think you could stop beating your meat for a minute so I can talk to you about something?"
-    ~SisFacts += SisMightBeIntoYou
-    + + "I can't stop[."] now," you groan, "But you can stay and watch if you want."
-        -> sister_sex.you_masturbate ->->
-    + + "I guess[."]," you sigh, putting your cock away. "What do you need?"
-    -> sister_flirt ->->
-- -> opts
+    + + [Don't stop]
+        "I can't stop now," you groan, "But you can stay and watch if you want."
+        -> sis_sex.you_masturbate ->
+    + + [Stop]
+        "Fine," you sigh, putting your cock away. "What's on your mind?"
+        -> sis_questions.q_saw_you_fapping ->
+-
+~ removePerson(Sister)
+~ SisBedroomPeople += (Sister)
+- ->->
 
 /*
 
-    Flirt with Sister
-    Truth or dare?
+    Sister Questions
     She teases you, asks leading questions, is generally obnoxious.
     + SisIsInterested
     Ask questions about what girls like
-        (if SisIsLesbian) If you saw her porn or fooling around with her friend, you can ask about her preferences
+
+        (if FoundSisVibrator) Ask about vibrator
+
+        (FoundSisStrapOn) Ask about strapon
+
+        not SisIsBi
+        SisMightBeQueer
+        SawSisPorn
+        (if SisMightBeQueer) If you saw her porn or fooling around with her friend, you can ask about her preferences
+
+        SisMightBeIntoYou
+        ReadSisDiary
         (if SisFantasies) If you've read her diary, you can mention her sex fantasies.
+
+        SisSawYourPorn
         (if SisSawYourPorn) If she saw your porn history, she'll mention knowing you like stepsis porn.
+
+        SisSawYouFapping
+        (if SisSawYouFapping) If she saw you masturbating, she's curious
+
+        SisCaughtYouPeeking
         (if SisCaughtYouPeeking) If she caught you creeping, you can talk about it more
+
+        SisIsInterested
         (if SisIsInterested) If you know she's into you, you can ask to fool around
             -> SisSex
     - event: After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
+    
+    Should end with starting a game of truth or dare
 
 */
 TODO write dialog
-=== sister_flirt ===
+=== sis_questions ===
 ~ last_girl = Sister
-- (flirt_opts)
-+ [“Wanna fool around?”]
-    -> sister_sex ->
+- (sis_questions_opts)
+* {SisFacts ? SawSisPorn}
+    "I saw the porn you watch"
+    "What about it?"
+* {SisFacts ? FoundSisVibrator}
+    "I found your vibrator."
+    "It's a good one."
+* {SisFacts ? FoundSisStrapOn}
+    "I found your strap-on."
+    "It's a good one."
+* {SisFacts ? SisMightBeQueer}
+    "Are you gay?"
+    "Nah, bi."
+* {SisFacts ? SisLikesFriend}
+    "I read your diary about {SIS_FRIEND}"
+    "And?"
+* {SisFacts ? SisLikesYou}
+    "I read your diary entry about me."
+    "I sure am."
+* {SisFacts ? SisSawYourPorn and not q_saw_your_porn}
+    "You wanted to ask me something?"
+    -> q_saw_your_porn ->
+* {SisFacts ? SisSawYouFapping and not q_saw_you_fapping}
+    "What did you want to ask me before you caught me jerking off?"
+    -> q_saw_you_fapping ->
+* {SisFacts ? SisCaughtYouPeeking}
+    "What's up?"
+    "I saw you peeping on me."
+* {SisFacts ? SisIsInterested}
+    "Let's play truth or dare."
+    "Deal!"
 + [Leave conversation]
     ~ removePerson(Sister)
     ~ SisBedroomPeople += (Sister)
     ->->
-- -> flirt_opts
+- -> sis_questions_opts
+
+= q_saw_your_porn
+"I saw your porn."
+"Indeed?"
+->->
+
+= q_saw_you_fapping
+"I saw you jerking it."
+"So you did."
+->->
 
 /*
 
     Look at Sister
 
 */
-TODO handle sis in shower
-=== look_at_sister ===
+TODO handle sis in shower, add her reaction like cheerleader
+=== look_at_sis ===
 ~ last_girl = Sister
 { SisCum:
 - Anal:
@@ -188,55 +264,105 @@ TODO handle sis in shower
 
 /*
 
-    Describe Sister on the Bed
+    Knock on Sister's Door
 
 */
-TODO make these more unique
-TODO hostile doesn't mean hostile
-TODO describe sister based on whether you knocks, whether friend is here, arousal level, laptop, etc
-TODO If she has your laptop, you catch her watching porn (if alone), or eating her friend out while porn plays (if friend is over)
-=== sis_on_the_bed(RoomPeople, knock) ===
+=== sis_knock ===
+You knock on {SIS}'s door.
+~ temp invited = true
 {
-- RoomPeople ? (Sister, SisFriend):
-    {SIS} and her friend {SIS_FRIEND} are
+- SisBedroomPeople ? (Sister, SisFriend):
     {
     - SisMood == Hostile:
-        <> glaring at you.
-    - SisMood == Aroused:
-        <> sitting on the bed, looking at you seductively.
+        ~ invited = false
+        "Go away!" {SIS} and {SIS_FRIEND} shout from the other side of the door.
     - SisMood == Desperate:
-        <> making out on the bed.
+        "Ooh, it's {PLAYER}!" you hear {SIS_FRIEND} giggle. "Should we invite him in?"
+        "No!" {SIS} squeals, "Don't come in!"
+        At the same time, {SIS_FRIEND} calls out "Come in!"
+    - SisMood == Aroused:
+        A burst of loud giggles comes from the other side of the door, followed by {SIS} calling, "Come in!"
     - else:
-        <> lounging on the bed.
+        "Come in," she calls.
     }
-- RoomPeople ? Sister:
-    {SIS} is
+- SisBedroomPeople ? Sister:
     {
     - SisMood == Hostile:
-        <> glaring at you.
-    - SisMood == Aroused:
-        <> sitting on the bed, squeezing her legs together and looking flushed.
-    - SisMood == Desperate:
-        <> squirming on the bed, beckoning you to come closer.
+        ~ invited = false
+        "Go away!" she shouts.
+    - SisMood >= Aroused:
+        "Come innnn," she calls in a breathy voice.
     - else:
-        <> lounging on the bed.
+        "Come in," she calls.
     }
-- RoomPeople ? SisFriend:
-    {SIS}’s friend {SIS_FRIEND} is
+- SisBedroomPeople ? SisFriend:
     {
     - SisFriendMood == Hostile:
-        <> glaring at you.
-    - SisFriendMood == Friendly:
-        <> sitting on the bed, smiling at you.
-    - SisFriendMood == Aroused:
-        <> sitting on the bed, licking her lips and winking at you.
-    - SisFriendMood == Desperate:
-        <> squeezing her tits, urging you to come closer.
+        ~ invited = false
+        "Fuck off, {PLAYER}!" {SIS_FRIEND} shouts through the door.
+    - SisFriendMood >= Aroused:
+        "Is that you, {PLAYER}?" {SIS_FRIEND} giggles. "Come in!"
     - SisFriendMood:
-        <> lounging on the bed.
+        "Come in," you hear {SIS_FRIEND} call from the other side of the door.
     }
-- LIST_COUNT(RoomPeople) > 0:
-    {lookForRoomPeople(RoomPeople)}
+}
++ {not invited} [Open the door anyway] -> bedroom.sis_bedroom
++ {invited} [Open the door] -> bedroom.sis_bedroom
++ [Leave] -> bedroom
+->->
+
+/*
+
+    Describe People in Sister's Room
+
+*/
+=== sis_on_the_bed ===
+~ temp has_laptop = SisBedroomItems ? Laptop
+~ temp device = "her phone"
+{
+- has_laptop:
+    ~ device = "your laptop"
+- LIST_COUNT(SisBedroomPeople) > 1:
+    ~ device = "their phones"
+}
+{
+- SisBedroomPeople ? (Sister, SisFriend):
+    {
+    - SisMood == Hostile:
+        {SIS} and {SIS_FRIEND} look up from {device} to glare at you. "What do you want?"
+    - SisMood == Desperate:
+        {SIS} and {SIS_FRIEND} quickly sit up as you enter the room. {SIS} looks flushed, and tries to adjust her shirt to make her hard nipples less obvious. {has_laptop: Your laptop sits on the floor, still playing a video of two women having sex. {SIS_FRIEND} winks at you as she closes it.|{SIS_FRIEND} grins at you, clearly delighted by the tension.} "Uh, hey bro," {SIS} says. "What's up?"
+    - SisMood == Aroused:
+        {SIS} and {SIS_FRIEND} {has_laptop:quickly close your laptop|look up from their phones} as you enter. "Hey, bro," {SIS} says, "Do you, uh, need something?" {SIS_FRIEND} grins and gives you a wink. "Yeah, anything we could give you a <em>hand</em> with?" They both collapse into giggles again.
+    - else:
+        {SIS} and {SIS_FRIEND} are lounging on the bed, looking at {device}. "What's up, bro?"
+    }
+- SisBedroomPeople ? Sister:
+    {
+    - SisMood == Hostile:
+        {SIS} looks up from {device} to glare at you. "What do you want?"
+    - SisMood == Desperate and SisState == SisSex:
+        {SIS} is squirming on the bed. As soon as you close the door, she discards {device}, still playing a video of two women having sex. "Good timing, bro." She beckons you closer. "I could use a hand."
+    - SisMood == Desperate:
+        {SIS} quickly {has_laptop:closes|drops} {device} as you enter. She looks a bit flushed. "Hey! What's up?"
+    - SisMood == Aroused:
+        {SIS} is lounging on the bed, looking at {device}. She grins at you and asks, "Hey, bro. You need something?"
+    - else:
+        {SIS} is lounging on the bed, looking at {device}. "What's up, bro?"
+    }
+- SisBedroomPeople ? SisFriend:
+    {
+    - SisFriendMood == Hostile:
+        {SIS_FRIEND} glares at you. "Why are you here?"
+    - SisFriendMood == Desperate:
+        "Hey, {PLAYER}." {SIS_FRIEND} kneels on the bed, gazing at you seductively. "{SIS} is in the shower." She licks her lips. "Looks like it's just the two of us."
+    - SisFriendMood == Aroused:
+        "Hey there, {PLAYER}." {SIS_FRIEND}, sitting on the bed, winks at you. "{SIS} is in the shower. Does that mean you're here to see me?"
+    - else:
+        "Hi, {PLAYER}." {SIS_FRIEND} says cheerfully. "What's up?"
+    }
+- LIST_COUNT(SisBedroomPeople) > 0:
+    {lookForRoomPeople(SisBedroomPeople)}
 }
 ->->
 
@@ -244,17 +370,16 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
 
     Explore Sister’s Room
     Find diary with sex fantasies about you, vibrator, and sexy panties.
-        + SisFantasies
 
 */
-=== explore_sister_room ===
+=== explore_sis_room ===
 - (explore_sis_bedroom_opts)
 * (sis_room_drawer) [Open her bedside table drawer]
     Inside you find batteries, chapsticks, a bottle of lube, and her diary.
-+ {sis_room_drawer and not read_sister_diary} [Read her diary]
-    -> read_sister_diary ->
-+ {read_sister_diary} [Read another diary entry]
-    -> sister_diary_entries ->
++ {sis_room_drawer and not read_sis_diary} [Read her diary]
+    -> read_sis_diary ->
++ {read_sis_diary} [Read another diary entry]
+    -> sis_diary_entries ->
 * (sis_room_pillow) [Look under her pillow]
     ~ SisFacts += FoundSisVibrator
     You move her pillow and are rewarded by finding a vibrator wrapped in an old t-shirt you recognize as {SIS_FRIEND}'s.
@@ -262,7 +387,7 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
     It has a pink body with two buttons, and a large round head. When you press the first button, the head begins rumbling loudly. When you press the other button, it cycles through increasing intensities and patterns, eventually getting so loud, you nervously switch it off and put it back under the pillow before someone hears.
 * (sis_room_bed) [Look beneath the bed]
     Getting on your hands and knees, you peer under her bed. There are a handful of magazines down there, some socks, and a large black satin drawstring bag.
-* (sis_room_bag) [Open the bag]
+* (sis_room_bag) {sis_room_bed} [Open the bag]
     ~ SisFacts += FoundSisStrapOn
     You pull the black satin back out from under the bed, and open the drawstring. You're not sure what you expected to find inside, but it certainly wasn't a leather strap-on harness holding a large black dildo. Does she use this with {SIS_FRIEND}? As you put it back, you wonder {SisFacts ? SisMightBeQueer: again} if {SIS} might be a lesbian. 
     ~ SisFacts += SisMightBeQueer
@@ -273,7 +398,7 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
 * { examined_panties and SisBedroomItems ? SisPanties } [Take the lace panties]
     ~ move(SisPanties, SisBedroomItems, Inventory)
     You quickly shove the panties into your pocket.
-* { Inventory ? SisPanties and use_sister_panties } [Put the panties back in the laundry basket]
+* { Inventory ? SisPanties and use_sis_panties } [Put the panties back in the laundry basket]
     ~ move(SisPanties, Inventory, SisBedroomItems)
     Sheepishly, you return the lace panties to her laundry basket, burying them beneath some other clothes. You pray she won't notice they're covered in your cum.
 + [Leave {SIS_BEDROOM}]
@@ -286,21 +411,23 @@ TODO If she has your laptop, you catch her watching porn (if alone), or eating h
     Sis has a diary revealing her fantasies about you and exploring bisexuality with her best friend.
 
 */
-=== read_sister_diary ===
+=== read_sis_diary ===
 ~ last_girl = Sister
-~ SisFacts += ReadSisDiary
+{ SisState < SisQuestions:
+    ~ SisState = SisQuestions
+}
 You flip through her diary, expecting to find what you imagine a typical teenage girl writes about: friend drama, makeup, boys, whatever. Instead you're shocked to find an explicit description of a wet dream.
 "…taller than me, wearing a leather jacket and tight jeans. She pushed me against the wall and silenced my protests with a demanding kiss."
 + {SisFacts !? SisMightBeQueer}[She?] Wait, <em>she</em>? Is {SIS} a lesbian? You keep reading, fascinated.
     ~ SisFacts += SisMightBeQueer
-    -> sister_diary_entries
+    -> sis_diary_entries
 + [Keep reading]
-    -> sister_diary_entries
+    -> sis_diary_entries
 + [Stop reading]
     You quickly close the diary. It's none of your business what her fantasies are.
     ->->
 
-=== sister_diary_entries
+=== sis_diary_entries
 {cycle:
 - -> diary_lesbian ->
 - -> diary_friend_sex ->
@@ -311,6 +438,7 @@ You flip through her diary, expecting to find what you imagine a typical teenage
 ->->
 
 = diary_lesbian
+~ SisFacts += SisMightBeQueer
 "She pushed me against the wall and silenced my protests with a demanding kiss. I found myself melting against her body as her tongue flirted with mine. She slipped a hand under my shirt, and I felt the heat of her palm against my stomach, sliding down past the waistband of my sleep shorts."
 "I squirmed and pawed at her chest, overwhelmed by a confusing mixture of desire and shame. Her fingers moved slowly but insistenly, lower and lower, until they found my slit. I shivered with need, and she did not wait for permission before one nimble digit curled effortlessly inside me."
 + [Keep reading]
@@ -321,6 +449,7 @@ You flip through her diary, expecting to find what you imagine a typical teenage
 ->->
 
 = diary_friend_sex
+~ SisFacts += SisLikesFriend
 "I had <em>another</em> wet dream about {SIS_FRIEND}. If this keeps up, I'm going to start blushing every time she's around. I should tell her, but I'm worried how she'll react."
 A different handwriting in the margin reads, "You silly lovely girl, you had nothing to worry about. I'm glad you told me to read this. Now I'm going to quit writing and kiss you."
 + [Keep reading]
@@ -337,7 +466,7 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
 ->->
 
 = diary_bedshare
-~ SisFacts += SisMightBeIntoYou
+~ SisFacts += SisLikesYou
 "Well, this was a new one. I had a dream about {PLAYER}. I've never really thought about him like that. I guess technically we're only stepsiblings, but it feels so wrong to admit that ever since I can't help but wonder what it would be like…"
 "In the dream, we had guests visiting. Some aunt or other. It wasn't clear, except that they needed my room, so Mom said I had to share a bed with {PLAYER}. I was annoyed, but didn't really question it. When it was time for bed, we decided we both had to sleep naked, because it was so hot in his room. I remember lying down and realizing how small his bed was. Even lying on our sides, like we were spooning, he was still pressed up against my back. His skin was so hot, and it wasn't long before I felt his erection against my butt."
 + [Keep reading]
@@ -354,7 +483,7 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
 ->->
 
 = diary_sleepwalker
-~ SisFacts += SisMightBeIntoYou
+~ SisFacts += SisLikesYou
 "Another dream about {PLAYER}. Maybe… No. But it's affecting things. The other day I left the bathroom after taking a shower, and he was standing outside, waiting his turn. I wondered if he'd heard me moaning through the door. Part of me hoped he did."
 "Anyway, the dream was kinda funny. I was on the phone with {SIS_FRIEND} when {PLAYER} came into my room without knocking. He was just wearing boxers, and I could clearly see that he was hard. 'OMG, {SIS_FRIEND},' I squealed, '{PLAYER} just came in here with a fucking hard-on!'"
 + [Keep reading]
@@ -372,7 +501,8 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
 ->->
 
 = diary_threesome
-~ SisFacts += SisMightBeIntoYou
+~ SisFacts += SisLikesFriend
+~ SisFacts += SisLikesYou
 "Okay, my dreams are definitely going to get me in trouble one of these days. Last night I dreamed that {SIS_FRIEND} and {PLAYER} fucked me together."
 "There was no background or reason for it. It was just happening. We were all in my my bed, naked and rolling around together. {PLAYER} was kissing {SIS_FRIEND} while I sucked on her tits. Then she was kissing me while {PLAYER} fingered her. She sat on his face while I sucked his cock. We moved together easily, languidly, drifting from position to position."
 + [Keep reading]
@@ -398,7 +528,7 @@ A different handwriting in the margin reads, "You silly lovely girl, you had not
     If you take your laptop back while she's not in the room, you can discover her porn history.
 
 */
-=== retrieve_laptop_from_sister ===
+=== retrieve_laptop_from_sis ===
 ~ move(Laptop, SisBedroomItems, BedroomItems)
 You pick up your laptop, brushing your finger across the trackpad. The screensaver turns off and you're surprised to see the browser open to an adult site. {SIS} must have been using your laptop to watch porn!
 + [Close the browser]
@@ -406,6 +536,9 @@ You pick up your laptop, brushing your finger across the trackpad. The screensav
 + [Look at her history]
     ~ SisFacts += SisMightBeQueer
     ~ SisFacts += SawSisPorn
+    { SisState < SisQuestions:
+        ~ SisState = SisQuestions
+    }
     You quickly skim through her watch history, and are surprised to find it's mostly girl-on-girl videos. The only videos with guys are threesomes with two girls and a guy. Is {SIS} a lesbian? Maybe she's just curious? You suddenly wonder just how close she and her friend {SIS_FRIEND} really are.
 - ->->
 
@@ -415,7 +548,7 @@ You pick up your laptop, brushing your finger across the trackpad. The screensav
     After finding a pair of her panties, you jerk off with them.
 
 */
-=== use_sister_panties ===
+=== use_sis_panties ===
 ~ last_girl = Sister
 ~ cum_today = true
 ~ Score += sisPanties
@@ -426,7 +559,7 @@ Instinctively, you wrap her panties around your erection. The lace teases and st
 + [Imagine her putting on cum-soaked panties]
 -
 The head of your cock strains against the gusset as you imagine her putting them on after you finish. The confusion on her face as your hot cum meets her sensitive skin. You picture her reaching down, dipping a finger into the cream and frowning as she inspects it. The surprise as she realizes what it is giving way to desire as she licks her finger clean. Her nipples instantly harden and she gasps, shoving a hand between her legs to desperately rub your spunk between her lips.
-+ [Cum!]
++ [Cum]
 -
 The image takes you over the finish line and your thick white cum spurts again and again into her panties. You reluctantly unwrap them when the stimulation becomes overwhelming. The black lace fabric is a complete mess, smeared with a shocking amount of cum. You do your best to wipe it all up with a tissue, but it's hopeless. You make a note to hide them under some other clothes when you return them to her laundry basket. Maybe you'll get lucky and she won't notice.
 ->->
@@ -443,11 +576,24 @@ The image takes you over the finish line and your thick white cum spurts again a
 
 */
 TODO add interactive scene
-=== peep_sister_shower ===
+=== peep_sis_shower ===
 ~ last_girl = Sister
 ~ SisFacts += SawSisNaked
+{ SisState < SisQuestions:
+    ~ SisState = SisQuestions
+}
 You peep on your stepsister in the shower.
 -> pass_time -> bedroom
+
+/*
+
+    Sister Truth or Dare
+
+*/
+TODO write truth or dare scenes
+=== sis_truth_or_dare ===
+You play a naughty game of truth or dare.
+->->
 
 /*
 
@@ -461,10 +607,9 @@ You peep on your stepsister in the shower.
         Repeat: You can fuck her ass
 
 */
-TODO write the sex scene
-TODO pass time after cumming
-=== sister_sex ===
-{ sister_sex == 1:
+TODO write the sex scene, pass time after cumming
+=== sis_sex ===
+{ sis_sex == 1:
     ~ Score += sisSex
     ~ improveConfidence()
     ~ SisBaseMood = Aroused
@@ -472,7 +617,7 @@ TODO pass time after cumming
 ~ SisState = SisSex
 ~ cum_today = true
 This is it, you're finally going to fuck {SIS}.
-- (sister_sex_opts)
+- (sis_sex_opts)
 + {newToday(-> suck_tits)}
     “I want to suck on your tits.”
     -> suck_tits ->
@@ -509,7 +654,7 @@ This is it, you're finally going to fuck {SIS}.
 + {anal}
     “I want to cum in your ass.”
     -> cum_anal ->->
-- -> sister_sex_opts
+- -> sis_sex_opts
 
 = you_masturbate
 ~ improveMood(SisMood)
@@ -594,10 +739,9 @@ she moans as you pump your load into her tight ass.
         Repeat: You can fuck her ass
 
 */
-TODO write the sex scene
-TODO pass time after cumming
-=== sister_sex_shower ===
-{ sister_sex_shower == 1:
+TODO write the sex scene, pass time after cumming
+=== sis_sex_shower ===
+{ sis_sex_shower == 1:
     ~ Score += sisSex
     ~ improveConfidence()
     ~ SisBaseMood = Aroused
@@ -605,18 +749,18 @@ TODO pass time after cumming
 ~ SisState = SisSex
 ~ cum_today = true
 This is it, you're finally going to fuck {SIS}.
-- (sister_sex_shower_opts)
+- (sis_sex_shower_opts)
 + [Touch yourself]
     You start wanking to the sight of your stepsister.
 + [Turn away] ->->
-- -> sister_sex_shower_opts
+- -> sis_sex_shower_opts
 
 /*
 
     Sister Dreams
 
 */
-=== dream_of_sister ===
+=== dream_of_sis ===
 You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
 { shuffle:
 - You sneak into the bathroom while she showers. She's unaware of your presence, as you quickly strip off your clothes and slip into the shower as quietly as you can. Your cock is hard and twitching. She squeals in surprise as you grab her by the hips and bury yourself in her dripping pussy with one thrust. She starts rubbing her clit as you roughly fuck her from behind
@@ -633,7 +777,7 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
     Sister Hints
 
 */
-=== sister_hints ===
+=== sis_hints ===
 {
 - SisFacts ? SisIsInterested:
     You already know {SIS}'s into you! Just go talk to her.
@@ -652,7 +796,7 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
     This standard knot is required, but will never be called.
 
 */
-=== observe_sister ===
+=== observe_sis ===
 ~ last_girl = Sister
 ~ SisState = SisObserved
 You live together. You have observed her plenty.

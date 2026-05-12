@@ -137,6 +137,18 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
         <> She’s wearing sneakers, a flowy floral print skirt, and a yellow, loose-fitting, off-the-shoulder crop-top over a bright pink bra. You wonder if her panties match.
     }
 }
+{ not came_from(-> observe_cheerleader):
+    {
+    - CheerleaderMood == Hostile:
+        “Quit staring, perv!” She glares at you.
+    - CheerleaderMood == Neutral:
+        “Uh, can I help you?” She looks uncomfortable.
+    - CheerleaderMood == Friendly:
+        “Take a picture, it'll last longer,” she teases.
+    - CheerleaderMood >= Aroused:
+        “Like what you see?” She licks her lips.
+    }
+}
 ->->
 
 /*
