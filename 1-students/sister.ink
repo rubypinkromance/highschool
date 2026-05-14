@@ -17,6 +17,25 @@
     A: Bathroom - Bathroom
     N: Bedroom  - Bedroom
 
+    SisObserved
+    0. Peep in the shower
+    0. Read her diary
+    0. Saw her porn
+    0. Caught fapping
+    0. Saw your porn
+    -> SisQuestions
+
+    SisQuestion
+    1. Ask if she likes you -> SisIsInterested
+    SisIsInterested -> SisTruthOrDare
+    
+    SisTruthOrDare
+    2. Fool around
+    -> SisSex
+    
+    SisSex
+    3. Have sex again
+
 */
 CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
@@ -27,6 +46,7 @@ VAR SisMood = Neutral
 VAR SisBaseMood = Neutral
 VAR SisCum = ()
 VAR SisRejected = false
+VAR SisQuestionCount = 0
 LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 
 /*
@@ -37,25 +57,27 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 === talk_to_sis ===
 ~ last_girl = Sister
 
+{
 // If you ask to talk at the mall, she says she's busy
-{ not sis_is_home():
+- not sis_is_home():
     "I can't talk right now. Catch me at home?"
     ->->
+- SisMood == Hostile:
+    "What do you want?"
+- else:
+    {~"Stepbro! What's up?"|"Hey, bro. You need something?"|"What's up, bro?"}
 }
 
 - (opts)
-* {FriendState == FriendQuest and BraSizes !? Sister}
-    "What's your bra size?"
-    "34C, bro."
 + { SisBedroomItems ? Laptop }
     "I need my laptop back."
     "That's fine, I'm done with it."
     ~ move(Laptop, SisBedroomItems, BedroomItems)
 + {SisState == SisQuestions and not SisRejected}
-    ["Can I ask a personal question?"]
+    ["Can I ask {sis_questions:another|a} personal question?"]
     -> sis_questions ->
-+ {SisState == SisTruthOrDare}
-    [“Wanna play truth or dare again?”]
++ {SisState == SisTruthOrDare and not seenVeryRecently(-> sis_questions.make_this_more_interesting)}
+    [“Wanna play truth or dare{sis_truth_or_dare: again}?”]
     -> sis_truth_or_dare ->
 + {SisState == SisSex and SisMood >= Aroused and newToday(-> sis_sex)}
     [“Wanna fool around again?”]
@@ -63,6 +85,10 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 + {not seenVeryRecently(-> look_at_sis) and not SisRejected}
     [Check her out]
     -> look_at_sis ->
++ {DEBUG} [Questions #DEBUG]
+    -> sis_questions ->
++ {DEBUG} [Truth or Dare #DEBUG]
+    -> sis_truth_or_dare ->
 + [Leave conversation]
     ->->
 - -> opts
@@ -88,7 +114,7 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
     { SisState < SisQuestions:
         ~ SisState = SisQuestions
     }
-    -> sis_questions.q_saw_your_porn ->
+    -> questions_from_sis.q_sis_saw_your_porn ->
 -
 ~ removePerson(Sister)
 ~ SisBedroomPeople += (Sister)
@@ -115,32 +141,40 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
     ~ last_girl = Sister
     { SisState < SisQuestions:
         ~ SisState = SisQuestions
+        ~ SisFacts += SisLikesYou
+        ~ SisFacts += SisIsInterested
     }
     "{SIS}, what the fuck?" you yelp, frantically trying to cover yourself.
     "Don't stop on my account," she grins, stepping in and closing the door behind her. "I just wanted to ask you something, but this is way more interesting."
     "You want to watch me jerk off?"
     {SisFacts ? SisCaughtYouPeeking: "Why not? You watched me in the shower. Seems only fair."|"It's kinda hot," she confesses.}
     + + [Keep going]
+        ~ improveMood(SisMood)
+        ~ improveBaseMood(SisMood)
         "Alright," you say, "but don't get weird about this."
         -> sis_sex.you_masturbate ->
     + + [Stop]
         "I dunno[…"]," you say, "that sounds like a bad idea."
         "Boring," she frowns. "Well, if you're not gonna let me watch, then can I talk to you about something?"
         + + + "Sure, what's on your mind?"
-        - - - -> sis_questions.q_saw_you_fapping ->
+        - - - -> questions_from_sis.q_sis_saw_you_fapping ->
 + [Keep going]
     ~ last_girl = Sister
     { SisState < SisQuestions:
         ~ SisState = SisQuestions
+        ~ SisFacts += SisLikesYou
+        ~ SisFacts += SisIsInterested
     }
     "Do you mind?" You ask, without slowing your stroke. "I'm a little busy."
     "I can see that," she grins, stepping in and closing the door behind her. "And while I'm flattered, do you think you could stop beating your meat for a minute so I can talk to you about something?"
     + + [Don't stop]
+        ~ improveMood(SisMood)
+        ~ improveBaseMood(SisMood)
         "I can't stop now," you groan, "But you can stay and watch if you want."
         -> sis_sex.you_masturbate ->
     + + [Stop]
         "Fine," you sigh, putting your cock away. "What's on your mind?"
-        -> sis_questions.q_saw_you_fapping ->
+        -> questions_from_sis.q_sis_saw_you_fapping ->
 -
 ~ removePerson(Sister)
 ~ SisBedroomPeople += (Sister)
@@ -149,88 +183,346 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 /*
 
     Sister Questions
-    She teases you, asks leading questions, is generally obnoxious.
-    + SisIsInterested
-    Ask questions about what girls like
-
-        (if FoundSisVibrator) Ask about vibrator
-
-        (FoundSisStrapOn) Ask about strapon
-
-        not SisIsBi
-        SisMightBeQueer
-        SawSisPorn
-        (if SisMightBeQueer) If you saw her porn or fooling around with her friend, you can ask about her preferences
-
-        SisMightBeIntoYou
-        ReadSisDiary
-        (if SisFantasies) If you've read her diary, you can mention her sex fantasies.
-
-        SisSawYourPorn
-        (if SisSawYourPorn) If she saw your porn history, she'll mention knowing you like stepsis porn.
-
-        SisSawYouFapping
-        (if SisSawYouFapping) If she saw you masturbating, she's curious
-
-        SisCaughtYouPeeking
-        (if SisCaughtYouPeeking) If she caught you creeping, you can talk about it more
-
-        SisIsInterested
-        (if SisIsInterested) If you know she's into you, you can ask to fool around
-            -> SisSex
-    - event: After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
-    
-    Should end with starting a game of truth or dare
+    After 3 questions, she escalates to truth or dare
 
 */
-TODO write dialog
 === sis_questions ===
 ~ last_girl = Sister
-- (sis_questions_opts)
-* {SisFacts ? SawSisPorn}
-    "I saw the porn you watch"
-    "What about it?"
-* {SisFacts ? FoundSisVibrator}
-    "I found your vibrator."
-    "It's a good one."
-* {SisFacts ? FoundSisStrapOn}
-    "I found your strap-on."
-    "It's a good one."
-* {SisFacts ? SisMightBeQueer}
-    "Are you gay?"
-    "Nah, bi."
-* {SisFacts ? SisLikesFriend}
-    "I read your diary about {SIS_FRIEND}"
-    "And?"
-* {SisFacts ? SisLikesYou}
-    "I read your diary entry about me."
-    "I sure am."
-* {SisFacts ? SisSawYourPorn and not q_saw_your_porn}
-    "You wanted to ask me something?"
-    -> q_saw_your_porn ->
-* {SisFacts ? SisSawYouFapping and not q_saw_you_fapping}
-    "What did you want to ask me before you caught me jerking off?"
-    -> q_saw_you_fapping ->
-* {SisFacts ? SisCaughtYouPeeking}
-    "What's up?"
-    "I saw you peeping on me."
-* {SisFacts ? SisIsInterested}
-    "Let's play truth or dare."
-    "Deal!"
-+ [Leave conversation]
-    ~ removePerson(Sister)
-    ~ SisBedroomPeople += (Sister)
+{ SisMood < Friendly:
+    ~ improveMood(SisMood)
+    ~ improveBaseMood(SisMood)
+}
+"Can I ask you {kind of a|another} personal question?"
+{"Well, this sounds interesting," she grins, sitting up and giving you her full attention. "Okay. You can ask me anything you want. <em>Anything</em>," she emphasizes. "But, every time you ask me a question, I get to ask you one in return. Deal?"|"Make it a good one," she grins.}
+{"Deal."|}
+- (top)
+{ SisQuestionCount >= 3:
+    -> make_this_more_interesting ->->
+}
+-
+-> questions_for_sis ->
+"My turn," she says with a wicked grin.
++ "Go ahead"
++ "I have to go."
+    "That's cheating!" She protests, "You promised!"
+    + + "Alright, fine. What's your question?"
+    + + "Sorry." ->->
+-
+-> questions_from_sis ->
++ [Ask another question] -> top
++ "I'm done for now."
+    "Too bad," she winks.
     ->->
-- -> sis_questions_opts
+-
+->->
 
-= q_saw_your_porn
+= make_this_more_interesting
+~ SisState = SisTruthOrDare
+"Actually, wait a second," {SIS} says. "Do you wanna make this more interesting?"
+"What do you have in mind?"
+"Let's play truth or dare."
+"Really?"
+"Really," she grins. "Trading questions is halfway there already, so why not?"
++ "I dunno about this."
+    "Why not?"
+    "I mean, truth and dare… that's like a game you play with someone you wanna fool around with."
+    "And?" She raises an eyebrow at you.
+    + + ["I'm not comfortable."]
+        "…And asking questions is one thing, but I'm not comfortable going further."
+        "Too bad." She looks disappointed. "Let me know if you change your mind."
+        ->->
+    + + ["Are you sure?"]
+        "…And I want to make sure you're really cool with that."
+        "Oh, I'm cool with that," she grins. "You start."
+        -> sis_truth_or_dare.top
++ "I'm game if you are[."]," you grin.
+    "Okay. You start."
+    -> sis_truth_or_dare.top
+-
+->->
+
+/*
+
+    Sister Truth or Dare
+
+*/
+=== sis_truth_or_dare ===
+~ last_girl = Sister
+"Wanna play truth or dare?"
+"I thought you'd never ask!"
+- (top)
+"Truth or dare?"
+{
+- has_questions_for_sis() and chance(75):
+    "Truth!"
+    -> questions_for_sis ->
+- else:
+    "Dare!"
+    -> dares_for_sis ->
+}
+-
+"Okay, my turn. Truth or dare?"
++ {not questions_from_sis.q_final_question} "Truth"
+    -> questions_from_sis ->
++ "Dare"
+    -> dares_from_sis ->
+-
+{ dares_from_sis.d_final_dare:
+    ->->
+}
++ [Keep playing] -> top
++ "I'm done for now."
+    "Too bad," she winks.
+    ->->
+-
+->->
+
+/*
+
+    Has Questions For Sis
+    Duplicates the conditions from questions_for_sis so we can keep sis from requesting truth when we're out of questions.
+
+*/
+=== function has_questions_for_sis() ===
+{
+- not questions_for_sis.q_sis_bra_size:
+    ~ return true
+- SisFacts ? SawSisNaked and not questions_for_sis.q_saw_sis_naked:
+    ~ return true
+- SisFacts ? SawSisPorn and not questions_for_sis.q_saw_sis_porn:
+    ~ return true
+- SisFacts ? ReadSisDiary and not questions_for_sis.q_read_sis_diary:
+    ~ return true
+- SisFacts ? FoundSisVibrator and not questions_for_sis.q_found_sis_vibrator:
+    ~ return true
+- SisFacts ? FoundSisStrapOn and not questions_for_sis.q_found_sis_strapon:
+    ~ return true
+- SisFacts ? SisMightBeQueer and SisFacts !? SisIsBi and not questions_for_sis.q_sis_might_be_queer:
+    ~ return true
+- SisFacts ? SisLikesFriend and not questions_for_sis.q_sis_likes_friend:
+    ~ return true
+- SisFacts ? SisLikesYou and not questions_for_sis.q_sis_likes_you:
+    ~ return true
+- SisFacts ? SisIsInterested and not questions_for_sis.q_sis_truth_or_dare:
+    ~ return true
+- else:
+    ~ return false
+}
+
+/*
+
+    Questions for Sis
+
+*/
+TODO write questions for sis dialog
+=== questions_for_sis ===
+~ temp max = 3
+~ SisQuestionCount++
+
+// General Questions
+* { CHOICE_COUNT() < max }
+    [Ask her bra size]
+    -> q_sis_bra_size ->
+
+// Fact-Based Questions
+* {SisFacts ? SawSisNaked and CHOICE_COUNT() < max}
+    [Ask about seeing her naked]
+    -> q_saw_sis_naked ->
+* {SisFacts ? SawSisPorn and CHOICE_COUNT() < max}
+    [Ask about her porn history]
+    -> q_saw_sis_porn ->
+* {SisFacts ? ReadSisDiary and CHOICE_COUNT() < max}
+    [Ask about her diary]
+    -> q_read_sis_diary ->
+* {SisFacts ? FoundSisVibrator and CHOICE_COUNT() < max}
+    [Ask about her vibrator]
+    -> q_found_sis_vibrator ->
+* {SisFacts ? FoundSisStrapOn and CHOICE_COUNT() < max}
+    [Ask about the strap-on]
+    -> q_found_sis_strapon ->
+* {SisFacts ? SisMightBeQueer and SisFacts !? SisIsBi and CHOICE_COUNT() < max}
+    [Ask about her sexuality]
+    -> q_sis_might_be_queer ->
+* {SisFacts ? SisLikesFriend and CHOICE_COUNT() < max}
+    [Ask if she likes {SIS_FRIEND}]
+    -> q_sis_likes_friend ->
+* {SisFacts ? SisLikesYou and CHOICE_COUNT() < max}
+    [Ask if she likes you]
+    -> q_sis_likes_you ->
+* {SisFacts ? SisIsInterested and CHOICE_COUNT() < max}
+    [Ask her to play truth or dare]
+    -> q_sis_truth_or_dare ->
+
++ {CHOICE_COUNT() >= 1} "Nevermind."
++ {CHOICE_COUNT() == 0} "Actually, I don't have a question."
+-
+->->
+
+= q_sis_bra_size
+~ BraSizes += (Sister)
+"What's your bra size?"
+"Ugh, boring. Why are boys so obsessed with bra sizes?" She rolls her eyes. "34C."
+->->
+
+= q_saw_sis_naked
+"So, I saw you naked."
+"Did you like it?"
+->->
+
+= q_saw_sis_porn
+"I saw the porn you watch"
+"What about it?"
+->->
+
+= q_read_sis_diary
+"I read your diary"
+"What about it?"
+->->
+
+= q_found_sis_vibrator
+"I found your vibrator."
+"That's not a question," she grins.
+->->
+
+= q_found_sis_strapon
+"I found your strap-on."
+"It's a good one."
+->->
+
+= q_sis_might_be_queer
+~ SisFacts += SisIsBi
+"Are you gay?"
+"Nah, bi."
+->->
+
+= q_sis_likes_friend
+"Are you into {SIS_FRIEND}"
+"And?"
+->->
+
+= q_sis_likes_you
+"Are you into me?"
+"I sure am."
+->->
+
+= q_sis_truth_or_dare
+"Let's play truth or dare."
+"Deal!"
+->->
+
+/*
+
+    Questions from Sis
+
+*/
+TODO write questions from sis dialog
+=== questions_from_sis ===
+// These first questions are ones you can skip during gameplay, so we insert them here
+{
+- SisFacts ? SisSawYourPorn and sis_wants_to_talk and not q_sis_saw_your_porn:
+    -> q_sis_saw_your_porn ->
+- SisFacts ? SisSawYouFapping and not q_sis_saw_you_fapping:
+    -> q_sis_saw_you_fapping ->
+- SisFacts ? SisCaughtYouPeeking and not q_sis_saw_you_peeping:
+    -> q_sis_saw_you_peeping ->
+- else:
+    { stopping:
+    - -> q_hard_now ->
+    - -> q_fantasize_about_sis ->
+    - -> q_final_question ->
+    }
+}
+->->
+
+// After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
+= q_sis_saw_your_porn
 "I saw your porn."
 "Indeed?"
 ->->
 
-= q_saw_you_fapping
+= q_sis_saw_you_fapping
 "I saw you jerking it."
 "So you did."
+->->
+
+= q_sis_saw_you_peeping
+"I saw you peeping on me."
+"I sure did!"
+->->
+
+= q_hard_now
+"Are you hard right now?"
++ "Yes"
++ "No"
+-
+->->
+
+= q_fantasize_about_sis
+"Do you think about me when you're jerking off?"
++ "Yes"
++ "No"
+-
+->->
+
+= q_final_question
+"Do you want to fuck me?"
++ "Yes"
++ "No"
+-
+->->
+
+
+/*
+
+    Dares for Sis
+
+*/
+TODO write dares for sis, improve her mood
+=== dares_for_sis ===
+* [Dare her to take off her top] -> d_remove_top ->
+* [Dare her to take off her shorts] -> d_remove_shorts ->
++ "I'm out of ideas" ->->
+-
+->->
+
+= d_remove_top
+"I dare you to take off your top."
+"Done."
+->->
+
+= d_remove_shorts
+"I dare you to take off your shorts!"
+"Done!"
+->->
+
+/*
+
+    Dares from Sis
+
+*/
+TODO write dares from sis, improve her mood
+=== dares_from_sis ===
+{ stopping:
+- -> d_remove_pants ->
+- -> d_kiss_sis ->
+- -> d_final_dare ->
+}
+->->
+
+= d_remove_pants
+"I dare you to take off your pants."
+"I'm not wearing any."
+->->
+
+= d_kiss_sis
+"I dare you to kiss me."
+"Okay."
+->->
+
+= d_final_dare
+~ SisState = SisSex
+"I dare you to fuck me."
+You cum all over her immediately.
 ->->
 
 /*
@@ -329,37 +621,37 @@ You knock on {SIS}'s door.
 - SisBedroomPeople ? (Sister, SisFriend):
     {
     - SisMood == Hostile:
-        {SIS} and {SIS_FRIEND} look up from {device} to glare at you. "What do you want?"
+        {SIS} and {SIS_FRIEND} look up from {device} to glare at you.
     - SisMood == Desperate:
-        {SIS} and {SIS_FRIEND} quickly sit up as you enter the room. {SIS} looks flushed, and tries to adjust her shirt to make her hard nipples less obvious. {has_laptop: Your laptop sits on the floor, still playing a video of two women having sex. {SIS_FRIEND} winks at you as she closes it.|{SIS_FRIEND} grins at you, clearly delighted by the tension.} "Uh, hey bro," {SIS} says. "What's up?"
+        {SIS} and {SIS_FRIEND} quickly sit up as you enter the room. {SIS} looks flushed, and tries to adjust her shirt to make her hard nipples less obvious. {has_laptop: Your laptop sits on the floor, still playing a video of two women having sex. {SIS_FRIEND} winks at you as she closes it.|{SIS_FRIEND} grins at you, clearly delighted by the tension.}
     - SisMood == Aroused:
         {SIS} and {SIS_FRIEND} {has_laptop:quickly close your laptop|look up from their phones} as you enter. "Hey, bro," {SIS} says, "Do you, uh, need something?" {SIS_FRIEND} grins and gives you a wink. "Yeah, anything we could give you a <em>hand</em> with?" They both collapse into giggles again.
     - else:
-        {SIS} and {SIS_FRIEND} are lounging on the bed, looking at {device}. "What's up, bro?"
+        {SIS} and {SIS_FRIEND} are lounging on the bed, looking at {device}.
     }
 - SisBedroomPeople ? Sister:
     {
     - SisMood == Hostile:
-        {SIS} looks up from {device} to glare at you. "What do you want?"
+        {SIS} looks up from {device} to glare at you.
     - SisMood == Desperate and SisState == SisSex:
         {SIS} is squirming on the bed. As soon as you close the door, she discards {device}, still playing a video of two women having sex. "Good timing, bro." She beckons you closer. "I could use a hand."
     - SisMood == Desperate:
-        {SIS} quickly {has_laptop:closes|drops} {device} as you enter. She looks a bit flushed. "Hey! What's up?"
+        {SIS} quickly {has_laptop:closes|drops} {device} as you enter. She looks a bit flushed.
     - SisMood == Aroused:
-        {SIS} is lounging on the bed, looking at {device}. She grins at you and asks, "Hey, bro. You need something?"
+        {SIS} is lounging on the bed. She looks up from {device} and grins at you.
     - else:
-        {SIS} is lounging on the bed, looking at {device}. "What's up, bro?"
+        {SIS} is lounging on the bed, looking at {device}.
     }
 - SisBedroomPeople ? SisFriend:
     {
     - SisFriendMood == Hostile:
-        {SIS_FRIEND} glares at you. "Why are you here?"
+        {SIS_FRIEND} glares at you.
     - SisFriendMood == Desperate:
-        "Hey, {PLAYER}." {SIS_FRIEND} kneels on the bed, gazing at you seductively. "{SIS} is in the shower." She licks her lips. "Looks like it's just the two of us."
+        {SIS_FRIEND} licks her lips and gazes at you seductively.
     - SisFriendMood == Aroused:
-        "Hey there, {PLAYER}." {SIS_FRIEND}, sitting on the bed, winks at you. "{SIS} is in the shower. Does that mean you're here to see me?"
+        {SIS_FRIEND} winks and pats the bed invitingly.
     - else:
-        "Hi, {PLAYER}." {SIS_FRIEND} says cheerfully. "What's up?"
+        {SIS_FRIEND} looks up from her phone and smiles at you.
     }
 - LIST_COUNT(SisBedroomPeople) > 0:
     {lookForRoomPeople(SisBedroomPeople)}
@@ -378,7 +670,9 @@ You knock on {SIS}'s door.
     Inside you find batteries, chapsticks, a bottle of lube, and her diary.
 + {sis_room_drawer and not read_sis_diary} [Read her diary]
     -> read_sis_diary ->
-+ {read_sis_diary} [Read another diary entry]
++ {read_sis_diary and not sis_diary_entries.diary_threesome} [Read another diary entry]
+    -> sis_diary_entries ->
++ {read_sis_diary and sis_diary_entries.diary_threesome} [Re-read a diary entry]
     -> sis_diary_entries ->
 * (sis_room_pillow) [Look under her pillow]
     ~ SisFacts += FoundSisVibrator
@@ -570,12 +864,13 @@ The image takes you over the finish line and your thick white cum spurts again a
     SisShowerPeep
         + SawSisNaked
         + SisCaughtYouPeeking
+        + SisLikesYou
         Increasingly risky behavior to jerk off while she's in the shower
         a. spy on her masturbating in shower using the shower head -> SisShowerPeep
         b. If caught -> SisShowerSex
 
 */
-TODO add interactive scene
+TODO add interactive shower peep scene
 === peep_sis_shower ===
 ~ last_girl = Sister
 ~ SisFacts += SawSisNaked
@@ -584,16 +879,6 @@ TODO add interactive scene
 }
 You peep on your stepsister in the shower.
 -> pass_time -> bedroom
-
-/*
-
-    Sister Truth or Dare
-
-*/
-TODO write truth or dare scenes
-=== sis_truth_or_dare ===
-You play a naughty game of truth or dare.
-->->
 
 /*
 
@@ -739,10 +1024,10 @@ she moans as you pump your load into her tight ass.
         Repeat: You can fuck her ass
 
 */
-TODO write the sex scene, pass time after cumming
+TODO write the shower sex scene, pass time after cumming
 === sis_sex_shower ===
 { sis_sex_shower == 1:
-    ~ Score += sisSex
+    ~ Score += sisShower
     ~ improveConfidence()
     ~ SisBaseMood = Aroused
 }
@@ -779,14 +1064,16 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
 */
 === sis_hints ===
 {
-- SisFacts ? SisIsInterested:
-    You already know {SIS}'s into you! Just go talk to her.
+- SisState == SisTruthOrDare:
+    Try playing truth or dare with her.
 - SisFacts ? ReadSisDiary:
     Try talking to {SIS} about the fantasies you read in her diary.
 - SisFacts ? SawSisPorn:
     Try talking to {SIS} about the porn she watched on your laptop.
+- SisState == SisQuestions:
+    Try asking her some personal questions.
 - else:
-    Wait for {SIS} to borrow your laptop, or snoop around in her room, or peep on her in the shower.
+    Try snooping around in her room, or peep on her in the shower.
 }
 ->->
 
