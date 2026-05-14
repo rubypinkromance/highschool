@@ -251,6 +251,9 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 "Wanna play truth or dare?"
 "I thought you'd never ask!"
 - (top)
+{ Score !? sisTruthOrDare:
+    ~ Score += sisTruthOrDare
+}
 "Truth or dare?"
 {
 - has_questions_for_sis() and chance(75):
@@ -1027,7 +1030,6 @@ she moans as you pump your load into her tight ass.
 TODO write the shower sex scene, pass time after cumming
 === sis_sex_shower ===
 { sis_sex_shower == 1:
-    ~ Score += sisShower
     ~ improveConfidence()
     ~ SisBaseMood = Aroused
 }
