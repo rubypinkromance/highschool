@@ -41,13 +41,16 @@ CONST SIS = "Heather"
 CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SisQuestions, SisTruthOrDare, SisSex
 LIST SisFacts = ReadSisDiary, SawSisPorn, SisMightBeQueer, SisLikesFriend, SisLikesYou, SisIsBi, SawSisNaked, SisSawYourPorn, SisSawYouFapping, SisCaughtYouPeeking, SisIsInterested, FoundSisVibrator, FoundSisStrapOn
+LIST SisClothes = SisPanties, SisBra, SisShorts, SisShirt
+LIST SisItems = SisLacePanties, SisDiary, SisVibrator, SisStrapOn
+
 VAR SisInPlay = true
 VAR SisMood = Neutral
 VAR SisBaseMood = Neutral
 VAR SisCum = ()
 VAR SisRejected = false
 VAR SisQuestionCount = 0
-LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
+VAR SisWearing = (SisPanties, SisBra, SisShorts, SisShirt)
 
 /*
 
@@ -116,6 +119,7 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
     }
     -> questions_from_sis.q_sis_saw_your_porn ->
 -
+~ sis_reset()
 ~ removePerson(Sister)
 ~ SisBedroomPeople += (Sister)
 - ->->
@@ -176,6 +180,7 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
         "Fine," you sigh, putting your cock away. "What's on your mind?"
         -> questions_from_sis.q_sis_saw_you_fapping ->
 -
+~ sis_reset()
 ~ removePerson(Sister)
 ~ SisBedroomPeople += (Sister)
 - ->->
@@ -194,24 +199,27 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 }
 "Can I ask you {kind of a|another} personal question?"
 {"Well, this sounds interesting," she grins, sitting up and giving you her full attention. "Okay. You can ask me anything you want. <em>Anything</em>," she emphasizes. "But, every time you ask me a question, I get to ask you one in return. Deal?"|"Make it a good one," she grins.}
-{"Deal."|}
++ {sis_questions == 1} "Deal."
+    "Okay, what's your first question?"
++ ->
 - (top)
 { SisQuestionCount >= 3:
     -> make_this_more_interesting ->->
 }
 -
 -> questions_for_sis ->
-"My turn," she says with a wicked grin.
-+ "Go ahead"
-+ "I have to go."
-    "That's cheating!" She protests, "You promised!"
-    + + "Alright, fine. What's your question?"
-    + + "Sorry." ->->
+{ came_from(-> questions_for_sis.no_question):
+    "{~That's a shame|Too bad|Your loss}," she winks.
+    ->->
+}
++ "Your turn[."]," you say.
 -
 -> questions_from_sis ->
-+ [Ask another question] -> top
++ "Can I ask another question?"
+    "Of course."
+    -> top
 + "I'm done for now."
-    "Too bad," she winks.
+    "{~That's a shame|Too bad|Your loss}," she winks.
     ->->
 -
 ->->
@@ -249,14 +257,17 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
 === sis_truth_or_dare ===
 ~ last_girl = Sister
 "Wanna play truth or dare?"
-"I thought you'd never ask!"
+"{~I thought you'd never ask|My favorite|This'll be fun}," she grins. "You go first."
++ "Truth or dare?"
 - (top)
+Sis is wearing: {SisWearing}
 { Score !? sisTruthOrDare:
     ~ Score += sisTruthOrDare
 }
-"Truth or dare?"
+~ temp odds = 100 - SisQuestionCount * 10
+CHANCE: {odds}
 {
-- has_questions_for_sis() and chance(75):
+- chance(odds):
     "Truth!"
     -> questions_for_sis ->
 - else:
@@ -264,70 +275,65 @@ LIST SisItems = SisPanties, SisDiary, SisVibrator, SisStrapOn
     -> dares_for_sis ->
 }
 -
-"Okay, my turn. Truth or dare?"
+{
+- came_from(-> questions_for_sis.no_question) or came_from(-> dares_for_sis.no_dare):
+    "{~That's a shame|Too bad|Your loss}," she winks.
+    ~ sis_reset()
+    ->->
+- else:
+    "Okay, my turn. Truth or dare?"
+}
 + {not questions_from_sis.q_final_question} "Truth"
     -> questions_from_sis ->
 + "Dare"
     -> dares_from_sis ->
 -
 { dares_from_sis.d_final_dare:
+    ~ sis_reset()
     ->->
 }
-+ [Keep playing] -> top
++ "Truth or dare?"
+    -> top
 + "I'm done for now."
-    "Too bad," she winks.
+    "{~That's a shame|Too bad|Your loss}," she winks.
+    ~ sis_reset()
     ->->
 -
+~ sis_reset()
 ->->
 
 /*
 
-    Has Questions For Sis
-    Duplicates the conditions from questions_for_sis so we can keep sis from requesting truth when we're out of questions.
-
-*/
-=== function has_questions_for_sis() ===
-{
-- not questions_for_sis.q_sis_bra_size:
-    ~ return true
-- SisFacts ? SawSisNaked and not questions_for_sis.q_saw_sis_naked:
-    ~ return true
-- SisFacts ? SawSisPorn and not questions_for_sis.q_saw_sis_porn:
-    ~ return true
-- SisFacts ? ReadSisDiary and not questions_for_sis.q_read_sis_diary:
-    ~ return true
-- SisFacts ? FoundSisVibrator and not questions_for_sis.q_found_sis_vibrator:
-    ~ return true
-- SisFacts ? FoundSisStrapOn and not questions_for_sis.q_found_sis_strapon:
-    ~ return true
-- SisFacts ? SisMightBeQueer and SisFacts !? SisIsBi and not questions_for_sis.q_sis_might_be_queer:
-    ~ return true
-- SisFacts ? SisLikesFriend and not questions_for_sis.q_sis_likes_friend:
-    ~ return true
-- SisFacts ? SisLikesYou and not questions_for_sis.q_sis_likes_you:
-    ~ return true
-- SisFacts ? SisIsInterested and not questions_for_sis.q_sis_truth_or_dare:
-    ~ return true
-- else:
-    ~ return false
-}
-
-/*
-
     Questions for Sis
+    
+    Need at least 10 ungated questions (prereqs are okay)
+    More than 10-15 kinda pointless, because she'll stop choosing truth after 10 questions
+    - shave
+    - bra size
+    - virgin
+    - have you ever tasted pussy
+    - spit or swallow
+    - how often do you masturbate
+    - ever had anal sex
+    - how many people have you had sex with
+    - have you ever thought about me while masturbating
+    - what's your naughtiest fantasy
+    - are you turned on right now
+    - do you have any nudes on your phone
+    - have you ever had an orgasm in public
+    - what question are you secretly hoping I'll ask you
+    - have you ever fucked two guys at once
+    - do you like being told what to do
 
 */
-TODO write questions for sis dialog
 === questions_for_sis ===
-~ temp max = 3
+~ temp max = 5
 ~ SisQuestionCount++
 
-// General Questions
-* { CHOICE_COUNT() < max }
-    [Ask her bra size]
-    -> q_sis_bra_size ->
-
 // Fact-Based Questions
+* { SisFacts !? SawSisNaked && CHOICE_COUNT() < max }
+    [Ask if she shaves]
+    -> q_sis_shaved ->
 * {SisFacts ? SawSisNaked and CHOICE_COUNT() < max}
     [Ask about seeing her naked]
     -> q_saw_sis_naked ->
@@ -344,27 +350,54 @@ TODO write questions for sis dialog
     [Ask about the strap-on]
     -> q_found_sis_strapon ->
 * {SisFacts ? SisMightBeQueer and SisFacts !? SisIsBi and CHOICE_COUNT() < max}
-    [Ask about her sexuality]
+    [Ask if she's a lesbian]
     -> q_sis_might_be_queer ->
-* {SisFacts ? SisLikesFriend and CHOICE_COUNT() < max}
+* {SisFacts ? SisLikesFriend and SisFacts ? SisIsBi and CHOICE_COUNT() < max}
     [Ask if she likes {SIS_FRIEND}]
     -> q_sis_likes_friend ->
-* {SisFacts ? SisLikesYou and CHOICE_COUNT() < max}
+* {SisFacts ? SisLikesYou and SisFacts ? SisIsBi and CHOICE_COUNT() < max}
     [Ask if she likes you]
     -> q_sis_likes_you ->
-* {SisFacts ? SisIsInterested and CHOICE_COUNT() < max}
+* {SisFacts ? SisIsInterested and not sis_questions.make_this_more_interesting and not sis_truth_or_dare and CHOICE_COUNT() < max}
     [Ask her to play truth or dare]
     -> q_sis_truth_or_dare ->
 
-+ {CHOICE_COUNT() >= 1} "Nevermind."
-+ {CHOICE_COUNT() == 0} "Actually, I don't have a question."
+// General Questions
+* { CHOICE_COUNT() < max }
+    [Ask her bra size]
+    -> q_sis_bra_size ->
+* { CHOICE_COUNT() < max }
+    [Ask if she's a virgin]
+    -> q_sis_virgin ->
+* { CHOICE_COUNT() < max }
+    [Ask if she spits or swallows]
+    -> q_sis_spit_or_swallow ->
+
++ (no_question) "I can't think of a question."
 -
 ->->
+
+TODO write dialog for questions for sis
 
 = q_sis_bra_size
 ~ BraSizes += (Sister)
 "What's your bra size?"
 "Ugh, boring. Why are boys so obsessed with bra sizes?" She rolls her eyes. "34C."
+->->
+
+= q_sis_virgin
+"Are you a virgin?"
+"Nope, I lost it at age 15 with… some dude. Don't worry about it."
+->->
+
+= q_sis_spit_or_swallow
+"Do you spit or swallow?"
+"Neither, if I can avoid it."
+->->
+
+= q_sis_shaved
+"Are you shaved or full bush?"
+"I keep it clean."
 ->->
 
 = q_saw_sis_naked
@@ -416,9 +449,31 @@ TODO write questions for sis dialog
 /*
 
     Questions from Sis
+    Should escalate fairly quickly, because after the first 3, player can choose dare
+    
+    Need at least 15 ungated questions
+    - have you ever tasted your own cum
+    - do you like the taste of pussy
+    - are you attracted to men
+    - how many people have you fooled around with
+    - have you ever been with two women at once/would you like to?
+    
+    - wildest place you've ever cum
+
+    - have you ever sent a dick pic?
+    - have you ever said the wrong name with a girl?
+    - have you ever had a crush on someone inappropriate?
+    - what would you do if there were zero consequences
+    - if you could turn invisible, what would you do
+
+    - what do you think about while masturbating?
+    - have you ever thought about me while jerking off?
+    - are you hard right now (if not naked)
+    - are you attracted to me
+    - do you want to fuck me
 
 */
-TODO write questions from sis dialog
+TODO write questions from sis
 === questions_from_sis ===
 // These first questions are ones you can skip during gameplay, so we insert them here
 {
@@ -436,6 +491,8 @@ TODO write questions from sis dialog
     }
 }
 ->->
+
+TODO write dialog for questions from sis
 
 // After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
 = q_sis_saw_your_porn
@@ -456,21 +513,27 @@ TODO write questions from sis dialog
 = q_hard_now
 "Are you hard right now?"
 + "Yes"
+    "Nice."
 + "No"
+    "Liar, I can see it."
 -
 ->->
 
 = q_fantasize_about_sis
 "Do you think about me when you're jerking off?"
 + "Yes"
+    "Awesome"
 + "No"
+    "Liar."
 -
 ->->
 
 = q_final_question
 "Do you want to fuck me?"
 + "Yes"
+    "Awesome."
 + "No"
+    "Liar."
 -
 ->->
 
@@ -478,29 +541,98 @@ TODO write questions from sis dialog
 /*
 
     Dares for Sis
+    At least 15, prereqs okay
+    
+    - striptease
+    - lap dance
+    - suck on my thumb like you would suck a cock
+    - show me your nudes (after asking)
+    - 
+
+    - get undressed
+    - 
+    - watch porn with me
+    -
+    - let me taste you
+
+    -
+    - show me how you masturbate
+    - touch my cock
+    - go down on me
+    - 
 
 */
 TODO write dares for sis, improve her mood
 === dares_for_sis ===
-* [Dare her to take off her top] -> d_remove_top ->
-* [Dare her to take off her shorts] -> d_remove_shorts ->
-+ "I'm out of ideas" ->->
+~ temp max = 5
+*  { SisFacts !? SawSisNaked and SisWearing ? SisShirt and CHOICE_COUNT() < max }
+    [Dare her to take off her top]
+    -> d_remove_top ->
+*  { SisFacts !? SawSisNaked and SisWearing ? SisShorts and CHOICE_COUNT() < max }
+    [Dare her to take off her shorts]
+    -> d_remove_shorts ->
+*  { SisFacts !? SawSisNaked and SisWearing !? SisShirt and SisWearing ? SisBra and CHOICE_COUNT() < max }
+    [Dare her to take off her bra]
+    -> d_remove_bra ->
+*  { SisFacts !? SawSisNaked and SisWearing !? SisShorts and SisWearing ? SisPanties and CHOICE_COUNT() < max }
+    [Dare her to take off her panties]
+    -> d_remove_panties ->
+* { SisFacts ? SawSisNaked and SisWearing != () and CHOICE_COUNT() < max }
+    [Dare her to get naked]
+    -> d_get_naked
++ (no_dare) "I can't think of a dare." ->->
 -
 ->->
 
 = d_remove_top
+~ SisWearing -= SisShirt
 "I dare you to take off your top."
 "Done."
 ->->
 
 = d_remove_shorts
+~ SisWearing -= SisShorts
 "I dare you to take off your shorts!"
 "Done!"
+->->
+
+= d_remove_bra
+~ SisWearing -= SisBra
+{ SisWearing == ():
+    ~ SisFacts += SawSisNaked
+}
+"I dare you to take off your bra."
+"Done."
+->->
+
+= d_remove_panties
+~ SisWearing -= SisPanties
+{ SisWearing == ():
+    ~ SisFacts += SawSisNaked
+}
+"I dare you to take off your panties!"
+"Done!"
+->->
+
+= d_get_naked
+~ SisWearing = ()
+"I dare you to get naked."
+"All at once? Are you in a hurry or something?"
+"Not like I haven't seen you naked before."
+"Fair point."
 ->->
 
 /*
 
     Dares from Sis
+    Should be a clear escalation, building intensity until she asks you to fuck her
+    How many? 5-10?
+    
+    - show me your dick pic/I didn't save it/show me your dick
+    - blindfold me and kiss me or kiss me somewhere unexpected or lick my neck
+    - take my bra/panties off with your teeth
+    - suck on my nipples
+    - finger me
 
 */
 TODO write dares from sis, improve her mood
@@ -692,11 +824,11 @@ You knock on {SIS}'s door.
     The laundry basket is mostly filled with clothing you've seen {SIS} wearing: skirts, shirts, tights, jeans and hoodies. More interesting is the underwear. You discover that she mostly wears simple cotton panties in a range of colors, and soft bralettes that are either nude or black. However, near the bottom you find what can only be date-night underwear. A pair of lacy black panties entirely unlike her standard underwear.
 * (examined_panties) {sis_room_laundry} [Examine the lace panties]
     They're soft, with a floral pattern and just a little pink stitching on the inside. The lace is mostly see-through, except for a tiny black fabric gusset at the bottom. Excitingly, the fabric has a bit of creamy white residue on it. When you take a sniff, you catch the unmistakable scent of pussy.
-* { examined_panties and SisBedroomItems ? SisPanties } [Take the lace panties]
-    ~ move(SisPanties, SisBedroomItems, Inventory)
+* { examined_panties and SisBedroomItems ? SisLacePanties } [Take the lace panties]
+    ~ move(SisLacePanties, SisBedroomItems, Inventory)
     You quickly shove the panties into your pocket.
-* { Inventory ? SisPanties and use_sis_panties } [Put the panties back in the laundry basket]
-    ~ move(SisPanties, Inventory, SisBedroomItems)
+* { Inventory ? SisLacePanties and use_sis_panties } [Put the panties back in the laundry basket]
+    ~ move(SisLacePanties, Inventory, SisBedroomItems)
     Sheepishly, you return the lace panties to her laundry basket, burying them beneath some other clothes. You pray she won't notice they're covered in your cum.
 + [Leave {SIS_BEDROOM}]
     -> pass_time -> bedroom
@@ -880,8 +1012,11 @@ TODO add interactive shower peep scene
 { SisState < SisQuestions:
     ~ SisState = SisQuestions
 }
+~ SisWearing = ()
 You peep on your stepsister in the shower.
--> pass_time -> bedroom
++ [Leave the {BATHROOM}]
+    ~ sis_reset()
+    -> pass_time -> bedroom
 
 /*
 
@@ -992,26 +1127,37 @@ You ease your cock into her ass
 = cum_tits
 ~ SisCum = Tits
 You shoot your load on her tits
++ [Catch your breath] -> aftercare
 ->->
 
 = cum_facial
 ~ SisCum = Facial
 You shoot your load on her face
++ [Catch your breath] -> aftercare
 ->->
 
 = cum_mouth
 ~ SisCum = Mouth
 You cum in her hungry mouth
++ [Catch your breath] -> aftercare
 ->->
 
 = cum_creampie
 ~ SisCum = Creampie
 You shove your cock into her dripping cunt and pump her full of cream.
++ [Catch your breath] -> aftercare
 ->->
 
 = cum_anal
 ~ SisCum = Anal
 she moans as you pump your load into her tight ass.
++ [Catch your breath] -> aftercare
+->->
+
+= aftercare
+“Holy shit,” you murmur, gasping for breath, “that was incredible.”
+“I have to clean up.”
+~ sis_reset()
 ->->
 
 /*
@@ -1090,6 +1236,22 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
 ~ SisState = SisObserved
 You live together. You have observed her plenty.
 ->->
+
+/*
+
+    Reset Sister Clothes and Cum State
+    Run this whenever she changes rooms.
+
+*/
+=== function sis_reset() ===
+{
+- SisWearing == ():
+    ~ SisWearing = (SisPanties, SisBra, SisShorts, SisShirt)
+    She gets dressed.
+- SisCum != ():
+    ~ SisCum = ()
+    She cleans up the cum.
+}
 
 /*
 

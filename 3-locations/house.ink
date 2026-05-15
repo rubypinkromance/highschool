@@ -32,7 +32,7 @@ VAR BedroomItems = (Laptop)
 {
 - Inventory ? CheerleaderPanties and not use_cheerleader_panties and not cum_today:
     * [Jerk off with {CHEERLEADER}'s panties] -> use_cheerleader_panties -> bedroom_opts
-- Inventory ? SisPanties and not use_sis_panties and not cum_today:
+- Inventory ? SisLacePanties and not use_sis_panties and not cum_today:
     * [Jerk off with {SIS}'s panties] -> use_sis_panties -> bedroom_opts
 - not cum_today and (now == Period1 or now == Night):
     + [{~Jerk off|Spank the monkey|Rub one out|Wank}] -> jerk_off -> bedroom_opts
@@ -112,7 +112,8 @@ VAR BathroomItems = ()
 
 + { BathroomPeople ? Sister } [Try to peek in the shower]
     -> peep_sis_shower ->
-+ [Leave {BATHROOM}] -> bedroom
++ [Leave {BATHROOM}]
+    -> bedroom
 - -> bathroom_opts
 
 
@@ -125,7 +126,7 @@ VAR BathroomItems = ()
 = sis_bedroom
 CONST SIS_BEDROOM = "your stepsister’s bedroom"
 VAR SisBedroomPeople = ()
-VAR SisBedroomItems = (SisPanties)
+VAR SisBedroomItems = (SisLacePanties)
 ~ here = SisBedroom
 
 You are in {getNameAndTitle(Sister)}’s bedroom. The walls are painted pink and covered in posters for K-pop bands. Her bed has an unreasonable number of pillows and stuffed animals. On her desk you see a broken laptop and a pile of school textbooks. The floor is covered in piles of clothes, spilling out of both her dresser and her laundry basket.
