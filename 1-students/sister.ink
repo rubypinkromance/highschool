@@ -51,6 +51,8 @@ VAR SisCum = ()
 VAR SisRejected = false
 VAR SisQuestionCount = 0
 VAR SisWearing = (SisPanties, SisBra, SisShorts, SisShirt)
+VAR SisTops = (SisBra, SisShirt)
+VAR SisBottoms = (SisPanties, SisShorts)
 
 /*
 
@@ -232,7 +234,7 @@ VAR SisWearing = (SisPanties, SisBra, SisShorts, SisShirt)
 "Really?"
 "Really," she grins. "Trading questions is halfway there already, so why not?"
 + "I dunno about this."
-    "Why not?"
+    "What do you mean?"
     "I mean, truth and dare… that's like a game you play with someone you wanna fool around with."
     "And?" She raises an eyebrow at you.
     + + ["I'm not comfortable."]
@@ -281,7 +283,7 @@ CHANCE: {odds}
     ~ sis_reset()
     ->->
 - else:
-    "Okay, my turn. Truth or dare?"
+    "Okay, my turn," she grins. "Truth or dare?"
 }
 + {not questions_from_sis.q_final_question} "Truth"
     -> questions_from_sis ->
@@ -473,7 +475,6 @@ TODO write dialog for questions for sis
     - do you want to fuck me
 
 */
-TODO write questions from sis
 === questions_from_sis ===
 // These first questions are ones you can skip during gameplay, so we insert them here
 {
@@ -629,10 +630,14 @@ TODO write dares for sis, improve her mood
     How many? 5-10?
     
     - show me your dick pic/I didn't save it/show me your dick
-    - blindfold me and kiss me or kiss me somewhere unexpected or lick my neck
+    - take off your clothes
+    - kiss me - not a sibling kiss, a proper kiss (gets heated, hand in hair, licking neck)
     - take my bra/panties off with your teeth
     - suck on my nipples
     - finger me
+    - go down on me
+    - rub my clit with your cock
+    - put it in me
 
 */
 TODO write dares from sis, improve her mood
@@ -665,27 +670,56 @@ You cum all over her immediately.
     Look at Sister
 
 */
-TODO handle sis in shower, add her reaction like cheerleader
 === look_at_sis ===
 ~ last_girl = Sister
+~ temp topless = SisWearing ^ SisTops == ()
+~ temp bottomless = SisWearing ^ SisBottoms == ()
+
 { SisCum:
 - Anal:
-    {SIS} sighs happily, completely relaxed as your cum leaks from her asshole.
+    {SIS} moans with your cum leaking from her asshole.
 - Creampie:
-    {SIS} is squirming and giggling, with a hand clamped between her legs to catch your cum.
+    {SIS} is wiping up your cum as it drips from her pussy.
 - Mouth:
-    {SIS} is topless and grinning as she licks the last of your cum from her lips.
+    {SIS} grins and licks the last of your cum from her lips.
 - Facial:
-    {SIS} grins at you as she wipes your cum from her cheek and licks it off her finger.
+    {SIS} winks at you as she wipes your cum from her cheek and licks her finger clean.
 - Tits:
-    {SIS} is laughing as she runs her fingers through your cum, splattered across her chest.
+    {SIS} is giggling as she rubs your cum into her tits.
 - else:
     You and {SIS} are the same age, but she’s shorter than you, with pale skin and wavy black hair that falls around her shoulders when it’s not pulled back in a ponytail.
-    { sis_is_home():
-        <> She’s wearing skimpy pajamas: baggy blue sleep shorts and a black tank top that does nothing to conceal her perky nipples poking through the thin fabric. Her top is loose enough that whenever she moves, you catch a glimpse of bare breast through the arm holes. She must be aware of how distracting it is for you.
+    {
+    - sis_is_home():
+        <> She's wearing
+        {
+        - bottomless:
+            <> no underwear, and you can see she's fully shaved.
+        - SisWearing ? SisShorts:
+            <> baggy blue sleep shorts.
+        - SisWearing ? SisPanties:
+            <> black panties with pink polka-dots.
+        }
+        {
+        - topless:
+            <> Her bare tits are a good size, with prominent nipples.
+        - SisWearing ? SisShirt:
+            <> Her black tank top does little to conceal her perky nipples poking through the thin fabric and is loose enough that whenever she moves, you catch a glimpse of her {SisWearing ? SisBra:black lace bra|bare tits} through the arm holes.
+        - SisWearing ? SisBra:
+            <> Her black lace bra doesn't hide her prominent nipples so much as draw attention to them.
+        }
     - else:
         <> She’s wearing torn black jeans, a black t-shirt with a band logo, and a green army jacket. Her shirt is low-cut enough to reveal and good amount of cleavage and a peek of her hot-pink bra.
     }
+}
+{
+- SisMood == Hostile:
+    “If you keep gawking like that, you'll regret it," she growls.
+- SisMood == Neutral:
+    “Um, bro? You're kinda staring a little," she says.
+- SisMood == Friendly:
+    “Lost in thought?” she teases.
+- SisMood >= Aroused:
+    “Be careful,” she winks. “The last guy who looked at me like that ended up in bed with me.”
 }
 ->->
 

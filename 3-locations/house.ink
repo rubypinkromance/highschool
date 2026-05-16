@@ -102,14 +102,12 @@ VAR BathroomItems = ()
 
 {
 - BathroomPeople ? Sister:
-    You sneak into the bathroom as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain.
+    You close {BATHROOM} door behind you as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain.
 - else:
-    You are in the {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
+    You are in {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
 }
 
 - (bathroom_opts)
-<- character_opts(BathroomPeople, -> bathroom_opts)
-
 + { BathroomPeople ? Sister } [Try to peek in the shower]
     -> peep_sis_shower ->
 + [Leave {BATHROOM}]
