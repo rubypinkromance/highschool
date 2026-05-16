@@ -42,7 +42,7 @@ CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SisQuestions, SisTruthOrDare, SisSex
 LIST SisFacts = ReadSisDiary, SawSisPorn, SisMightBeQueer, SisLikesFriend, SisLikesYou, SisIsBi, SawSisNaked, SisSawYourPorn, SisSawYouFapping, SisCaughtYouPeeking, SisIsInterested, FoundSisVibrator, FoundSisStrapOn
 LIST SisClothes = SisPanties, SisBra, SisShorts, SisShirt
-LIST SisItems = SisLacePanties, SisDiary, SisVibrator, SisStrapOn
+LIST SisItems = SisLacePanties, SisDiary, SisVibrator, SisStrapOn, SisNudes, SisVideo
 
 VAR SisInPlay = true
 VAR SisMood = Neutral
@@ -189,7 +189,7 @@ VAR SisBottoms = (SisPanties, SisShorts)
 
 /*
 
-    Sister Questions
+    Ask Sister Questions
     After 3 questions, she escalates to truth or dare
 
 */
@@ -1029,28 +1029,160 @@ The image takes you over the finish line and your thick white cum spurts again a
 
 /*
 
+    Look at Sister's Phone
+
+*/
+=== look_sis_phone ===
+You pick up her phone, which is unlocked and open to the music player. You swipe to the home screen, careful not to stop the music from playing.
+- (sis_phone_menu)
+* [Look at her messages]
+    You open her messages app. Unsurprisingly, she mostly chats with {SIS_FRIEND} and a few other friends from their school. There might be something interesting, but it would be a needle in a haystack, buried under thousands of unremarkable texts.
+* [Look at her insta]
+    You open the photo-sharing social app, and find that she's friends with lots of girls from her school. Most of their accounts are private, but the most interesting thing you find is pics of some girls drinking beers at a park.
+* [Look at her camera roll]
+    Opening her camera roll, you find hundreds of outfit selfies taken in the mirror of her bedroom or various dressing rooms at the mall. There are a lot of pics of her and {SIS_FRIEND} hanging out. You're about to give up when you strike gold. A series of provocative selfies with increasingly less clothing.
+    * * [Look at the nudes]
+    * * [Put her phone back]
+        Feeling a sudden surge of guilt, you pull the music app back up and put her phone carefully back on the counter.
+        ->->
+    - -
+    ~ Inventory += SisNudes
+    She's careful to crop her face out of each pic, but as you scroll through you find her squeezing her breasts together, pinching her nipples, pulling down the waistband of her panties, and eventually removing them entirely. She's fully shaved, and the final pic is a closeup of her slipping a finger between her wet pussy lips. You quietly copy these to your phone.
+    You're about to close the app when you notice there's also a video of her masturbating.
+    * * (play_video) [Play the video]
+        Eager to watch, you hit play without thinking, and are horrified when her music stops playing, replaced by quiet wet sounds and moaning from the video.
+        "Hello?" {SIS} says from the shower, "Is someone there?"
+        * * * "Shit!"
+        * * * [Pause the video]
+        - - -
+        Frantically, you pause the video, hoping the music will come back, but it doesn't, and the silence seems deafening.
+        -> peep_sis_shower.busted
+    * * [Copy the video]
+        ~ Inventory += SisVideo
+        You copy the video to your phone, too, excited to watch it in your room.
+* [Put her phone back]
+    You pull the music app back up and put her phone carefully back on the counter.
+    ->->
+- -> sis_phone_menu
+
+/*
+
     Peep on Sister in the Shower
-    SisShowerPeep
-        + SawSisNaked
-        + SisCaughtYouPeeking
-        + SisLikesYou
-        Increasingly risky behavior to jerk off while she's in the shower
-        a. spy on her masturbating in shower using the shower head -> SisShowerPeep
-        b. If caught -> SisShowerSex
+    Increasingly risky behavior to jerk off while she's in the shower
+    If you pull it off, you get to watch her masturbate
 
 */
 TODO add interactive shower peep scene
 === peep_sis_shower ===
 ~ last_girl = Sister
+~ temp cock_out = false
+~ temp risk = 0
+~ SisWearing = ()
 ~ SisFacts += SawSisNaked
 { SisState < SisQuestions:
     ~ SisState = SisQuestions
 }
-~ SisWearing = ()
-You peep on your stepsister in the shower.
-+ [Leave the {BATHROOM}]
+The shower curtain isn't closed quite all the way. You discover that if you stand with your back the towel rack, you can just barely see a frustratingly narrow sliver of bare skin.
+She's got her back to you, facing the spray and singing. It's loud enough that you think you might be able to slide the curtain open just a little more without her noticing.
++ [Open the curtain a little]
+    ~ risk++
+    You hold the shower curtain carefully and slide it very slowly, just a little bit. Just enough to let you see a bit more of her body.
++ [Leave before you get caught]
+    -> leave_safely
+- (round_1)
+Her round hips are swaying as she dances in the spray, rubbing a lathered-up loofa over her body. You eyes follow the curve of her ass, and strain to catch a glimpse of sideboob. The view is still frustratingly limited.
++ [Pull your cock out]
+    ~ cock_out = true
+    The sight of your stepsister's round ass sets your heart pumping. Almost without realizing you're doing it, you free your cock and start squeezing and stroking. It stiffens quickly in your grip.
+    { chance(risk * 10):
+        -> made_a_sound
+    }
++ {cock_out} [Open the curtain a bit further]
+    ~ risk++
++ [Leave before you get caught]
+    -> leave_safely
+- (round_2) // better view, keep jerking, 20% chance
+- (round_3) // sis starts masturbating, 30% chance
+- (round_4) // sis starts moaning, 40% chance
+- (round_5) // sis moans your name, 50% chance
+- (round_6) // sis cums, 60% chance
+- fallthrough
+->->
+
+= made_a_sound
+    Despite your best effort to be quiet, you must have made a sound, because {SIS} suddenly freezes.
+    "Hello?" she calls. "Is someone out there?"
+    You step back, but there's no way you can open the door without her knowing.
+    + [Announce yourself]
+        "Uh, hey," you answer, sheepishly. "It's me."
+        -> busted
+    + [Flush the toilet]
+        Quickly, you flush the toilet.
+        "Sorry," you answer, "I had to pee real bad."
+        "Ew!" She replies, noticing the gap in the curtain and pulling it closed. Why didn't you go downstairs?"
+        + + ["Dad's using it."]
+            "Uh, I couldn't," you quickly improvise. "Dad's using it."
+            "Oh," she replies knowingly. Dad often ties up the bathroom for an hour. "Still, you could have knocked."
+        + + ["I thought you wouldn't mind"]
+            "Bro." She sounds skeptical. "I know we've been getting closer, but that's too close, you know?"
+        - -
+        "Yeah, I'm sorry, I thought I could just sneak in without bothering you."
+        "Gross," she replies as you leave the bathroom.
+        -> leave
+    + [Stay quiet]
+        You hold your breath, praying she won't notice you. No such luck.
+        -> busted
+
+= busted
+    ~ temp video = seenVeryRecently(-> look_sis_phone.play_video)
+    "{PLAYER}?" {SIS} pulls the shower curtain aside, keeping herself covered, and stares at you in confusion. "What are you doing?"
+    + {video} ["Watching your video?"]
+        "I, um, was watching a video of you fingering yourself?"
+    + {not video} ["Jerking off?"]
+        "Well," you glance at your cock, "I guess I was kinda, um, jerking off?"
+    + {not video} ["Peeping on you?"]
+        "Um, peeping on you?" you shrug, the truth too self-evident to lie.
+    -
+    {
+    - SisMood == Hostile:
+        "Get the fuck out of here, perv!"
+        -> leave
+    - SisMood == Neutral or SisMood == Friendly:
+        "Dude, get out!"
+        -> leave
+    - SisMood >= Aroused:
+        She bites her lip and hesitates for a second before turning the shower off and opening the curtain all the way. She stands before you, fully nude and dripping wet, looking at you seductively.
+        {
+        - video:
+            -> did_you_like_video
+        - else:
+            -> keep_going
+        }
+    }
+
+= did_you_like_video
+    "Did you like it?"
+    "Um, yeah, I thought it was fucking hot."
+    "I can see that," she purrs, lowering her eyes to the erection tenting your shorts. "Will you show me how much?
+    + "Yeah" -> sis_sex.you_masturbate -> leave
+    + "I don't think so"
+        "Too bad," she frowns.
+        -> leave
+
+= keep_going
+    "Looks like you were enjoying yourself," she purrs, lowering her eyes to your erection. "Will you show me?
+    + "Yeah" -> sis_sex.you_masturbate -> leave
+    + "I don't think so"
+        "Too bad," she frowns.
+        -> leave
+
+= leave_safely
+    You decide to leave before you get caught.
+    -> leave
+
+= leave
     ~ sis_reset()
-    -> pass_time -> bedroom
+    + [Go back to your room] -> pass_time -> bedroom
 
 /*
 
@@ -1196,34 +1328,6 @@ she moans as you pump your load into her tight ass.
 
 /*
 
-    Sister Sex (Shower)
-    If she catches you peeping, Were you watching me get off? Did you jerk off too?
-    SisShowerSex -> Arousal++
-        Hostile: She gets out to confront you, makes you show her yours (+SawSisNaked)
-        Neutral: She lets you jerk off in shower, no touch, cum on her thigh (+SisMasturbate)
-        Friendly: She lets you get behind her, grope, finger, handjob, rub cock between cheeks, cum on back (+SisHandjob)
-        Aroused: She asks you to eat her, gives bj, cum in mouth or on face or tits (+SisBlowjob)
-        Desperate: She braces on wall, you fuck from behind, cum inside or on asshole (+SisSex)
-        Repeat: You can fuck her ass
-
-*/
-TODO write the shower sex scene, pass time after cumming
-=== sis_sex_shower ===
-{ sis_sex_shower == 1:
-    ~ improveConfidence()
-    ~ SisBaseMood = Aroused
-}
-~ SisState = SisSex
-~ cum_today = true
-This is it, you're finally going to fuck {SIS}.
-- (sis_sex_shower_opts)
-+ [Touch yourself]
-    You start wanking to the sight of your stepsister.
-+ [Turn away] ->->
-- -> sis_sex_shower_opts
-
-/*
-
     Sister Dreams
 
 */
@@ -1246,12 +1350,12 @@ You have {dream_of_cheerleader > 1:another|a} filthy dream about {SIS}. <>
 */
 === sis_hints ===
 {
+- SisState == SisSex:
+    You’ve completed {SIS}’s story, but you can hook up with her again anytime.
 - SisState == SisTruthOrDare:
     Try playing truth or dare with her.
 - SisFacts ? ReadSisDiary:
-    Try talking to {SIS} about the fantasies you read in her diary.
-- SisFacts ? SawSisPorn:
-    Try talking to {SIS} about the porn she watched on your laptop.
+    Try talking to her about the fantasies you read in her diary.
 - SisState == SisQuestions:
     Try asking her some personal questions.
 - else:
@@ -1281,15 +1385,14 @@ You live together. You have observed her plenty.
 {
 - SisWearing == ():
     ~ SisWearing = (SisPanties, SisBra, SisShorts, SisShirt)
-    She gets dressed.
 - SisCum != ():
     ~ SisCum = ()
-    She cleans up the cum.
 }
 
 /*
 
     Check if your Sister is home
+    She dresses differently at home or the mall.
 
 */
 === function sis_is_home()

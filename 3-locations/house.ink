@@ -29,6 +29,7 @@ VAR BedroomItems = (Laptop)
 <- character_opts(BedroomPeople, -> bedroom_opts)
 
 // Masturbation Actions (only show one)
+TODO: use SisNudes and SisVideo in a way that supports getting nudes from other girls
 {
 - Inventory ? CheerleaderPanties and not use_cheerleader_panties and not cum_today:
     * [Jerk off with {CHEERLEADER}'s panties] -> use_cheerleader_panties -> bedroom_opts
@@ -102,7 +103,7 @@ VAR BathroomItems = ()
 
 {
 - BathroomPeople ? Sister:
-    You close {BATHROOM} door behind you as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain.
+    You close {BATHROOM} door behind you as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain. Her phone is on the counter, playing music that she is loudly singing along to.
 - else:
     You are in {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
 }
@@ -110,10 +111,11 @@ VAR BathroomItems = ()
 - (bathroom_opts)
 + { BathroomPeople ? Sister } [Try to peek in the shower]
     -> peep_sis_shower ->
+* { BathroomPeople ? Sister } [Look at her phone]
+    -> look_sis_phone ->
 + [Leave {BATHROOM}]
     -> bedroom
 - -> bathroom_opts
-
 
 /*
 
