@@ -103,16 +103,16 @@ VAR BathroomItems = ()
 
 {
 - BathroomPeople ? Sister:
-    You close {BATHROOM} door behind you as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain. Her phone is on the counter, playing music that she is loudly singing along to.
+    You close {BATHROOM} door behind you as quietly as you can, trying not to alert {SIS} to your presence. The mirror is fogged with steam from the running shower. Her phone is on the counter, playing music that she is loudly singing along to. Your heart pounds with the knowledge that she’s wet and naked on the other side of the shower curtain.
 - else:
     You are in {BATHROOM}. The counter is covered by a chaotic array of {SIS}'s makeup and hair products.
 }
 
 - (bathroom_opts)
-+ { BathroomPeople ? Sister } [Try to peek in the shower]
-    -> peep_sis_shower ->
 * { BathroomPeople ? Sister } [Look at her phone]
     -> look_sis_phone ->
++ { BathroomPeople ? Sister } [Peek in the shower]
+    -> peep_sis_shower ->
 + [Leave {BATHROOM}]
     -> bedroom
 - -> bathroom_opts

@@ -1072,117 +1072,198 @@ You pick up her phone, which is unlocked and open to the music player. You swipe
     If you pull it off, you get to watch her masturbate
 
 */
-TODO add interactive shower peep scene
 === peep_sis_shower ===
 ~ last_girl = Sister
-~ temp cock_out = false
-~ temp risk = 0
 ~ SisWearing = ()
 ~ SisFacts += SawSisNaked
 { SisState < SisQuestions:
     ~ SisState = SisQuestions
 }
-The shower curtain isn't closed quite all the way. You discover that if you stand with your back the towel rack, you can just barely see a frustratingly narrow sliver of bare skin.
-She's got her back to you, facing the spray and singing. It's loud enough that you think you might be able to slide the curtain open just a little more without her noticing.
-+ [Open the curtain a little]
-    ~ risk++
-    You hold the shower curtain carefully and slide it very slowly, just a little bit. Just enough to let you see a bit more of her body.
+The shower curtain isn't quite closed all the way. You discover that if you put your eye right up to the gap, you can just barely see a frustratingly narrow sliver of bare skin.
++ [Try to see more]
 + [Leave before you get caught]
     -> leave_safely
+
 - (round_1)
-Her round hips are swaying as she dances in the spray, rubbing a lathered-up loofa over her body. You eyes follow the curve of her ass, and strain to catch a glimpse of sideboob. The view is still frustratingly limited.
-+ [Pull your cock out]
-    ~ cock_out = true
-    The sight of your stepsister's round ass sets your heart pumping. Almost without realizing you're doing it, you free your cock and start squeezing and stroking. It stiffens quickly in your grip.
-    { chance(risk * 10):
-        -> made_a_sound
-    }
-+ {cock_out} [Open the curtain a bit further]
-    ~ risk++
+You're pretty sure she's got her back to you, facing the spray. She's singing loudly enough that you think you might be able to slide the curtain open just a little more without her noticing.
++ [Open the curtain a little]
+    You hold the shower curtain carefully and slide it very slowly, just a little bit. Just enough to let you see a bit more of her body. You're still mostly hidden.
 + [Leave before you get caught]
     -> leave_safely
-- (round_2) // better view, keep jerking, 20% chance
-- (round_3) // sis starts masturbating, 30% chance
-- (round_4) // sis starts moaning, 40% chance
-- (round_5) // sis moans your name, 50% chance
-- (round_6) // sis cums, 60% chance
-- fallthrough
-->->
+
+- (round_2)
+<> Her round hips sway as she dances in the spray. Your eyes follow the curve of her ass, and strain to catch a glimpse of sideboob.
++ [Pull your cock out]
+    Even this limited view of your stepsister's ass sets your heart pumping. Almost without realizing you're doing it, you free your cock, which stiffens quickly in your grip.
++ [Leave before you get caught]
+    -> leave_safely
+
+- (round_3)
+<> You peer around the edge of the curtain, gawking at what you can see of her. She's rubbing a lathered-up loofa over her body. You wish you could see more.
++ [Open the curtain a bit further]
+    Heart pounding, you slip the curtain even further open, enough you give you an unobstructed view. You pray she doesn't turn around, because she would spot you immediately.
++ [Leave before you get caught]
+    -> leave_safely
+
+- (round_4)
+You watch with wide eyes as she rubs her body, rinsing the soap away. It might be your imagination, but she seems to be spending a lot of time on her breasts and inner thighs. Is she getting turned on?
++ [Start stroking]
+    You start slowly stroking the length of your cock. It's already alarmingly hard from the heady combination of seeing {SIS} naked and knowing how easily you could be caught in the act.
++ [Leave before you get caught]
+    -> leave_safely
+
+- (round_5)
+~ improveMood(SisMood)
+Your suspicions that she's getting aroused are confirmed when she turns on the handheld sprayer. She slowly moves it down her body until she parts her legs to direct the water at her pussy. She gasps at the sudden stimulation, and starts moving her hips.
++ [Keep stroking]
+    You can't believe you're jerking off while watching your stepsister masturbate in the shower! It's intensely erotic. What if she catches you? How would she react?
++ [Leave before you get caught]
+    -> leave_safely
+
+- (round_6)
+~ improveMood(SisMood)
+Her butt clenches as she thrusts with increasing urgency against the spray. She's moaning quietly as the hand that isn't holding the sprayer roams over her body, caressing her hips and squeezing her breasts.
++ [Moan]
+    Without thinking about it, you allow yourself to moan, too. {SIS} suddenly freezes.
+    -> made_a_sound
++ [Keep stroking]
+    You imagine slipping into the shower and slipping your cock between her wet thighs, thrusting up to rub against her. Your erection throbs in your grasp, and you feel a familiar pressure starting to build.
++ [Leave before you get caught]
+    -> leave_safely
+
+- (round_7)
+~ improveMood(SisMood)
+Even from behind, there's no mistaking her rapidly climbing arousal. Her other hand has slid lower, and is moving rapidly. She must be about to cum. You wish you could see more. You wish you could touch her. You wish you could suck on her nipples or shove your cock between her thighs.
++ [Say her name]
+    "{SIS}," you moan, overcome by the sight. She suddenly freezes.
+    -> made_a_sound
++ [Try not to cum]
+    You're so close, but you hold back, desperate to see her cum first. A spurt of precum dribbles onto your fingers, increasing the lubrication of your stroke. You squeeze tightly around your head, trying not to cum.
++ [Cum in your hand]
+    -> cum_in_hand
++ [Cum in the shower]
+    -> cum_in_shower
+
+- (round_8)
+~ SisFacts += SisLikesYou
+When the climax hits, she shudders, clamping her legs together and losing her grip on the sprayer, which falls to the end of its hose, spraying against her knees. "Ahh, {PLAYER}!" Her legs shake as she moans your name, startling you. But it quickly becomes clear she still doesn't know you're there. She must have been fantasizing about you!
++ [Answer her]
+    "{SIS}," you groan in reply without thinking.
+    -> busted
++ [Cum in your hand]
+    -> cum_in_hand
++ [Cum in the shower]
+    -> cum_in_shower
++ [Cum on her]
+    -> cum_on_her
+- ->->
 
 = made_a_sound
-    Despite your best effort to be quiet, you must have made a sound, because {SIS} suddenly freezes.
-    "Hello?" she calls. "Is someone out there?"
-    You step back, but there's no way you can open the door without her knowing.
-    + [Announce yourself]
-        "Uh, hey," you answer, sheepishly. "It's me."
-        -> busted
-    + [Flush the toilet]
-        Quickly, you flush the toilet.
-        "Sorry," you answer, "I had to pee real bad."
-        "Ew!" She replies, noticing the gap in the curtain and pulling it closed. Why didn't you go downstairs?"
-        + + ["Dad's using it."]
-            "Uh, I couldn't," you quickly improvise. "Dad's using it."
-            "Oh," she replies knowingly. Dad often ties up the bathroom for an hour. "Still, you could have knocked."
-        + + ["I thought you wouldn't mind"]
-            "Bro." She sounds skeptical. "I know we've been getting closer, but that's too close, you know?"
-        - -
-        "Yeah, I'm sorry, I thought I could just sneak in without bothering you."
-        "Gross," she replies as you leave the bathroom.
-        -> leave
-    + [Stay quiet]
-        You hold your breath, praying she won't notice you. No such luck.
-        -> busted
+"Hello?" she calls. "Is someone there?"
+You step back, but there's no way you can open the door without her knowing.
++ [Announce yourself]
+    "Uh, hey," you answer, sheepishly. "It's me."
+    -> busted
++ [Flush the toilet]
+    Quickly, you flush the toilet.
+    "Sorry," you answer, "I had to pee real bad."
+    "Ew!" She replies, noticing the gap in the curtain and pulling it closed. Why didn't you go downstairs?"
+    + + ["Dad's using it."]
+        "Uh, I couldn't," you quickly improvise. "Dad's using it."
+        "Oh," she replies knowingly. Dad often ties up the bathroom for an hour. "Still, you could have knocked."
+    + + ["I thought you wouldn't mind"]
+        "Bro." She sounds skeptical. "I know we've been getting closer, but that's too close, you know?"
+    - -
+    "Yeah, I'm sorry, I thought I could just sneak in without bothering you."
+    "Gross," she replies as you leave the bathroom.
+    -> leave
++ [Stay quiet]
+    You hold your breath, praying she won't notice you. No such luck.
+    -> busted
 
 = busted
-    ~ temp video = seenVeryRecently(-> look_sis_phone.play_video)
-    "{PLAYER}?" {SIS} pulls the shower curtain aside, keeping herself covered, and stares at you in confusion. "What are you doing?"
-    + {video} ["Watching your video?"]
-        "I, um, was watching a video of you fingering yourself?"
-    + {not video} ["Jerking off?"]
-        "Well," you glance at your cock, "I guess I was kinda, um, jerking off?"
-    + {not video} ["Peeping on you?"]
-        "Um, peeping on you?" you shrug, the truth too self-evident to lie.
-    -
+~ temp video = seenVeryRecently(-> look_sis_phone.play_video)
+"{PLAYER}?" {SIS} pulls the shower curtain aside, keeping herself covered, and stares at you in confusion. "What are you doing?"
++ {video} ["Watching your video?"]
+    "I, um, was watching a video of you fingering yourself?"
++ {not video} ["Jerking off?"]
+    "Well," you glance at your cock, "I guess I was kinda, um, jerking off?"
++ {not video} ["Peeping on you?"]
+    "Um, peeping on you?" you shrug, the truth too self-evident to lie.
+-
+{
+- SisMood == Hostile:
+    "Get the fuck out of here!"
+    -> leave
+- SisMood == Neutral or SisMood == Friendly:
+    "Dude, get out!"
+    -> leave
+- SisMood >= Aroused:
+    She bites her lip and hesitates for a second before turning the shower off and opening the curtain all the way. She stands before you, fully nude and dripping wet, looking at you seductively.
     {
-    - SisMood == Hostile:
-        "Get the fuck out of here, perv!"
-        -> leave
-    - SisMood == Neutral or SisMood == Friendly:
-        "Dude, get out!"
-        -> leave
-    - SisMood >= Aroused:
-        She bites her lip and hesitates for a second before turning the shower off and opening the curtain all the way. She stands before you, fully nude and dripping wet, looking at you seductively.
-        {
-        - video:
-            -> did_you_like_video
-        - else:
-            -> keep_going
-        }
+    - video:
+        -> did_you_like_video
+    - else:
+        -> keep_going
     }
+}
 
 = did_you_like_video
-    "Did you like it?"
-    "Um, yeah, I thought it was fucking hot."
-    "I can see that," she purrs, lowering her eyes to the erection tenting your shorts. "Will you show me how much?
-    + "Yeah" -> sis_sex.you_masturbate -> leave
-    + "I don't think so"
-        "Too bad," she frowns.
-        -> leave
-
-= keep_going
-    "Looks like you were enjoying yourself," she purrs, lowering her eyes to your erection. "Will you show me?
-    + "Yeah" -> sis_sex.you_masturbate -> leave
-    + "I don't think so"
-        "Too bad," she frowns.
-        -> leave
-
-= leave_safely
-    You decide to leave before you get caught.
+"Did you like it?"
+"Um, yeah, I thought it was fucking hot."
+"I can see that," she purrs, lowering her eyes to the erection tenting your shorts. "Will you show me how much?
++ "Yeah" -> sis_sex.you_masturbate -> leave
++ "I don't think so"
+    "Too bad," she frowns.
     -> leave
 
+= keep_going
+"Looks like you were enjoying yourself," she purrs, lowering her eyes to your erection. "Will you show me?
++ "Yeah" -> sis_sex.you_masturbate -> leave
++ "I don't think so"
+    "Too bad," she frowns.
+    -> leave
+
+= cum_in_hand
+Unable to hold back any longer, you stifle a groan as your cock twitches and start pumping hot, sticky cum into your fist. Your eyes are locked on {SIS}'s ass the entire time, shaking with the intensity of your orgasm.
+Unfortunately, you don't think it's a good idea to stick around to enjoy yourself. <>
+-> leave_safely
+
+= cum_in_shower
+Unable to hold back any longer, you rock forward as your cock twitches and shoots spurt after spurt of thick cum into the shower. You watch as the white globs fall into the water and swirl down the drain between {SIS}'s feet.
+Unfortunately, you don't think it's a good idea to stick around to enjoy yourself. <>
+-> leave_safely
+
+= cum_on_her
+No longer caring if you get caught, you throw the curtain open and thrust your hips forward as you cum, shooting your load all over her lower back and ass.
+"Oh!" she gasps at the unexpected sensation of hot cum on her back. She turns around, gawking at the sight of you milking the last drops of cum from your cock. "{PLAYER}? What the fuck?" She's still breathless from her own orgasm, but you think she sounds more surprised than upset.
++ "Hey, sis[."]," you answer sheepishly. "Sorry, I got a little carried away watching you."
++ "That was [hot."]so fucking hot," you gasp. "Sorry, I got a little carried away watching you."
++ "You called?"[] You wink. "If I'd known you were fantasizing about me, I'd have let you know I was here sooner."
+-
+{
+- SisState == SisQuestions:
+    "Oh my god," she mumbles, covering her mouth and blushing furiously. "What are you doing here? Did you hear me… Oh, fuck."
+    "Yeah, I heard what you said," you grin. "I'm sorry I was creeping on you, but it sounds like maybe we should talk?"
+    "Okay, I, um, sure," she stares at you with a curious expression. "But not here. Let me get cleaned up first. Come to my room later?"
+    "Will do."
+- SisState == SisTruthOrDare:
+    "Wow," she shakes her head at your audacity. "Save it for truth or dare, dummy!"
+    "Good idea. Wanna play right now?"
+    "Well, now I need to clean up this mess you made," she laughs. "Come to my room later?"
+    "Deal."
+- SisState == SisSex:
+    "Bro, next time, just tell me you're here," she grins. "We could have had more fun. Now get out of here, I have to clean up this mess you made."
+}
+-> leave
+
+= leave_safely
+You decide to leave before you get caught.
+-> leave
+
 = leave
-    ~ sis_reset()
-    + [Go back to your room] -> pass_time -> bedroom
+~ sis_reset()
++ [Go back to your room] -> pass_time -> bedroom
 
 /*
 
