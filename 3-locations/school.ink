@@ -131,7 +131,7 @@ You are at {LOCKER}. You have a couple printed-out memes taped up, mostly refere
     + + [{getNameAndTitle(Scientist)}] { printSchedule(Scientist) }
     + + [{getNameAndTitle(Twins)}] { printSchedule(Twins) }
     - - -> locker_opts
-+ [Ask for a hint]
++ [Get a hint]
     <- hint_system(-> locker_opts)
     -> DONE
 + [Check your score]

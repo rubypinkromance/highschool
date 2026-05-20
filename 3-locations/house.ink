@@ -29,7 +29,6 @@ VAR BedroomItems = (Laptop)
 <- character_opts(BedroomPeople, -> bedroom_opts)
 
 // Masturbation Actions (only show one)
-TODO: use SisNudes and SisVideo in a way that supports getting nudes from other girls
 {
 - Inventory ? CheerleaderPanties and not use_cheerleader_panties and not cum_today:
     * [Jerk off with {CHEERLEADER}'s panties] -> use_cheerleader_panties -> bedroom_opts
@@ -39,17 +38,19 @@ TODO: use SisNudes and SisVideo in a way that supports getting nudes from other 
     + [{~Jerk off|Spank the monkey|Rub one out|Wank}] -> jerk_off -> bedroom_opts
 }
 
-// Computer Actions
-+ (laptop_opts){BedroomItems ? Laptop}[Use your laptop]
++ (phone_opts)[Use your phone]
++ + {Nudes} [Look at nudes]
+    -> look_at_nudes ->
 + + {not cum_today} [Watch porn]
     -> watch_porn -> bedroom_opts
 + + [Check your score]
-    -> print_score -> laptop_opts
+    -> print_score ->
 + + [Ask for a hint]
-    <- hint_system(-> laptop_opts)
+    <- hint_system(-> phone_opts)
     -> DONE
-+ + [Close your laptop]
++ + [Put your phone down]
     -> bedroom_opts
+- - -> phone_opts
 
 // Outfit Actions
 + {now < Night}[Change your clothes]

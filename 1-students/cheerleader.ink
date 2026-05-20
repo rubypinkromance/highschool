@@ -153,6 +153,25 @@ You {here == StudyHall:pass a note to|approach} {CHEERLEADER}
 
 /*
 
+    Look at Cheerleader’s Nudes
+
+*/
+=== look_at_cheerleader_nudes ===
+~ last_girl = Cheerleader
+{CHEERLEADER}’s face is mostly cropped out, just her smirking lips left in frame. Below that, her large tits are splattered with your cum. The creamy white spunk contrasts against her brown skin and dark nipples.
+Staring at the pic, you remember how it felt to have those soft globes wrapped around your shaft, and
+{
+- cheerleader_titjob.cum_on_chest:
+    <> how she squealed in protest as you shoved your cock between her lips to flood her mouth with your spunk.
+- cheerleader_titjob.cum_on_face:
+    <> the way she squealed in surprise as thick ropes of white cream splattered her cheeks, chin, and lips, before falling on her chest.
+- else:
+    <> blow your load across her chest while she encouraged you.
+}
+->->
+
+/*
+
     Ask Cheerleader for Her Bra Size
     You’re conducting a survey.
 
@@ -349,7 +368,15 @@ You both look down as the head of your cock emerges from her cleavage, glistenin
 -
 Staggering back, you try to catch your breath as you watch her snap a bunch of selfies of her cum-splattered chest, all carefully cropped not to show her face.
 “That’ll teach him,” she smirks. “{cum_on_chest:Thanks for your help. }You can go now.”
-“Anytime,” you grin, pulling up your pants and wondering how {JOCK} will react.
+“Anytime,” you grin, pulling up your pants. “Hey, any chance I could get a copy?”
+{ CheerleaderMood < Friendly:
+    “I don’t think so,” she says, still spitting out the last of your cum.
+    You shrug. It was worth a shot.
+- else:
+    ~ Nudes += Cheerleader
+    “Hmm.” She gives you an appraising look and nods. “Sure. But if I find out you share this with anyone, you’ll regret it, understand?”
+    “Understood,” you grin.
+}
 ~ cheerleader_cleanup()
 { isMall():
     + [Leave the {DRESSING_ROOM}] -> mall

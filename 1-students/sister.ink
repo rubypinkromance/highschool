@@ -42,7 +42,7 @@ CONST SIS_TITLE = "your stepsister"
 LIST SisState = (SisObserved), SisQuestions, SisTruthOrDare, SisSex
 LIST SisFacts = ReadSisDiary, SawSisPorn, SisMightBeQueer, SisLikesFriend, SisLikesYou, SisIsBi, SawSisNaked, SisSawYourPorn, SisSawYouFapping, SisCaughtYouPeeking, SisIsInterested, FoundSisVibrator, FoundSisStrapOn
 LIST SisClothes = SisPanties, SisBra, SisShorts, SisShirt
-LIST SisItems = SisLacePanties, SisDiary, SisVibrator, SisStrapOn, SisNudes, SisVideo
+LIST SisItems = SisLacePanties, SisDiary, SisVibrator, SisStrapOn, SisVideo
 
 VAR SisInPlay = true
 VAR SisMood = Neutral
@@ -1040,13 +1040,14 @@ You pick up her phone, which is unlocked and open to the music player. You swipe
 * [Look at her insta]
     You open the photo-sharing social app, and find that she's friends with lots of girls from her school. Most of their accounts are private, but the most interesting thing you find is pics of some girls drinking beers at a park.
 * [Look at her camera roll]
+    ~ last_girl = Sister
     Opening her camera roll, you find hundreds of outfit selfies taken in the mirror of her bedroom or various dressing rooms at the mall. There are a lot of pics of her and {SIS_FRIEND} hanging out. You're about to give up when you strike gold. A series of provocative selfies with increasingly less clothing.
     * * [Look at the nudes]
     * * [Put her phone back]
         Feeling a sudden surge of guilt, you pull the music app back up and put her phone carefully back on the counter.
         ->->
     - -
-    ~ Inventory += SisNudes
+    ~ Nudes += Sister
     She's careful to crop her face out of each pic, but as you scroll through you find her squeezing her breasts together, pinching her nipples, pulling down the waistband of her panties, and eventually removing them entirely. She's fully shaved, and the final pic is a closeup of her slipping a finger between her wet pussy lips. You quietly copy these to your phone.
     You're about to close the app when you notice there's also a video of her masturbating.
     * * (play_video) [Play the video]
@@ -1064,6 +1065,26 @@ You pick up her phone, which is unlocked and open to the music player. You swipe
     You pull the music app back up and put her phone carefully back on the counter.
     ->->
 - -> sis_phone_menu
+
+/*
+
+    Watch Sister's Sexy Video
+
+*/
+=== watch_sis_video ===
+~ last_girl = Sister
+The video is a close-up shot of {SIS} masturbating. Two fingers are pushing between her dripping wet pussy lips. You can hear her loudly moaning as her fingers, coated with creamy arousal, start rubbing tight circles around her clit. Suddenly, she cries out, as her legs tense and a gush of fluid spurts over her fingers as she pushes them back inside. The video ends as she clamps her legs together and knocks her phone over.
+->->
+
+/*
+
+    Look at Sister’s Nudes
+
+*/
+=== look_at_sis_nudes ===
+~ last_girl = Sister
+You managed to save a series of pics from {SIS}’s phone. She starts out squeezing her breasts together and pinching her nipples. Then she’s pulling down the waistband of her panties, and slipping them off them entirely. In the last pic you can see she's fully shaved, slipping a finger between her wet pussy lips.
+->->
 
 /*
 

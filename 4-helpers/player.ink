@@ -1,6 +1,6 @@
 VAR PLAYER = "Mike"
 LIST Outfits = Nude, (Default), (Nice), (Athletic), Preppy
-LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Player
+LIST ConfidenceLevels = Awkward, Normal, Confident, Flirty, Suave
 LIST PlayerItems = Laptop
 
 // Status
@@ -12,6 +12,7 @@ VAR has_black_eye = 7 // Set this to a positive number to let it slowly heal
 // Inventory
 VAR Inventory = ()
 VAR BraSizes = ()
+VAR Nudes = ()
 VAR outfit = Default
 
 // Schedule
@@ -24,6 +25,30 @@ VAR has_detention = 0
 VAR full_day_absences = 0
 VAR MissedClasses = ()
 VAR has_principal_meeting = false
+
+=== look_at_nudes ===
+~ temp girls = Nudes
+Whose nudes do you want to look at?
+
+- (top)
+~ temp girl = pop(girls)
+{girl:
+  <- nude_choice(girl)
+  -> top
+}
+-
++ {Inventory ? SisVideo} [Watch {SIS}’s video]
+    -> watch_sis_video ->->
++ [Nevermind]
+    ->->
+
+= nude_choice(girl)
+{ girl:
+- Cheerleader:
+    + [Look at {Cheerleader}] -> look_at_cheerleader_nudes ->->
+- Sister:
+    + [Look at {SIS}] -> look_at_sis_nudes ->->
+}
 
 /*
 
@@ -48,7 +73,7 @@ What do you want a hint about?
 
 */
 === function improveConfidence()
-{ confidence != Player:
+{ confidence != Suave:
     ~ confidence++
 }
 
