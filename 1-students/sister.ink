@@ -26,11 +26,12 @@
     -> SisQuestions
 
     SisQuestion
-    1. Ask if she likes you -> SisIsInterested
-    SisIsInterested -> SisTruthOrDare
+    1. Ask personal questions
+    -> SisTruthOrDare
     
     SisTruthOrDare
-    2. Fool around
+    2. Truth: more personal questions
+    2. Dare: escalating sexuality
     -> SisSex
     
     SisSex
@@ -195,14 +196,14 @@ VAR SisBottoms = (SisPanties, SisShorts)
 */
 === sis_questions ===
 ~ last_girl = Sister
-{ SisMood < Friendly:
+{ SisMood < Aroused:
     ~ improveMood(SisMood)
     ~ improveBaseMood(SisMood)
 }
 "Can I ask you {kind of a|another} personal question?"
-{"Well, this sounds interesting," she grins, sitting up and giving you her full attention. "Okay. You can ask me anything you want. <em>Anything</em>," she emphasizes. "But, every time you ask me a question, I get to ask you one in return. Deal?"|"Make it a good one," she grins.}
-+ {sis_questions == 1} "Deal."
-    "Okay, what's your first question?"
+{"Interesting!" She sits up and regards you with a raised eyebrow. "Okay. You can ask me anything you want. <em>Anything</em>," she emphasizes. "But, every time you ask me a question, I get to ask you one in return. Deal?"|"Make it a good one," she grins.}
++ {sis_questions == 1} "Deal," you nod.
+    "Okay, then,” she grins. “What's your first question?"
 + ->
 - (top)
 { SisQuestionCount >= 3:
@@ -214,7 +215,7 @@ VAR SisBottoms = (SisPanties, SisShorts)
     "{~That's a shame|Too bad|Your loss}," she winks.
     ->->
 }
-+ "Your turn[."]," you say.
++ "What's your {top > 1: next} question?"
 -
 -> questions_from_sis ->
 + "Can I ask another question?"
@@ -228,6 +229,10 @@ VAR SisBottoms = (SisPanties, SisShorts)
 
 = make_this_more_interesting
 ~ SisState = SisTruthOrDare
+{ SisMood < Friendly:
+    ~ improveMood(SisMood)
+    ~ improveBaseMood(SisMood)
+}
 "Actually, wait a second," {SIS} says. "Do you wanna make this more interesting?"
 "What do you have in mind?"
 "Let's play truth or dare."
@@ -254,6 +259,9 @@ VAR SisBottoms = (SisPanties, SisShorts)
 /*
 
     Sister Truth or Dare
+    Every time she chooses truth, we shift the odds towards dare.
+    She'll never choose truth more than 7 times (ten total questions).
+    After that, she'll always choose dare, regardless of what the player picks.
 
 */
 === sis_truth_or_dare ===
@@ -307,130 +315,138 @@ CHANCE: {odds}
 /*
 
     Questions for Sis
-    
-    Need at least 10 ungated questions (prereqs are okay)
-    More than 10-15 kinda pointless, because she'll stop choosing truth after 10 questions
-    - shave
-    - bra size
-    - virgin
-    - have you ever tasted pussy
-    - spit or swallow
-    - how often do you masturbate
-    - ever had anal sex
-    - how many people have you had sex with
-    - have you ever thought about me while masturbating
-    - what's your naughtiest fantasy
-    - are you turned on right now
-    - do you have any nudes on your phone
-    - have you ever had an orgasm in public
-    - what question are you secretly hoping I'll ask you
-    - have you ever fucked two guys at once
-    - do you like being told what to do
+    We show five choices at a time (in order)
+    She'll stop choosing "truth" after 10 questions (including the first 3)
 
 */
+TODO write dialog for questions for sis
 === questions_for_sis ===
 ~ temp max = 5
 ~ SisQuestionCount++
 
-// Fact-Based Questions
 * { SisFacts !? SawSisNaked && CHOICE_COUNT() < max }
-    [Ask if she shaves]
-    -> q_sis_shaved ->
-* {SisFacts ? SawSisNaked and CHOICE_COUNT() < max}
-    [Ask about seeing her naked]
-    -> q_saw_sis_naked ->
-* {SisFacts ? SawSisPorn and CHOICE_COUNT() < max}
-    [Ask about her porn history]
-    -> q_saw_sis_porn ->
-* {SisFacts ? ReadSisDiary and CHOICE_COUNT() < max}
-    [Ask about her diary]
-    -> q_read_sis_diary ->
-* {SisFacts ? FoundSisVibrator and CHOICE_COUNT() < max}
-    [Ask about her vibrator]
-    -> q_found_sis_vibrator ->
-* {SisFacts ? FoundSisStrapOn and CHOICE_COUNT() < max}
-    [Ask about the strap-on]
-    -> q_found_sis_strapon ->
-* {SisFacts ? SisMightBeQueer and SisFacts !? SisIsBi and CHOICE_COUNT() < max}
-    [Ask if she's a lesbian]
-    -> q_sis_might_be_queer ->
-* {SisFacts ? SisLikesFriend and SisFacts ? SisIsBi and CHOICE_COUNT() < max}
-    [Ask if she likes {SIS_FRIEND}]
-    -> q_sis_likes_friend ->
-* {SisFacts ? SisLikesYou and SisFacts ? SisIsBi and CHOICE_COUNT() < max}
-    [Ask if she likes you]
-    -> q_sis_likes_you ->
-* {SisFacts ? SisIsInterested and not sis_questions.make_this_more_interesting and not sis_truth_or_dare and CHOICE_COUNT() < max}
-    [Ask her to play truth or dare]
-    -> q_sis_truth_or_dare ->
-
-// General Questions
+    [“Do you shave?”] -> q_sis_shaved ->
 * { CHOICE_COUNT() < max }
-    [Ask her bra size]
-    -> q_sis_bra_size ->
+    [“What’s your bra size?”] -> q_sis_bra_size ->
 * { CHOICE_COUNT() < max }
-    [Ask if she's a virgin]
-    -> q_sis_virgin ->
+    [“What’s your body count?”] -> q_sis_body_count ->
 * { CHOICE_COUNT() < max }
-    [Ask if she spits or swallows]
-    -> q_sis_spit_or_swallow ->
-
-+ (no_question) "I can't think of a question."
+    [“How often do you masturbate?”] -> q_sis_masturbate ->
+* { CHOICE_COUNT() < max }
+    [“Spit or swallow?”] -> q_sis_spit_or_swallow ->
+* { CHOICE_COUNT() < max }
+    [“Are there nudes on your phone?”] -> q_sis_nudes ->
+* { CHOICE_COUNT() < max }
+    [“Have you tasted pussy?”] -> q_sis_taste_pussy ->
+* { CHOICE_COUNT() < max }
+    [“Ever thought about me while getting off?”] -> q_sis_fantasy_you ->
+* {SisFacts ? SisMightBeQueer and CHOICE_COUNT() < max}
+    [“Are you a lesbian?”] -> q_sis_lesbian ->
+* {SisFacts ? SisLikesFriend and CHOICE_COUNT() < max}
+    [“Are you into {SIS_FRIEND}?”] -> q_sis_likes_friend ->
+* { CHOICE_COUNT() < max }
+    [“What’s your filthiest fantasy?”] -> q_sis_fantasy ->
+* { CHOICE_COUNT() < max }
+    [“Are you wet right now?”] -> q_sis_wet ->
+* {SisFacts ? SisLikesYou and CHOICE_COUNT() < max}
+    [“Do you want to fuck me?”] -> q_sis_likes_you ->
+* { CHOICE_COUNT() < max }
+    [“Have you had a threesome?”] -> q_sis_threesome ->
+* { CHOICE_COUNT() < max }
+    [“Have you had anal sex?”] -> q_sis_anal ->
+* { CHOICE_COUNT() < max }
+    [“Have you had an orgasm in public?”] -> q_sis_public_orgasm ->
+* { CHOICE_COUNT() < max }
+    [“Do you like spanking?”] -> q_sis_spanking ->
++ (no_question) { CHOICE_COUNT() < max }
+    “I can't think of a question.”
 -
 ->->
 
-TODO write dialog for questions for sis
+= q_sis_shaved
+“Do you shave?”
+“I do,” she nodes. “I prefer the way it feels.”
+->->
 
 = q_sis_bra_size
 ~ BraSizes += (Sister)
-"What's your bra size?"
-"Ugh, boring. Why are boys so obsessed with bra sizes?" She rolls her eyes. "34C."
+“What’s your bra size?”
+“Ugh, boring! Why are boys so obsessed with bra sizes?” She rolls her eyes at you. “34C.”
 ->->
 
-= q_sis_virgin
-"Are you a virgin?"
-"Nope, I lost it at age 15 with… some dude. Don't worry about it."
+= q_sis_body_count
+“What’s your body count?”
+“Hmm.” She thinks for a moment. “Depends on how you count it. Seven, I’d say.”
+You open your mouth to ask a followup, but she grins and wags a finger at you. “One question at a time, bro.”
+->->
+
+= q_sis_masturbate
+“How often do you masturbate?”
+“It depends,” she grins. “Sometimes it’s every night. Other times I might go a week or two without.”
 ->->
 
 = q_sis_spit_or_swallow
-"Do you spit or swallow?"
-"Neither, if I can avoid it."
+“Do you spit or swallow?”
+“Neither, if I can avoid it,” she says, scrunching up her nose. “Spunk tastes gross. I prefer to let a guy cum somewhere else.”
 ->->
 
-= q_sis_shaved
-"Are you shaved or full bush?"
-"I keep it clean."
+= q_sis_nudes
+“Are there nudes on your phone?”
+“Yes, there are,” she grins. “Why, do you want to see them?”
+* “Fuck, yes!” you blurt.
+    “Settle down,” she laughs.
+* “If you’re cool with it[.”],” you shrug.
+    “I’m cool,” she grins.
+-
+<> “Here, check these out.”
+She hands you her phone and you flip through a series of provocative selfies. She's careful to crop her face out of each pic, but as you scroll through you find her squeezing her breasts together, pinching her nipples, pulling down the waistband of her panties, and eventually removing them entirely. She's fully shaved, and the final pic is a closeup of her slipping a finger between her wet pussy lips.
+“What do you think?” she asks, with a smile.
+* “Fucking hot[.”],” you nod.
+    “Copy them to your phone,” she grins.
+    “Really?”
+    “Really. You’ll appreciate them more than the person I took them for.”
+    ~ Nudes += Sister
+* “I've seen better.”
+    “Liar,” she laughs. “Whose nudes have you seen?”
+    “Ah-ah-ah!” You wag your finger at her. “One question at a time, sis.”
+-
 ->->
 
-= q_saw_sis_naked
-"So, I saw you naked."
-"Did you like it?"
+= q_sis_taste_pussy
+~ SisFacts += SisMightBeQueer
+“Have you ever tasted pussy?”
+“Mine, or someone else’s?”
+“Oh, uh, either?”
+“Yes to both,” she grins.
 ->->
 
-= q_saw_sis_porn
-"I saw the porn you watch"
-"What about it?"
+= q_sis_fantasy_you
+~ SisFacts += SisLikesYou
+“Have you ever thought about me while getting off?”
+“Oh!” she hesitates. “I, um…”
+“Tell the truth,” you grin.
+“Yes,” she answers quietly, blushing furiously.
 ->->
 
-= q_read_sis_diary
-"I read your diary"
-"What about it?"
+= q_sis_anal
+“Have you ever had anal sex?”
+"Yes."
 ->->
 
-= q_found_sis_vibrator
-"I found your vibrator."
-"That's not a question," she grins.
-->->
-
-= q_found_sis_strapon
-"I found your strap-on."
-"It's a good one."
-->->
-
-= q_sis_might_be_queer
+= q_sis_lesbian
 ~ SisFacts += SisIsBi
-"Are you gay?"
+“Are you a lesbian?”
 "Nah, bi."
+->->
+
+= q_sis_threesome
+“Have you had a threesome?”
+"Yeah."
+->->
+
+= q_sis_wet
+“Are you wet right now?”
+"Yes."
 ->->
 
 = q_sis_likes_friend
@@ -443,22 +459,35 @@ TODO write dialog for questions for sis
 "I sure am."
 ->->
 
-= q_sis_truth_or_dare
-"Let's play truth or dare."
-"Deal!"
+= q_sis_fantasy
+“What’s your filthiest fantasy?”
+"You."
 ->->
+
+= q_sis_public_orgasm
+“Have you had an orgasm in public?”
+"Yes."
+->->
+
+= q_sis_spanking
+“Do you like spanking?”
+"Yes."
+->->
+
 
 /*
 
     Questions from Sis
     Should escalate fairly quickly, because after the first 3, player can choose dare
+    She always asks these in order, first 3 during questions scene, the rest during truth or dare,
+    and after the final question, the player can no longer choose truth.
     
     Need at least 15 ungated questions
-    - have you ever tasted your own cum
+    - have you ever tasted your own cum (reply)
     - do you like the taste of pussy
-    - are you attracted to men
-    - how many people have you fooled around with
-    - have you ever been with two women at once/would you like to?
+    - are you attracted to men (reply)
+    - body count (reply)
+    - have you ever been with two women at once/would you like to? (reply)
     
     - wildest place you've ever cum
 
@@ -469,12 +498,16 @@ TODO write dialog for questions for sis
     - if you could turn invisible, what would you do
 
     - what do you think about while masturbating?
-    - have you ever thought about me while jerking off?
+    - have you ever thought about me while jerking off? (reply)
     - are you hard right now (if not naked)
     - are you attracted to me
     - do you want to fuck me
+    
+    - what question are you secretly hoping I'll ask you
+
 
 */
+TODO write dialog for questions from sis
 === questions_from_sis ===
 // These first questions are ones you can skip during gameplay, so we insert them here
 {
@@ -493,7 +526,6 @@ TODO write dialog for questions for sis
 }
 ->->
 
-TODO write dialog for questions from sis
 
 // After borrowing laptop, tells you she saw stepsister porn in your browser history. Asks if you’re into that "I’m not your little sister. We’re the same age and not related."
 = q_sis_saw_your_porn
@@ -626,7 +658,9 @@ TODO write dares for sis, improve her mood
 /*
 
     Dares from Sis
-    Should be a clear escalation, building intensity until she asks you to fuck her
+    She always gives these dares in order,
+    so there should be a clear escalation,
+    building intensity until she asks you to fuck her.
     How many? 5-10?
     
     - show me your dick pic/I didn't save it/show me your dick
