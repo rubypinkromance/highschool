@@ -203,13 +203,9 @@ VAR SisBottoms = (SisPanties, SisShorts)
 "Can I ask you {kind of a|another} personal question?"
 {"Interesting!" She sits up and regards you with a raised eyebrow. "Okay. You can ask me anything you want. <em>Anything</em>," she emphasizes. "But, every time you ask me a question, I get to ask you one in return. Deal?"|"Make it a good one," she grins.}
 + {sis_questions == 1} "Deal," you nod.
-    "Okay, then,” she grins. “What's your first question?"
+    "Okay,” she grins. “What's your first question?"
 + ->
 - (top)
-{ SisQuestionCount >= 3:
-    -> make_this_more_interesting ->->
-}
--
 -> questions_for_sis ->
 { came_from(-> questions_for_sis.no_question):
     "{~That's a shame|Too bad|Your loss}," she winks.
@@ -219,7 +215,11 @@ VAR SisBottoms = (SisPanties, SisShorts)
 -
 -> questions_from_sis ->
 + "Can I ask another question?"
-    "Of course."
+    { SisQuestionCount >= 3:
+        -> make_this_more_interesting ->->
+    - else:
+        "{Of course|Please do|Sure, this is fun}."
+    }
     -> top
 + "I'm done for now."
     "{~That's a shame|Too bad|Your loss}," she winks.
@@ -249,10 +249,10 @@ VAR SisBottoms = (SisPanties, SisShorts)
     + + ["Are you sure?"]
         "…And I want to make sure you're really cool with that."
         "Oh, I'm cool with that," she grins. "You start."
-        -> sis_truth_or_dare.top
+        * * * "Truth or Dare?" -> sis_truth_or_dare.top ->->
 + "I'm game if you are[."]," you grin.
     "Okay. You start."
-    -> sis_truth_or_dare.top
+    * * "Truth or Dare?" -> sis_truth_or_dare.top ->->
 -
 ->->
 
@@ -270,12 +270,12 @@ VAR SisBottoms = (SisPanties, SisShorts)
 "{~I thought you'd never ask|My favorite|This'll be fun}," she grins. "You go first."
 + "Truth or dare?"
 - (top)
-Sis is wearing: {SisWearing}
 { Score !? sisTruthOrDare:
     ~ Score += sisTruthOrDare
 }
-~ temp odds = 100 - SisQuestionCount * 10
-CHANCE: {odds}
+// ~ temp odds = 100 - SisQuestionCount * 10
+TODO temporary hard coding to question mode
+~ temp odds = 100
 {
 - chance(odds):
     "Truth!"
@@ -291,7 +291,7 @@ CHANCE: {odds}
     ~ sis_reset()
     ->->
 - else:
-    "Okay, my turn," she grins. "Truth or dare?"
+    "…My turn!" she grins. "Truth or dare?"
 }
 + {not questions_from_sis.q_final_question} "Truth"
     -> questions_from_sis ->
@@ -319,11 +319,20 @@ CHANCE: {odds}
     She'll stop choosing "truth" after 10 questions (including the first 3)
 
 */
-TODO write dialog for questions for sis
 === questions_for_sis ===
 ~ temp max = 5
 ~ SisQuestionCount++
 
+* {SisFacts ? SisMightBeQueer and CHOICE_COUNT() < max}
+    [“Are you a lesbian?”] -> q_sis_lesbian ->
+* {SisFacts ? SisLikesFriend and CHOICE_COUNT() < max}
+    [“Are you into {SIS_FRIEND}?”] -> q_sis_likes_friend ->
+* { CHOICE_COUNT() < max }
+    [“How often do you masturbate?”] -> q_sis_masturbate ->
+* { q_sis_masturbate and CHOICE_COUNT() < max }
+    [“Ever thought about me while getting off?”] -> q_sis_fantasy_you ->
+* {SisState == SisTruthOrDare and SisFacts ? SisLikesYou and CHOICE_COUNT() < max}
+    [“Are you into me?”] -> q_sis_likes_you ->
 * { SisFacts !? SawSisNaked && CHOICE_COUNT() < max }
     [“Do you shave?”] -> q_sis_shaved ->
 * { CHOICE_COUNT() < max }
@@ -331,25 +340,15 @@ TODO write dialog for questions for sis
 * { CHOICE_COUNT() < max }
     [“What’s your body count?”] -> q_sis_body_count ->
 * { CHOICE_COUNT() < max }
-    [“How often do you masturbate?”] -> q_sis_masturbate ->
-* { CHOICE_COUNT() < max }
     [“Spit or swallow?”] -> q_sis_spit_or_swallow ->
 * { CHOICE_COUNT() < max }
     [“Are there nudes on your phone?”] -> q_sis_nudes ->
 * { CHOICE_COUNT() < max }
     [“Have you tasted pussy?”] -> q_sis_taste_pussy ->
 * { CHOICE_COUNT() < max }
-    [“Ever thought about me while getting off?”] -> q_sis_fantasy_you ->
-* {SisFacts ? SisMightBeQueer and CHOICE_COUNT() < max}
-    [“Are you a lesbian?”] -> q_sis_lesbian ->
-* {SisFacts ? SisLikesFriend and CHOICE_COUNT() < max}
-    [“Are you into {SIS_FRIEND}?”] -> q_sis_likes_friend ->
-* { CHOICE_COUNT() < max }
     [“What’s your filthiest fantasy?”] -> q_sis_fantasy ->
 * { CHOICE_COUNT() < max }
     [“Are you wet right now?”] -> q_sis_wet ->
-* {SisFacts ? SisLikesYou and CHOICE_COUNT() < max}
-    [“Do you want to fuck me?”] -> q_sis_likes_you ->
 * { CHOICE_COUNT() < max }
     [“Have you had a threesome?”] -> q_sis_threesome ->
 * { CHOICE_COUNT() < max }
@@ -365,7 +364,7 @@ TODO write dialog for questions for sis
 
 = q_sis_shaved
 “Do you shave?”
-“I do,” she nodes. “I prefer the way it feels.”
+“I do,” she nods. “I prefer the way it feels.”
 ->->
 
 = q_sis_bra_size
@@ -375,14 +374,16 @@ TODO write dialog for questions for sis
 ->->
 
 = q_sis_body_count
+~ SisFacts += SisMightBeQueer
 “What’s your body count?”
 “Hmm.” She thinks for a moment. “Depends on how you count it. Seven, I’d say.”
-You open your mouth to ask a followup, but she grins and wags a finger at you. “One question at a time, bro.”
+“What do you mean by ‘how you count it’?” you ask, confused.
+She grins and wags a finger at you. “One question at a time, bro.”
 ->->
 
 = q_sis_masturbate
 “How often do you masturbate?”
-“It depends,” she grins. “Sometimes it’s every night. Other times I might go a week or two without.”
+“It depends,” she shrugs. “Sometimes it’s every night. Other times I might go a week or two without.”
 ->->
 
 = q_sis_spit_or_swallow
@@ -416,62 +417,109 @@ She hands you her phone and you flip through a series of provocative selfies. Sh
 ~ SisFacts += SisMightBeQueer
 “Have you ever tasted pussy?”
 “Mine, or someone else’s?”
-“Oh, uh, either?”
-“Yes to both,” she grins.
+* “Yours.”
+* “Someone else.”
+* “Either.”
+-
+“Yes.” she grins.
+“Did you like it?”
+“Technically that’s a different question,” she winks, “but yes, I like it.”
 ->->
 
 = q_sis_fantasy_you
 ~ SisFacts += SisLikesYou
 “Have you ever thought about me while getting off?”
-“Oh!” she hesitates. “I, um…”
+“Oh!” she hesitates. “Um…”
 “Tell the truth,” you grin.
 “Yes,” she answers quietly, blushing furiously.
++ “Tell me more[.”],” you beg. “Please. You can’t stop there.”
++ “And?”[] you ask. “You can’t just say, ‘yes’!”
++ “Nice[.”],” you grin.
+-
+“I think about you touching me. I imagine what your cock looks like. What it feels like. I think about you grabbing my hips and fucking me from behind. That sort of thing.”
 ->->
 
 = q_sis_anal
 “Have you ever had anal sex?”
-"Yes."
+“Yeah, it was fine,” she shrugs.
+“You didn’t like it?”
+“I didn’t say that. It’s just that they were <em>way</em> more excited about it than I was.” She looks thoughtful. “I didn’t really get the appeal until I was getting getting it in the front and back at the same time.” She shivers and bites her lip at the thought. “It was something else.”
+Before you can start to ask for more details, she grins at you. “But that…”
+“…is another question,” you finish for her.
 ->->
 
 = q_sis_lesbian
 ~ SisFacts += SisIsBi
 “Are you a lesbian?”
-"Nah, bi."
+“Ooh, insightful!” she laughs. “Someone’s been paying attention. It’s true that I mostly prefer women, but no, I like guys, too. I’m bisexual.”
 ->->
 
 = q_sis_threesome
 “Have you had a threesome?”
-"Yeah."
+“Only once,” she confesses. “And before you ask, it was two guys. It was fun, but a bit too intense.”
+“How so?”
+“You know what guys are like,” she shrugs. “It was a lot. That said, I’d love to try again, with the right two people.”
 ->->
 
 = q_sis_wet
 “Are you wet right now?”
-"Yes."
+“Wouldn’t you like to know,” she laughs.
+* “You have to answer[.”],” you remind her.
+    “I suppose that is the game,” she grins. “Fine. If I’m being honest,
+* “Please?”[] you plead.
+    “Well, since you asked so nicely,” she grins. “Yes,
+* “Want me to check?”[] you ask, raising one eybrow.
+    “Save it for the dares,” she grins. “But yes, to answer your question,
+-
+<> I’m pretty sure there’s a wet spot on my panties.”
 ->->
 
 = q_sis_likes_friend
-"Are you into {SIS_FRIEND}"
-"And?"
+“Are you into {SIS_FRIEND}?”
+“Ah,” she laughs, “I see. You imagine that when she sleeps over, we’re in here fingering each other all night long?”
+“Something like that,” you admit with a grin.
+“Yes,” she admits, “I’m into her. It’s not <em>all</em> topless pillow fights and makeout sessions, but we’ve fooled around a bit.”
 ->->
 
 = q_sis_likes_you
-"Are you into me?"
-"I sure am."
+“Are you into me?”
+“Well, if that isn't the million-dollar question,” she grins. “Pretty risky for me to answer that, don’t you think? Might change everything about our relationship.”
+* “How so?”
+    “What if we feel differently?” she ponders. “What if I say ‘no’ and you say ‘yes’? Or the other way around?”
+    “What if we both say ‘yes’?”
+    “That’s a big change, too.” She hesitates, biting her thumb.
+* “Would that be so bad?”
+    “Maybe not,” she admits.
+* “Quit stalling[.”],” you tease.
+    “Don’t pressure me, or I’ll just say ‘no,’” she laughs.
+-
+“Alright, fuck it.” She looks you in the eye. “Yes, I’m into you. There. No going back now.”
 ->->
 
 = q_sis_fantasy
 “What’s your filthiest fantasy?”
-"You."
+“Good question,” she grins. “Let’s see. The filthiest? Probably the one where <>
+{
+- q_sis_likes_friend and q_sis_likes_you:
+    I’m straddling {SIS_FRIEND} while she’s wearing this enormous strap-on. I had to slowly ease myself onto it. And just when I finally fit it all inside me, you start fucking my ass from behind. It starts out slow, and gradually builds in intensity until I’m cumming all over your cocks.”
+- q_sis_likes_you:
+    I’m riding someone with a big, thick cock. I had to slowly ease myself onto it. And just when I finally fit it all inside me, you start fucking my ass from behind. It starts out slow, and gradually builds in intensity until I’m cumming all over your cocks.”
+- else:
+    I’m the stuffing in a sandwich between two people, and they’re fucking me at the same time. It starts out slow, and gradually builds in intensity until I’m cumming all over their cocks.”
+}
 ->->
 
 = q_sis_public_orgasm
 “Have you had an orgasm in public?”
-"Yes."
+“Yes, three times,” she grins. “Once in a movie theater, while a date put their hand up my dress and fingered me. Another time in the backseat of a car. I was making out with someone, and the vibration of the car was just right. I was so afraid everyone in the car could tell.”
+“And the third time?”
+“In a dressing room at {BRA_STORE} with {q_sis_likes_friend: {SIS_FRIEND}|a girl a like}. She took all my clothes off, pushed me up against the wall, dropped to her knees and licked my clit until I came on her face.” She trails off for a moment. “It was really hot.”
 ->->
 
 = q_sis_spanking
 “Do you like spanking?”
-"Yes."
+“Not my thing,” she shakes her head. “No shame if you’re into it, though.”
+“No comment.”
 ->->
 
 
@@ -483,27 +531,25 @@ She hands you her phone and you flip through a series of provocative selfies. Sh
     and after the final question, the player can no longer choose truth.
     
     Need at least 15 ungated questions
-    - have you ever tasted your own cum (reply)
-    - do you like the taste of pussy
-    - are you attracted to men (reply)
-    - body count (reply)
-    - have you ever been with two women at once/would you like to? (reply)
+    o have you ever tasted your own cum (reply)
+    o do you like the taste of pussy
+    o are you attracted to men (reply)
+    o body count (reply)
+    o have you ever been with two women at once/would you like to? (reply)
     
-    - wildest place you've ever cum
+    o wildest place you've ever cum
 
-    - have you ever sent a dick pic?
-    - have you ever said the wrong name with a girl?
-    - have you ever had a crush on someone inappropriate?
-    - what would you do if there were zero consequences
-    - if you could turn invisible, what would you do
+    o have you ever sent a dick pic?
+    o have you ever said the wrong name with a girl?
+    o have you ever had a crush on someone inappropriate?
+    o what would you do if there were zero consequences
+    o if you could turn invisible, what would you do
 
-    - what do you think about while masturbating?
-    - have you ever thought about me while jerking off? (reply)
-    - are you hard right now (if not naked)
-    - are you attracted to me
-    - do you want to fuck me
-    
-    - what question are you secretly hoping I'll ask you
+    o what do you think about while masturbating?
+    o have you ever thought about me while jerking off? (reply)
+    o are you hard right now (if not naked)
+    o are you attracted to me
+    o do you want to fuck me
 
 
 */
@@ -576,23 +622,23 @@ TODO write dialog for questions from sis
     Dares for Sis
     At least 15, prereqs okay
     
-    - striptease
-    - lap dance
-    - suck on my thumb like you would suck a cock
-    - show me your nudes (after asking)
-    - 
+    o striptease
+    o lap dance
+    o suck on my thumb like you would suck a cock
+    o show me your nudes (after asking)
+    o 
 
-    - get undressed
-    - 
-    - watch porn with me
-    -
-    - let me taste you
+    o get undressed
+    o 
+    o watch porn with me
+    o
+    o let me taste you
 
-    -
-    - show me how you masturbate
-    - touch my cock
-    - go down on me
-    - 
+    o
+    o show me how you masturbate
+    o touch my cock
+    o go down on me
+    o 
 
 */
 TODO write dares for sis, improve her mood
@@ -663,15 +709,17 @@ TODO write dares for sis, improve her mood
     building intensity until she asks you to fuck her.
     How many? 5-10?
     
-    - show me your dick pic/I didn't save it/show me your dick
-    - take off your clothes
-    - kiss me - not a sibling kiss, a proper kiss (gets heated, hand in hair, licking neck)
-    - take my bra/panties off with your teeth
-    - suck on my nipples
-    - finger me
-    - go down on me
-    - rub my clit with your cock
-    - put it in me
+    o show me your dick
+    o take off your clothes
+    o kiss me - not a sibling kiss, a proper kiss (gets heated, hand in hair, licking neck)
+    o take my bra/panties off with your teeth
+
+    o suck on my nipples
+    o finger me
+    o go down on me
+    o rub my clit with your cock
+
+    o put it in me
 
 */
 TODO write dares from sis, improve her mood
