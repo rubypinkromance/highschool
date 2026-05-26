@@ -199,6 +199,7 @@ Girls you share classes with:
 { mood != Desperate:
     ~ mood++
 }
+#DEBUG Mood to {mood}
 
 /*
     Improve a character's base mood.
@@ -208,6 +209,7 @@ Girls you share classes with:
 { mood != Aroused:
     ~ mood++
 }
+#DEBUG Base Mood to {mood}
 
 /*
     Worsen a character's mood.
