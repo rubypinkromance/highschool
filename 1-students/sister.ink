@@ -91,10 +91,14 @@ VAR SisBottoms = (SisPanties, SisShorts)
 + {not seenVeryRecently(-> look_at_sis) and not SisRejected}
     [Check her out]
     -> look_at_sis ->
-+ {DEBUG} [Questions #DEBUG]
++ {DEBUG} [Start Questions #DEBUG]
     -> sis_questions ->
-+ {DEBUG} [Truth or Dare #DEBUG]
++ {DEBUG} [Start Truth or Dare #DEBUG]
     -> sis_truth_or_dare ->
++ {DEBUG} [Questions #DEBUG]
+    -> sis_questions_debug ->
++ {DEBUG} [Dares #DEBUG]
+    -> sis_truth_or_dare_debug ->
 + [Leave conversation]
     ->->
 - -> opts
@@ -184,6 +188,21 @@ VAR SisBottoms = (SisPanties, SisShorts)
 ~ SisBedroomPeople += (Sister)
 - ->->
 
+=== sis_questions_debug ===
+~ last_girl = Sister
+~ improveMoodTo(SisMood, Friendly)
+"Let me ask you a question."
+- (top)
+-> questions_for_sis ->
++ "Ask your question."
+-
+-> questions_from_sis ->
++ "Another question for you."
+    -> top
++ [Done]
+-
+->->
+
 /*
 
     Ask Sister Questions
@@ -251,6 +270,21 @@ VAR SisBottoms = (SisPanties, SisShorts)
 -
 ->->
 
+=== sis_truth_or_dare_debug ===
+~ last_girl = Sister
+~ improveMoodTo(SisMood, Aroused)
+"Here's a dare for you, sis"
+- (top)
+-> dares_for_sis ->
++ "What's your dare for me?"
+-
+-> dares_from_sis ->
++ "Another dare for you."
+    -> top
++ [Done]
+-
+->->
+
 /*
 
     Sister Truth or Dare
@@ -269,7 +303,6 @@ VAR SisBottoms = (SisPanties, SisShorts)
 "{~I thought you'd never ask|My favorite|This'll be fun}," she grins. "You go first."
 + "Truth or dare?"
 - (top)
-{SisMood}
 { Score !? sisTruthOrDare:
     ~ Score += sisTruthOrDare
 }
@@ -548,30 +581,29 @@ Before you can start to ask for more details, she grins at you. “But that…�
     and after the final question, the player can no longer choose truth.
 
 */
-TODO write dialog for questions from sis
 === questions_from_sis ===
 {
+// These questions are in response to your question
+- seenVeryRecently(->questions_for_sis.q_sis_lesbian) and not q_you_gay:
+    -> q_you_gay ->
+- seenVeryRecently(->questions_for_sis.q_sis_likes_friend) and not q_you_like_friend:
+    -> q_you_like_friend ->
+- seenVeryRecently(->questions_for_sis.q_sis_fantasy_you) and not q_you_fantasy_sis:
+    -> q_you_fantasy_sis ->
+- seenVeryRecently(->questions_for_sis.q_sis_likes_you) and not q_you_like_sis:
+    -> q_you_like_sis ->
+- seenVeryRecently(->questions_for_sis.q_sis_nudes) and not q_you_dick_pick:
+    -> q_you_dick_pick ->
+- seenVeryRecently(->questions_for_sis.q_sis_taste_pussy) and not q_you_taste_cum:
+    -> q_you_taste_cum ->
+- seenVeryRecently(->questions_for_sis.q_sis_wet) and outfit != Nude and not q_you_hard_now:
+    -> q_you_hard_now ->
+
 // Questions she has about you
 - SisFacts ? SisSawYouFapping and not q_sis_saw_you_fapping:
     -> q_sis_saw_you_fapping ->
 - SisFacts ? SisCaughtYouPeeking and not q_sis_saw_you_peeping:
     -> q_sis_saw_you_peeping ->
-
-// These questions are in response to your question
-- questions_for_sis.q_sis_lesbian and not q_you_gay:
-    -> q_you_gay ->
-- questions_for_sis.q_sis_likes_friend and not q_you_like_friend:
-    -> q_you_like_friend ->
-- questions_for_sis.q_sis_fantasy_you and not q_you_fantasy_sis:
-    -> q_you_fantasy_sis ->
-- questions_for_sis.q_sis_likes_you and not q_you_like_sis:
-    -> q_you_like_sis ->
-- questions_for_sis.q_sis_nudes and not q_you_dick_pick:
-    -> q_you_dick_pick ->
-- questions_for_sis.q_sis_taste_pussy and not q_you_taste_cum:
-    -> q_you_taste_cum ->
-- questions_for_sis.q_sis_wet and outfit != Nude and not q_you_hard_now:
-    -> q_you_hard_now ->
 
 // These are ungated questions
 - else:
@@ -642,94 +674,181 @@ The two of you regard each other. Her cheeks are flushed, but she seems to have 
 ->->
 
 = q_sis_saw_you_peeping
-"I saw you peeping on me."
-"I sure did!"
+“Was that the first time you peeped on me?”
+* “Yes.[”] I’ve thought about it before, but that was the first time I worked up the courage to do it.”
+* “No.[”] I’ve done it a few times. It was exciting, knowing you might catch me.”
+-
+{
+- SisMood >= Aroused:
+    “It was kinda hot, knowing you were getting off to me. I wouldn’t mind if you did it again sometime, maybe cum on me{peep_sis_shower.cum_on_her: again}.”
+- SisMood == Friendly:
+    “I know I should be upset, but if I’m being honest, it was kinda hot, knowing you were getting off to me. Maybe I would’t mind if you tried again sometime.”
+- else:
+    “That was pretty weird, bro.”
+}
 ->->
 
 = q_you_gay
 “Are you attracted to men?”
-"Answer."
+* “Yes.”
+    “Oh,” she frowns, clearly disappointed “That’s… hmm.”
+    “Just joking,” you laugh. “I like women, I just haven’t had much luck with them.”
+    “Maybe you’d have more luck with girls if you quit joking around,” she grins.
+* “Nope.”
+    “Not even a little?” she raises an eyebrow skeptically. “What about Jason Momoa? Idris Elba? Pedro Pascal!?”
+    “Not my thing,” you laugh.
+    “Weird,” she grins.
+-
 ->->
 
 = q_you_like_friend
 “What about you? Are <em>you</em> into {SIS_FRIEND}?”
-"Answer."
+* “Yeah[.”],” you nod. “She’s hot.”
+    “I knew it,” she grins triumphantly.
+    “You think she’s into me?”
+    “I think you should ask her yourself,” she winks.
+    ->->
+* “Nah[.”],” you shake your head. “She’s not my type.”
+* “I haven’t really thought about it[.”],” you shrug.
+-
+“Liar!” she teases, swatting your shoulder. “I’ve seen the way you look at her. And she has, too.”
+“You think she’s into me?”
+“I might have told you if you weren’t such a liar,” she grins triumphantly.
 ->->
 
 = q_you_fantasy_sis
-“Do you think about me when you're jerking off?”
-"Answer."
+“What about you? Do <em>you</em> think about <em>me</em> when you're jerking off?”
+* “Yes.”
+* “Never.”
+    “Liar,” she grins.
+    “Alright, yes,” you laugh.
+-
+{ SisMood < Aroused:
+“That’s hot.” ->->
+}
+“Well, go on!” She leans forward. “I told you mine. What do we do in your fantasies?”
+* [You touch her body]
+    “Well, um, I kinda sneak into your room while you’re sleeping, and I start touching you.”
+    “This is a terrible start,” she frowns.
+    “But you wake up turned on, and start stroking my cock while I play with your tits.”
+    “That’s a little better.”
+    “Then I slip a finger inside you, and you start moaning until I cum all over your chest.”
+* [She gives you head]
+    “You and me are watching a movie in the living room. We’re all alone, and you put your head in my lap.”
+    “Hmm, I like where this is going.”
+    “My cock gets really hard, and it just kinda slips into your mouth without you really noticing.”
+    “Of course,” she grins.
+    “And you’re just watching the movie while I'm pushing deeper and deeper until I cum.”
+* [You fuck her from behind]
+    “I mean, it’s not complicated. I’m fucking you from behind.”
+    “Hmm, I like the sound of that.”
+    “You’re moaning and pushing back against me. I reach around to squeeze your tits.”
+    “I love when a guy does that,” she purrs.
+    “Then I bury my cock deep in your pussy and cum so fucking hard for you.”
+-
+“That’s pretty hot,” she grins.
 ->->
 
 = q_you_like_sis
-“Are you into me?”
-"Answer."
+“Your turn, now. Are <em>you</em> into <em>me</em>?”
+* “No.”
+    Her face falls. “You better not be fucking around.”
+    “It’s too weird. You’re my sister.”
+    “<em>Step</em>sister,” she reminds you. “We’re not related. It’s only weird if you make it weird.”
+    * * “Sorry[.”],” you shrug.
+        “You should go,” she frowns.
+        * * * [Leave {SIS_BEDROOM}]
+            -> pass_time -> bedroom
+    * * “Alright, fine. I’m into you[.”],” you admit with a grin.
+* “A bit.”
+    “Just a bit?” she teases. “You have a slight interest in me? A gentle curiosity? A passing fancy?”
+    “Alright,” you grin, “maybe a little more than a bit.”
+* “Yes[.”],” you grin
+-
+“Good,” she smiles, with obvious relief. “That’s good.”
 ->->
 
 = q_you_dick_pick
 “Have you ever sent a dick pic?”
-"Answer."
+“Nope, never.”
+“Well, that’s disappointing,” she frowns.
 ->->
 
 = q_you_taste_cum
 “Have you ever tasted jizz?”
-"Answer."
+“Mine, or someone else’s?”
+* “Someone else.”
+    “Nope.” ->->
+* “Yours.”
+* “Either.”
+-
+“I tasted mine once. I didn’t like it.”
+“Yeah,” she laughs, “it’s not great, huh?”
 ->->
 
 = q_you_hard_now
 “Are you hard right now?”
-+ "Yes"
-    "Nice."
-+ "No"
-    "Liar, I can see it."
+* “Yes[.”],” you gesture at the erection tenting your shorts. “This conversation’s turning me on.”
+* “No.”
+    “You’re lying!” she swats your hand away from your lap and points at the erection tenting your shorts. “I can <em>see</em> it, bro.”
+    “Alright, fine,” you laugh. “This conversation’s turning me on.”
 -
-->->
-
-= q_fantasize_about_sis
-"Do you think about me when you're jerking off?"
-+ "Yes"
-    "Awesome"
-+ "No"
-    "Liar."
--
+“Nice.”
 ->->
 
 = q_you_wild_cum
 “What’s the wildest place you’ve ever cum?”
-"Answer."
+“In a canoe,” you laugh.
+“What? When? Why?”
+* [“That family vacation at the lake.”]
+    “It was that family vacation we took to the lake, remember? We all stayed in that tiny little cabin, and there was no privacy. After a couple days, I was dying, so I took the canoe out by myself and rubbed one out.”
+-
+“Why not do it in the shower?”
+* [“It would have been too obvious.”]
+    “The bathroom was right off the main room, and there was barely any hot water. It would have been really obvious if it was in there too long.”
+-
+“Still, a canoe?” she grins and shakes her head. “Where’d you cum?”
+* [“In the lake.”]
+    “Over the side, in the lake.”
+-
+“That is so much crazier than I was expecting,” she laughs.
 ->->
 
 = q_you_wrong_name
 “Have you ever said the wrong name in bed with someone?”
-"Answer."
+“Nope,” you shrug.
 ->->
 
 = q_you_inapproprate_crush
 “Have you ever had a crush on someone inappropriate?”
-"Answer."
+“The secretary at my school.”
+“{SECRETARY}? Are you serious?”
+“Do you know her or something?”
+“Her younger sister goes to my school,” she shrugs. “You’ve got good taste. She’s hot.”
 ->->
 
 = q_you_zero_consequences
 “What would you do if you knew there were zero consequences?”
-"Answer."
+“Fuck every girl in my school.”
+“You answered that fast,” she laughs.
 ->->
 
 = q_you_threesome
 “Have you ever been with two women at the same time?”
-"Answer."
-"Would you like to?"
-"Answer!"
+“Nope,” you shake your head.
+“Would you like to?”
+“I mean, sure,” you shrug, “but where am I gonna find two girls to have a threesome with?”
+“Maybe closer than you think,” she grins.
 ->->
 
 = q_final_question
-"Do you want to fuck me?"
-+ "Yes"
-    "Awesome."
-+ "No"
-    "Liar."
+“Do you want to fuck me?”
++ “Yes.”
+    “Nice.” She bites her lip.
++ “No.”
+    “Liar,” she grins.
 -
 ->->
-
 
 /*
 
@@ -1473,7 +1592,7 @@ Unfortunately, you don't think it's a good idea to stick around to enjoy yoursel
 = cum_on_her
 ~ SisFacts += SisCaughtYouPeeking
 No longer caring if you get caught, you throw the curtain open and thrust your hips forward as you cum, shooting your load all over her lower back and ass.
-"Oh!" she gasps at the unexpected sensation of hot cum on her back. She turns around, gawking at the sight of you milking the last drops of cum from your cock. "{PLAYER}? What the fuck?" She's still breathless from her own orgasm, but you think she sounds more surprised than upset.
+"Oh!" she gasps at the unexpected sensation of hot cum on her back. She turns around, gawking at the sight of you milking the last drops of cum from your cock. "{PLAYER}?{SisMood < Aroused: What the fuck?}" She's still breathless from her own orgasm, but you think she sounds more surprised than upset.
 + "Hey, sis[."]," you answer sheepishly. "Sorry, I got a little carried away watching you."
 + "That was [hot."]so fucking hot," you gasp. "Sorry, I got a little carried away watching you."
 + "You called?"[] You wink. "If I'd known you were fantasizing about me, I'd have let you know I was here sooner."
